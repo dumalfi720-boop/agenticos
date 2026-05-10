@@ -1,0 +1,18 @@
+# Skill local
+silver-platter/
+
+# Claude local state
+.claude/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+.vscode/
+.idea/
+
+# Temp
+*.log
+*.tmp
+*.cache
