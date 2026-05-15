@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Módulo 6.6 — Projeto Final: Seu Agentic OS | Agentic OS</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#FACC15',
+            dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' }
+          }
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #111827; }
+    .topic-explanation { display: none; }
+    .topic-explanation.active { display: block; }
+
+    html:not(.dark) body { background-color: #f9fafb; color: #111827; }
+    html:not(.dark) .bg-dark-900 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-800 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .bg-dark-700\/50 { background-color: rgba(243,244,246,0.7); }
+    html:not(.dark) .border-dark-600 { border-color: #e5e7eb; }
+    html:not(.dark) .text-neutral-100 { color: #111827; }
+    html:not(.dark) .text-neutral-300 { color: #374151; }
+    html:not(.dark) .text-neutral-400 { color: #6b7280; }
+    html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+    html:not(.dark) .hover\:bg-dark-700\/50:hover { background-color: rgba(243,244,246,0.7); }
+
+    html:not(.dark) .text-rose-400 { color: #9f1239; }
+    html:not(.dark) .bg-rose-500\/20 { background-color: rgba(159,18,57,0.12); }
+    html:not(.dark) .bg-rose-500\/10 { background-color: rgba(159,18,57,0.08); }
+    html:not(.dark) .border-rose-500\/30 { border-color: rgba(159,18,57,0.25); }
+    html:not(.dark) .hover\:bg-rose-500\/30:hover { background-color: rgba(159,18,57,0.18); }
+    html:not(.dark) .hover\:text-rose-400:hover { color: #9f1239; }
+    html:not(.dark) .bg-rose-900\/20 { background-color: rgba(159,18,57,0.06); }
+
+    html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; }
+
+    html:not(.dark) .text-primary { color: #a16207; }
+    html:not(.dark) .bg-primary\/10 { background-color: rgba(161,98,7,0.08); }
+    html:not(.dark) .border-primary\/40 { border-color: rgba(161,98,7,0.25); }
+    html:not(.dark) .text-sky-400 { color: #0369a1; }
+    html:not(.dark) .text-yellow-400 { color: #a16207; }
+    html:not(.dark) .hover\:text-sky-300:hover { color: #0284c7; }
+    html:not(.dark) .hover\:text-yellow-300:hover { color: #854d0e; }
+
+    html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255,255,255,0.95); }
+  </style>
+</head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen">
+
+  <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <div class="flex items-center space-x-6">
+          <a href="../../index.html" class="text-xl font-bold text-yellow-400">🤖 Agentic OS</a>
+          <a href="https://inema.club" target="_blank" class="text-sky-400 text-sm font-medium hover:text-sky-300">INEMA.CLUB</a>
+        </div>
+        <div class="hidden md:flex items-center space-x-1 text-sm">
+          <a href="../trilha1/index.html" class="px-3 py-1.5 rounded-lg text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors">Fundamentos</a>
+          <a href="../trilha2/index.html" class="px-3 py-1.5 rounded-lg text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors">Contexto</a>
+          <a href="../trilha3/index.html" class="px-3 py-1.5 rounded-lg text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors">Agentes</a>
+          <a href="../trilha4/index.html" class="px-3 py-1.5 rounded-lg text-neutral-400 hover:text-amber-400 hover:bg-amber-500/10 transition-colors">Skills</a>
+          <a href="../trilha5/index.html" class="px-3 py-1.5 rounded-lg text-neutral-400 hover:text-teal-400 hover:bg-teal-500/10 transition-colors">Automação</a>
+          <a href="index.html" class="px-3 py-1.5 rounded-lg text-rose-400 bg-rose-500/10">Implantação</a>
+        </div>
+        <button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors">
+          <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+          <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"></path></svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+    <div class="flex items-center space-x-2 text-sm text-neutral-400">
+      <a href="../../index.html" class="hover:text-rose-400">Início</a>
+      <span>/</span>
+      <a href="index.html" class="hover:text-rose-400">Trilha 6</a>
+      <span>/</span>
+      <span class="text-rose-400">Módulo 6.6</span>
+    </div>
+  </nav>
+
+  <header class="bg-gradient-to-br from-rose-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <span class="inline-block px-3 py-1 bg-rose-500/20 text-rose-400 text-xs font-semibold rounded-full mb-4">MÓDULO 6.6 — PROJETO FINAL</span>
+      <h1 class="text-2xl font-bold mb-4">🎯 Projeto Final — Seu Agentic OS</h1>
+      <p class="text-lg text-neutral-400 max-w-3xl">Você termina com a pasta /agentic-os funcionando: CLAUDE.md, Silver Platters, skills, agentes, hooks e relatório semanal automático. Este é o clímax do curso — não apenas teoria, mas um sistema real rodando no seu ambiente.</p>
+      <div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-rose-400">6</div>
+          <div class="text-xs text-neutral-400">Tópicos</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-rose-400">~60 min</div>
+          <div class="text-xs text-neutral-400">Duração</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-rose-400">Projeto</div>
+          <div class="text-xs text-neutral-400">Tipo</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-rose-400">Final</div>
+          <div class="text-xs text-neutral-400">Posição</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <!-- TOPICO 1 -->
+    <section id="topico-1" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="w-12 h-12 rounded-full bg-rose-500/20 text-rose-400 text-xl font-bold flex items-center justify-center flex-shrink-0">1</span>
+        <h2 class="text-2xl font-bold">📁 Estrutura Mínima Viável — O que entregar</h2>
+      </div>
+      <p class="text-neutral-400 mb-6 ml-16">O Agentic OS não é um conceito — é uma pasta. A estrutura mínima viável é o conjunto de arquivos e diretórios que precisam existir para dizer que você tem um sistema funcionando. Sem isso, você tem "ideias sobre IA", não um Agentic OS.</p>
+
+      <div class="ml-16 space-y-6">
+        <div class="bg-gradient-to-br from-rose-900/20 to-dark-800 rounded-xl p-6 border border-rose-500/30">
+          <h3 class="text-rose-400 font-semibold mb-4">📂 Estrutura /agentic-os</h3>
+          <div class="bg-dark-800/60 rounded-lg p-4 font-mono text-sm text-neutral-300 space-y-1">
+            <p class="text-rose-400 font-bold">/agentic-os/</p>
+            <p class="text-neutral-400">├── CLAUDE.md                <span class="text-neutral-500"># O cérebro do sistema</span></p>
+            <p class="text-neutral-400">├── plano_30_dias.md          <span class="text-neutral-500"># Seu roadmap preenchido</span></p>
+            <p class="text-neutral-400">├── /dados/                   <span class="text-neutral-500"># Fontes brutas</span></p>
+            <p class="text-neutral-400">│   ├── /fontes/</p>
+            <p class="text-neutral-400">│   └── /confidencial/        <span class="text-neutral-500"># Se aplicável</span></p>
+            <p class="text-neutral-400">├── /resumos/                 <span class="text-neutral-500"># Silver Platters</span></p>
+            <p class="text-neutral-400">│   └── /semanal/</p>
+            <p class="text-neutral-400">├── /skills/                  <span class="text-neutral-500"># Seus slash commands</span></p>
+            <p class="text-neutral-400">│   └── weekly-report.md</p>
+            <p class="text-neutral-400">├── /agentes/                 <span class="text-neutral-500"># CLAUDE.md por agente</span></p>
+            <p class="text-neutral-400">│   ├── orquestrador.md</p>
+            <p class="text-neutral-400">│   └── especialistas/</p>
+            <p class="text-neutral-400">├── /scripts/                 <span class="text-neutral-500"># Automações Python/bash</span></p>
+            <p class="text-neutral-400">└── /logs/                    <span class="text-neutral-500"># Observabilidade</span></p>
+          </div>
+        </div>
+
+        <div class="bg-primary/10 rounded-xl p-6 border border-primary/40">
+          <h3 class="text-primary font-semibold mb-3">💡 MVP, boilerplate, deliverable</h3>
+          <p class="text-neutral-300 text-sm">Cada pasta tem um propósito claro. Não é burocracia — é separação de responsabilidades. Quando um agente falha, você sabe onde procurar o log. Quando quer adicionar uma skill, sabe onde colocar. A estrutura é o que torna o sistema sustentável quando você voltar para ele depois de 2 semanas de férias.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOPICO 2 -->
+    <section id="topico-2" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="w-12 h-12 rounded-full bg-rose-500/20 text-rose-400 text-xl font-bold flex items-center justify-center flex-shrink-0">2</span>
+        <h2 class="text-2xl font-bold">📊 Relatório Semanal Automático — Entrega obrigatória</h2>
+      </div>
+      <p class="text-neutral-400 mb-6 ml-16">O entregável símbolo do Agentic OS: um relatório do seu negócio/trabalho gerado automaticamente toda semana, entregue no canal que você preferir (Telegram, email, Slack), sem nenhuma ação sua. Se esse relatório existe e chega pontualmente, você concluiu o curso com sucesso.</p>
+
+      <div class="ml-16 space-y-6">
+        <div class="bg-gradient-to-br from-rose-900/20 to-dark-800 rounded-xl p-6 border border-rose-500/30">
+          <h3 class="text-rose-400 font-semibold mb-4">⚙️ Arquitetura do relatório semanal</h3>
+          <div class="space-y-2">
+            <div class="flex items-center space-x-3 bg-dark-800/60 rounded-lg p-3">
+              <span class="w-6 h-6 rounded-full bg-rose-500/20 text-rose-400 text-xs font-bold flex items-center justify-center flex-shrink-0">1</span>
+              <span class="text-neutral-300 text-sm"><code class="bg-dark-700 px-1 rounded">0 6 * * 1</code> — Cron dispara toda segunda às 6h</span>
+            </div>
+            <div class="flex items-center space-x-3 bg-dark-800/60 rounded-lg p-3">
+              <span class="w-6 h-6 rounded-full bg-rose-500/20 text-rose-400 text-xs font-bold flex items-center justify-center flex-shrink-0">2</span>
+              <span class="text-neutral-300 text-sm">Scripts atualizam Silver Platters em /resumos/semanal/</span>
+            </div>
+            <div class="flex items-center space-x-3 bg-dark-800/60 rounded-lg p-3">
+              <span class="w-6 h-6 rounded-full bg-rose-500/20 text-rose-400 text-xs font-bold flex items-center justify-center flex-shrink-0">3</span>
+              <span class="text-neutral-300 text-sm">Orquestrador lê Silver Platters + delega para especialistas</span>
+            </div>
+            <div class="flex items-center space-x-3 bg-dark-800/60 rounded-lg p-3">
+              <span class="w-6 h-6 rounded-full bg-rose-500/20 text-rose-400 text-xs font-bold flex items-center justify-center flex-shrink-0">4</span>
+              <span class="text-neutral-300 text-sm">Síntese gerada → Push para Telegram/email via webhook</span>
+            </div>
+            <div class="flex items-center space-x-3 bg-dark-800/60 rounded-lg p-3">
+              <span class="w-6 h-6 rounded-full bg-rose-500/20 text-rose-400 text-xs font-bold flex items-center justify-center flex-shrink-0">5</span>
+              <span class="text-neutral-300 text-sm">Log gravado em /logs/YYYY-MM-DD-weekly.log</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-blue-900/20 rounded-xl p-6 border border-blue-500/30">
+          <h3 class="text-blue-400 font-semibold mb-2">📊 Cron + push delivery + weekly cadence</h3>
+          <p class="text-neutral-300 text-sm">Este relatório não é só uma demonstração — é a prova de que o sistema funciona de forma autônoma. Quando você acorda na segunda-feira e o relatório já está no seu Telegram, você sentiu o que Marco sentiu. Essa sensação é o que define a conclusão do curso: não um certificado, mas uma experiência real de autonomia operacional.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOPICO 3 -->
+    <section id="topico-3" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="w-12 h-12 rounded-full bg-rose-500/20 text-rose-400 text-xl font-bold flex items-center justify-center flex-shrink-0">3</span>
+        <h2 class="text-2xl font-bold">✅ Checklist do Projeto — Auto-avaliação</h2>
+      </div>
+      <p class="text-neutral-400 mb-6 ml-16">A auto-avaliação final do seu Agentic OS. Seis itens obrigatórios. Cada um representa uma camada do sistema. Quando todos estiverem marcados, você tem um Agentic OS completo — não parcial, não planejado, não "quase pronto".</p>
+
+      <div class="ml-16 space-y-6">
+        <div class="bg-gradient-to-br from-rose-900/20 to-dark-800 rounded-xl p-6 border border-rose-500/30">
+          <h3 class="text-rose-400 font-semibold mb-4">✅ Os 6 itens obrigatórios</h3>
+          <div class="space-y-3">
+            <div class="flex items-start space-x-3 bg-dark-800/60 rounded-lg p-4">
+              <span class="text-emerald-400 text-xl mt-0.5">☐</span>
+              <div>
+                <div class="text-neutral-300 font-semibold text-sm">CLAUDE.md raiz</div>
+                <p class="text-neutral-400 text-xs mt-1">Identidade do sistema, fontes disponíveis, regras absolutas, tom de comunicação. Pelo menos 4 seções.</p>
+              </div>
+            </div>
+            <div class="flex items-start space-x-3 bg-dark-800/60 rounded-lg p-4">
+              <span class="text-emerald-400 text-xl mt-0.5">☐</span>
+              <div>
+                <div class="text-neutral-300 font-semibold text-sm">3 Silver Platters automatizados</div>
+                <p class="text-neutral-400 text-xs mt-1">Scripts rodando, arquivos .md gerados em /resumos/semanal/. Cada um atualizado automaticamente.</p>
+              </div>
+            </div>
+            <div class="flex items-start space-x-3 bg-dark-800/60 rounded-lg p-4">
+              <span class="text-emerald-400 text-xl mt-0.5">☐</span>
+              <div>
+                <div class="text-neutral-300 font-semibold text-sm">1 skill funcionando</div>
+                <p class="text-neutral-400 text-xs mt-1">Slash command que você usa pelo menos 3 vezes/semana e que já passou no seu eval pessoal.</p>
+              </div>
+            </div>
+            <div class="flex items-start space-x-3 bg-dark-800/60 rounded-lg p-4">
+              <span class="text-emerald-400 text-xl mt-0.5">☐</span>
+              <div>
+                <div class="text-neutral-300 font-semibold text-sm">1 orquestrador com especialistas</div>
+                <p class="text-neutral-400 text-xs mt-1">Agente principal que delega para pelo menos 2 agentes especialistas e sintetiza resultados.</p>
+              </div>
+            </div>
+            <div class="flex items-start space-x-3 bg-dark-800/60 rounded-lg p-4">
+              <span class="text-emerald-400 text-xl mt-0.5">☐</span>
+              <div>
+                <div class="text-neutral-300 font-semibold text-sm">1 hook de validação</div>
+                <p class="text-neutral-400 text-xs mt-1">Verificação automática pós-run que confirma que o output existe e notifica em caso de falha.</p>
+              </div>
+            </div>
+            <div class="flex items-start space-x-3 bg-dark-800/60 rounded-lg p-4">
+              <span class="text-emerald-400 text-xl mt-0.5">☐</span>
+              <div>
+                <div class="text-neutral-300 font-semibold text-sm">1 cron funcionando</div>
+                <p class="text-neutral-400 text-xs mt-1">Pelo menos o relatório semanal rodando automaticamente. Log de 3 execuções bem-sucedidas em /logs/.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-primary/10 rounded-xl p-6 border border-primary/40">
+          <h3 class="text-primary font-semibold mb-3">💡 Checklist + definition of done</h3>
+          <p class="text-neutral-300 text-sm">Este não é um checklist de certificação — é um checklist de utilidade. Cada item existe porque representa uma parte do sistema que gera valor real. O CLAUDE.md sem o cron é um manual sem execução. O cron sem o CLAUDE.md é automação sem inteligência. Os seis juntos são o sistema.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOPICO 4 -->
+    <section id="topico-4" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="w-12 h-12 rounded-full bg-rose-500/20 text-rose-400 text-xl font-bold flex items-center justify-center flex-shrink-0">4</span>
+        <h2 class="text-2xl font-bold">📝 Documentação do Sistema — README do seu OS</h2>
+      </div>
+      <p class="text-neutral-400 mb-6 ml-16">Um sistema sem documentação é um sistema que só funciona enquanto você se lembrar de como ele funciona. O README do seu Agentic OS não é para outros — é para você daqui a 6 meses. E é o que você compartilha quando alguém perguntar "como você fez isso?"</p>
+
+      <div class="ml-16 space-y-6">
+        <div class="bg-gradient-to-br from-rose-900/20 to-dark-800 rounded-xl p-6 border border-rose-500/30">
+          <h3 class="text-rose-400 font-semibold mb-3">📄 Estrutura do README.md</h3>
+          <div class="bg-dark-800/60 rounded-lg p-4 font-mono text-sm text-neutral-300 space-y-1">
+            <p class="text-rose-400 font-bold"># Meu Agentic OS</p>
+            <p class="text-neutral-400 mt-2">## O que este sistema faz</p>
+            <p class="text-neutral-500 text-xs">1 parágrafo. Que problema resolve? Para quem?</p>
+            <p class="text-neutral-400 mt-2">## Arquitetura</p>
+            <p class="text-neutral-500 text-xs">Diagrama ASCII ou lista: fontes → Silver Platters → agentes → outputs</p>
+            <p class="text-neutral-400 mt-2">## Como rodar manualmente</p>
+            <p class="text-neutral-500 text-xs">Comandos exatos, sem pressupostos</p>
+            <p class="text-neutral-400 mt-2">## Agendamentos ativos</p>
+            <p class="text-neutral-500 text-xs">Lista de crons com horários e outputs esperados</p>
+            <p class="text-neutral-400 mt-2">## Como debugar quando algo falhar</p>
+            <p class="text-neutral-500 text-xs">Onde estão os logs? O que significa cada erro comum?</p>
+            <p class="text-neutral-400 mt-2">## Roadmap</p>
+            <p class="text-neutral-500 text-xs">Próximas 3 melhorias planejadas</p>
+          </div>
+        </div>
+
+        <div class="bg-blue-900/20 rounded-xl p-6 border border-blue-500/30">
+          <h3 class="text-blue-400 font-semibold mb-2">📊 Por que documentar o que você mesmo criou</h3>
+          <p class="text-neutral-300 text-sm">Você vai esquecer. Todo desenvolvedor esquece. A seção "Como debugar quando algo falhar" parece óbvia quando você cria o sistema — e é exatamente o que você vai querer às 23h de uma segunda-feira quando o relatório não chegou. Escreva enquanto você ainda sabe tudo.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOPICO 5 -->
+    <section id="topico-5" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="w-12 h-12 rounded-full bg-rose-500/20 text-rose-400 text-xl font-bold flex items-center justify-center flex-shrink-0">5</span>
+        <h2 class="text-2xl font-bold">🌐 Compartilhar na Comunidade — inema.vip</h2>
+      </div>
+      <p class="text-neutral-400 mb-6 ml-16">O aprendizado se consolida quando você explica para outros. Compartilhar seu Agentic OS na comunidade inema.vip faz duas coisas: (1) solidifica seu entendimento ao articular o que você fez; (2) inspira outros alunos que estão no mesmo ponto que você estava há 30 dias.</p>
+
+      <div class="ml-16 space-y-6">
+        <div class="bg-gradient-to-br from-rose-900/20 to-dark-800 rounded-xl p-6 border border-rose-500/30">
+          <h3 class="text-rose-400 font-semibold mb-4">📢 O que compartilhar em inema.vip</h3>
+          <div class="space-y-3">
+            <div class="bg-dark-800/60 rounded-lg p-3">
+              <div class="text-rose-400 font-semibold text-sm">Seu caso de uso</div>
+              <p class="text-neutral-300 text-xs mt-1">Em 2-3 linhas: qual era o problema, qual era a solução, qual foi o resultado. Sem tecnicismo — foque no antes/depois.</p>
+            </div>
+            <div class="bg-dark-800/60 rounded-lg p-3">
+              <div class="text-rose-400 font-semibold text-sm">Print do relatório funcionando</div>
+              <p class="text-neutral-300 text-xs mt-1">Um screenshot do relatório no Telegram ou email (sem dados sensíveis) mostrando que o sistema está rodando.</p>
+            </div>
+            <div class="bg-dark-800/60 rounded-lg p-3">
+              <div class="text-rose-400 font-semibold text-sm">O maior aprendizado</div>
+              <p class="text-neutral-300 text-xs mt-1">O que te surpreendeu? O que foi mais difícil? O que você faria diferente? Esses insights são ouro para quem está começando.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-primary/10 rounded-xl p-6 border border-primary/40">
+          <h3 class="text-primary font-semibold mb-3">💡 Por que a comunidade acelera o aprendizado</h3>
+          <p class="text-neutral-300 text-sm">Em inema.vip você vai encontrar pessoas implementando Agentic OS em contextos completamente diferentes do seu — finanças, medicina, marketing, jurídico, educação. Ver como outros adaptaram os mesmos princípios vai te dar ideias para melhorar o seu sistema. A comunidade é onde o curso continua.</p>
+          <div class="mt-3">
+            <a href="https://inema.vip" target="_blank" class="inline-flex items-center space-x-2 px-4 py-2 bg-rose-600 text-white rounded-lg font-semibold hover:bg-rose-500 transition-colors text-sm">
+              <span>Acessar inema.vip</span>
+              <span>→</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOPICO 6 -->
+    <section id="topico-6" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="w-12 h-12 rounded-full bg-rose-500/20 text-rose-400 text-xl font-bold flex items-center justify-center flex-shrink-0">6</span>
+        <h2 class="text-2xl font-bold">🗺️ Próximos 90 Dias — Sua roadmap</h2>
+      </div>
+      <p class="text-neutral-400 mb-6 ml-16">O curso termina, o sistema não. Os próximos 90 dias são onde o Agentic OS passa de "projeto que funciona" para "infraestrutura que você não consegue mais imaginar não ter". A roadmap de 90 dias é sobre expansão metódica, não velocidade máxima.</p>
+
+      <div class="ml-16 space-y-6">
+        <div class="bg-gradient-to-br from-rose-900/20 to-dark-800 rounded-xl p-6 border border-rose-500/30">
+          <h3 class="text-rose-400 font-semibold mb-4">📅 Roadmap dos próximos 90 dias</h3>
+          <div class="space-y-4">
+            <div class="bg-dark-800/60 rounded-lg p-4">
+              <div class="flex items-center space-x-3 mb-2">
+                <span class="text-rose-400 font-bold text-sm">Dias 31-60</span>
+                <span class="text-xs text-neutral-500 bg-dark-700 px-2 py-0.5 rounded-full">Consolidação</span>
+              </div>
+              <ul class="space-y-1.5 text-neutral-300 text-sm">
+                <li class="flex items-start space-x-2"><span class="text-rose-400 mt-0.5">→</span><span>Identificar 2 novos gargalos no seu trabalho</span></li>
+                <li class="flex items-start space-x-2"><span class="text-rose-400 mt-0.5">→</span><span>Criar agente especialista para o mais impactante</span></li>
+                <li class="flex items-start space-x-2"><span class="text-rose-400 mt-0.5">→</span><span>Refinar CLAUDE.md com base no uso real das primeiras 4 semanas</span></li>
+              </ul>
+            </div>
+            <div class="bg-dark-800/60 rounded-lg p-4">
+              <div class="flex items-center space-x-3 mb-2">
+                <span class="text-rose-400 font-bold text-sm">Dias 61-90</span>
+                <span class="text-xs text-neutral-500 bg-dark-700 px-2 py-0.5 rounded-full">Expansão</span>
+              </div>
+              <ul class="space-y-1.5 text-neutral-300 text-sm">
+                <li class="flex items-start space-x-2"><span class="text-rose-400 mt-0.5">→</span><span>Experimentar Managed Agents para 1 agente não-sensível</span></li>
+                <li class="flex items-start space-x-2"><span class="text-rose-400 mt-0.5">→</span><span>Adicionar dashboard de observabilidade semanal</span></li>
+                <li class="flex items-start space-x-2"><span class="text-rose-400 mt-0.5">→</span><span>Compartilhar seu caso como post detalhado em inema.vip</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-primary/10 rounded-xl p-6 border border-primary/40">
+          <h3 class="text-primary font-semibold mb-3">💡 Iteration cadence — o jogo infinito</h3>
+          <p class="text-neutral-300 text-sm">O Agentic OS não tem versão final. Marco continua adicionando agentes. Sally está explorando agentes para análise de cláusulas específicas. Dra. Sana quer um agente para acompanhamento pós-biópsia. O sistema que você construiu é a fundação, não o teto. O que você vai construir em cima é o que define o impacto real.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONCLUSÃO DO CURSO -->
+    <section class="bg-gradient-to-br from-rose-900/30 to-dark-800 rounded-xl p-8 border border-rose-500/30 mb-12">
+      <div class="text-center mb-8">
+        <div class="text-6xl mb-4">🎉</div>
+        <h2 class="text-3xl font-bold mb-4">Parabéns — Você concluiu o Agentic OS</h2>
+        <p class="text-neutral-400 max-w-2xl mx-auto">Você passou por 6 trilhas, 36 módulos e chegou aqui com um sistema real funcionando. Marco, Sally e Dra. Sana são personas — mas os problemas deles são reais, a metodologia é real, e os resultados são alcançáveis. O que acontece a seguir é com você.</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
+        <div class="flex items-center space-x-3">
+          <span class="text-rose-400 text-lg">✓</span>
+          <span class="text-neutral-300 text-sm">Estrutura mínima viável /agentic-os criada</span>
+        </div>
+        <div class="flex items-center space-x-3">
+          <span class="text-rose-400 text-lg">✓</span>
+          <span class="text-neutral-300 text-sm">Relatório semanal automático funcionando</span>
+        </div>
+        <div class="flex items-center space-x-3">
+          <span class="text-rose-400 text-lg">✓</span>
+          <span class="text-neutral-300 text-sm">Checklist de projeto completo</span>
+        </div>
+        <div class="flex items-center space-x-3">
+          <span class="text-rose-400 text-lg">✓</span>
+          <span class="text-neutral-300 text-sm">README do sistema documentado</span>
+        </div>
+        <div class="flex items-center space-x-3">
+          <span class="text-rose-400 text-lg">✓</span>
+          <span class="text-neutral-300 text-sm">Caso compartilhado em inema.vip</span>
+        </div>
+        <div class="flex items-center space-x-3">
+          <span class="text-rose-400 text-lg">✓</span>
+          <span class="text-neutral-300 text-sm">Roadmap de 90 dias traçada</span>
+        </div>
+      </div>
+
+      <!-- CTA inema.vip -->
+      <div class="bg-dark-800/60 rounded-xl p-6 mb-8 text-center border border-rose-500/20">
+        <h3 class="text-xl font-bold mb-2">Continue em <span class="text-rose-400">inema.vip</span></h3>
+        <p class="text-neutral-400 text-sm mb-4">A comunidade dos alunos do Agentic OS. Compartilhe seu projeto, descubra implementações de outros contextos, e acesse conteúdo exclusivo pós-curso — incluindo templates, casos reais e sessões ao vivo com o autor.</p>
+        <a href="https://inema.vip" target="_blank" class="inline-flex items-center space-x-2 px-6 py-3 bg-rose-600 text-white rounded-lg font-bold hover:bg-rose-500 transition-colors">
+          <span>Entrar em inema.vip</span>
+          <span>→</span>
+        </a>
+      </div>
+
+      <div class="flex justify-start space-x-3">
+        <a href="modulo-6-5.html" class="px-5 py-2.5 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors text-sm">← Módulo anterior</a>
+        <a href="../../index.html" class="px-5 py-2.5 bg-rose-600 text-white rounded-lg font-semibold hover:bg-rose-500 transition-colors text-sm">← Voltar ao Início</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="border-t border-dark-600 py-8 mt-4">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm">
+      <p>Agentic OS — <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300">INEMA.CLUB</a> — 2026</p>
+    </div>
+  </footer>
+
+  <script>
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+    const html = document.documentElement;
+
+    if (localStorage.getItem('theme') === 'light' || (!localStorage.getItem('theme') && !html.classList.contains('dark'))) {
+      themeToggleDarkIcon.classList.remove('hidden');
+      html.classList.remove('dark');
+    } else {
+      themeToggleLightIcon.classList.remove('hidden');
+    }
+
+    themeToggle.addEventListener('click', () => {
+      themeToggleDarkIcon.classList.toggle('hidden');
+      themeToggleLightIcon.classList.toggle('hidden');
+      html.classList.toggle('dark');
+      localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+    });
+  </script>
+</body>
+</html>

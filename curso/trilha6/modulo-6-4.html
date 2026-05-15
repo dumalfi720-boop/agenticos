@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Módulo 6.4 — Managed Agents | Agentic OS</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#FACC15',
+            dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' }
+          }
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #111827; }
+    .topic-explanation { display: none; }
+    .topic-explanation.active { display: block; }
+
+    html:not(.dark) body { background-color: #f9fafb; color: #111827; }
+    html:not(.dark) .bg-dark-900 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-800 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .bg-dark-700\/50 { background-color: rgba(243,244,246,0.7); }
+    html:not(.dark) .border-dark-600 { border-color: #e5e7eb; }
+    html:not(.dark) .text-neutral-100 { color: #111827; }
+    html:not(.dark) .text-neutral-300 { color: #374151; }
+    html:not(.dark) .text-neutral-400 { color: #6b7280; }
+    html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+    html:not(.dark) .hover\:bg-dark-700\/50:hover { background-color: rgba(243,244,246,0.7); }
+
+    html:not(.dark) .text-rose-400 { color: #9f1239; }
+    html:not(.dark) .bg-rose-500\/20 { background-color: rgba(159,18,57,0.12); }
+    html:not(.dark) .bg-rose-500\/10 { background-color: rgba(159,18,57,0.08); }
+    html:not(.dark) .border-rose-500\/30 { border-color: rgba(159,18,57,0.25); }
+    html:not(.dark) .hover\:bg-rose-500\/30:hover { background-color: rgba(159,18,57,0.18); }
+    html:not(.dark) .hover\:text-rose-400:hover { color: #9f1239; }
+    html:not(.dark) .bg-rose-900\/20 { background-color: rgba(159,18,57,0.06); }
+
+    html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; }
+
+    html:not(.dark) .text-primary { color: #a16207; }
+    html:not(.dark) .bg-primary\/10 { background-color: rgba(161,98,7,0.08); }
+    html:not(.dark) .border-primary\/40 { border-color: rgba(161,98,7,0.25); }
+    html:not(.dark) .text-sky-400 { color: #0369a1; }
+    html:not(.dark) .text-yellow-400 { color: #a16207; }
+    html:not(.dark) .hover\:text-sky-300:hover { color: #0284c7; }
+    html:not(.dark) .hover\:text-yellow-300:hover { color: #854d0e; }
+
+    html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255,255,255,0.95); }
+  </style>
+</head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen">
+
+  <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <div class="flex items-center space-x-6">
+          <a href="../../index.html" class="text-xl font-bold text-yellow-400">🤖 Agentic OS</a>
+          <a href="https://inema.club" target="_blank" class="text-sky-400 text-sm font-medium hover:text-sky-300">INEMA.CLUB</a>
+        </div>
+        <div class="hidden md:flex items-center space-x-1 text-sm">
+          <a href="../trilha1/index.html" class="px-3 py-1.5 rounded-lg text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors">Fundamentos</a>
+          <a href="../trilha2/index.html" class="px-3 py-1.5 rounded-lg text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors">Contexto</a>
+          <a href="../trilha3/index.html" class="px-3 py-1.5 rounded-lg text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors">Agentes</a>
+          <a href="../trilha4/index.html" class="px-3 py-1.5 rounded-lg text-neutral-400 hover:text-amber-400 hover:bg-amber-500/10 transition-colors">Skills</a>
+          <a href="../trilha5/index.html" class="px-3 py-1.5 rounded-lg text-neutral-400 hover:text-teal-400 hover:bg-teal-500/10 transition-colors">Automação</a>
+          <a href="index.html" class="px-3 py-1.5 rounded-lg text-rose-400 bg-rose-500/10">Implantação</a>
+        </div>
+        <button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors">
+          <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+          <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"></path></svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+    <div class="flex items-center space-x-2 text-sm text-neutral-400">
+      <a href="../../index.html" class="hover:text-rose-400">Início</a>
+      <span>/</span>
+      <a href="index.html" class="hover:text-rose-400">Trilha 6</a>
+      <span>/</span>
+      <span class="text-rose-400">Módulo 6.4</span>
+    </div>
+  </nav>
+
+  <header class="bg-gradient-to-br from-rose-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <span class="inline-block px-3 py-1 bg-rose-500/20 text-rose-400 text-xs font-semibold rounded-full mb-4">MÓDULO 6.4</span>
+      <h1 class="text-2xl font-bold mb-4">☁️ Managed Agents — Agente como Serviço</h1>
+      <p class="text-lg text-neutral-400 max-w-3xl">Anthropic Managed Agents (abril 2026, US$0,08/session-hour). Sandboxing, persistência, permissões e recuperação de erros gerenciados pela Anthropic. Você foca no que o agente faz — eles cuidam de onde ele roda.</p>
+      <div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-rose-400">6</div>
+          <div class="text-xs text-neutral-400">Tópicos</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-rose-400">~55 min</div>
+          <div class="text-xs text-neutral-400">Duração</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-rose-400">Aplicado</div>
+          <div class="text-xs text-neutral-400">Nível</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-rose-400">Estratégico</div>
+          <div class="text-xs text-neutral-400">Tipo</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <!-- TOPICO 1 -->
+    <section id="topico-1" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="w-12 h-12 rounded-full bg-rose-500/20 text-rose-400 text-xl font-bold flex items-center justify-center flex-shrink-0">1</span>
+        <h2 class="text-2xl font-bold">🔄 O que muda com Managed — Você só envia tarefas</h2>
+      </div>
+      <p class="text-neutral-400 mb-6 ml-16">No modelo self-host, você provisiona servidor, gerencia Docker, monitora uptime, lida com crashes e configura secrets. Com Managed Agents, tudo isso desaparece. Você define o que o agente faz (skills, tools, CLAUDE.md) e envia tarefas via API. O resto é problema da Anthropic.</p>
+
+      <div class="ml-16 space-y-6">
+        <div class="bg-gradient-to-br from-rose-900/20 to-dark-800 rounded-xl p-6 border border-rose-500/30">
+          <h3 class="text-rose-400 font-semibold mb-4">📊 Self-host vs Managed — o que muda</h3>
+          <div class="overflow-x-auto">
+            <table class="w-full text-sm">
+              <thead>
+                <tr class="border-b border-dark-600">
+                  <th class="text-left py-2 text-neutral-400 font-normal">Responsabilidade</th>
+                  <th class="text-center py-2 text-neutral-400 font-normal">Self-host</th>
+                  <th class="text-center py-2 text-neutral-400 font-normal">Managed</th>
+                </tr>
+              </thead>
+              <tbody class="text-neutral-300">
+                <tr class="border-b border-dark-600/50"><td class="py-2">Infraestrutura</td><td class="text-center py-2 text-red-400">Você</td><td class="text-center py-2 text-emerald-400">Anthropic</td></tr>
+                <tr class="border-b border-dark-600/50"><td class="py-2">Sandboxing</td><td class="text-center py-2 text-red-400">Você (Docker)</td><td class="text-center py-2 text-emerald-400">Anthropic</td></tr>
+                <tr class="border-b border-dark-600/50"><td class="py-2">Persistência de estado</td><td class="text-center py-2 text-red-400">Você</td><td class="text-center py-2 text-emerald-400">Anthropic</td></tr>
+                <tr class="border-b border-dark-600/50"><td class="py-2">Recuperação de erros</td><td class="text-center py-2 text-red-400">Você</td><td class="text-center py-2 text-emerald-400">Anthropic</td></tr>
+                <tr class="border-b border-dark-600/50"><td class="py-2">Skills / CLAUDE.md</td><td class="text-center py-2 text-emerald-400">Você</td><td class="text-center py-2 text-emerald-400">Você</td></tr>
+                <tr><td class="py-2">Controle de dados</td><td class="text-center py-2 text-emerald-400">Total</td><td class="text-center py-2 text-amber-400">Parcial</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="bg-primary/10 rounded-xl p-6 border border-primary/40">
+          <h3 class="text-primary font-semibold mb-3">💡 Hosted + ops-as-a-service</h3>
+          <p class="text-neutral-300 text-sm">O modelo de Managed Agents é análogo ao que AWS Lambda fez com servidores: você não pensa em VMs, só em funções. Com Managed, você não pensa em containers, só em tarefas. A abstração reduz overhead operacional de horas/semana para zero — mas exige abrir mão de parte do controle.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOPICO 2 -->
+    <section id="topico-2" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="w-12 h-12 rounded-full bg-rose-500/20 text-rose-400 text-xl font-bold flex items-center justify-center flex-shrink-0">2</span>
+        <h2 class="text-2xl font-bold">💵 Pricing — US$0,08/h (Modelo session-hour)</h2>
+      </div>
+      <p class="text-neutral-400 mb-6 ml-16">Em vez de cobrar por token (imprevisível), Managed Agents cobra por hora de sessão ativa. Para casos always-on — um agente que monitora chat ao vivo, ou um billing agent que roda 8h por dia — o custo é previsível e facilmente justificável.</p>
+
+      <div class="ml-16 space-y-6">
+        <div class="bg-gradient-to-br from-rose-900/20 to-dark-800 rounded-xl p-6 border border-rose-500/30">
+          <h3 class="text-rose-400 font-semibold mb-4">🧮 Calculadora de custo real</h3>
+          <div class="space-y-3">
+            <div class="bg-dark-800/60 rounded-lg p-4">
+              <div class="flex justify-between items-start">
+                <div>
+                  <div class="text-neutral-300 font-semibold text-sm">Agente de morning brief</div>
+                  <div class="text-neutral-400 text-xs">5 min/dia × 30 dias = 2.5h/mês</div>
+                </div>
+                <div class="text-rose-400 font-bold">US$0,20/mês</div>
+              </div>
+            </div>
+            <div class="bg-dark-800/60 rounded-lg p-4">
+              <div class="flex justify-between items-start">
+                <div>
+                  <div class="text-neutral-300 font-semibold text-sm">Live Support Agent (Marco)</div>
+                  <div class="text-neutral-400 text-xs">3h/live × 5 lives/mês = 15h/mês</div>
+                </div>
+                <div class="text-rose-400 font-bold">US$1,20/mês</div>
+              </div>
+            </div>
+            <div class="bg-dark-800/60 rounded-lg p-4">
+              <div class="flex justify-between items-start">
+                <div>
+                  <div class="text-neutral-300 font-semibold text-sm">Billing Agent (Dra. Sana)</div>
+                  <div class="text-neutral-400 text-xs">2h/dia × 22 dias úteis = 44h/mês</div>
+                </div>
+                <div class="text-rose-400 font-bold">US$3,52/mês</div>
+              </div>
+            </div>
+          </div>
+          <div class="mt-4 bg-rose-500/10 rounded-lg p-3">
+            <p class="text-rose-400 text-sm font-semibold">Total para os 3 casos: ~US$5/mês em infra</p>
+            <p class="text-neutral-400 text-xs">Vs. custo de VPS self-host com 99.9% uptime: ~US$40-80/mês</p>
+          </div>
+        </div>
+
+        <div class="bg-blue-900/20 rounded-xl p-6 border border-blue-500/30">
+          <h3 class="text-blue-400 font-semibold mb-2">📊 Session pricing + cost ceiling</h3>
+          <p class="text-neutral-300 text-sm">O modelo session-hour tem um benefício oculto: você pode definir cost ceiling por agente. Se um agente ficar rodando em loop (bug), ele para ao atingir o teto. No modelo de tokens, um bug de loop pode gerar uma fatura surpresa de milhares de dólares.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOPICO 3 -->
+    <section id="topico-3" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="w-12 h-12 rounded-full bg-rose-500/20 text-rose-400 text-xl font-bold flex items-center justify-center flex-shrink-0">3</span>
+        <h2 class="text-2xl font-bold">🔒 Sandboxing Gerenciado — Isolamento embutido</h2>
+      </div>
+      <p class="text-neutral-400 mb-6 ml-16">Cada sessão de Managed Agent roda em um sandbox isolado por tenant. O agente do cliente A não pode ver arquivos, memória ou outputs do cliente B — sem você precisar configurar Docker, namespaces Linux ou políticas de IAM. O isolamento é garantia do serviço.</p>
+
+      <div class="ml-16 space-y-6">
+        <div class="bg-gradient-to-br from-rose-900/20 to-dark-800 rounded-xl p-6 border border-rose-500/30">
+          <h3 class="text-rose-400 font-semibold mb-4">🏗️ O que o sandbox Managed garante</h3>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div class="bg-dark-800/60 rounded-lg p-3">
+              <div class="text-rose-400 font-semibold text-sm mb-1">Tenant isolation</div>
+              <p class="text-neutral-300 text-xs">Nenhum dado vaza entre sessões de clientes diferentes. Ambiente completamente efêmero.</p>
+            </div>
+            <div class="bg-dark-800/60 rounded-lg p-3">
+              <div class="text-rose-400 font-semibold text-sm mb-1">File system isolado</div>
+              <p class="text-neutral-300 text-xs">Cada sessão tem seu próprio espaço de arquivos temporários. Limpo ao final.</p>
+            </div>
+            <div class="bg-dark-800/60 rounded-lg p-3">
+              <div class="text-rose-400 font-semibold text-sm mb-1">Network policy</div>
+              <p class="text-neutral-300 text-xs">Agente só acessa URLs explicitamente autorizadas. Sem egress não declarado.</p>
+            </div>
+            <div class="bg-dark-800/60 rounded-lg p-3">
+              <div class="text-rose-400 font-semibold text-sm mb-1">Ephemeral sandbox</div>
+              <p class="text-neutral-300 text-xs">Sandbox destruído ao fim da sessão. Nenhum estado residual entre execuções.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-primary/10 rounded-xl p-6 border border-primary/40">
+          <h3 class="text-primary font-semibold mb-3">💡 Sem você precisar configurar Docker</h3>
+          <p class="text-neutral-300 text-sm">No self-host, manter sandboxing correto exige conhecimento de Docker security, seccomp profiles, e network policies. É fácil errar — e um sandbox mal configurado é perigoso. Managed delega essa responsabilidade para a Anthropic, que tem equipes dedicadas a isso. Para quem não é DevOps, é a escolha óbvia.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOPICO 4 -->
+    <section id="topico-4" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="w-12 h-12 rounded-full bg-rose-500/20 text-rose-400 text-xl font-bold flex items-center justify-center flex-shrink-0">4</span>
+        <h2 class="text-2xl font-bold">🧠 Persistência de Estado — Memória entre sessions</h2>
+      </div>
+      <p class="text-neutral-400 mb-6 ml-16">O problema clássico de agentes é a memória: cada sessão começa do zero, sem saber o que aconteceu antes. Managed Agents resolvem isso com state persistence gerenciada — a sessão nova continua de onde a anterior parou, com identidade de agente preservada.</p>
+
+      <div class="ml-16 space-y-6">
+        <div class="bg-gradient-to-br from-rose-900/20 to-dark-800 rounded-xl p-6 border border-rose-500/30">
+          <h3 class="text-rose-400 font-semibold mb-4">💾 Como funciona a persistência</h3>
+          <div class="space-y-3">
+            <div class="flex items-start space-x-3 bg-dark-800/60 rounded-lg p-3">
+              <span class="w-6 h-6 rounded-full bg-rose-500/20 text-rose-400 text-xs font-bold flex items-center justify-center flex-shrink-0 mt-0.5">1</span>
+              <div class="text-sm">
+                <p class="text-neutral-300 font-semibold">Agent Identity</p>
+                <p class="text-neutral-400 text-xs mt-1">Cada agente tem um ID permanente. Sessões são instâncias do mesmo agente.</p>
+              </div>
+            </div>
+            <div class="flex items-start space-x-3 bg-dark-800/60 rounded-lg p-3">
+              <span class="w-6 h-6 rounded-full bg-rose-500/20 text-rose-400 text-xs font-bold flex items-center justify-center flex-shrink-0 mt-0.5">2</span>
+              <div class="text-sm">
+                <p class="text-neutral-300 font-semibold">State Store</p>
+                <p class="text-neutral-400 text-xs mt-1">Ao fim de cada sessão, estado é serializado e salvo. Na próxima sessão, é desserializado automaticamente.</p>
+              </div>
+            </div>
+            <div class="flex items-start space-x-3 bg-dark-800/60 rounded-lg p-3">
+              <span class="w-6 h-6 rounded-full bg-rose-500/20 text-rose-400 text-xs font-bold flex items-center justify-center flex-shrink-0 mt-0.5">3</span>
+              <div class="text-sm">
+                <p class="text-neutral-300 font-semibold">Memory scoping</p>
+                <p class="text-neutral-400 text-xs mt-1">Você define o que persiste: preferências do usuário, histórico de decisões, contexto de projeto. O resto é efêmero.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-blue-900/20 rounded-xl p-6 border border-blue-500/30">
+          <h3 class="text-blue-400 font-semibold mb-2">📊 State persistence + agent identity</h3>
+          <p class="text-neutral-300 text-sm">Para o Live Support Agent do Marco, persistência significa: o agente lembra dos whales que compraram na semana passada, das promoções ativas, e do tom da última live. Ele não começa cada live como se fosse a primeira. Isso é o que separa um "chatbot que reinicia" de um "assistente que aprende".</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOPICO 5 -->
+    <section id="topico-5" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="w-12 h-12 rounded-full bg-rose-500/20 text-rose-400 text-xl font-bold flex items-center justify-center flex-shrink-0">5</span>
+        <h2 class="text-2xl font-bold">⚖️ Self-host × Managed — Quando escolher</h2>
+      </div>
+      <p class="text-neutral-400 mb-6 ml-16">Não existe resposta universal. A escolha entre self-host e Managed é estratégica, baseada em requisitos de privacidade, overhead operacional tolerável, e se os dados podem trafegar fora do seu perímetro. Aqui está o framework de decisão.</p>
+
+      <div class="ml-16 space-y-6">
+        <div class="bg-gradient-to-br from-rose-900/20 to-dark-800 rounded-xl p-6 border border-rose-500/30">
+          <h3 class="text-rose-400 font-semibold mb-4">🎯 Framework de decisão</h3>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="bg-dark-800/60 rounded-lg p-4 border-t-2 border-emerald-500">
+              <div class="text-emerald-400 font-semibold mb-3">✅ Use Managed quando:</div>
+              <ul class="space-y-1.5 text-neutral-300 text-sm">
+                <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-0.5">→</span><span>Não tem time de DevOps</span></li>
+                <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-0.5">→</span><span>Dados não são regulados (não PHI, não confidenciais)</span></li>
+                <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-0.5">→</span><span>Precisa de uptime &gt;99% sem overhead</span></li>
+                <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-0.5">→</span><span>Agentes de uso geral (briefings, relatórios)</span></li>
+              </ul>
+            </div>
+            <div class="bg-dark-800/60 rounded-lg p-4 border-t-2 border-rose-500">
+              <div class="text-rose-400 font-semibold mb-3">❌ Use Self-host quando:</div>
+              <ul class="space-y-1.5 text-neutral-300 text-sm">
+                <li class="flex items-start space-x-2"><span class="text-rose-400 mt-0.5">→</span><span>Dados PHI ou regulados (saúde, jurídico)</span></li>
+                <li class="flex items-start space-x-2"><span class="text-rose-400 mt-0.5">→</span><span>Contrato de data residency com cliente</span></li>
+                <li class="flex items-start space-x-2"><span class="text-rose-400 mt-0.5">→</span><span>Precisa de customização profunda de infra</span></li>
+                <li class="flex items-start space-x-2"><span class="text-rose-400 mt-0.5">→</span><span>Compliance corporativo exige on-premise</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-primary/10 rounded-xl p-6 border border-primary/40">
+          <h3 class="text-primary font-semibold mb-3">💡 Build × Buy — decisão estratégica, não técnica</h3>
+          <p class="text-neutral-300 text-sm">Marco → Managed (dados de e-commerce, zero restrição regulatória, sem DevOps). Sally → Bedrock self-host (dados jurídicos, exigência de no-egress). Dra. Sana → self-host total (PHI, HIPAA). A lógica não é técnica — é sobre quem você serve e o que seus contratos exigem.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOPICO 6 -->
+    <section id="topico-6" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="w-12 h-12 rounded-full bg-rose-500/20 text-rose-400 text-xl font-bold flex items-center justify-center flex-shrink-0">6</span>
+        <h2 class="text-2xl font-bold">🗺️ Roadmap — Codex equivalente (OpenAI segue)</h2>
+      </div>
+      <p class="text-neutral-400 mb-6 ml-16">Managed Agents da Anthropic foi lançado em abril de 2026. O OpenAI Codex e o modelo de agentes gerenciados da OpenAI seguem direção similar. A tendência é clara: cada provedor terá sua plataforma de agentes gerenciados, e a escolha entre eles se tornará parte do stack decision das empresas.</p>
+
+      <div class="ml-16 space-y-6">
+        <div class="bg-gradient-to-br from-rose-900/20 to-dark-800 rounded-xl p-6 border border-rose-500/30">
+          <h3 class="text-rose-400 font-semibold mb-4">📅 Landscape de Managed Agents em 2026</h3>
+          <div class="space-y-3">
+            <div class="bg-dark-800/60 rounded-lg p-3">
+              <div class="flex justify-between items-start">
+                <div>
+                  <div class="text-rose-400 font-semibold text-sm">Anthropic Managed Agents</div>
+                  <div class="text-neutral-400 text-xs">US$0,08/h | Claude API | Lançado abr/2026</div>
+                </div>
+                <span class="text-emerald-400 text-xs font-semibold bg-emerald-500/10 px-2 py-0.5 rounded-full">DISPONÍVEL</span>
+              </div>
+            </div>
+            <div class="bg-dark-800/60 rounded-lg p-3">
+              <div class="flex justify-between items-start">
+                <div>
+                  <div class="text-neutral-300 font-semibold text-sm">OpenAI Codex Agents</div>
+                  <div class="text-neutral-400 text-xs">Modelo similar, GPT-4o base | Beta limitado</div>
+                </div>
+                <span class="text-amber-400 text-xs font-semibold bg-amber-500/10 px-2 py-0.5 rounded-full">BETA</span>
+              </div>
+            </div>
+            <div class="bg-dark-800/60 rounded-lg p-3">
+              <div class="flex justify-between items-start">
+                <div>
+                  <div class="text-neutral-300 font-semibold text-sm">Google Vertex AI Agents</div>
+                  <div class="text-neutral-400 text-xs">Gemini base, integração GCP nativa</div>
+                </div>
+                <span class="text-blue-400 text-xs font-semibold bg-blue-500/10 px-2 py-0.5 rounded-full">GA</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-blue-900/20 rounded-xl p-6 border border-blue-500/30">
+          <h3 class="text-blue-400 font-semibold mb-2">📊 Multi-vendor managed + lock-in risk</h3>
+          <p class="text-neutral-300 text-sm">O risco principal de Managed Agents é lock-in: seu CLAUDE.md e skills são portáveis, mas a configuração de estado, networking e permissões é específica do provedor. A estratégia inteligente: mantenha o lógica de negócio (CLAUDE.md, skills) completamente separada da configuração de infra. Assim, migrar entre provedores é possível sem reescrever o sistema.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESUMO FINAL -->
+    <section class="bg-dark-800 rounded-xl p-8 border border-rose-500/30 mb-12">
+      <h2 class="text-2xl font-bold mb-6">✅ Resumo do Módulo 6.4</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
+        <div class="flex items-center space-x-3">
+          <span class="text-rose-400 text-lg">✓</span>
+          <span class="text-neutral-300 text-sm">Managed = você define skills, Anthropic gerencia infra</span>
+        </div>
+        <div class="flex items-center space-x-3">
+          <span class="text-rose-400 text-lg">✓</span>
+          <span class="text-neutral-300 text-sm">US$0,08/h com cost ceiling — previsível e seguro</span>
+        </div>
+        <div class="flex items-center space-x-3">
+          <span class="text-rose-400 text-lg">✓</span>
+          <span class="text-neutral-300 text-sm">Tenant isolation e ephemeral sandbox sem Docker</span>
+        </div>
+        <div class="flex items-center space-x-3">
+          <span class="text-rose-400 text-lg">✓</span>
+          <span class="text-neutral-300 text-sm">State persistence — sessão nova continua de onde parou</span>
+        </div>
+        <div class="flex items-center space-x-3">
+          <span class="text-rose-400 text-lg">✓</span>
+          <span class="text-neutral-300 text-sm">Framework de decisão: PHI/regulado → self-host; geral → Managed</span>
+        </div>
+        <div class="flex items-center space-x-3">
+          <span class="text-rose-400 text-lg">✓</span>
+          <span class="text-neutral-300 text-sm">Tendência multi-vendor: separar lógica de negócio da infra</span>
+        </div>
+      </div>
+
+      <div class="bg-dark-700/50 rounded-lg p-4 mb-6">
+        <p class="text-neutral-400 text-sm"><span class="text-rose-400 font-semibold">Próximo módulo:</span> Plano de 30 dias — o roteiro sequencial para implantar seu próprio Agentic OS, semana a semana, com entregáveis tangíveis em cada etapa.</p>
+      </div>
+
+      <div class="flex justify-start space-x-3">
+        <a href="modulo-6-3.html" class="px-5 py-2.5 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors text-sm">← Módulo anterior</a>
+        <a href="modulo-6-5.html" class="px-5 py-2.5 bg-rose-600 text-white rounded-lg font-semibold hover:bg-rose-500 transition-colors text-sm">Próximo módulo →</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="border-t border-dark-600 py-8 mt-4">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm">
+      <p>Agentic OS — <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300">INEMA.CLUB</a> — 2026</p>
+    </div>
+  </footer>
+
+  <script>
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+    const html = document.documentElement;
+
+    if (localStorage.getItem('theme') === 'light' || (!localStorage.getItem('theme') && !html.classList.contains('dark'))) {
+      themeToggleDarkIcon.classList.remove('hidden');
+      html.classList.remove('dark');
+    } else {
+      themeToggleLightIcon.classList.remove('hidden');
+    }
+
+    themeToggle.addEventListener('click', () => {
+      themeToggleDarkIcon.classList.toggle('hidden');
+      themeToggleLightIcon.classList.toggle('hidden');
+      html.classList.toggle('dark');
+      localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+    });
+  </script>
+</body>
+</html>

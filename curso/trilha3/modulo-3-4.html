@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>3.4 — MCP — conectando ferramentas e dados | Agentic OS</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script>tailwind.config={darkMode:'class',theme:{extend:{colors:{primary:'#FACC15',dark:{900:'#111827',800:'#1f2937',700:'#374151',600:'#4b5563'}}}}}</script>
+<style>
+body{font-family:'Inter',sans-serif}
+html:not(.dark) body{background:#f8fafc}html:not(.dark) .bg-dark-900{background:#fff}html:not(.dark) .bg-dark-800{background:#f9fafb}html:not(.dark) .bg-dark-700{background:#f3f4f6}html:not(.dark) .bg-dark-600{background:#e5e7eb}html:not(.dark) .text-neutral-100{color:#111827}html:not(.dark) .text-neutral-300{color:#4b5563}html:not(.dark) .text-neutral-400{color:#6b7280}html:not(.dark) .text-neutral-500{color:#9ca3af}html:not(.dark) .border-dark-600{border-color:#d1d5db}html:not(.dark) .border-dark-700{border-color:#e5e7eb}
+html:not(.dark) .text-purple-400{color:#7c3aed}html:not(.dark) .bg-purple-500\/20{background:rgba(124,58,237,.12)}html:not(.dark) .bg-purple-500\/10{background:rgba(124,58,237,.08)}html:not(.dark) .border-purple-500\/30{border-color:rgba(124,58,237,.25)}html:not(.dark) .bg-purple-900\/20{background:rgba(124,58,237,.06)}html:not(.dark) .bg-purple-900\/30{background:rgba(124,58,237,.06)}html:not(.dark) .bg-purple-900\/40{background:rgba(124,58,237,.08)}
+html:not(.dark) .text-blue-400{color:#2563eb}html:not(.dark) .bg-blue-900\/20{background:rgba(37,99,235,.06)}html:not(.dark) .border-blue-500\/30{border-color:rgba(37,99,235,.25)}
+html:not(.dark) .text-red-400{color:#b91c1c}html:not(.dark) .bg-red-900\/20{background:rgba(185,28,28,.06)}html:not(.dark) .border-red-500\/30{border-color:rgba(185,28,28,.25)}
+html:not(.dark) [class*="bg-gradient-to"]{background-image:none!important}html:not(.dark) .text-primary{color:#a16207}html:not(.dark) .bg-primary\/10{background:rgba(161,98,7,.08)}html:not(.dark) .border-primary\/30{border-color:rgba(161,98,7,.25)}html:not(.dark) .text-sky-400{color:#0369a1}html:not(.dark) .text-yellow-400{color:#a16207}html:not(.dark) .hover\:text-sky-300:hover{color:#0284c7}html:not(.dark) .hover\:text-yellow-300:hover{color:#854d0e}html:not(.dark) .bg-dark-900\/95{background:rgba(255,255,255,.95)}
+</style></head>
+<body class="bg-dark-900 text-neutral-100">
+<nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"><div class="flex justify-between items-center h-14"><div class="flex items-center space-x-4"><a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300"><span class="text-2xl">⚡</span><span class="font-bold text-lg hidden sm:inline">Agentic OS</span></a><span class="text-neutral-600">|</span><a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a></div><div class="flex items-center space-x-1 sm:space-x-2"><a href="../trilha1/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors"><span class="sm:hidden">T1</span><span class="hidden sm:inline">Fundamentos</span></a><a href="../trilha2/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors"><span class="sm:hidden">T2</span><span class="hidden sm:inline">Identidade</span></a><a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-purple-400 bg-purple-500/10"><span class="sm:hidden">T3</span><span class="hidden sm:inline">Conhecimento</span></a><a href="../trilha4/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-amber-400 hover:bg-amber-500/10 transition-colors"><span class="sm:hidden">T4</span><span class="hidden sm:inline">Trabalhadores</span></a><a href="../trilha5/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-teal-400 hover:bg-teal-500/10 transition-colors"><span class="sm:hidden">T5</span><span class="hidden sm:inline">Automação</span></a><a href="../trilha6/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-rose-400 hover:bg-rose-500/10 transition-colors"><span class="sm:hidden">T6</span><span class="hidden sm:inline">Implantação</span></a><button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2"><svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/></svg><svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"/></svg></button></div></div></div></nav>
+
+<nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4"><div class="flex items-center space-x-2 text-sm text-neutral-400"><a href="../../index.html" class="hover:text-purple-400">Início</a><span>/</span><a href="index.html" class="hover:text-purple-400">Trilha 3</a><span>/</span><span class="text-purple-400">Módulo 3.4</span></div></nav>
+
+<header class="bg-gradient-to-br from-purple-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"><span class="inline-block px-3 py-1 bg-purple-500/20 text-purple-400 text-xs font-semibold rounded-full mb-4">MÓDULO 3.4</span><h1 class="text-3xl sm:text-4xl font-bold mb-4">🌐 MCP — conectando ferramentas e dados</h1><p class="text-lg text-neutral-400 max-w-3xl">97 milhões de downloads/mês. Linux Foundation. Anthropic, OpenAI, Google: todos adotaram. O TCP/IP da era agêntica — o protocolo que conecta agentes a ferramentas e dados externos.</p><div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl"><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">6</div><div class="text-xs text-neutral-400">Tópicos</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">50</div><div class="text-xs text-neutral-400">Minutos</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">Médio</div><div class="text-xs text-neutral-400">Nível</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">Técnico</div><div class="text-xs text-neutral-400">Tipo</div></div></div></div></header>
+
+<main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+<section id="topico-1" class="mb-16">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">1</span><h2 class="text-2xl font-bold">📜 O que é MCP</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed"><strong class="text-purple-400">Model Context Protocol</strong> é um padrão aberto criado pela Anthropic em novembro de 2024 para conectar agentes a ferramentas, bases de dados e dados externos. Antes do MCP, cada integração era custom — código novo para cada ferramenta nova. <strong class="text-purple-400">MCP padroniza essa conversa</strong>, como o USB padronizou periféricos.</p>
+<div class="bg-gradient-to-br from-purple-900/30 to-dark-800 rounded-xl border border-purple-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-purple-400 mb-4 flex items-center"><span class="mr-2">🔌</span> Analogia: MCP como USB</h3>
+<ul class="space-y-2 text-neutral-300 text-sm">
+<li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong class="text-neutral-100">Antes do USB</strong> — cada periférico tinha conector diferente. Impressora PS/2, mouse serial, teclado AT.</span></li>
+<li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong class="text-neutral-100">Depois do USB</strong> — um padrão. Qualquer periférico, qualquer computador.</span></li>
+<li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong class="text-neutral-100">Antes do MCP</strong> — cada integração era código custom. GitHub, Slack, Notion: API diferente para cada um.</span></li>
+<li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong class="text-neutral-100">Com MCP</strong> — um protocolo. Qualquer ferramenta com MCP Server conecta com qualquer agente MCP Client.</span></li>
+</ul>
+</div>
+<div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-blue-400 mb-3 flex items-center"><span class="mr-2">📊</span> Números de adoção (2026)</h3>
+<ul class="space-y-2 text-neutral-300 text-sm">
+<li><strong>97 milhões</strong> de downloads/mês de MCP servers (mar/2026)</li>
+<li><strong>Linux Foundation</strong> assumiu governança do protocolo (dez/2025)</li>
+<li><strong>Anthropic</strong> (criador, nov/2024), <strong>OpenAI</strong> (mar/2025), <strong>Google DeepMind</strong> (abr/2025)</li>
+<li><strong>Cursor, Windsurf, Zed, JetBrains, VS Code</strong> — todos suportam nativamente</li>
+</ul>
+</div>
+</section>
+
+<section id="topico-2" class="mb-16">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">2</span><h2 class="text-2xl font-bold">🌐 Adoção 2025-2026 e por que importa</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Quando OpenAI e Google adotam o protocolo criado pela Anthropic, não é gentileza — é pragmatismo. <strong class="text-purple-400">MCP virou o padrão de fato</strong> antes de ser padrão oficial. Quem construiu integrações MCP em 2025 acordou em 2026 com ferramentas funcionando em todos os grandes agentes.</p>
+<div class="bg-gradient-to-br from-purple-900/30 to-dark-800 rounded-xl border border-purple-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-purple-400 mb-4 flex items-center"><span class="mr-2">📅</span> Timeline de adoção</h3>
+<div class="space-y-3 text-sm text-neutral-300">
+<div class="flex items-start space-x-4 bg-dark-700/50 rounded-lg p-3">
+<span class="text-purple-400 font-bold w-20 flex-shrink-0">Nov 2024</span>
+<span>Anthropic lança MCP como open source. Primeiro batch de servers oficiais.</span>
+</div>
+<div class="flex items-start space-x-4 bg-dark-700/50 rounded-lg p-3">
+<span class="text-purple-400 font-bold w-20 flex-shrink-0">Mar 2025</span>
+<span>OpenAI anuncia suporte nativo ao MCP no Agents SDK.</span>
+</div>
+<div class="flex items-start space-x-4 bg-dark-700/50 rounded-lg p-3">
+<span class="text-purple-400 font-bold w-20 flex-shrink-0">Abr 2025</span>
+<span>Google DeepMind confirma suporte MCP. Cursor e Windsurf adotam.</span>
+</div>
+<div class="flex items-start space-x-4 bg-dark-700/50 rounded-lg p-3">
+<span class="text-purple-400 font-bold w-20 flex-shrink-0">Dez 2025</span>
+<span>Linux Foundation assume governança. MCP se torna padrão neutro de vendor.</span>
+</div>
+<div class="flex items-start space-x-4 bg-dark-700/50 rounded-lg p-3">
+<span class="text-purple-400 font-bold w-20 flex-shrink-0">Mar 2026</span>
+<span>97M downloads/mês. Centenas de servers na comunidade. Padrão consolidado.</span>
+</div>
+</div>
+</div>
+</section>
+
+<section id="topico-3" class="mb-16">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">3</span><h2 class="text-2xl font-bold">🔌 Anatomia técnica: Server, Client, Transport</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">MCP tem três componentes principais. <strong class="text-purple-400">Server</strong> expõe capacidades (ferramentas, dados, prompts). <strong class="text-purple-400">Client</strong> é o agente que chama o server. <strong class="text-purple-400">Transport</strong> é o meio de comunicação entre eles. Entender essa tríade é pré-requisito para usar ou construir qualquer integração MCP.</p>
+<div class="bg-gradient-to-br from-purple-900/30 to-dark-800 rounded-xl border border-purple-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-purple-400 mb-4 flex items-center"><span class="mr-2">🏗️</span> Os três componentes</h3>
+<div class="space-y-4 text-sm text-neutral-300">
+<div class="bg-dark-700/50 rounded-lg p-4">
+<h4 class="font-semibold text-white mb-2">MCP Server</h4>
+<p>Processo separado que expõe capabilities via protocolo padronizado. Pode ser local (seu computador) ou remoto (cloud). Responsável por autenticação, rate limiting, segurança dos dados expostos.</p>
+</div>
+<div class="bg-dark-700/50 rounded-lg p-4">
+<h4 class="font-semibold text-white mb-2">MCP Client (Agente)</h4>
+<p>Claude Code, Cursor, ou qualquer agente que implemente o protocolo MCP client. Descobre as capabilities do server via <code class="bg-dark-600 px-1 rounded">tools/list</code>, depois invoca via <code class="bg-dark-600 px-1 rounded">tools/call</code>.</p>
+</div>
+<div class="bg-dark-700/50 rounded-lg p-4">
+<h4 class="font-semibold text-white mb-2">Transport</h4>
+<p><strong>stdio</strong> — para servers locais (processo filho). Mais simples, sem network overhead.<br><strong>SSE (Server-Sent Events)</strong> — para servers remotos, streaming de eventos.<br><strong>HTTP Streamable</strong> — novo padrão (2025), mais robusto para produção.</p>
+</div>
+</div>
+</div>
+<div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Quando usar qual transport</h3>
+<p class="text-neutral-300">Use <strong>stdio</strong> para desenvolvimento local e scripts pessoais. Use <strong>SSE/HTTP</strong> quando o server precisa ser compartilhado com um time ou rodar em cloud. Marco e Sally usam servers locais stdio; uma empresa com time de 20 pessoas precisa de server HTTP centralizado.</p>
+</div>
+</section>
+
+<section id="topico-4" class="mb-16">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">4</span><h2 class="text-2xl font-bold">🛠️ Tools, Resources e Prompts</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">MCP define três tipos de capability que um server pode expor. Saber quando usar cada um evita anti-padrões comuns — como expor uma ação destrutiva como Resource em vez de Tool, ou duplicar dados desnecessariamente.</p>
+<div class="bg-gradient-to-br from-purple-900/30 to-dark-800 rounded-xl border border-purple-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-purple-400 mb-4 flex items-center"><span class="mr-2">🎯</span> Os 3 tipos de capability</h3>
+<div class="space-y-4 text-sm text-neutral-300">
+<div class="bg-dark-700/50 rounded-lg p-4">
+<h4 class="font-semibold text-white mb-2">🛠️ Tools — ações que o agente executa</h4>
+<p class="mb-2">Operações com efeito colateral: criar issue no GitHub, enviar mensagem no Slack, atualizar registro no CRM.</p>
+<pre class="bg-dark-600 rounded p-2 text-xs">tool: create_github_issue(title, body, labels) → issue_url</pre>
+</div>
+<div class="bg-dark-700/50 rounded-lg p-4">
+<h4 class="font-semibold text-white mb-2">📖 Resources — dados que o agente lê</h4>
+<p class="mb-2">Conteúdo estático ou dinâmico que o agente pode consumir: arquivos, documentos, dados de banco. Sem efeito colateral.</p>
+<pre class="bg-dark-600 rounded p-2 text-xs">resource: file://platters/marketing.md → conteúdo do arquivo</pre>
+</div>
+<div class="bg-dark-700/50 rounded-lg p-4">
+<h4 class="font-semibold text-white mb-2">💬 Prompts — templates reutilizáveis</h4>
+<p class="mb-2">Instruções parametrizadas que o server oferece ao agente. Análogo às skills, mas servidos pelo server.</p>
+<pre class="bg-dark-600 rounded p-2 text-xs">prompt: analise_campanha(periodo="7d") → instrução montada</pre>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+<div class="bg-purple-900/20 rounded-xl border border-purple-500/30 p-6">
+<h4 class="font-bold text-purple-400 mb-4">✓ Use Tool quando</h4>
+<ul class="space-y-2 text-neutral-300 text-sm">
+<li class="flex items-start space-x-2"><span class="text-purple-400">✓</span><span>A operação muda estado (cria, edita, deleta)</span></li>
+<li class="flex items-start space-x-2"><span class="text-purple-400">✓</span><span>Precisa de confirmação antes de executar</span></li>
+<li class="flex items-start space-x-2"><span class="text-purple-400">✓</span><span>Retorna resultado de execução, não dado</span></li>
+</ul>
+</div>
+<div class="bg-purple-900/20 rounded-xl border border-purple-500/30 p-6">
+<h4 class="font-bold text-purple-400 mb-4">✓ Use Resource quando</h4>
+<ul class="space-y-2 text-neutral-300 text-sm">
+<li class="flex items-start space-x-2"><span class="text-purple-400">✓</span><span>Apenas leitura de dado existente</span></li>
+<li class="flex items-start space-x-2"><span class="text-purple-400">✓</span><span>Conteúdo pode ser cacheado</span></li>
+<li class="flex items-start space-x-2"><span class="text-purple-400">✓</span><span>Seguro de invocar múltiplas vezes (idempotente)</span></li>
+</ul>
+</div>
+</div>
+</section>
+
+<section id="topico-5" class="mb-16">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">5</span><h2 class="text-2xl font-bold">📦 Servers prontos para usar</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Você não precisa construir do zero. Centenas de MCP servers oficiais e da comunidade cobrem as ferramentas mais comuns. <strong class="text-purple-400">Instalação em um comando</strong> — e o agente passa a ter acesso à ferramenta imediatamente.</p>
+<div class="bg-gradient-to-br from-purple-900/30 to-dark-800 rounded-xl border border-purple-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-purple-400 mb-4 flex items-center"><span class="mr-2">📦</span> Servers populares</h3>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm text-neutral-300">
+<div class="bg-dark-700/50 rounded-lg p-3"><strong class="text-white">GitHub</strong> — issues, PRs, repos, code search</div>
+<div class="bg-dark-700/50 rounded-lg p-3"><strong class="text-white">Slack</strong> — mensagens, canais, histórico</div>
+<div class="bg-dark-700/50 rounded-lg p-3"><strong class="text-white">Notion</strong> — páginas, databases, blocos</div>
+<div class="bg-dark-700/50 rounded-lg p-3"><strong class="text-white">Google Drive</strong> — docs, sheets, search</div>
+<div class="bg-dark-700/50 rounded-lg p-3"><strong class="text-white">PostgreSQL</strong> — queries read-only seguras</div>
+<div class="bg-dark-700/50 rounded-lg p-3"><strong class="text-white">Brave Search</strong> — busca web sem chave cara</div>
+<div class="bg-dark-700/50 rounded-lg p-3"><strong class="text-white">Filesystem</strong> — leitura/escrita local controlada</div>
+<div class="bg-dark-700/50 rounded-lg p-3"><strong class="text-white">Context7</strong> — documentação de libs up-to-date</div>
+</div>
+</div>
+<div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-blue-400 mb-3 flex items-center"><span class="mr-2">⚡</span> Instalação típica no Claude Code</h3>
+<pre class="bg-dark-700 rounded-lg p-3 text-xs text-neutral-300">
+# Adicionar ao .claude/settings.json
+{
+  "mcpServers": {
+    "github": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-github"],
+      "env": { "GITHUB_PERSONAL_ACCESS_TOKEN": "ghp_..." }
+    },
+    "filesystem": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-filesystem", "/home/user/projetos"]
+    }
+  }
+}</pre>
+</div>
+</section>
+
+<section id="topico-6" class="mb-16">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">6</span><h2 class="text-2xl font-bold">🏗️ Construindo seu próprio MCP Server</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Quando os servers da comunidade não cobrem seus sistemas internos, você constrói o seu. <strong class="text-purple-400">Todo sistema interno sério merece um MCP server</strong> — ERP próprio, base de dados interna, API legada. Com FastMCP (Python) ou o SDK oficial, isso leva horas, não semanas.</p>
+<div class="bg-gradient-to-br from-purple-900/30 to-dark-800 rounded-xl border border-purple-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-purple-400 mb-4 flex items-center"><span class="mr-2">🐍</span> Exemplo: MCP Server com FastMCP (Python)</h3>
+<pre class="bg-dark-700 rounded-lg p-4 text-xs text-neutral-300 overflow-x-auto">
+from fastmcp import FastMCP
+import pandas as pd
+
+mcp = FastMCP("Servidor de Vendas Marco")
+
+@mcp.tool()
+def consulta_kpis(periodo: str = "7d") -> dict:
+    """Retorna KPIs de vendas do período especificado"""
+    df = pd.read_csv('vendas.csv')
+    # filtrar por período, calcular KPIs
+    return {
+        "receita": df['valor'].sum(),
+        "pedidos": len(df),
+        "ticket_medio": df['valor'].mean()
+    }
+
+@mcp.resource("platter://marketing")
+def marketing_platter() -> str:
+    """Retorna o Silver Platter de marketing atual"""
+    with open('platters/marketing_current.md') as f:
+        return f.read()
+
+if __name__ == "__main__":
+    mcp.run()  # stdio por padrão</pre>
+</div>
+<div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Use a skill mcp-builder</h3>
+<p class="text-neutral-300">O curso tem uma skill dedicada: <code class="bg-dark-700 px-1 rounded">/mcp-builder</code>. Ela guia a construção de MCP servers do zero — desde design das capabilities até deploy e configuração no Claude Code. Acione com <code class="bg-dark-700 px-1 rounded">/mcp-builder</code> no Claude Code.</p>
+</div>
+</section>
+
+<section class="mb-12">
+<div class="bg-gradient-to-br from-purple-900/40 via-dark-800 to-dark-800 rounded-xl border border-purple-500/30 p-8">
+<h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-3">📋</span> Resumo do Módulo</h2>
+<div class="space-y-4 mb-8">
+<div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-white">MCP = padrão aberto consolidado</strong><span class="text-neutral-400"> — 97M downloads/mês, Linux Foundation, multi-vendor</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-white">Tríade: Server + Client + Transport</strong><span class="text-neutral-400"> — stdio local, SSE/HTTP para cloud</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-white">Tools vs Resources vs Prompts</strong><span class="text-neutral-400"> — ação com efeito / leitura idempotente / template</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-white">Servers prontos</strong><span class="text-neutral-400"> — GitHub, Slack, Notion, Drive, PostgreSQL — instalação em 1 comando</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-white">FastMCP para servers próprios</strong><span class="text-neutral-400"> — sistemas internos merecem MCP server, não integrações ad-hoc</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-white">Use /mcp-builder skill</strong><span class="text-neutral-400"> — skill dedicada para construir do zero com guidance passo a passo</span></div></div>
+</div>
+<div class="bg-dark-800/50 rounded-lg p-4 mb-8"><h3 class="font-semibold text-purple-400 mb-2">Próximo Módulo:</h3><p class="text-neutral-300">3.5 — Context Engineering — a nova disciplina</p></div>
+<div class="flex flex-col sm:flex-row gap-4"><a href="modulo-3-3.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">← Módulo Anterior</a><a href="modulo-3-5.html" class="flex-1 text-center px-6 py-3 bg-purple-600 text-white rounded-lg font-semibold hover:bg-purple-500 transition-colors">Próximo Módulo →</a></div>
+</div>
+</section>
+
+</main>
+<footer class="border-t border-dark-600 py-8 mt-16"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm"><p>Agentic OS — INEMA.CLUB · 2026</p></div></footer>
+<script>
+const tt=document.getElementById('theme-toggle'),tdi=document.getElementById('theme-toggle-dark-icon'),tli=document.getElementById('theme-toggle-light-icon'),h=document.documentElement;
+if(localStorage.getItem('theme')==='light'||(!localStorage.getItem('theme')&&!h.classList.contains('dark'))){tdi.classList.remove('hidden');h.classList.remove('dark')}else{tli.classList.remove('hidden')}
+tt.addEventListener('click',()=>{tdi.classList.toggle('hidden');tli.classList.toggle('hidden');h.classList.toggle('dark');localStorage.setItem('theme',h.classList.contains('dark')?'dark':'light')});
+</script>
+</body></html>

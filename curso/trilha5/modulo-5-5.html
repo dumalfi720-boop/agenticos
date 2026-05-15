@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>5.5 — Cron, schedules e watchers | Agentic OS</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script>tailwind.config={darkMode:'class',theme:{extend:{colors:{primary:'#FACC15',dark:{900:'#111827',800:'#1f2937',700:'#374151',600:'#4b5563'}}}}}</script>
+<style>
+body{font-family:'Inter',sans-serif}
+html:not(.dark) body{background:#f8fafc}html:not(.dark) .bg-dark-900{background:#fff}html:not(.dark) .bg-dark-800{background:#f9fafb}html:not(.dark) .bg-dark-700{background:#f3f4f6}html:not(.dark) .bg-dark-600{background:#e5e7eb}html:not(.dark) .text-neutral-100{color:#111827}html:not(.dark) .text-neutral-300{color:#4b5563}html:not(.dark) .text-neutral-400{color:#6b7280}html:not(.dark) .text-neutral-500{color:#9ca3af}html:not(.dark) .border-dark-600{border-color:#d1d5db}html:not(.dark) .border-dark-700{border-color:#e5e7eb}
+html:not(.dark) .text-teal-400{color:#0d9488}html:not(.dark) .bg-teal-500\/20{background:rgba(13,148,136,.12)}html:not(.dark) .bg-teal-500\/10{background:rgba(13,148,136,.08)}html:not(.dark) .border-teal-500\/30{border-color:rgba(13,148,136,.25)}html:not(.dark) .hover\:bg-teal-500\/30:hover{background:rgba(13,148,136,.18)}html:not(.dark) .hover\:text-teal-400:hover{color:#0d9488}html:not(.dark) .bg-teal-900\/20{background:rgba(13,148,136,.06)}html:not(.dark) .bg-teal-900\/30{background:rgba(13,148,136,.06)}html:not(.dark) .bg-teal-900\/40{background:rgba(13,148,136,.08)}
+html:not(.dark) .text-blue-400{color:#2563eb}html:not(.dark) .bg-blue-500\/30{border-color:rgba(37,99,235,.25)}html:not(.dark) .bg-blue-900\/20{background:rgba(37,99,235,.06)}html:not(.dark) .border-blue-500\/30{border-color:rgba(37,99,235,.25)}
+html:not(.dark) .text-red-400{color:#b91c1c}html:not(.dark) .bg-red-900\/20{background:rgba(185,28,28,.06)}html:not(.dark) .border-red-500\/30{border-color:rgba(185,28,28,.25)}
+html:not(.dark) [class*="bg-gradient-to"]{background-image:none!important}html:not(.dark) .text-primary{color:#a16207}html:not(.dark) .bg-primary\/10{background:rgba(161,98,7,.08)}html:not(.dark) .border-primary\/30{border-color:rgba(161,98,7,.25)}html:not(.dark) .text-sky-400{color:#0369a1}html:not(.dark) .text-yellow-400{color:#a16207}html:not(.dark) .hover\:text-sky-300:hover{color:#0284c7}html:not(.dark) .hover\:text-yellow-300:hover{color:#854d0e}html:not(.dark) .bg-dark-900\/95{background:rgba(255,255,255,.95)}
+</style></head>
+<body class="bg-dark-900 text-neutral-100">
+<nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"><div class="flex justify-between items-center h-14"><div class="flex items-center space-x-4"><a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300"><span class="text-2xl">⚡</span><span class="font-bold text-lg hidden sm:inline">Agentic OS</span></a><span class="text-neutral-600">|</span><a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a></div><div class="flex items-center space-x-1 sm:space-x-2"><a href="../trilha1/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors"><span class="sm:hidden">T1</span><span class="hidden sm:inline">Fundamentos</span></a><a href="../trilha2/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors"><span class="sm:hidden">T2</span><span class="hidden sm:inline">Identidade</span></a><a href="../trilha3/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors"><span class="sm:hidden">T3</span><span class="hidden sm:inline">Conhecimento</span></a><a href="../trilha4/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-amber-400 hover:bg-amber-500/10 transition-colors"><span class="sm:hidden">T4</span><span class="hidden sm:inline">Trabalhadores</span></a><a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-teal-400 bg-teal-500/10"><span class="sm:hidden">T5</span><span class="hidden sm:inline">Automação</span></a><a href="../trilha6/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-rose-400 hover:bg-rose-500/10 transition-colors"><span class="sm:hidden">T6</span><span class="hidden sm:inline">Implantação</span></a><button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2"><svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/></svg><svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"/></svg></button></div></div></div></nav>
+
+<nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4"><div class="flex items-center space-x-2 text-sm text-neutral-400"><a href="../../index.html" class="hover:text-teal-400">Início</a><span>/</span><a href="index.html" class="hover:text-teal-400">Trilha 5</a><span>/</span><span class="text-teal-400">Módulo 5.5</span></div></nav>
+
+<header class="bg-gradient-to-br from-teal-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"><span class="inline-block px-3 py-1 bg-teal-500/20 text-teal-400 text-xs font-semibold rounded-full mb-4">MÓDULO 5.5</span><h1 class="text-3xl sm:text-4xl font-bold mb-4">⏰ Cron, schedules e watchers</h1><p class="text-lg text-neutral-400 max-w-3xl">Tempo (cron), evento (webhook), filesystem (watcher). Como dar vida automática ao Agentic OS.</p><div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl"><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-teal-400">6</div><div class="text-xs text-neutral-400">Tópicos</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-teal-400">35</div><div class="text-xs text-neutral-400">Minutos</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-teal-400">Médio</div><div class="text-xs text-neutral-400">Nível</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-teal-400">Prático</div><div class="text-xs text-neutral-400">Tipo</div></div></div></div></header>
+
+<main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+<section id="topico-1" class="mb-16">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-teal-500/20 text-teal-400 font-bold text-xl">1</span><h2 class="text-2xl font-bold">⏰ Cron — gatilho de tempo</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Cron é o mecanismo mais robusto de automação: <strong class="text-teal-400">executa um comando em horário predefinido, independente de qualquer evento externo</strong>. Marco recebe o brief financeiro às 6h de segunda porque o sistema lembra — não porque ele pediu.</p>
+<div class="bg-gradient-to-br from-teal-900/30 to-dark-800 rounded-xl border border-teal-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-teal-400 mb-4 flex items-center"><span class="mr-2">💻</span> Exemplos de cron para agentes</h3>
+<pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300 overflow-x-auto"><code># crontab -e
+
+# Brief financeiro toda segunda 6h
+0 6 * * 1 /usr/bin/claude --print "Gera brief financeiro semanal" \
+  --no-interactive >> /tmp/brief-$(date +%Y%m%d).md
+
+# Monitoramento de concorrentes toda sexta 18h
+0 18 * * 5 /home/user/.local/bin/run-agent.sh competitive-monitor
+
+# Silver Platter update todo dia 2h
+0 2 * * * python3 /workspace/scripts/update-silver-platter.py
+
+# Relatório mensal: 1o dia do mes 7h
+0 7 1 * * claude --print "Gera relatorio mensal completo" \
+  --context /workspace/context/ >> /workspace/reports/monthly-$(date +%Y%m).md</code></pre>
+</div>
+<div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> systemd timer vs. crontab</h3>
+<p class="text-neutral-300">Para 2026, prefira <code class="bg-dark-700 px-1 rounded">systemd user timers</code> sobre crontab em Linux: logs estruturados via journalctl, retry automático em falha, melhor controle de dependências. crontab é mais simples para começar.</p>
+</div>
+</section>
+
+<section id="topico-2" class="mb-16">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-teal-500/20 text-teal-400 font-bold text-xl">2</span><h2 class="text-2xl font-bold">📡 Webhook — gatilho de evento</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Quando o gatilho é externo, webhook é mais natural que polling: <strong class="text-teal-400">o sistema externo notifica o agente quando algo acontece</strong>. Stripe paga → CFO Bot atualiza o relatório. GitHub merge → Builder roda testes.</p>
+<div class="bg-gradient-to-br from-teal-900/30 to-dark-800 rounded-xl border border-teal-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-teal-400 mb-4 flex items-center"><span class="mr-2">💻</span> Receptor de webhook simples</h3>
+<pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300 overflow-x-auto"><code># webhook-receiver.py (Flask)
+from flask import Flask, request
+import subprocess, hmac, hashlib
+
+app = Flask(__name__)
+
+@app.route('/webhook/stripe', methods=['POST'])
+def stripe_webhook():
+    # Valida assinatura
+    sig = request.headers.get('Stripe-Signature')
+    if not validate_stripe_sig(request.data, sig):
+        return 'Invalid', 401
+
+    event = request.json
+    if event['type'] == 'payment_intent.succeeded':
+        amount = event['data']['object']['amount']
+        # Dispara agente assincronamente
+        subprocess.Popen([
+            'claude', '--print',
+            f'Pagamento de R${amount/100:.2f} recebido. Atualiza relatorio.',
+            '--no-interactive'
+        ])
+
+    return 'OK', 200</code></pre>
+</div>
+<div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-blue-400 mb-3">Boas práticas de webhook</h3>
+<ul class="space-y-1 text-neutral-300 text-sm">
+<li><strong class="text-neutral-100">Validar assinatura</strong> — HMAC-SHA256. Sem isso, qualquer um dispara seu agente.</li>
+<li><strong class="text-neutral-100">Responder 200 rápido</strong> — processar em background. Stripe timeout em 30s.</li>
+<li><strong class="text-neutral-100">Idempotência</strong> — webhook pode chegar duplicado. Deduplique por event_id.</li>
+<li><strong class="text-neutral-100">Fila</strong> — em produção, use fila (Redis, SQS) entre webhook e agente.</li>
+</ul>
+</div>
+</section>
+
+<section id="topico-3" class="mb-16">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-teal-500/20 text-teal-400 font-bold text-xl">3</span><h2 class="text-2xl font-bold">📁 File watcher — filesystem como evento</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Drop folders são a interface mais natural para processar documentos: <strong class="text-teal-400">usuário solta arquivo em /intake/ e agente processa automaticamente</strong>. Sem UI, sem upload manual, sem lembrar de "enviar para o bot".</p>
+<div class="bg-gradient-to-br from-teal-900/30 to-dark-800 rounded-xl border border-teal-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-teal-400 mb-4 flex items-center"><span class="mr-2">💻</span> File watcher com fswatch</h3>
+<pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300 overflow-x-auto"><code>#!/bin/bash
+# watch-intake.sh — monitora /intake/ e processa novos PDFs
+
+INTAKE_DIR="/workspace/intake"
+PROCESSED_DIR="/workspace/processed"
+
+# fswatch dispara script para cada novo arquivo
+fswatch -0 --event Created "$INTAKE_DIR" | while IFS= read -r -d "" file; do
+  # So processa PDFs
+  if [[ "$file" == *.pdf ]]; then
+    echo "Processando: $file"
+
+    # Chama agente com o arquivo
+    claude --print "Analisa este PDF e extrai dados chave: $(cat "$file")" \
+      --no-interactive > "${PROCESSED_DIR}/$(basename "$file" .pdf).md"
+
+    # Move para processed
+    mv "$file" "$PROCESSED_DIR/"
+    echo "Concluido: $file"
+  fi
+done</code></pre>
+</div>
+<div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Debounce — problema do grande arquivo</h3>
+<p class="text-neutral-300">Sem debounce, watcher dispara durante a escrita do arquivo — processando arquivo incompleto. Adicione: <code class="bg-dark-700 px-1 rounded">sleep 2</code> após detectar criação, ou use <code class="bg-dark-700 px-1 rounded">inotifywait --event close_write</code> que espera o arquivo ser fechado.</p>
+</div>
+</section>
+
+<section id="topico-4" class="mb-16">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-teal-500/20 text-teal-400 font-bold text-xl">4</span><h2 class="text-2xl font-bold">⚙️ systemd user services — daemon agêntico</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Para agentes always-on, <strong class="text-teal-400">systemd user service é superior a script em background</strong>: reinicia em falha, logs estruturados no journalctl, controle fino de recursos, integração com o sistema.</p>
+<div class="bg-gradient-to-br from-teal-900/30 to-dark-800 rounded-xl border border-teal-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-teal-400 mb-4 flex items-center"><span class="mr-2">💻</span> Unit file para agente watcher</h3>
+<pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300 overflow-x-auto"><code># ~/.config/systemd/user/intake-watcher.service
+[Unit]
+Description=Agente de processamento de intake
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/home/user/workspace/scripts/watch-intake.sh
+Restart=on-failure
+RestartSec=10s
+StandardOutput=journal
+StandardError=journal
+
+# Limites de recursos
+MemoryMax=512M
+CPUQuota=50%
+
+[Install]
+WantedBy=default.target
+
+# Ativar:
+# systemctl --user enable intake-watcher
+# systemctl --user start intake-watcher
+# journalctl --user -u intake-watcher -f</code></pre>
+</div>
+<div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-blue-400 mb-3">Vantagens do systemd sobre nohup/screen</h3>
+<ul class="space-y-1 text-neutral-300 text-sm">
+<li><strong class="text-neutral-100">Restart automático</strong> — sem monitoramento manual de processo morto.</li>
+<li><strong class="text-neutral-100">Logs persistentes</strong> — journalctl com filtros, timestamps, níveis.</li>
+<li><strong class="text-neutral-100">Controle de recursos</strong> — MemoryMax evita OOM killer.</li>
+<li><strong class="text-neutral-100">Dependências</strong> — After=network.target garante ordem.</li>
+</ul>
+</div>
+</section>
+
+<section id="topico-5" class="mb-16">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-teal-500/20 text-teal-400 font-bold text-xl">5</span><h2 class="text-2xl font-bold">🧊 Idempotência — não duplicar trabalho</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Cron pode disparar duas vezes (clock drift, restart). Webhook pode chegar duplicado (retry do cliente). <strong class="text-teal-400">Idempotência garante que rodar N vezes produz o mesmo resultado de 1 vez</strong> — sem duplicação de trabalho, sem efeitos colaterais extras.</p>
+<div class="bg-gradient-to-br from-teal-900/30 to-dark-800 rounded-xl border border-teal-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-teal-400 mb-4 flex items-center"><span class="mr-2">💻</span> Padrões de idempotência</h3>
+<pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300 overflow-x-auto"><code>#!/bin/bash
+# Padrao 1: marker file (cron diario)
+MARKER="/tmp/brief-$(date +%Y%m%d).done"
+if [ -f "$MARKER" ]; then
+  echo "Brief ja gerado hoje, pulando."
+  exit 0
+fi
+# ... gera brief ...
+touch "$MARKER"
+
+# Padrao 2: lock file (previne execucao paralela)
+LOCKFILE="/tmp/intake-processor.lock"
+exec 9>"$LOCKFILE"
+if ! flock -n 9; then
+  echo "Outra instancia rodando, saindo."
+  exit 1
+fi
+# ... processa ...
+# lock liberado automaticamente ao sair
+
+# Padrao 3: deduplica por ID (webhook)
+PROCESSED_IDS_FILE="/var/lib/agent/processed-ids"
+EVENT_ID=$(echo "$PAYLOAD" | jq -r '.id')
+if grep -q "^$EVENT_ID$" "$PROCESSED_IDS_FILE" 2>/dev/null; then
+  exit 0  # Ja processado
+fi
+echo "$EVENT_ID" >> "$PROCESSED_IDS_FILE"</code></pre>
+</div>
+<div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-red-400 mb-3 flex items-center"><span class="mr-2">⚠️</span> Consequências de não implementar</h3>
+<p class="text-neutral-300">Marco recebe o brief financeiro duplicado às 6h de segunda. Dois relatórios diferentes, com dados ligeiramente distintos (coletados em timestamps diferentes), causam confusão nas reuniões. Parece trivial até acontecer com dados críticos.</p>
+</div>
+</section>
+
+<section id="topico-6" class="mb-16">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-teal-500/20 text-teal-400 font-bold text-xl">6</span><h2 class="text-2xl font-bold">📲 Notificações — Telegram, Slack, e-mail</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Sistema sem notificação é sistema invisível. <strong class="text-teal-400">O agente precisa de um canal para avisar o humano</strong>: quando terminou, quando falhou, quando encontrou algo que exige decisão. A escolha do canal define a urgência.</p>
+<div class="bg-gradient-to-br from-teal-900/30 to-dark-800 rounded-xl border border-teal-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-teal-400 mb-4 flex items-center"><span class="mr-2">💻</span> Notificador multi-canal</h3>
+<pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300 overflow-x-auto"><code>#!/bin/bash
+# notify.sh - envia para canal correto por urgencia
+# Uso: notify.sh "mensagem" [urgencia: low|medium|high]
+
+MESSAGE="$1"
+URGENCY="${2:-low}"
+
+case "$URGENCY" in
+  high)
+    # Telegram para urgente (chega no celular)
+    curl -s -X POST "https://api.telegram.org/bot$TELEGRAM_TOKEN/sendMessage" \
+      -d "chat_id=$TELEGRAM_CHAT_ID&text=URGENTE: $MESSAGE"
+    ;;
+  medium)
+    # Slack para medium
+    curl -s -X POST "$SLACK_WEBHOOK" \
+      -d "{\"text\": \"$MESSAGE\"}"
+    ;;
+  low)
+    # E-mail para baixa urgencia
+    echo "$MESSAGE" | mail -s "Agentic OS Update" "$NOTIFY_EMAIL"
+    ;;
+esac</code></pre>
+</div>
+<div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Rate limiting de notificações</h3>
+<p class="text-neutral-300">Sistema que notifica demais treina o humano a ignorar. Defina: máximo N notificações por hora por canal. Use digest para agregar mensagens de baixa urgência. Reserve alta urgência para situações que realmente precisam de resposta imediata.</p>
+</div>
+</section>
+
+<section class="mb-12">
+<div class="bg-gradient-to-br from-teal-900/40 via-dark-800 to-dark-800 rounded-xl border border-teal-500/30 p-8">
+<h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-3">📋</span> Resumo do Módulo</h2>
+<div class="space-y-4 mb-8">
+<div class="flex items-start space-x-3"><span class="text-teal-400 mt-1">✓</span><div><strong class="text-white">Cron</strong><span class="text-neutral-400"> — gatilho de tempo mais robusto. crontab ou systemd timer. Brief às 6h.</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-teal-400 mt-1">✓</span><div><strong class="text-white">Webhook</strong><span class="text-neutral-400"> — gatilho reativo. Valida assinatura, responde rápido, processa em background.</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-teal-400 mt-1">✓</span><div><strong class="text-white">File watcher</strong><span class="text-neutral-400"> — drop folder. fswatch/inotifywait. Debounce com close_write.</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-teal-400 mt-1">✓</span><div><strong class="text-white">systemd service</strong><span class="text-neutral-400"> — daemon agêntico com restart, logs, controle de recursos.</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-teal-400 mt-1">✓</span><div><strong class="text-white">Idempotência</strong><span class="text-neutral-400"> — marker file, lock, deduplica por ID. Rodar 2x = resultado de 1x.</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-teal-400 mt-1">✓</span><div><strong class="text-white">Notificações</strong><span class="text-neutral-400"> — canal por urgência: Telegram (alta), Slack (média), e-mail (baixa).</span></div></div>
+</div>
+<div class="bg-dark-800/50 rounded-lg p-4 mb-8"><h3 class="font-semibold text-teal-400 mb-2">Próximo Módulo:</h3><p class="text-neutral-300">5.6 — Segurança aplicada pela arquitetura</p></div>
+<div class="flex flex-col sm:flex-row gap-4">
+<a href="modulo-5-4.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">← Módulo 5.4</a>
+<a href="modulo-5-6.html" class="flex-1 text-center px-6 py-3 bg-teal-600 text-white rounded-lg font-semibold hover:bg-teal-500 transition-colors">Próximo Módulo →</a>
+</div>
+</div>
+</section>
+
+</main>
+
+<footer class="border-t border-dark-600 py-8 mt-16"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm"><p>Agentic OS — INEMA.CLUB · 2026</p></div></footer>
+<script>
+const tt=document.getElementById('theme-toggle'),tdi=document.getElementById('theme-toggle-dark-icon'),tli=document.getElementById('theme-toggle-light-icon'),h=document.documentElement;
+if(localStorage.getItem('theme')==='light'||(!localStorage.getItem('theme')&&!h.classList.contains('dark'))){tdi.classList.remove('hidden');h.classList.remove('dark')}else{tli.classList.remove('hidden')}
+tt.addEventListener('click',()=>{tdi.classList.toggle('hidden');tli.classList.toggle('hidden');h.classList.toggle('dark');localStorage.setItem('theme',h.classList.contains('dark')?'dark':'light')});
+</script>
+</body></html>

@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>5.1 — Hooks como interrupts do OS | Agentic OS</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script>tailwind.config={darkMode:'class',theme:{extend:{colors:{primary:'#FACC15',dark:{900:'#111827',800:'#1f2937',700:'#374151',600:'#4b5563'}}}}}</script>
+<style>
+body{font-family:'Inter',sans-serif}
+html:not(.dark) body{background:#f8fafc}html:not(.dark) .bg-dark-900{background:#fff}html:not(.dark) .bg-dark-800{background:#f9fafb}html:not(.dark) .bg-dark-700{background:#f3f4f6}html:not(.dark) .bg-dark-600{background:#e5e7eb}html:not(.dark) .text-neutral-100{color:#111827}html:not(.dark) .text-neutral-300{color:#4b5563}html:not(.dark) .text-neutral-400{color:#6b7280}html:not(.dark) .text-neutral-500{color:#9ca3af}html:not(.dark) .border-dark-600{border-color:#d1d5db}html:not(.dark) .border-dark-700{border-color:#e5e7eb}
+html:not(.dark) .text-teal-400{color:#0d9488}html:not(.dark) .bg-teal-500\/20{background:rgba(13,148,136,.12)}html:not(.dark) .bg-teal-500\/10{background:rgba(13,148,136,.08)}html:not(.dark) .border-teal-500\/30{border-color:rgba(13,148,136,.25)}html:not(.dark) .hover\:bg-teal-500\/30:hover{background:rgba(13,148,136,.18)}html:not(.dark) .hover\:text-teal-400:hover{color:#0d9488}html:not(.dark) .bg-teal-900\/20{background:rgba(13,148,136,.06)}html:not(.dark) .bg-teal-900\/30{background:rgba(13,148,136,.06)}html:not(.dark) .bg-teal-900\/40{background:rgba(13,148,136,.08)}
+html:not(.dark) .text-blue-400{color:#2563eb}html:not(.dark) .bg-blue-500\/30{border-color:rgba(37,99,235,.25)}html:not(.dark) .bg-blue-900\/20{background:rgba(37,99,235,.06)}html:not(.dark) .border-blue-500\/30{border-color:rgba(37,99,235,.25)}
+html:not(.dark) .text-red-400{color:#b91c1c}html:not(.dark) .bg-red-900\/20{background:rgba(185,28,28,.06)}html:not(.dark) .border-red-500\/30{border-color:rgba(185,28,28,.25)}
+html:not(.dark) [class*="bg-gradient-to"]{background-image:none!important}html:not(.dark) .text-primary{color:#a16207}html:not(.dark) .bg-primary\/10{background:rgba(161,98,7,.08)}html:not(.dark) .border-primary\/30{border-color:rgba(161,98,7,.25)}html:not(.dark) .text-sky-400{color:#0369a1}html:not(.dark) .text-yellow-400{color:#a16207}html:not(.dark) .hover\:text-sky-300:hover{color:#0284c7}html:not(.dark) .hover\:text-yellow-300:hover{color:#854d0e}html:not(.dark) .bg-dark-900\/95{background:rgba(255,255,255,.95)}
+</style></head>
+<body class="bg-dark-900 text-neutral-100">
+<nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"><div class="flex justify-between items-center h-14"><div class="flex items-center space-x-4"><a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300"><span class="text-2xl">⚡</span><span class="font-bold text-lg hidden sm:inline">Agentic OS</span></a><span class="text-neutral-600">|</span><a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a></div><div class="flex items-center space-x-1 sm:space-x-2"><a href="../trilha1/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors"><span class="sm:hidden">T1</span><span class="hidden sm:inline">Fundamentos</span></a><a href="../trilha2/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors"><span class="sm:hidden">T2</span><span class="hidden sm:inline">Identidade</span></a><a href="../trilha3/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors"><span class="sm:hidden">T3</span><span class="hidden sm:inline">Conhecimento</span></a><a href="../trilha4/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-amber-400 hover:bg-amber-500/10 transition-colors"><span class="sm:hidden">T4</span><span class="hidden sm:inline">Trabalhadores</span></a><a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-teal-400 bg-teal-500/10"><span class="sm:hidden">T5</span><span class="hidden sm:inline">Automação</span></a><a href="../trilha6/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-rose-400 hover:bg-rose-500/10 transition-colors"><span class="sm:hidden">T6</span><span class="hidden sm:inline">Implantação</span></a><button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2"><svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/></svg><svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"/></svg></button></div></div></div></nav>
+
+<nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4"><div class="flex items-center space-x-2 text-sm text-neutral-400"><a href="../../index.html" class="hover:text-teal-400">Início</a><span>/</span><a href="index.html" class="hover:text-teal-400">Trilha 5</a><span>/</span><span class="text-teal-400">Módulo 5.1</span></div></nav>
+
+<header class="bg-gradient-to-br from-teal-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"><span class="inline-block px-3 py-1 bg-teal-500/20 text-teal-400 text-xs font-semibold rounded-full mb-4">MÓDULO 5.1</span><h1 class="text-3xl sm:text-4xl font-bold mb-4">⚡ Hooks como interrupts do OS</h1><p class="text-lg text-neutral-400 max-w-3xl">SessionStart, PreToolUse, PostToolUse, Stop, PreCompact. O lifecycle do Claude Code que dá previsibilidade ao não-determinístico.</p><div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl"><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-teal-400">6</div><div class="text-xs text-neutral-400">Tópicos</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-teal-400">50</div><div class="text-xs text-neutral-400">Minutos</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-teal-400">Médio</div><div class="text-xs text-neutral-400">Nível</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-teal-400">Prático</div><div class="text-xs text-neutral-400">Tipo</div></div></div></div></header>
+
+<main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+<section id="topico-1" class="mb-16">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-teal-500/20 text-teal-400 font-bold text-xl">1</span><h2 class="text-2xl font-bold">📚 O catálogo de hooks</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Em sistemas operacionais, <strong class="text-teal-400">interrupts são sinais que o kernel intercepta</strong> antes de deixar o hardware agir livremente. Hooks do Claude Code são exatamente isso: pontos de interrupção no lifecycle do agente onde você injeta lógica determinística num sistema intrinsecamente não-determinístico.</p>
+<div class="bg-gradient-to-br from-teal-900/30 to-dark-800 rounded-xl border border-teal-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-teal-400 mb-4 flex items-center"><span class="mr-2">📋</span> Catálogo completo de hooks</h3>
+<ul class="space-y-2 text-neutral-300 text-sm">
+<li class="flex items-start space-x-2"><span class="text-teal-400 mt-1">•</span><span><strong class="text-neutral-100">SessionStart</strong> — dispara ao iniciar qualquer sessão Claude Code.</span></li>
+<li class="flex items-start space-x-2"><span class="text-teal-400 mt-1">•</span><span><strong class="text-neutral-100">PreToolUse</strong> — antes de cada chamada de ferramenta. Pode bloquear com exit code 2.</span></li>
+<li class="flex items-start space-x-2"><span class="text-teal-400 mt-1">•</span><span><strong class="text-neutral-100">PostToolUse</strong> — após tool executar. Ideal para log e auditoria.</span></li>
+<li class="flex items-start space-x-2"><span class="text-teal-400 mt-1">•</span><span><strong class="text-neutral-100">PostToolUseFailure</strong> — quando tool falha. Alertas e rollback.</span></li>
+<li class="flex items-start space-x-2"><span class="text-teal-400 mt-1">•</span><span><strong class="text-neutral-100">UserPromptSubmit</strong> — quando usuário envia prompt. Enriquecimento automático.</span></li>
+<li class="flex items-start space-x-2"><span class="text-teal-400 mt-1">•</span><span><strong class="text-neutral-100">Stop / StopFailure</strong> — quando Claude acha que terminou. Gate de qualidade.</span></li>
+<li class="flex items-start space-x-2"><span class="text-teal-400 mt-1">•</span><span><strong class="text-neutral-100">SubagentStop</strong> — quando subagente termina. Coordenação multi-agente.</span></li>
+<li class="flex items-start space-x-2"><span class="text-teal-400 mt-1">•</span><span><strong class="text-neutral-100">PreCompact</strong> — antes de compactar contexto. Preservar dados críticos.</span></li>
+<li class="flex items-start space-x-2"><span class="text-teal-400 mt-1">•</span><span><strong class="text-neutral-100">Notification</strong> — Claude envia notificação ao usuário.</span></li>
+</ul>
+</div>
+<div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-blue-400 mb-3 flex items-center"><span class="mr-2">💡</span> Exit codes que controlam tudo</h3>
+<ul class="space-y-2 text-neutral-300 text-sm">
+<li><strong class="text-neutral-100">Exit 0</strong> — sucesso, continua normalmente.</li>
+<li><strong class="text-neutral-100">Exit 1</strong> — erro no hook, Claude ignora e continua.</li>
+<li><strong class="text-neutral-100">Exit 2</strong> — bloqueia a ação. PreToolUse com exit 2 impede a tool de rodar.</li>
+</ul>
+</div>
+</section>
+
+<section id="topico-2" class="mb-16">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-teal-500/20 text-teal-400 font-bold text-xl">2</span><h2 class="text-2xl font-bold">🚀 SessionStart — injetar contexto</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Toda sessão começa "em branco". O SessionStart resolve isso: <strong class="text-teal-400">carrega Silver Platters, converte arquivos, define variáveis de contexto</strong>. É o equivalente ao script de inicialização do sistema — roda uma vez, no começo, de forma invisível.</p>
+<div class="bg-gradient-to-br from-teal-900/30 to-dark-800 rounded-xl border border-teal-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-teal-400 mb-4 flex items-center"><span class="mr-2">💻</span> Exemplo real: bootstrap de contexto</h3>
+<pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300 overflow-x-auto"><code>#!/bin/bash
+# .claude/hooks/session-start.sh
+
+# Carrega Silver Platters
+cat /workspace/context/company-brief.md >> /tmp/session-context.md
+cat /workspace/context/active-projects.md >> /tmp/session-context.md
+
+# Converte planilhas para MD se existirem
+find /workspace/data -name "*.xlsx" -newer /tmp/.last-convert \
+  | xargs -I{} python3 convert-xlsx.py {}
+
+# Injeta data atual
+echo "## Sessão iniciada em: $(date '+%Y-%m-%d %H:%M')" >> /tmp/session-context.md
+
+touch /tmp/.last-convert
+exit 0</code></pre>
+</div>
+<div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Caso de uso: Marco (CFO)</h3>
+<p class="text-neutral-300">Marco configura SessionStart para carregar o brief financeiro semanal, estado atual do pipeline e alertas pendentes. Toda sessão com o CFO Bot começa com 3 páginas de contexto rico — sem Marco precisar lembrar de copiar nada.</p>
+</div>
+</section>
+
+<section id="topico-3" class="mb-16">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-teal-500/20 text-teal-400 font-bold text-xl">3</span><h2 class="text-2xl font-bold">🛡️ PreToolUse — gate antes de agir</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Antes de cada tool call, o Claude passa pelo PreToolUse. É a <strong class="text-teal-400">última linha de defesa antes de uma ação irreversível</strong>. Você pode inspecionar qual tool vai rodar, com quais argumentos, e decidir: passa, bloqueia ou redireciona.</p>
+<div class="bg-gradient-to-br from-teal-900/30 to-dark-800 rounded-xl border border-teal-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-teal-400 mb-4 flex items-center"><span class="mr-2">💻</span> Exemplo: bloqueio de paths proibidos</h3>
+<pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300 overflow-x-auto"><code>#!/bin/bash
+# .claude/hooks/pre-tool-use.sh
+# Recebe JSON via stdin com tool_name e tool_input
+
+TOOL=$(cat /dev/stdin | jq -r '.tool_name')
+INPUT=$(cat /dev/stdin | jq -r '.tool_input // ""')
+
+# Bloqueia acesso a dados financeiros via Bash
+if [[ "$TOOL" == "Bash" ]]; then
+  if echo "$INPUT" | grep -q "/financials/\|/billing/"; then
+    echo "BLOQUEADO: acesso a dados financeiros requer aprovação" >&2
+    exit 2
+  fi
+fi
+
+# Bloqueia git push --force
+if [[ "$TOOL" == "Bash" ]] && echo "$INPUT" | grep -q "push --force\|push -f"; then
+  echo "BLOQUEADO: force push não permitido" >&2
+  exit 2
+fi
+
+exit 0</code></pre>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+<div class="bg-teal-900/20 rounded-xl border border-teal-500/30 p-6">
+<h4 class="font-bold text-teal-400 mb-4">✓ Bons usos do PreToolUse</h4>
+<ul class="space-y-2 text-neutral-300 text-sm">
+<li class="flex items-start space-x-2"><span class="text-teal-400">✓</span><span>Validar paths de acesso</span></li>
+<li class="flex items-start space-x-2"><span class="text-teal-400">✓</span><span>Bloquear comandos destrutivos</span></li>
+<li class="flex items-start space-x-2"><span class="text-teal-400">✓</span><span>Log de auditoria preventivo</span></li>
+<li class="flex items-start space-x-2"><span class="text-teal-400">✓</span><span>Rate limiting por ferramenta</span></li>
+</ul>
+</div>
+<div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+<h4 class="font-bold text-red-400 mb-4">✗ Anti-padrões</h4>
+<ul class="space-y-2 text-neutral-300 text-sm">
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Hook que leva &gt;2s (bloqueia UI)</span></li>
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Exit 2 em todo erro (para tudo)</span></li>
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Lógica complexa sem teste</span></li>
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Depender de serviço externo frágil</span></li>
+</ul>
+</div>
+</div>
+</section>
+
+<section id="topico-4" class="mb-16">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-teal-500/20 text-teal-400 font-bold text-xl">4</span><h2 class="text-2xl font-bold">📝 PostToolUse — log e auditoria</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Depois que a tool executa, o PostToolUse recebe o resultado. É onde você <strong class="text-teal-400">constrói o audit trail, detecta drift, dispara webhooks</strong> e valida outputs antes do Claude continuar. Pense nele como o kernel registrando syscalls.</p>
+<div class="bg-gradient-to-br from-teal-900/30 to-dark-800 rounded-xl border border-teal-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-teal-400 mb-4 flex items-center"><span class="mr-2">💻</span> Exemplo: audit trail estruturado</h3>
+<pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300 overflow-x-auto"><code>#!/bin/bash
+# .claude/hooks/post-tool-use.sh
+
+PAYLOAD=$(cat /dev/stdin)
+TOOL=$(echo "$PAYLOAD" | jq -r '.tool_name')
+INPUT=$(echo "$PAYLOAD" | jq -r '.tool_input // ""')
+OUTPUT=$(echo "$PAYLOAD" | jq -r '.tool_output // ""')
+TIMESTAMP=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
+
+# Log estruturado JSONL
+echo "{\"ts\":\"$TIMESTAMP\",\"tool\":\"$TOOL\",\"input\":$INPUT,\"status\":\"ok\"}" \
+  >> /var/log/agent-audit.jsonl
+
+# Webhook para Slack se foi Write em produção
+if [[ "$TOOL" == "Write" ]] && echo "$INPUT" | grep -q "/prod/"; then
+  curl -s -X POST "$SLACK_WEBHOOK" \
+    -d "{\"text\":\"⚠️ Agente escreveu em /prod/ — ts: $TIMESTAMP\"}" &
+fi
+
+exit 0</code></pre>
+</div>
+<div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Drift detection com PostToolUse</h3>
+<p class="text-neutral-300">Sally (CMO) usa PostToolUse para detectar quando o agente edita arquivos fora do escopo `/marketing/`. Se o output incluir path de outra área, o hook registra um alerta de "escopo drift" no Slack — sem parar o agente, só sinalizando.</p>
+</div>
+</section>
+
+<section id="topico-5" class="mb-16">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-teal-500/20 text-teal-400 font-bold text-xl">5</span><h2 class="text-2xl font-bold">🛑 Stop e StopFailure — validação humana</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Claude decide quando "terminou". Mas <strong class="text-teal-400">o critério de "pronto" do agente raramente é o critério da operação</strong>. O hook Stop com exit code 2 força o agente a continuar — é como o Definition of Done imposto pelo sistema, não pela esperança.</p>
+<div class="bg-gradient-to-br from-teal-900/30 to-dark-800 rounded-xl border border-teal-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-teal-400 mb-4 flex items-center"><span class="mr-2">💻</span> Stop hook com checklist de qualidade</h3>
+<pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300 overflow-x-auto"><code>#!/bin/bash
+# .claude/hooks/stop.sh
+# Valida se o trabalho atende critérios antes de parar
+
+TRANSCRIPT=$(cat /dev/stdin | jq -r '.transcript // ""')
+
+# Verifica se testes foram rodados
+if ! echo "$TRANSCRIPT" | grep -q "npm test\|pytest\|cargo test"; then
+  echo "REQUER: rode os testes antes de finalizar" >&2
+  exit 2
+fi
+
+# Verifica se há arquivos staged mas não commitados
+if git diff --cached --quiet 2>/dev/null; then
+  : # ok, nada staged
+else
+  echo "REQUER: commit as mudanças staged antes de finalizar" >&2
+  exit 2
+fi
+
+exit 0</code></pre>
+</div>
+<div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-blue-400 mb-3 flex items-center"><span class="mr-2">📊</span> StopFailure — quando o agente falha</h3>
+<p class="text-neutral-300">StopFailure dispara quando Claude para por erro (não por conclusão). É onde você captura a mensagem de falha, envia alerta, e opcionalmente dispara um agente de recuperação. Sana (ops) usa isso para garantir que nenhuma falha fique silenciosa.</p>
+</div>
+</section>
+
+<section id="topico-6" class="mb-16">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-teal-500/20 text-teal-400 font-bold text-xl">6</span><h2 class="text-2xl font-bold">📦 PreCompact — hook avançado de contexto</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Quando o contexto fica grande, Claude compacta a janela. <strong class="text-teal-400">PreCompact roda antes disso acontecer</strong>: você injeta o que NÃO pode ser comprimido — decisões críticas, estado atual, identidade do projeto. É o que garante continuidade em sessões longas.</p>
+<div class="bg-gradient-to-br from-teal-900/30 to-dark-800 rounded-xl border border-teal-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-teal-400 mb-4 flex items-center"><span class="mr-2">💻</span> PreCompact: injeta sticky context</h3>
+<pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300 overflow-x-auto"><code>#!/bin/bash
+# .claude/hooks/pre-compact.sh
+# Injeta contexto que não pode ser perdido na compactação
+
+echo "=== CONTEXTO STICKY — NÃO COMPRIMIR ==="
+echo "Projeto: $(cat .claude/project-name 2>/dev/null || echo 'N/A')"
+echo "Estado: $(cat /tmp/agent-state.json 2>/dev/null || echo '{}')"
+echo "Decisões desta sessão:"
+cat /tmp/session-decisions.md 2>/dev/null || echo "(nenhuma)"
+echo "Regras ativas:"
+cat .claude/CLAUDE.md | head -20
+echo "=== FIM CONTEXTO STICKY ==="
+
+exit 0</code></pre>
+</div>
+<div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-red-400 mb-3 flex items-center"><span class="mr-2">⚠️</span> Anti-padrão: loop infinito de compactação</h3>
+<p class="text-neutral-300">Se PreCompact injetar contexto grande demais, Claude compacta → fica cheio → compacta de novo. Evite: injete só o essencial (máx. 500 tokens). Arquivos completos ficam em disco, não no contexto sticky.</p>
+</div>
+</section>
+
+<section class="mb-12">
+<div class="bg-gradient-to-br from-teal-900/40 via-dark-800 to-dark-800 rounded-xl border border-teal-500/30 p-8">
+<h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-3">📋</span> Resumo do Módulo</h2>
+<div class="space-y-4 mb-8">
+<div class="flex items-start space-x-3"><span class="text-teal-400 mt-1">✓</span><div><strong class="text-white">Hooks = interrupts do OS</strong><span class="text-neutral-400"> — 10+ eventos no lifecycle do Claude Code</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-teal-400 mt-1">✓</span><div><strong class="text-white">SessionStart</strong><span class="text-neutral-400"> — bootstrap de contexto, Silver Platters, conversões automáticas</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-teal-400 mt-1">✓</span><div><strong class="text-white">PreToolUse</strong><span class="text-neutral-400"> — gate de segurança, exit 2 bloqueia, exit 0 libera</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-teal-400 mt-1">✓</span><div><strong class="text-white">PostToolUse</strong><span class="text-neutral-400"> — audit trail, drift detection, webhooks assíncronos</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-teal-400 mt-1">✓</span><div><strong class="text-white">Stop / StopFailure</strong><span class="text-neutral-400"> — Definition of Done imposto pelo sistema</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-teal-400 mt-1">✓</span><div><strong class="text-white">PreCompact</strong><span class="text-neutral-400"> — contexto sticky que sobrevive à compactação</span></div></div>
+</div>
+<div class="bg-dark-800/50 rounded-lg p-4 mb-8"><h3 class="font-semibold text-teal-400 mb-2">Próximo Módulo:</h3><p class="text-neutral-300">5.2 — n8n e Make como linguagens complementares</p></div>
+<div class="flex flex-col sm:flex-row gap-4">
+<a href="../trilha4/modulo-4-6.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">← Módulo 4.6</a>
+<a href="modulo-5-2.html" class="flex-1 text-center px-6 py-3 bg-teal-600 text-white rounded-lg font-semibold hover:bg-teal-500 transition-colors">Próximo Módulo →</a>
+</div>
+</div>
+</section>
+
+</main>
+
+<footer class="border-t border-dark-600 py-8 mt-16"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm"><p>Agentic OS — INEMA.CLUB · 2026</p></div></footer>
+<script>
+const tt=document.getElementById('theme-toggle'),tdi=document.getElementById('theme-toggle-dark-icon'),tli=document.getElementById('theme-toggle-light-icon'),h=document.documentElement;
+if(localStorage.getItem('theme')==='light'||(!localStorage.getItem('theme')&&!h.classList.contains('dark'))){tdi.classList.remove('hidden');h.classList.remove('dark')}else{tli.classList.remove('hidden')}
+tt.addEventListener('click',()=>{tdi.classList.toggle('hidden');tli.classList.toggle('hidden');h.classList.toggle('dark');localStorage.setItem('theme',h.classList.contains('dark')?'dark':'light')});
+</script>
+</body></html>

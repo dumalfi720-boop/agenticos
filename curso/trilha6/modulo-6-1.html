@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Módulo 6.1 — Caso Marco (SlabHaus) | Agentic OS</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#FACC15',
+            dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' }
+          }
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #111827; }
+    .topic-explanation { display: none; }
+    .topic-explanation.active { display: block; }
+
+    /* Light mode - base */
+    html:not(.dark) body { background-color: #f9fafb; color: #111827; }
+    html:not(.dark) .bg-dark-900 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-800 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .bg-dark-700\/50 { background-color: rgba(243,244,246,0.7); }
+    html:not(.dark) .border-dark-600 { border-color: #e5e7eb; }
+    html:not(.dark) .text-neutral-100 { color: #111827; }
+    html:not(.dark) .text-neutral-300 { color: #374151; }
+    html:not(.dark) .text-neutral-400 { color: #6b7280; }
+    html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+    html:not(.dark) .hover\:bg-dark-700\/50:hover { background-color: rgba(243,244,246,0.7); }
+
+    /* Light mode - cores de acento (trilha rose) */
+    html:not(.dark) .text-rose-400 { color: #9f1239; }
+    html:not(.dark) .bg-rose-500\/20 { background-color: rgba(159,18,57,0.12); }
+    html:not(.dark) .bg-rose-500\/10 { background-color: rgba(159,18,57,0.08); }
+    html:not(.dark) .border-rose-500\/30 { border-color: rgba(159,18,57,0.25); }
+    html:not(.dark) .hover\:bg-rose-500\/30:hover { background-color: rgba(159,18,57,0.18); }
+    html:not(.dark) .hover\:text-rose-400:hover { color: #9f1239; }
+    html:not(.dark) .bg-rose-900\/20 { background-color: rgba(159,18,57,0.06); }
+
+    /* Light mode - remove gradientes */
+    html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; }
+
+    /* Light mode - cores especiais */
+    html:not(.dark) .text-primary { color: #a16207; }
+    html:not(.dark) .bg-primary\/10 { background-color: rgba(161,98,7,0.08); }
+    html:not(.dark) .border-primary\/40 { border-color: rgba(161,98,7,0.25); }
+    html:not(.dark) .text-sky-400 { color: #0369a1; }
+    html:not(.dark) .text-yellow-400 { color: #a16207; }
+    html:not(.dark) .hover\:text-sky-300:hover { color: #0284c7; }
+    html:not(.dark) .hover\:text-yellow-300:hover { color: #854d0e; }
+
+    /* Light mode - nav */
+    html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255,255,255,0.95); }
+  </style>
+</head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen">
+
+  <!-- NAVIGATION -->
+  <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <div class="flex items-center space-x-6">
+          <a href="../../index.html" class="text-xl font-bold text-yellow-400">🤖 Agentic OS</a>
+          <a href="https://inema.club" target="_blank" class="text-sky-400 text-sm font-medium hover:text-sky-300">INEMA.CLUB</a>
+        </div>
+        <div class="hidden md:flex items-center space-x-1 text-sm">
+          <a href="../trilha1/index.html" class="px-3 py-1.5 rounded-lg text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors">Fundamentos</a>
+          <a href="../trilha2/index.html" class="px-3 py-1.5 rounded-lg text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors">Contexto</a>
+          <a href="../trilha3/index.html" class="px-3 py-1.5 rounded-lg text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors">Agentes</a>
+          <a href="../trilha4/index.html" class="px-3 py-1.5 rounded-lg text-neutral-400 hover:text-amber-400 hover:bg-amber-500/10 transition-colors">Skills</a>
+          <a href="../trilha5/index.html" class="px-3 py-1.5 rounded-lg text-neutral-400 hover:text-teal-400 hover:bg-teal-500/10 transition-colors">Automação</a>
+          <a href="index.html" class="px-3 py-1.5 rounded-lg text-rose-400 bg-rose-500/10">Implantação</a>
+        </div>
+        <button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors">
+          <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+          <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"></path></svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- BREADCRUMB -->
+  <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+    <div class="flex items-center space-x-2 text-sm text-neutral-400">
+      <a href="../../index.html" class="hover:text-rose-400">Início</a>
+      <span>/</span>
+      <a href="index.html" class="hover:text-rose-400">Trilha 6</a>
+      <span>/</span>
+      <span class="text-rose-400">Módulo 6.1</span>
+    </div>
+  </nav>
+
+  <!-- HEADER -->
+  <header class="bg-gradient-to-br from-rose-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <span class="inline-block px-3 py-1 bg-rose-500/20 text-rose-400 text-xs font-semibold rounded-full mb-4">MÓDULO 6.1</span>
+      <h1 class="text-2xl font-bold mb-4">📦 Caso Marco — SlabHaus</h1>
+      <p class="text-lg text-neutral-400 max-w-3xl">Founder solo, mystery boxes em livestream, R$14k/semana, 5 níveis de SKU. Stack: Shopify, Meta Ads, TikTok, Twitch, CSV. 3h toda segunda compilando P&amp;L — vamos eliminar isso completamente.</p>
+      <div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-rose-400">6</div>
+          <div class="text-xs text-neutral-400">Tópicos</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-rose-400">~60 min</div>
+          <div class="text-xs text-neutral-400">Duração</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-rose-400">Aplicado</div>
+          <div class="text-xs text-neutral-400">Nível</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-rose-400">Case</div>
+          <div class="text-xs text-neutral-400">Tipo</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <!-- TOPICO 1 -->
+    <section id="topico-1" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="w-12 h-12 rounded-full bg-rose-500/20 text-rose-400 text-xl font-bold flex items-center justify-center flex-shrink-0">1</span>
+        <h2 class="text-2xl font-bold">🗄️ Pantry do Marco — Onde os dados moram</h2>
+      </div>
+      <p class="text-neutral-400 mb-6 ml-16">Antes de qualquer agente existir, você precisa saber onde cada dado vive. Marco tem dados espalhados em 5 fontes diferentes — mapeá-las explicitamente é o pré-requisito zero de todo Agentic OS. Sem esse mapa, o agente trabalha no escuro.</p>
+
+      <div class="ml-16 space-y-6">
+        <!-- Box Conceito Principal -->
+        <div class="bg-gradient-to-br from-rose-900/20 to-dark-800 rounded-xl p-6 border border-rose-500/30">
+          <h3 class="text-rose-400 font-semibold mb-3">🗺️ Mapa de fontes do Marco</h3>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div class="bg-dark-800/60 rounded-lg p-3">
+              <div class="text-rose-400 font-semibold text-sm mb-1">Shopify</div>
+              <p class="text-neutral-300 text-sm">Pedidos, SKUs, receita por produto. Atualiza em tempo real. Owner: Marco.</p>
+            </div>
+            <div class="bg-dark-800/60 rounded-lg p-3">
+              <div class="text-rose-400 font-semibold text-sm mb-1">Meta Ads + TikTok</div>
+              <p class="text-neutral-300 text-sm">Campanhas, ROAS, CPM, audiência. Freshness: 1h delay. Owner: agência.</p>
+            </div>
+            <div class="bg-dark-800/60 rounded-lg p-3">
+              <div class="text-rose-400 font-semibold text-sm mb-1">Twitch / YouTube Live</div>
+              <p class="text-neutral-300 text-sm">Mensagens de chat, donações, whales identificados. Freshness: live.</p>
+            </div>
+            <div class="bg-dark-800/60 rounded-lg p-3">
+              <div class="text-rose-400 font-semibold text-sm mb-1">QuickBooks + CSVs</div>
+              <p class="text-neutral-300 text-sm">P&amp;L consolidado, custo de mercadoria, margem. Freshness: semanal.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Box Dica Pratica -->
+        <div class="bg-primary/10 rounded-xl p-6 border border-primary/40">
+          <h3 class="text-primary font-semibold mb-3">💡 Dica prática — Source Mapping Canvas</h3>
+          <p class="text-neutral-300 text-sm mb-3">Antes de escrever uma linha de CLAUDE.md, faça este inventário em papel:</p>
+          <div class="space-y-2 text-sm text-neutral-300">
+            <div class="flex items-start space-x-2"><span class="text-primary mt-0.5">→</span><span><strong>Nome da fonte</strong> — Shopify, planilha, CRM</span></div>
+            <div class="flex items-start space-x-2"><span class="text-primary mt-0.5">→</span><span><strong>Formato</strong> — CSV, API, PDF, banco de dados</span></div>
+            <div class="flex items-start space-x-2"><span class="text-primary mt-0.5">→</span><span><strong>Freshness</strong> — tempo real, diário, semanal</span></div>
+            <div class="flex items-start space-x-2"><span class="text-primary mt-0.5">→</span><span><strong>Owner</strong> — quem controla o acesso</span></div>
+          </div>
+        </div>
+
+        <!-- Box dados -->
+        <div class="bg-blue-900/20 rounded-xl p-6 border border-blue-500/30">
+          <h3 class="text-blue-400 font-semibold mb-3">📊 Por que o mapa importa antes do agente</h3>
+          <p class="text-neutral-300 text-sm">Marco perdia 3h/semana porque não tinha automação — mas a causa raiz era que os dados estavam em formatos incompatíveis e sem ciclo de atualização definido. O agente só funciona se souber onde buscar e com qual frequência. <strong>Source mapping</strong> é o trabalho de design que precede todo o código.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOPICO 2 -->
+    <section id="topico-2" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="w-12 h-12 rounded-full bg-rose-500/20 text-rose-400 text-xl font-bold flex items-center justify-center flex-shrink-0">2</span>
+        <h2 class="text-2xl font-bold">🍽️ Prep Table — Silver Platters do Marco</h2>
+      </div>
+      <p class="text-neutral-400 mb-6 ml-16">Com as fontes mapeadas, o próximo passo é criar os Silver Platters: arquivos Markdown pré-processados que alimentam os agentes com contexto pronto. Marco tem 4 Silver Platters semanais que rodam toda segunda-feira às 5h da manhã.</p>
+
+      <div class="ml-16 space-y-6">
+        <div class="bg-gradient-to-br from-rose-900/20 to-dark-800 rounded-xl p-6 border border-rose-500/30">
+          <h3 class="text-rose-400 font-semibold mb-4">📋 Os 4 Silver Platters da SlabHaus</h3>
+          <div class="space-y-3">
+            <div class="bg-dark-800/60 rounded-lg p-4">
+              <div class="text-rose-400 font-mono text-sm font-bold mb-1">finance_weekly.md</div>
+              <p class="text-neutral-300 text-sm">P&amp;L da semana: receita bruta, custo de mercadoria, margem por SKU tier, comparativo vs semana anterior. Gerado pelo Python aggregator via QuickBooks API.</p>
+            </div>
+            <div class="bg-dark-800/60 rounded-lg p-4">
+              <div class="text-rose-400 font-mono text-sm font-bold mb-1">ad_performance.md</div>
+              <p class="text-neutral-300 text-sm">ROAS por canal (Meta/TikTok), CPM, top 3 criativos, audiências que converteram. Puxado via API das plataformas.</p>
+            </div>
+            <div class="bg-dark-800/60 rounded-lg p-4">
+              <div class="text-rose-400 font-mono text-sm font-bold mb-1">inventory_state.md</div>
+              <p class="text-neutral-300 text-sm">Estoque por SKU tier, velocidade de saída, alertas de ruptura. Fonte: Shopify + planilha de compras.</p>
+            </div>
+            <div class="bg-dark-800/60 rounded-lg p-4">
+              <div class="text-rose-400 font-mono text-sm font-bold mb-1">customer_voice.md</div>
+              <p class="text-neutral-300 text-sm">Top mensagens de whales no chat, reclamações, pedidos de SKU. Extraídas via Twitch API + filtro NLP.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-primary/10 rounded-xl p-6 border border-primary/40">
+          <h3 class="text-primary font-semibold mb-3">💡 Weekly cadence — o ciclo certo</h3>
+          <p class="text-neutral-300 text-sm">Silver Platters não são ETL. São resumos curados para LLMs. A diferença: um ETL preserva dados brutos; um Silver Platter já pré-interpreta, normaliza vocabulário e remove ruído. O Python aggregator roda em cron e deposita os .md em <code class="bg-dark-700 px-1 rounded">/resumos/semanal/</code>.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOPICO 3 -->
+    <section id="topico-3" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="w-12 h-12 rounded-full bg-rose-500/20 text-rose-400 text-xl font-bold flex items-center justify-center flex-shrink-0">3</span>
+        <h2 class="text-2xl font-bold">⏰ Plate — Brief das 6h (Segunda automática)</h2>
+      </div>
+      <p class="text-neutral-400 mb-6 ml-16">O coração do sistema de Marco: um cron que roda toda segunda às 6h e entrega um relatório consolidado no Telegram antes de Marco tomar café. Três agentes especializados colaboram para produzir esse relatório em menos de 4 minutos.</p>
+
+      <div class="ml-16 space-y-6">
+        <div class="bg-gradient-to-br from-rose-900/20 to-dark-800 rounded-xl p-6 border border-rose-500/30">
+          <h3 class="text-rose-400 font-semibold mb-4">🔄 Fluxo de segunda às 6h</h3>
+          <div class="space-y-2">
+            <div class="flex items-center space-x-3 bg-dark-800/60 rounded-lg p-3">
+              <span class="w-6 h-6 rounded-full bg-rose-500/20 text-rose-400 text-xs font-bold flex items-center justify-center flex-shrink-0">1</span>
+              <span class="text-neutral-300 text-sm"><strong>EA Orchestrator</strong> — lê os 4 Silver Platters e delega tarefas aos especialistas</span>
+            </div>
+            <div class="flex items-center space-x-3 bg-dark-800/60 rounded-lg p-3">
+              <span class="w-6 h-6 rounded-full bg-rose-500/20 text-rose-400 text-xs font-bold flex items-center justify-center flex-shrink-0">2</span>
+              <span class="text-neutral-300 text-sm"><strong>CFO Bot</strong> — analisa finance_weekly.md, calcula anomalias, projeta semana</span>
+            </div>
+            <div class="flex items-center space-x-3 bg-dark-800/60 rounded-lg p-3">
+              <span class="w-6 h-6 rounded-full bg-rose-500/20 text-rose-400 text-xs font-bold flex items-center justify-center flex-shrink-0">3</span>
+              <span class="text-neutral-300 text-sm"><strong>CMO Bot</strong> — analisa ads + customer_voice, recomenda ajustes de campanha</span>
+            </div>
+            <div class="flex items-center space-x-3 bg-dark-800/60 rounded-lg p-3">
+              <span class="w-6 h-6 rounded-full bg-rose-500/20 text-rose-400 text-xs font-bold flex items-center justify-center flex-shrink-0">4</span>
+              <span class="text-neutral-300 text-sm"><strong>Inventory Bot</strong> — checa rupturas, calcula reposição por SKU tier</span>
+            </div>
+            <div class="flex items-center space-x-3 bg-dark-800/60 rounded-lg p-3">
+              <span class="w-6 h-6 rounded-full bg-rose-500/20 text-rose-400 text-xs font-bold flex items-center justify-center flex-shrink-0">5</span>
+              <span class="text-neutral-300 text-sm"><strong>EA Orchestrator</strong> — sintetiza os 3 relatórios e pusha no Telegram de Marco</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-blue-900/20 rounded-xl p-6 border border-blue-500/30">
+          <h3 class="text-blue-400 font-semibold mb-2">📊 Resultado: 3h manuais → 4 minutos</h3>
+          <p class="text-neutral-300 text-sm">Marco recebia o brief às 6h04. O tempo de 3h que ele gastava compilando planilhas virou 0. Mais importante: a qualidade do relatório aumentou — os agentes identificam anomalias que Marco não pegava manualmente por causa do viés de confirmação.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOPICO 4 -->
+    <section id="topico-4" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="w-12 h-12 rounded-full bg-rose-500/20 text-rose-400 text-xl font-bold flex items-center justify-center flex-shrink-0">4</span>
+        <h2 class="text-2xl font-bold">🎮 /pre-stream prep — Skill antes da live</h2>
+      </div>
+      <p class="text-neutral-400 mb-6 ml-16">Além do relatório semanal, Marco tem uma skill acionada manualmente: <code class="bg-dark-700 px-1 rounded text-rose-400">/pre-stream prep</code>. Rodada 30 minutos antes de cada live, ela gera o playbook completo da transmissão — estoque disponível, top whales esperados, mensagens de alta-performance passadas.</p>
+
+      <div class="ml-16 space-y-6">
+        <div class="bg-gradient-to-br from-rose-900/20 to-dark-800 rounded-xl p-6 border border-rose-500/30">
+          <h3 class="text-rose-400 font-semibold mb-3">📝 Output da /pre-stream prep</h3>
+          <div class="bg-dark-800/60 rounded-lg p-4 font-mono text-sm text-neutral-300">
+            <p class="text-rose-400 font-bold mb-2"># Playbook Live — Segunda 20h</p>
+            <p class="mb-1"><span class="text-rose-400">## Estoque Disponível</span></p>
+            <p class="text-neutral-400 mb-2">- Tier Gold: 47 unid. | Tier Platinum: 12 unid. | Tier Diamond: 3 unid.</p>
+            <p class="mb-1"><span class="text-rose-400">## Top Whales Esperados</span></p>
+            <p class="text-neutral-400 mb-2">- @GamerKing99: histórico R$2.4k, prefere Platinum. Última compra: -14d</p>
+            <p class="mb-1"><span class="text-rose-400">## Alerta de Estoque</span></p>
+            <p class="text-neutral-400">- Diamond acabará em ~8 min de live se taxa de sexta-feira se repetir.</p>
+          </div>
+        </div>
+
+        <div class="bg-primary/10 rounded-xl p-6 border border-primary/40">
+          <h3 class="text-primary font-semibold mb-3">💡 Skill vs Script — por que importa</h3>
+          <p class="text-neutral-300 text-sm">Um script Python produz saída estática. Uma skill com LLM interpreta contexto, adapta o formato, e evolui conforme o CLAUDE.md é atualizado. Marco adicionou uma seção de "análise de sentimento das mensagens" ao CLAUDE.md semanas depois — a skill incorporou automaticamente sem reescrita.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOPICO 5 -->
+    <section id="topico-5" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="w-12 h-12 rounded-full bg-rose-500/20 text-rose-400 text-xl font-bold flex items-center justify-center flex-shrink-0">5</span>
+        <h2 class="text-2xl font-bold">🐳 Análise de Whales — Pergunta vira cadeia</h2>
+      </div>
+      <p class="text-neutral-400 mb-6 ml-16">Marco queria saber: "Whale tier vale o custo do pull garantido?" Essa pergunta simples aciona uma cadeia completa de orquestração — o caso de uso mais sofisticado do sistema e o que melhor demonstra o poder do modelo multi-agente.</p>
+
+      <div class="ml-16 space-y-6">
+        <div class="bg-gradient-to-br from-rose-900/20 to-dark-800 rounded-xl p-6 border border-rose-500/30">
+          <h3 class="text-rose-400 font-semibold mb-4">🔗 Question → Chain → Synthesis</h3>
+          <div class="space-y-3 text-sm">
+            <div class="bg-dark-800/60 rounded-lg p-3">
+              <span class="text-rose-400 font-semibold">Marco pergunta:</span>
+              <p class="text-neutral-300 mt-1">"Whale tier vale o custo do pull garantido esta semana?"</p>
+            </div>
+            <div class="bg-dark-800/60 rounded-lg p-3">
+              <span class="text-rose-400 font-semibold">CFO Bot analisa:</span>
+              <p class="text-neutral-300 mt-1">LTV médio de whales (R$8.2k), custo de pull garantido (R$400/unid), margem resultante (38%). Conclusão: viável se LTV &gt; 3 meses.</p>
+            </div>
+            <div class="bg-dark-800/60 rounded-lg p-3">
+              <span class="text-rose-400 font-semibold">CMO Bot analisa:</span>
+              <p class="text-neutral-300 mt-1">Retenção de whales (87% em 6 meses), taxa de evangelismo (1 whale traz 2.3 mid-tiers), impacto de chat engagement.</p>
+            </div>
+            <div class="bg-dark-800/60 rounded-lg p-3">
+              <span class="text-rose-400 font-semibold">EA Orchestrator sintetiza:</span>
+              <p class="text-neutral-300 mt-1">"Sim, vale. ROI 3 meses: 6.2x. Recomendo manter tier. Ação: add 15 unid no pull desta semana."</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-blue-900/20 rounded-xl p-6 border border-blue-500/30">
+          <h3 class="text-blue-400 font-semibold mb-2">📊 Por que o padrão multi-agente brilha aqui</h3>
+          <p class="text-neutral-300 text-sm">Um único agente generalista responderia com menos profundidade. Dois especialistas (CFO + CMO) trabalhando em paralelo produzem análises independentes que o orquestrador sintetiza. Conflitos entre as análises ficam explícitos e Marco pode decidir com mais informação.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOPICO 6 -->
+    <section id="topico-6" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="w-12 h-12 rounded-full bg-rose-500/20 text-rose-400 text-xl font-bold flex items-center justify-center flex-shrink-0">6</span>
+        <h2 class="text-2xl font-bold">📈 Resultado e Iteração — 4 semanas depois</h2>
+      </div>
+      <p class="text-neutral-400 mb-6 ml-16">Quatro semanas após a implantação completa, os resultados de Marco foram documentados. O mais importante não é o ROI pontual — é que o sistema continuou evoluindo sozinho, com Marco adicionando novos agentes conforme identificava novos gargalos.</p>
+
+      <div class="ml-16 space-y-6">
+        <div class="bg-gradient-to-br from-rose-900/20 to-dark-800 rounded-xl p-6 border border-rose-500/30">
+          <h3 class="text-rose-400 font-semibold mb-4">📊 Métricas após 4 semanas</h3>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div class="text-center bg-dark-800/60 rounded-lg p-4">
+              <div class="text-3xl font-bold text-rose-400 mb-1">12h</div>
+              <div class="text-neutral-400 text-sm">recuperadas por semana</div>
+            </div>
+            <div class="text-center bg-dark-800/60 rounded-lg p-4">
+              <div class="text-3xl font-bold text-rose-400 mb-1">R$2.1k</div>
+              <div class="text-neutral-400 text-sm">uplift semanal (whale tier)</div>
+            </div>
+            <div class="text-center bg-dark-800/60 rounded-lg p-4">
+              <div class="text-3xl font-bold text-rose-400 mb-1">3</div>
+              <div class="text-neutral-400 text-sm">novos agentes adicionados</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-primary/10 rounded-xl p-6 border border-primary/40">
+          <h3 class="text-primary font-semibold mb-3">💡 O sistema que evolui sem intervenção</h3>
+          <p class="text-neutral-300 text-sm mb-3">Na semana 3, Marco percebeu que precisava de suporte durante a live. Em vez de contratar um assistente, ele criou um <strong>Live Support Agent</strong> — um agente que monitora o chat em tempo real e sinaliza whales entrando, estoque baixo, e mensagens que merecem resposta ao vivo. Esse agente não existia no plano inicial. O Agentic OS é expansível por design.</p>
+          <div class="text-sm text-neutral-400">
+            <span class="text-rose-400 font-semibold">Lição: </span>ROI, evolução, novo agente — os três pilares de um sistema saudável.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESUMO FINAL -->
+    <section class="bg-dark-800 rounded-xl p-8 border border-rose-500/30 mb-12">
+      <h2 class="text-2xl font-bold mb-6">✅ Resumo do Módulo 6.1</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
+        <div class="flex items-center space-x-3">
+          <span class="text-rose-400 text-lg">✓</span>
+          <span class="text-neutral-300 text-sm">Mapeamos as 5 fontes de dados da SlabHaus (Pantry)</span>
+        </div>
+        <div class="flex items-center space-x-3">
+          <span class="text-rose-400 text-lg">✓</span>
+          <span class="text-neutral-300 text-sm">Criamos os 4 Silver Platters semanais (Prep Table)</span>
+        </div>
+        <div class="flex items-center space-x-3">
+          <span class="text-rose-400 text-lg">✓</span>
+          <span class="text-neutral-300 text-sm">Orquestrador + 3 agentes = brief automático às 6h</span>
+        </div>
+        <div class="flex items-center space-x-3">
+          <span class="text-rose-400 text-lg">✓</span>
+          <span class="text-neutral-300 text-sm">Skill /pre-stream prep gera playbook antes da live</span>
+        </div>
+        <div class="flex items-center space-x-3">
+          <span class="text-rose-400 text-lg">✓</span>
+          <span class="text-neutral-300 text-sm">Análise de whales via cadeia CFO Bot + CMO Bot</span>
+        </div>
+        <div class="flex items-center space-x-3">
+          <span class="text-rose-400 text-lg">✓</span>
+          <span class="text-neutral-300 text-sm">12h/semana recuperadas e sistema continuou evoluindo</span>
+        </div>
+      </div>
+
+      <div class="bg-dark-700/50 rounded-lg p-4 mb-6">
+        <p class="text-neutral-400 text-sm"><span class="text-rose-400 font-semibold">Próximo módulo:</span> Caso Sally Tan — boutique law firm. Mesma metodologia, contexto radicalmente diferente: M&amp;A small-cap, compliance corporativa e AWS Bedrock para dados que não podem sair da conta AWS.</p>
+      </div>
+
+      <div class="flex justify-start space-x-3">
+        <a href="../trilha5/modulo-5-6.html" class="px-5 py-2.5 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors text-sm">← Módulo anterior</a>
+        <a href="modulo-6-2.html" class="px-5 py-2.5 bg-rose-600 text-white rounded-lg font-semibold hover:bg-rose-500 transition-colors text-sm">Próximo módulo →</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="border-t border-dark-600 py-8 mt-4">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm">
+      <p>Agentic OS — <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300">INEMA.CLUB</a> — 2026</p>
+    </div>
+  </footer>
+
+  <script>
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+    const html = document.documentElement;
+
+    if (localStorage.getItem('theme') === 'light' || (!localStorage.getItem('theme') && !html.classList.contains('dark'))) {
+      themeToggleDarkIcon.classList.remove('hidden');
+      html.classList.remove('dark');
+    } else {
+      themeToggleLightIcon.classList.remove('hidden');
+    }
+
+    themeToggle.addEventListener('click', () => {
+      themeToggleDarkIcon.classList.toggle('hidden');
+      themeToggleLightIcon.classList.toggle('hidden');
+      html.classList.toggle('dark');
+      localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+    });
+  </script>
+</body>
+</html>

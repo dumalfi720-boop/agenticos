@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>3.3 — Skills como processos vivos | Agentic OS</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script>tailwind.config={darkMode:'class',theme:{extend:{colors:{primary:'#FACC15',dark:{900:'#111827',800:'#1f2937',700:'#374151',600:'#4b5563'}}}}}</script>
+<style>
+body{font-family:'Inter',sans-serif}
+html:not(.dark) body{background:#f8fafc}html:not(.dark) .bg-dark-900{background:#fff}html:not(.dark) .bg-dark-800{background:#f9fafb}html:not(.dark) .bg-dark-700{background:#f3f4f6}html:not(.dark) .bg-dark-600{background:#e5e7eb}html:not(.dark) .text-neutral-100{color:#111827}html:not(.dark) .text-neutral-300{color:#4b5563}html:not(.dark) .text-neutral-400{color:#6b7280}html:not(.dark) .text-neutral-500{color:#9ca3af}html:not(.dark) .border-dark-600{border-color:#d1d5db}html:not(.dark) .border-dark-700{border-color:#e5e7eb}
+html:not(.dark) .text-purple-400{color:#7c3aed}html:not(.dark) .bg-purple-500\/20{background:rgba(124,58,237,.12)}html:not(.dark) .bg-purple-500\/10{background:rgba(124,58,237,.08)}html:not(.dark) .border-purple-500\/30{border-color:rgba(124,58,237,.25)}html:not(.dark) .bg-purple-900\/20{background:rgba(124,58,237,.06)}html:not(.dark) .bg-purple-900\/30{background:rgba(124,58,237,.06)}html:not(.dark) .bg-purple-900\/40{background:rgba(124,58,237,.08)}
+html:not(.dark) .text-blue-400{color:#2563eb}html:not(.dark) .bg-blue-900\/20{background:rgba(37,99,235,.06)}html:not(.dark) .border-blue-500\/30{border-color:rgba(37,99,235,.25)}
+html:not(.dark) .text-red-400{color:#b91c1c}html:not(.dark) .bg-red-900\/20{background:rgba(185,28,28,.06)}html:not(.dark) .border-red-500\/30{border-color:rgba(185,28,28,.25)}
+html:not(.dark) [class*="bg-gradient-to"]{background-image:none!important}html:not(.dark) .text-primary{color:#a16207}html:not(.dark) .bg-primary\/10{background:rgba(161,98,7,.08)}html:not(.dark) .border-primary\/30{border-color:rgba(161,98,7,.25)}html:not(.dark) .text-sky-400{color:#0369a1}html:not(.dark) .text-yellow-400{color:#a16207}html:not(.dark) .hover\:text-sky-300:hover{color:#0284c7}html:not(.dark) .hover\:text-yellow-300:hover{color:#854d0e}html:not(.dark) .bg-dark-900\/95{background:rgba(255,255,255,.95)}
+</style></head>
+<body class="bg-dark-900 text-neutral-100">
+<nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"><div class="flex justify-between items-center h-14"><div class="flex items-center space-x-4"><a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300"><span class="text-2xl">⚡</span><span class="font-bold text-lg hidden sm:inline">Agentic OS</span></a><span class="text-neutral-600">|</span><a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a></div><div class="flex items-center space-x-1 sm:space-x-2"><a href="../trilha1/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors"><span class="sm:hidden">T1</span><span class="hidden sm:inline">Fundamentos</span></a><a href="../trilha2/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors"><span class="sm:hidden">T2</span><span class="hidden sm:inline">Identidade</span></a><a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-purple-400 bg-purple-500/10"><span class="sm:hidden">T3</span><span class="hidden sm:inline">Conhecimento</span></a><a href="../trilha4/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-amber-400 hover:bg-amber-500/10 transition-colors"><span class="sm:hidden">T4</span><span class="hidden sm:inline">Trabalhadores</span></a><a href="../trilha5/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-teal-400 hover:bg-teal-500/10 transition-colors"><span class="sm:hidden">T5</span><span class="hidden sm:inline">Automação</span></a><a href="../trilha6/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-rose-400 hover:bg-rose-500/10 transition-colors"><span class="sm:hidden">T6</span><span class="hidden sm:inline">Implantação</span></a><button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2"><svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/></svg><svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"/></svg></button></div></div></div></nav>
+
+<nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4"><div class="flex items-center space-x-2 text-sm text-neutral-400"><a href="../../index.html" class="hover:text-purple-400">Início</a><span>/</span><a href="index.html" class="hover:text-purple-400">Trilha 3</a><span>/</span><span class="text-purple-400">Módulo 3.3</span></div></nav>
+
+<header class="bg-gradient-to-br from-purple-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"><span class="inline-block px-3 py-1 bg-purple-500/20 text-purple-400 text-xs font-semibold rounded-full mb-4">MÓDULO 3.3</span><h1 class="text-3xl sm:text-4xl font-bold mb-4">🛠️ Skills como processos vivos</h1><p class="text-lg text-neutral-400 max-w-3xl">Skill não é prompt. É um processo reutilizável com entrada, passos, saída e exemplos. A engenharia de construir capacidades que o agente executa sob demanda — e que melhoram com o uso.</p><div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl"><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">6</div><div class="text-xs text-neutral-400">Tópicos</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">45</div><div class="text-xs text-neutral-400">Minutos</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">Médio</div><div class="text-xs text-neutral-400">Nível</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">Prático</div><div class="text-xs text-neutral-400">Tipo</div></div></div></div></header>
+
+<main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+<section id="topico-1" class="mb-16">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">1</span><h2 class="text-2xl font-bold">📜 O que é uma Skill</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Uma <strong class="text-purple-400">Skill</strong> é um processo reutilizável declarado em Markdown — com entrada esperada, passos a seguir, saída definida e exemplos. No Claude Code, ela se torna um <strong class="text-purple-400">slash command</strong>: você digita <code class="bg-dark-700 px-1 rounded">/formato-curso</code> e o agente executa o processo completo. É o oposto de pedir tudo do zero toda vez.</p>
+<div class="bg-gradient-to-br from-purple-900/30 to-dark-800 rounded-xl border border-purple-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-purple-400 mb-4 flex items-center"><span class="mr-2">🔑</span> Skill vs Prompt: diferença fundamental</h3>
+<ul class="space-y-3 text-neutral-300 text-sm">
+<li><strong class="text-neutral-100">Prompt</strong> — instrução única, esquecida após a resposta. Sem estrutura, sem exemplo, sem reutilização.</li>
+<li><strong class="text-neutral-100">Skill</strong> — documento persistente com comportamento declarado. O agente o lê e executa o processo completo, toda vez que invocado, com a mesma qualidade.</li>
+<li><strong class="text-neutral-100">Resultado</strong> — skill garante consistência que prompt não garante. É a diferença entre pedido verbal e SOP escrito.</li>
+</ul>
+</div>
+<div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Quando criar uma skill</h3>
+<p class="text-neutral-300">Se você pediu a mesma coisa ao agente mais de três vezes, é hora de codificar como skill. Marco usa <code class="bg-dark-700 px-1 rounded">/analise-campanha</code> toda semana. Sally usa <code class="bg-dark-700 px-1 rounded">/scaffold-caso</code> toda vez que abre processo. Sana usa <code class="bg-dark-700 px-1 rounded">/sumario-clinico</code> no início de cada consulta.</p>
+</div>
+</section>
+
+<section id="topico-2" class="mb-16">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">2</span><h2 class="text-2xl font-bold">🛤️ Caminho crítico da skill</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">O <strong class="text-purple-400">caminho crítico</strong> é a sequência de passos que sempre funciona — sem desvios, sem improvisação. É o resultado da iteração: você testa, observa onde o agente tropeça, refina os passos até o happy path ser sólido. <strong class="text-purple-400">Sem critical path explícito, o agente perde tempo explorando.</strong></p>
+<div class="bg-gradient-to-br from-purple-900/30 to-dark-800 rounded-xl border border-purple-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-purple-400 mb-4 flex items-center"><span class="mr-2">🗺️</span> Exemplo: caminho crítico de /scaffold-caso (Sally)</h3>
+<div class="space-y-3 text-sm text-neutral-300">
+<div class="flex items-start space-x-3 bg-dark-700/50 rounded-lg p-3">
+<span class="text-purple-400 font-bold w-6 flex-shrink-0">1</span>
+<span>Ler CLAUDE.md para verificar contexto do escritório e persona ativa.</span>
+</div>
+<div class="flex items-start space-x-3 bg-dark-700/50 rounded-lg p-3">
+<span class="text-purple-400 font-bold w-6 flex-shrink-0">2</span>
+<span>Solicitar: número do processo, partes, tipo de ação, data de distribuição.</span>
+</div>
+<div class="flex items-start space-x-3 bg-dark-700/50 rounded-lg p-3">
+<span class="text-purple-400 font-bold w-6 flex-shrink-0">3</span>
+<span>Criar estrutura de pasta: /casos/[numero]/briefing.md, /docs/, /prazos.md.</span>
+</div>
+<div class="flex items-start space-x-3 bg-dark-700/50 rounded-lg p-3">
+<span class="text-purple-400 font-bold w-6 flex-shrink-0">4</span>
+<span>Preencher briefing.md com partes, pedidos, timeline, próximas ações.</span>
+</div>
+<div class="flex items-start space-x-3 bg-dark-700/50 rounded-lg p-3">
+<span class="text-purple-400 font-bold w-6 flex-shrink-0">5</span>
+<span>Confirmar com Sally: "Scaffold criado. Deseja adicionar documentos iniciais?"</span>
+</div>
+</div>
+</div>
+</section>
+
+<section id="topico-3" class="mb-16">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">3</span><h2 class="text-2xl font-bold">📐 Anatomia de uma Skill</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Skills bem construídas têm <strong class="text-purple-400">estrutura previsível</strong>: frontmatter com metadados, body com instruções, exemplos de uso. O agente aprende a antecipar o que vai encontrar — e executa com mais precisão. Padronização permite auditoria e reuso.</p>
+<div class="bg-gradient-to-br from-purple-900/30 to-dark-800 rounded-xl border border-purple-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-purple-400 mb-4 flex items-center"><span class="mr-2">📄</span> Template canônico de skill</h3>
+<pre class="bg-dark-700 rounded-lg p-4 text-xs text-neutral-300 overflow-x-auto">
+---
+name: analise-campanha
+description: Analisa performance de campanhas de mídia paga e gera recomendações
+trigger: /analise-campanha
+inputs:
+  - silver_platter: marketing.md (obrigatório)
+  - periodo: últimos 7 dias (padrão)
+outputs:
+  - análise narrativa com dados
+  - 3 recomendações priorizadas
+  - 1 alerta se ROAS < 2.5x
+when_to_use: Toda segunda-feira ou após pedir revisão de campanha específica
+---
+
+## Instruções
+
+1. Ler `platters/marketing_current.md`
+2. Verificar timestamp — se > 24h, alertar antes de continuar
+3. Identificar as 3 campanhas com pior ROAS
+4. Comparar com benchmark da semana anterior
+5. Gerar análise em 3 parágrafos: contexto, achados, recomendações
+6. Se ROAS geral < 2.5x, incluir alerta explícito no topo
+
+## Exemplos
+
+Input: "analise as campanhas de Black Friday"
+Output esperado: Análise com dados reais do platter, não estimativas</pre>
+</div>
+</section>
+
+<section id="topico-4" class="mb-16">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">4</span><h2 class="text-2xl font-bold">🔁 Skill como jogo infinito</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Você nunca termina uma skill — você <strong class="text-purple-400">itera eternamente</strong>. Cada uso revela um caso edge. Cada erro é insumo para melhorar o próximo passo. <strong class="text-purple-400">A mentalidade "uma e pronto" é o maior inimigo da qualidade agêntica</strong>. Skills são documentos vivos, não código congelado.</p>
+<div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center"><span class="mr-2">🔄</span> Ciclo de iteração</h3>
+<div class="space-y-3 text-sm text-neutral-300">
+<div class="flex items-center space-x-3 bg-dark-700/50 rounded-lg p-3">
+<span class="text-blue-400 font-bold w-20 flex-shrink-0">Escrever</span>
+<span>Skill mínima com o happy path. Sem tentar cobrir tudo.</span>
+</div>
+<div class="flex items-center space-x-3 bg-dark-700/50 rounded-lg p-3">
+<span class="text-blue-400 font-bold w-20 flex-shrink-0">Usar</span>
+<span>Invocar a skill 5-10 vezes em cenários reais.</span>
+</div>
+<div class="flex items-center space-x-3 bg-dark-700/50 rounded-lg p-3">
+<span class="text-blue-400 font-bold w-20 flex-shrink-0">Observar</span>
+<span>Onde o agente improvisa? Onde trava? O que o output errou?</span>
+</div>
+<div class="flex items-center space-x-3 bg-dark-700/50 rounded-lg p-3">
+<span class="text-blue-400 font-bold w-20 flex-shrink-0">Refinar</span>
+<span>Adicionar passo explícito para cobrir o erro observado.</span>
+</div>
+<div class="flex items-center space-x-3 bg-dark-700/50 rounded-lg p-3">
+<span class="text-blue-400 font-bold w-20 flex-shrink-0">Repetir</span>
+<span>Voltar para "Usar". Sem fim. É jogo infinito.</span>
+</div>
+</div>
+</div>
+<div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Versionamento de skills</h3>
+<p class="text-neutral-300">Skills vivem no filesystem com git. Toda mudança é um commit com mensagem clara: "adiciona verificação de TTL antes de análise". O histórico é o log de aprendizado da operação.</p>
+</div>
+</section>
+
+<section id="topico-5" class="mb-16">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">5</span><h2 class="text-2xl font-bold">📦 Portabilidade: Claude Code vs Codex vs outros</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">O conceito de skill é convergente — <strong class="text-purple-400">múltiplas plataformas estão adotando variantes</strong> do mesmo padrão. Mas a sintaxe varia. Saber as diferenças permite portar skills entre ambientes sem reescrever tudo do zero.</p>
+<div class="bg-gradient-to-br from-purple-900/30 to-dark-800 rounded-xl border border-purple-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-purple-400 mb-4 flex items-center"><span class="mr-2">🔄</span> Comparativo de plataformas</h3>
+<div class="space-y-3 text-sm text-neutral-300">
+<div class="bg-dark-700/50 rounded-lg p-4">
+<h4 class="font-semibold text-white mb-2">Claude Code (.claude/skills/)</h4>
+<p>Arquivos Markdown com frontmatter YAML. Acionados via <code class="bg-dark-600 px-1 rounded">/nome-da-skill</code>. Suporte a tools, MCP, hooks, contexto hierárquico.</p>
+</div>
+<div class="bg-dark-700/50 rounded-lg p-4">
+<h4 class="font-semibold text-white mb-2">OpenAI Codex / Agents SDK</h4>
+<p>Instructions declarativas em sistema de agente. Conceito similar, mas sem slash commands nativos — requer orquestração explícita via SDK.</p>
+</div>
+<div class="bg-dark-700/50 rounded-lg p-4">
+<h4 class="font-semibold text-white mb-2">Cursor / Windsurf Rules</h4>
+<p>Arquivos <code class="bg-dark-600 px-1 rounded">.cursorrules</code> ou <code class="bg-dark-600 px-1 rounded">.windsurfrules</code> — regras de comportamento, análogos mas sem exemplos estruturados.</p>
+</div>
+</div>
+</div>
+<div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-red-400 mb-3 flex items-center"><span class="mr-2">⚠️</span> Armadilha do vendor lock-in</h3>
+<p class="text-neutral-300">Skills escritas com sintaxe proprietária demais dificultam portabilidade. Escreva o corpo das instruções em Markdown puro e universal. Só o frontmatter deve ter campos específicos da plataforma.</p>
+</div>
+</section>
+
+<section id="topico-6" class="mb-16">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">6</span><h2 class="text-2xl font-bold">🧪 Skill ↔ Teste</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Skill sem teste regride silenciosamente. Uma mudança na skill para cobrir um caso novo quebra um caso antigo — e você só descobre quando o agente errar em produção. <strong class="text-purple-400">Cada skill deve ter casos-exemplo com saída esperada</strong>. Eval automatizado quando possível.</p>
+<div class="bg-gradient-to-br from-purple-900/30 to-dark-800 rounded-xl border border-purple-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-purple-400 mb-4 flex items-center"><span class="mr-2">🧪</span> Estrutura de teste de skill</h3>
+<pre class="bg-dark-700 rounded-lg p-4 text-xs text-neutral-300 overflow-x-auto">
+## Casos de Teste — /analise-campanha
+
+### Caso 1: platter fresco, ROAS saudável
+Input: marketing_current.md (timestamp hoje, ROAS 3.2x)
+Output esperado:
+  ✓ Análise menciona ROAS de 3.2x
+  ✓ Sem alerta de ROAS
+  ✓ 3 recomendações presentes
+  ✗ NÃO deve inventar números
+
+### Caso 2: platter velho (> 24h)
+Input: marketing_current.md (timestamp 48h atrás)
+Output esperado:
+  ✓ ALERTA de dado desatualizado no início
+  ✓ Análise continua, mas com ressalva explícita
+
+### Caso 3: ROAS abaixo do threshold
+Input: marketing_current.md (ROAS 1.8x)
+Output esperado:
+  ✓ ALERTA de ROAS crítico no topo
+  ✓ Recomendações mais urgentes (pausar, revisar)</pre>
+</div>
+<div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Eval automatizado</h3>
+<p class="text-neutral-300">Para skills críticas, crie um script Python que roda a skill com fixtures conhecidas e verifica se as assertions passam. Não precisa ser perfeito — checar as 3-5 assertions mais importantes já captura 80% das regressões.</p>
+</div>
+</section>
+
+<section class="mb-12">
+<div class="bg-gradient-to-br from-purple-900/40 via-dark-800 to-dark-800 rounded-xl border border-purple-500/30 p-8">
+<h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-3">📋</span> Resumo do Módulo</h2>
+<div class="space-y-4 mb-8">
+<div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-white">Skill = processo reutilizável</strong><span class="text-neutral-400"> — não é prompt, é SOP declarado em Markdown com slash command</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-white">Critical path explícito</strong><span class="text-neutral-400"> — sequência de passos que sempre funciona, sem improvisação</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-white">Anatomia padronizada</strong><span class="text-neutral-400"> — frontmatter, instruções, exemplos. Estrutura previsível = execução consistente</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-white">Jogo infinito</strong><span class="text-neutral-400"> — itera sempre. Cada erro é insumo. Skills nunca estão "prontas"</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-white">Portabilidade multiplataforma</strong><span class="text-neutral-400"> — Claude Code, Codex, Cursor convergem no conceito, sintaxe varia</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-white">Skill + teste</strong><span class="text-neutral-400"> — assertions por caso de uso evitam regressão silenciosa</span></div></div>
+</div>
+<div class="bg-dark-800/50 rounded-lg p-4 mb-8"><h3 class="font-semibold text-purple-400 mb-2">Próximo Módulo:</h3><p class="text-neutral-300">3.4 — MCP — conectando ferramentas e dados</p></div>
+<div class="flex flex-col sm:flex-row gap-4"><a href="modulo-3-2.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">← Módulo Anterior</a><a href="modulo-3-4.html" class="flex-1 text-center px-6 py-3 bg-purple-600 text-white rounded-lg font-semibold hover:bg-purple-500 transition-colors">Próximo Módulo →</a></div>
+</div>
+</section>
+
+</main>
+<footer class="border-t border-dark-600 py-8 mt-16"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm"><p>Agentic OS — INEMA.CLUB · 2026</p></div></footer>
+<script>
+const tt=document.getElementById('theme-toggle'),tdi=document.getElementById('theme-toggle-dark-icon'),tli=document.getElementById('theme-toggle-light-icon'),h=document.documentElement;
+if(localStorage.getItem('theme')==='light'||(!localStorage.getItem('theme')&&!h.classList.contains('dark'))){tdi.classList.remove('hidden');h.classList.remove('dark')}else{tli.classList.remove('hidden')}
+tt.addEventListener('click',()=>{tdi.classList.toggle('hidden');tli.classList.toggle('hidden');h.classList.toggle('dark');localStorage.setItem('theme',h.classList.contains('dark')?'dark':'light')});
+</script>
+</body></html>

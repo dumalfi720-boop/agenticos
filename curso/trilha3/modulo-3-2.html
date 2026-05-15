@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>3.2 — Pantry / Prep Table / Plate | Agentic OS</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script>tailwind.config={darkMode:'class',theme:{extend:{colors:{primary:'#FACC15',dark:{900:'#111827',800:'#1f2937',700:'#374151',600:'#4b5563'}}}}}</script>
+<style>
+body{font-family:'Inter',sans-serif}
+html:not(.dark) body{background:#f8fafc}html:not(.dark) .bg-dark-900{background:#fff}html:not(.dark) .bg-dark-800{background:#f9fafb}html:not(.dark) .bg-dark-700{background:#f3f4f6}html:not(.dark) .bg-dark-600{background:#e5e7eb}html:not(.dark) .text-neutral-100{color:#111827}html:not(.dark) .text-neutral-300{color:#4b5563}html:not(.dark) .text-neutral-400{color:#6b7280}html:not(.dark) .text-neutral-500{color:#9ca3af}html:not(.dark) .border-dark-600{border-color:#d1d5db}html:not(.dark) .border-dark-700{border-color:#e5e7eb}
+html:not(.dark) .text-purple-400{color:#7c3aed}html:not(.dark) .bg-purple-500\/20{background:rgba(124,58,237,.12)}html:not(.dark) .bg-purple-500\/10{background:rgba(124,58,237,.08)}html:not(.dark) .border-purple-500\/30{border-color:rgba(124,58,237,.25)}html:not(.dark) .bg-purple-900\/20{background:rgba(124,58,237,.06)}html:not(.dark) .bg-purple-900\/30{background:rgba(124,58,237,.06)}html:not(.dark) .bg-purple-900\/40{background:rgba(124,58,237,.08)}
+html:not(.dark) .text-blue-400{color:#2563eb}html:not(.dark) .bg-blue-900\/20{background:rgba(37,99,235,.06)}html:not(.dark) .border-blue-500\/30{border-color:rgba(37,99,235,.25)}
+html:not(.dark) .text-red-400{color:#b91c1c}html:not(.dark) .bg-red-900\/20{background:rgba(185,28,28,.06)}html:not(.dark) .border-red-500\/30{border-color:rgba(185,28,28,.25)}
+html:not(.dark) [class*="bg-gradient-to"]{background-image:none!important}html:not(.dark) .text-primary{color:#a16207}html:not(.dark) .bg-primary\/10{background:rgba(161,98,7,.08)}html:not(.dark) .border-primary\/30{border-color:rgba(161,98,7,.25)}html:not(.dark) .text-sky-400{color:#0369a1}html:not(.dark) .text-yellow-400{color:#a16207}html:not(.dark) .hover\:text-sky-300:hover{color:#0284c7}html:not(.dark) .hover\:text-yellow-300:hover{color:#854d0e}html:not(.dark) .bg-dark-900\/95{background:rgba(255,255,255,.95)}
+</style></head>
+<body class="bg-dark-900 text-neutral-100">
+<nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"><div class="flex justify-between items-center h-14"><div class="flex items-center space-x-4"><a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300"><span class="text-2xl">⚡</span><span class="font-bold text-lg hidden sm:inline">Agentic OS</span></a><span class="text-neutral-600">|</span><a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a></div><div class="flex items-center space-x-1 sm:space-x-2"><a href="../trilha1/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors"><span class="sm:hidden">T1</span><span class="hidden sm:inline">Fundamentos</span></a><a href="../trilha2/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors"><span class="sm:hidden">T2</span><span class="hidden sm:inline">Identidade</span></a><a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-purple-400 bg-purple-500/10"><span class="sm:hidden">T3</span><span class="hidden sm:inline">Conhecimento</span></a><a href="../trilha4/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-amber-400 hover:bg-amber-500/10 transition-colors"><span class="sm:hidden">T4</span><span class="hidden sm:inline">Trabalhadores</span></a><a href="../trilha5/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-teal-400 hover:bg-teal-500/10 transition-colors"><span class="sm:hidden">T5</span><span class="hidden sm:inline">Automação</span></a><a href="../trilha6/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-rose-400 hover:bg-rose-500/10 transition-colors"><span class="sm:hidden">T6</span><span class="hidden sm:inline">Implantação</span></a><button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2"><svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/></svg><svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"/></svg></button></div></div></div></nav>
+
+<nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4"><div class="flex items-center space-x-2 text-sm text-neutral-400"><a href="../../index.html" class="hover:text-purple-400">Início</a><span>/</span><a href="index.html" class="hover:text-purple-400">Trilha 3</a><span>/</span><span class="text-purple-400">Módulo 3.2</span></div></nav>
+
+<header class="bg-gradient-to-br from-purple-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"><span class="inline-block px-3 py-1 bg-purple-500/20 text-purple-400 text-xs font-semibold rounded-full mb-4">MÓDULO 3.2</span><h1 class="text-3xl sm:text-4xl font-bold mb-4">🍳 Pantry / Prep Table / Plate — mapa de dados</h1><p class="text-lg text-neutral-400 max-w-3xl">A metáfora da cozinha que organiza onde o dado vive, onde é processado e onde vira ação. Framework visual para mapear qualquer operação de dados agêntica.</p><div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl"><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">6</div><div class="text-xs text-neutral-400">Tópicos</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">40</div><div class="text-xs text-neutral-400">Minutos</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">Médio</div><div class="text-xs text-neutral-400">Nível</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">Prático</div><div class="text-xs text-neutral-400">Tipo</div></div></div></div></header>
+
+<main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+<section id="topico-1" class="mb-16">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">1</span><h2 class="text-2xl font-bold">🥫 Pantry — onde os dados vivem</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">A <strong class="text-purple-400">Pantry</strong> é o estoque da cozinha. São os bancos de dados, APIs externas, planilhas, arquivos de log, sistemas SaaS — a <strong class="text-purple-400">fonte de verdade</strong> que existe independentemente de agentes. O dado na Pantry é o dado real, sem transformação.</p>
+<div class="bg-gradient-to-br from-purple-900/30 to-dark-800 rounded-xl border border-purple-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-purple-400 mb-4 flex items-center"><span class="mr-2">🥫</span> O que vive na Pantry</h3>
+<ul class="space-y-2 text-neutral-300 text-sm">
+<li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong class="text-neutral-100">Bancos relacionais</strong> — PostgreSQL, MySQL, BigQuery. Tabelas de transações, clientes, produtos.</span></li>
+<li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong class="text-neutral-100">APIs externas</strong> — Meta Ads, Google Analytics, Shopify, Stripe, HubSpot.</span></li>
+<li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong class="text-neutral-100">Arquivos estáticos</strong> — CSVs de exportação, PDFs de contratos, planilhas legadas.</span></li>
+<li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong class="text-neutral-100">Ferramentas de trabalho</strong> — Notion, Drive, iManage, sistemas de ERP/EHR.</span></li>
+<li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong class="text-neutral-100">Streams de eventos</strong> — Kafka, Kinesis, logs de aplicação em tempo real.</span></li>
+</ul>
+</div>
+<div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Regra: Pantry não é tocada pelo agente</h3>
+<p class="text-neutral-300">Agentes não devem ler diretamente da Pantry em produção, exceto via MCP Server com permissão explícita e read-only. O acesso direto cria acoplamento frágil e expõe dado sensível sem controle de contexto.</p>
+</div>
+</section>
+
+<section id="topico-2" class="mb-16">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">2</span><h2 class="text-2xl font-bold">🔪 Prep Table — onde os dados são preparados</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">A <strong class="text-purple-400">Prep Table</strong> é onde o sous-chef trabalha antes do serviço. É a camada de ETL, limpeza, agregação e sumarização. <strong class="text-purple-400">É a fábrica do contexto</strong> — o que sai daqui são Silver Platters prontos para consumo. Tudo aqui é determinístico e auditável.</p>
+<div class="bg-gradient-to-br from-purple-900/30 to-dark-800 rounded-xl border border-purple-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-purple-400 mb-4 flex items-center"><span class="mr-2">🔧</span> Operações da Prep Table</h3>
+<ul class="space-y-3 text-neutral-300 text-sm">
+<li><strong class="text-neutral-100">Extração (E)</strong> — ler Pantry via API, query SQL, leitura de arquivo.</li>
+<li><strong class="text-neutral-100">Transformação (T)</strong> — calcular KPIs, normalizar unidades, detectar anomalias com threshold.</li>
+<li><strong class="text-neutral-100">Carga (L)</strong> — escrever Silver Platter no filesystem com timestamp e TTL.</li>
+<li><strong class="text-neutral-100">Sumarização</strong> — opcional: LLM gera o texto narrativo APÓS o Python calcular os números.</li>
+</ul>
+</div>
+<div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-blue-400 mb-3 flex items-center"><span class="mr-2">🛠️</span> Stack típica de Prep Table</h3>
+<ul class="space-y-2 text-neutral-300 text-sm">
+<li><strong>Python + pandas</strong> — processamento local, scripts de cron.</li>
+<li><strong>dbt</strong> — transformações SQL versionadas, ideal para times de dados.</li>
+<li><strong>n8n / Make</strong> — orquestração visual quando não há time de engenharia.</li>
+<li><strong>Cron / Airflow</strong> — schedule de regeneração automática dos platters.</li>
+</ul>
+</div>
+</section>
+
+<section id="topico-3" class="mb-16">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">3</span><h2 class="text-2xl font-bold">🍽️ Plate — onde o dado vira ação</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">O <strong class="text-purple-400">Plate</strong> é onde o prato é servido. É onde o Silver Platter preparado vira brief executivo, decisão comunicada, automação disparada, ou relatório enviado. <strong class="text-purple-400">Sem Plate claro, dado não vira ação</strong> — fica como relatório que ninguém lê.</p>
+<div class="bg-gradient-to-br from-purple-900/30 to-dark-800 rounded-xl border border-purple-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-purple-400 mb-4 flex items-center"><span class="mr-2">🎯</span> Formas de Plate</h3>
+<ul class="space-y-2 text-neutral-300 text-sm">
+<li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong class="text-neutral-100">Brief executivo</strong> — agente lê platters e gera email/Slack com decisões recomendadas.</span></li>
+<li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong class="text-neutral-100">Alerta automático</strong> — n8n lê platter, detecta anomalia, dispara notificação.</span></li>
+<li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong class="text-neutral-100">Dashboard vivo</strong> — platter alimenta painel que o gestor abre pela manhã.</span></li>
+<li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong class="text-neutral-100">Ação automatizada</strong> — platter detecta campanha ruim, pausa automaticamente via API.</span></li>
+<li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong class="text-neutral-100">Input para agente especialista</strong> — platter é injetado no system prompt do agente CFO/CMO.</span></li>
+</ul>
+</div>
+<div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-red-400 mb-3 flex items-center"><span class="mr-2">⚠️</span> Plate sem destinatário</h3>
+<p class="text-neutral-300">O erro mais comum: construir a cozinha inteira (Pantry + Prep Table) e não definir quem recebe o prato. Toda Prep Table precisa de um Plate claramente especificado: quem recebe, quando, em qual formato, com qual SLA de atualização.</p>
+</div>
+</section>
+
+<section id="topico-4" class="mb-16">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">4</span><h2 class="text-2xl font-bold">🗺️ Diagrama visual da cozinha</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Antes de construir qualquer agente, <strong class="text-purple-400">desenhe o diagrama da cozinha</strong>. Três colunas: Pantry, Prep Table, Plate. Conexões entre fontes, transformações e saídas. Isso elimina ambiguidade e revela onde estão as dependências e os gargalos.</p>
+<div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6 overflow-x-auto">
+<h3 class="text-lg font-semibold text-purple-400 mb-4">Diagrama — Marco (E-commerce)</h3>
+<div class="grid grid-cols-3 gap-4 min-w-[600px]">
+<div class="bg-dark-700 rounded-lg p-4">
+<h4 class="text-xs font-bold text-purple-400 uppercase mb-3">🥫 Pantry</h4>
+<div class="space-y-2 text-xs text-neutral-300">
+<div class="bg-dark-600 rounded p-2">Shopify (pedidos)</div>
+<div class="bg-dark-600 rounded p-2">Meta Ads API</div>
+<div class="bg-dark-600 rounded p-2">Google Analytics</div>
+<div class="bg-dark-600 rounded p-2">Planilha estoque</div>
+</div>
+</div>
+<div class="bg-dark-700 rounded-lg p-4">
+<h4 class="text-xs font-bold text-purple-400 uppercase mb-3">🔪 Prep Table</h4>
+<div class="space-y-2 text-xs text-neutral-300">
+<div class="bg-dark-600 rounded p-2">Python → KPIs vendas</div>
+<div class="bg-dark-600 rounded p-2">Python → KPIs mktg</div>
+<div class="bg-dark-600 rounded p-2">Cron 07:00 diário</div>
+</div>
+</div>
+<div class="bg-dark-700 rounded-lg p-4">
+<h4 class="text-xs font-bold text-purple-400 uppercase mb-3">🍽️ Plate</h4>
+<div class="space-y-2 text-xs text-neutral-300">
+<div class="bg-dark-600 rounded p-2">Brief via Slack 08:00</div>
+<div class="bg-dark-600 rounded p-2">CMO Bot context</div>
+<div class="bg-dark-600 rounded p-2">Alerta estoque baixo</div>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Como usar o diagrama</h3>
+<p class="text-neutral-300">Construa o diagrama ANTES de escrever qualquer código. Mostre para o cliente e pergunte: "Essa é a cozinha de vocês?" Geralmente a resposta revela fontes escondidas, dados duplicados e Plates que nunca chegam ao destino certo.</p>
+</div>
+</section>
+
+<section id="topico-5" class="mb-16">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">5</span><h2 class="text-2xl font-bold">⏱️ Latência por estágio</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Cada estágio da cozinha tem uma latência diferente e um modelo de atualização diferente. <strong class="text-purple-400">Identificar onde está o gargalo</strong> é o primeiro passo para otimizar — nem sempre o problema é a Prep Table. Às vezes é a Pantry que não atualiza.</p>
+<div class="bg-gradient-to-br from-purple-900/30 to-dark-800 rounded-xl border border-purple-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-purple-400 mb-4 flex items-center"><span class="mr-2">⏱️</span> Latência típica por estágio</h3>
+<div class="space-y-4 text-sm text-neutral-300">
+<div class="flex items-center space-x-4 bg-dark-700/50 rounded-lg p-3">
+<span class="text-purple-400 font-bold w-24 flex-shrink-0">Pantry</span>
+<span class="text-neutral-400 w-32 flex-shrink-0">Real-time a diário</span>
+<span>APIs externas variam: Shopify tem webhooks (real-time), relatórios de Meta têm delay de 3h.</span>
+</div>
+<div class="flex items-center space-x-4 bg-dark-700/50 rounded-lg p-3">
+<span class="text-purple-400 font-bold w-24 flex-shrink-0">Prep Table</span>
+<span class="text-neutral-400 w-32 flex-shrink-0">1 min a 1 dia</span>
+<span>Depende do volume. CSVs leves: segundos. BigQuery com joins: minutos. Reprocessamento histórico: horas.</span>
+</div>
+<div class="flex items-center space-x-4 bg-dark-700/50 rounded-lg p-3">
+<span class="text-purple-400 font-bold w-24 flex-shrink-0">Plate</span>
+<span class="text-neutral-400 w-32 flex-shrink-0">Segundos</span>
+<span>Agente lê Silver Platter e gera resposta em segundos. O prato servido é rápido — o prep é que demorou.</span>
+</div>
+</div>
+</div>
+<div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-blue-400 mb-3 flex items-center"><span class="mr-2">📊</span> Batch vs Stream</h3>
+<ul class="space-y-2 text-neutral-300 text-sm">
+<li><strong>Batch (cron)</strong> — adequado para KPIs diários, relatórios semanais. Simples, auditável.</li>
+<li><strong>Stream (Kafka, webhooks)</strong> — necessário para alertas em tempo real, detecção de fraude, monitoramento.</li>
+<li><strong>Regra</strong> — comece batch. Evolua para stream apenas quando o TTL exigido for menor que 1 hora.</li>
+</ul>
+</div>
+</section>
+
+<section id="topico-6" class="mb-16">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">6</span><h2 class="text-2xl font-bold">📦 Aplicado às personas: Marco, Sally e Sana</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Cada persona tem uma cozinha diferente. Mesma estrutura conceitual — Pantry, Prep, Plate — mas com ingredientes, processos e pratos completamente distintos. <strong class="text-purple-400">Ver o método aplicado ancora o aprendizado.</strong></p>
+<div class="space-y-6 mb-6">
+<div class="bg-gradient-to-br from-purple-900/30 to-dark-800 rounded-xl border border-purple-500/30 p-6">
+<h3 class="text-lg font-semibold text-purple-400 mb-3">🛒 Marco — E-commerce</h3>
+<ul class="space-y-2 text-neutral-300 text-sm">
+<li><strong class="text-neutral-100">Pantry:</strong> Shopify, Meta Ads, Google Analytics, planilha de estoque.</li>
+<li><strong class="text-neutral-100">Prep Table:</strong> Python calcula CAC, ROAS, giro de estoque. Cron às 07:00.</li>
+<li><strong class="text-neutral-100">Plate:</strong> Brief diário no Slack + CMO Bot recebe platters no system prompt.</li>
+</ul>
+</div>
+<div class="bg-gradient-to-br from-purple-900/30 to-dark-800 rounded-xl border border-purple-500/30 p-6">
+<h3 class="text-lg font-semibold text-purple-400 mb-3">⚖️ Sally — Advogada</h3>
+<ul class="space-y-2 text-neutral-300 text-sm">
+<li><strong class="text-neutral-100">Pantry:</strong> iManage (documentos), Outlook (e-mails), sistema de contratos, base jurisprudência.</li>
+<li><strong class="text-neutral-100">Prep Table:</strong> Ao abrir novo processo: extrai docs relevantes, sumariza via LLM, estrutura cronologia.</li>
+<li><strong class="text-neutral-100">Plate:</strong> Scaffold do caso: partes, timeline, argumentos, próximas ações. Injetado no Research Agent.</li>
+</ul>
+</div>
+<div class="bg-gradient-to-br from-purple-900/30 to-dark-800 rounded-xl border border-purple-500/30 p-6">
+<h3 class="text-lg font-semibold text-purple-400 mb-3">🏥 Sana — Médica</h3>
+<ul class="space-y-2 text-neutral-300 text-sm">
+<li><strong class="text-neutral-100">Pantry:</strong> EHR (histórico clínico), laudos de exames, prescrições anteriores, alergias.</li>
+<li><strong class="text-neutral-100">Prep Table:</strong> Ao abrir consulta: extrai histórico relevante, agrupa por sistema, formata para visualização rápida.</li>
+<li><strong class="text-neutral-100">Plate:</strong> Sumário clínico da consulta atual: contexto, achados, hipóteses diferenciais a checar.</li>
+</ul>
+</div>
+</div>
+</section>
+
+<section class="mb-12">
+<div class="bg-gradient-to-br from-purple-900/40 via-dark-800 to-dark-800 rounded-xl border border-purple-500/30 p-8">
+<h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-3">📋</span> Resumo do Módulo</h2>
+<div class="space-y-4 mb-8">
+<div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-white">Pantry = fonte de verdade</strong><span class="text-neutral-400"> — dados brutos, não tocados diretamente pelo agente</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-white">Prep Table = fábrica do contexto</strong><span class="text-neutral-400"> — ETL determinístico que gera Silver Platters</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-white">Plate = dado que vira ação</strong><span class="text-neutral-400"> — brief, alerta, decisão, automação com destinatário claro</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-white">Diagrama antes do código</strong><span class="text-neutral-400"> — mapeie a cozinha completa antes de escrever qualquer script</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-white">Batch primeiro, stream depois</strong><span class="text-neutral-400"> — comece cron simples, evolua para real-time apenas quando necessário</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-white">Cada persona tem sua cozinha</strong><span class="text-neutral-400"> — Marco, Sally e Sana: mesma estrutura, ingredientes diferentes</span></div></div>
+</div>
+<div class="bg-dark-800/50 rounded-lg p-4 mb-8"><h3 class="font-semibold text-purple-400 mb-2">Próximo Módulo:</h3><p class="text-neutral-300">3.3 — Skills como processos vivos</p></div>
+<div class="flex flex-col sm:flex-row gap-4"><a href="modulo-3-1.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">← Módulo Anterior</a><a href="modulo-3-3.html" class="flex-1 text-center px-6 py-3 bg-purple-600 text-white rounded-lg font-semibold hover:bg-purple-500 transition-colors">Próximo Módulo →</a></div>
+</div>
+</section>
+
+</main>
+<footer class="border-t border-dark-600 py-8 mt-16"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm"><p>Agentic OS — INEMA.CLUB · 2026</p></div></footer>
+<script>
+const tt=document.getElementById('theme-toggle'),tdi=document.getElementById('theme-toggle-dark-icon'),tli=document.getElementById('theme-toggle-light-icon'),h=document.documentElement;
+if(localStorage.getItem('theme')==='light'||(!localStorage.getItem('theme')&&!h.classList.contains('dark'))){tdi.classList.remove('hidden');h.classList.remove('dark')}else{tli.classList.remove('hidden')}
+tt.addEventListener('click',()=>{tdi.classList.toggle('hidden');tli.classList.toggle('hidden');h.classList.toggle('dark');localStorage.setItem('theme',h.classList.contains('dark')?'dark':'light')});
+</script>
+</body></html>

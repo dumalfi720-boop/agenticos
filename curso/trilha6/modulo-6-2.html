@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Módulo 6.2 — Caso Sally Tan (Boutique Law) | Agentic OS</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#FACC15',
+            dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' }
+          }
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #111827; }
+    .topic-explanation { display: none; }
+    .topic-explanation.active { display: block; }
+
+    html:not(.dark) body { background-color: #f9fafb; color: #111827; }
+    html:not(.dark) .bg-dark-900 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-800 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .bg-dark-700\/50 { background-color: rgba(243,244,246,0.7); }
+    html:not(.dark) .border-dark-600 { border-color: #e5e7eb; }
+    html:not(.dark) .text-neutral-100 { color: #111827; }
+    html:not(.dark) .text-neutral-300 { color: #374151; }
+    html:not(.dark) .text-neutral-400 { color: #6b7280; }
+    html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+    html:not(.dark) .hover\:bg-dark-700\/50:hover { background-color: rgba(243,244,246,0.7); }
+
+    html:not(.dark) .text-rose-400 { color: #9f1239; }
+    html:not(.dark) .bg-rose-500\/20 { background-color: rgba(159,18,57,0.12); }
+    html:not(.dark) .bg-rose-500\/10 { background-color: rgba(159,18,57,0.08); }
+    html:not(.dark) .border-rose-500\/30 { border-color: rgba(159,18,57,0.25); }
+    html:not(.dark) .hover\:bg-rose-500\/30:hover { background-color: rgba(159,18,57,0.18); }
+    html:not(.dark) .hover\:text-rose-400:hover { color: #9f1239; }
+    html:not(.dark) .bg-rose-900\/20 { background-color: rgba(159,18,57,0.06); }
+
+    html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; }
+
+    html:not(.dark) .text-primary { color: #a16207; }
+    html:not(.dark) .bg-primary\/10 { background-color: rgba(161,98,7,0.08); }
+    html:not(.dark) .border-primary\/40 { border-color: rgba(161,98,7,0.25); }
+    html:not(.dark) .text-sky-400 { color: #0369a1; }
+    html:not(.dark) .text-yellow-400 { color: #a16207; }
+    html:not(.dark) .hover\:text-sky-300:hover { color: #0284c7; }
+    html:not(.dark) .hover\:text-yellow-300:hover { color: #854d0e; }
+
+    html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255,255,255,0.95); }
+  </style>
+</head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen">
+
+  <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <div class="flex items-center space-x-6">
+          <a href="../../index.html" class="text-xl font-bold text-yellow-400">🤖 Agentic OS</a>
+          <a href="https://inema.club" target="_blank" class="text-sky-400 text-sm font-medium hover:text-sky-300">INEMA.CLUB</a>
+        </div>
+        <div class="hidden md:flex items-center space-x-1 text-sm">
+          <a href="../trilha1/index.html" class="px-3 py-1.5 rounded-lg text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors">Fundamentos</a>
+          <a href="../trilha2/index.html" class="px-3 py-1.5 rounded-lg text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors">Contexto</a>
+          <a href="../trilha3/index.html" class="px-3 py-1.5 rounded-lg text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors">Agentes</a>
+          <a href="../trilha4/index.html" class="px-3 py-1.5 rounded-lg text-neutral-400 hover:text-amber-400 hover:bg-amber-500/10 transition-colors">Skills</a>
+          <a href="../trilha5/index.html" class="px-3 py-1.5 rounded-lg text-neutral-400 hover:text-teal-400 hover:bg-teal-500/10 transition-colors">Automação</a>
+          <a href="index.html" class="px-3 py-1.5 rounded-lg text-rose-400 bg-rose-500/10">Implantação</a>
+        </div>
+        <button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors">
+          <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+          <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"></path></svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+    <div class="flex items-center space-x-2 text-sm text-neutral-400">
+      <a href="../../index.html" class="hover:text-rose-400">Início</a>
+      <span>/</span>
+      <a href="index.html" class="hover:text-rose-400">Trilha 6</a>
+      <span>/</span>
+      <span class="text-rose-400">Módulo 6.2</span>
+    </div>
+  </nav>
+
+  <header class="bg-gradient-to-br from-rose-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <span class="inline-block px-3 py-1 bg-rose-500/20 text-rose-400 text-xs font-semibold rounded-full mb-4">MÓDULO 6.2</span>
+      <h1 class="text-2xl font-bold mb-4">⚖️ Caso Sally Tan — Boutique Law Firm</h1>
+      <p class="text-lg text-neutral-400 max-w-3xl">Associada em M&amp;A small-cap, 4-5 novos casos por mês. Stack: iManage, Outlook, Bill4Time, AWS Bedrock. 3 horas por caso apenas para estruturar — vamos recuperar esse tempo sem abrir mão de compliance.</p>
+      <div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-rose-400">6</div>
+          <div class="text-xs text-neutral-400">Tópicos</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-rose-400">~60 min</div>
+          <div class="text-xs text-neutral-400">Duração</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-rose-400">Aplicado</div>
+          <div class="text-xs text-neutral-400">Nível</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-rose-400">Case</div>
+          <div class="text-xs text-neutral-400">Tipo</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <!-- TOPICO 1 -->
+    <section id="topico-1" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="w-12 h-12 rounded-full bg-rose-500/20 text-rose-400 text-xl font-bold flex items-center justify-center flex-shrink-0">1</span>
+        <h2 class="text-2xl font-bold">🚀 /case launch — Skill principal</h2>
+      </div>
+      <p class="text-neutral-400 mb-6 ml-16">A skill central do sistema da Sally: <code class="bg-dark-700 px-1 rounded text-rose-400">/case launch [nome-do-caso]</code>. Em um único comando, ela cria a estrutura completa do caso, roda o conflict check automático, gera o brief inicial e abre o audit log. O que levava 3 horas manual vira 30 minutos auditados.</p>
+
+      <div class="ml-16 space-y-6">
+        <div class="bg-gradient-to-br from-rose-900/20 to-dark-800 rounded-xl p-6 border border-rose-500/30">
+          <h3 class="text-rose-400 font-semibold mb-4">📂 O que /case launch cria automaticamente</h3>
+          <div class="bg-dark-800/60 rounded-lg p-4 font-mono text-sm text-neutral-300">
+            <p class="text-rose-400 font-bold mb-2">$ /case launch "Acquisition_TechCorp_2026-05"</p>
+            <p class="text-neutral-400 mb-1">→ Criando estrutura em iManage...</p>
+            <p class="text-neutral-400 mb-1">→ /cases/2026-05-TechCorp/ criada</p>
+            <p class="text-neutral-400 mb-1">→ Rodando conflict check... <span class="text-emerald-400">LIMPO</span></p>
+            <p class="text-neutral-400 mb-1">→ Gerando brief_inicial.md...</p>
+            <p class="text-neutral-400 mb-1">→ Abrindo audit_log.jsonl...</p>
+            <p class="text-emerald-400 font-bold">✓ Caso lançado em 28 segundos. Pronto para onboarding.</p>
+          </div>
+        </div>
+
+        <div class="bg-primary/10 rounded-xl p-6 border border-primary/40">
+          <h3 class="text-primary font-semibold mb-3">💡 Scaffold, Conflict Check, Audit Log — a trindade</h3>
+          <p class="text-neutral-300 text-sm">Três saídas obrigatórias de cada /case launch: (1) <strong>Scaffold</strong> — estrutura de pastas e templates preenchidos; (2) <strong>Conflict check</strong> — verificação automática de partes contra base existente; (3) <strong>Audit log</strong> — registro de cada ação do agente com input, modelo, timestamp. Nenhuma pode ser omitida.</p>
+        </div>
+
+        <div class="bg-blue-900/20 rounded-xl p-6 border border-blue-500/30">
+          <h3 class="text-blue-400 font-semibold mb-2">📊 3h manuais → 30 min auditados</h3>
+          <p class="text-neutral-300 text-sm">O tempo caiu, mas o que importa mais é a palavra "auditados". Antes, o processo de estruturação era ad hoc — dependia de humor, atenção e experiência do momento. Agora é determinístico: cada passo é registrado, cada decisão do agente é rastreável. Sally pode provar para qualquer comitê o que foi feito e quando.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOPICO 2 -->
+    <section id="topico-2" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="w-12 h-12 rounded-full bg-rose-500/20 text-rose-400 text-xl font-bold flex items-center justify-center flex-shrink-0">2</span>
+        <h2 class="text-2xl font-bold">🔍 Conflict Check Automático — Sem cruzar nomes</h2>
+      </div>
+      <p class="text-neutral-400 mb-6 ml-16">O conflict check é o componente de maior risco legal do sistema. Um conflito de interesses não detectado pode resultar em cancelamento de licença. O agente compara sistematicamente todas as partes do novo caso contra a base histórica de clientes e sinaliza qualquer sobreposição para revisão humana.</p>
+
+      <div class="ml-16 space-y-6">
+        <div class="bg-gradient-to-br from-rose-900/20 to-dark-800 rounded-xl p-6 border border-rose-500/30">
+          <h3 class="text-rose-400 font-semibold mb-4">🏗️ Arquitetura do Conflict Check</h3>
+          <div class="space-y-3">
+            <div class="flex items-start space-x-3 bg-dark-800/60 rounded-lg p-3">
+              <span class="w-6 h-6 rounded-full bg-rose-500/20 text-rose-400 text-xs font-bold flex items-center justify-center flex-shrink-0 mt-0.5">1</span>
+              <div class="text-sm">
+                <p class="text-neutral-300 font-semibold">Extração de entidades</p>
+                <p class="text-neutral-400">Agente lê o intake do novo caso e extrai: empresa adquirente, alvo, advisors, signatários, cônsules conhecidos.</p>
+              </div>
+            </div>
+            <div class="flex items-start space-x-3 bg-dark-800/60 rounded-lg p-3">
+              <span class="w-6 h-6 rounded-full bg-rose-500/20 text-rose-400 text-xs font-bold flex items-center justify-center flex-shrink-0 mt-0.5">2</span>
+              <div class="text-sm">
+                <p class="text-neutral-300 font-semibold">Entity matching fuzzy</p>
+                <p class="text-neutral-400">Compara contra base de clientes com tolerância a variações de nome (TechCorp vs Tech Corp Ltd vs TechCorporation).</p>
+              </div>
+            </div>
+            <div class="flex items-start space-x-3 bg-dark-800/60 rounded-lg p-3">
+              <span class="w-6 h-6 rounded-full bg-rose-500/20 text-rose-400 text-xs font-bold flex items-center justify-center flex-shrink-0 mt-0.5">3</span>
+              <div class="text-sm">
+                <p class="text-neutral-300 font-semibold">Escalação com evidência</p>
+                <p class="text-neutral-400">Se match &gt; 70%: pausa o processo, notifica Sally com evidência textual. Abaixo de 70%: registra no audit trail e continua.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-red-900/20 rounded-xl p-6 border border-red-500/30">
+          <h3 class="text-red-400 font-semibold mb-2">⚠️ O que o agente NÃO decide</h3>
+          <p class="text-neutral-300 text-sm">O agente <strong>nunca</strong> decide que um conflito é aceitável. Sua função é detectar e escalar. A decisão final é sempre humana. O CLAUDE.md da Sally inclui explicitamente: "Em caso de qualquer match, pare e aguarde confirmação do revisor antes de prosseguir."</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOPICO 3 -->
+    <section id="topico-3" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="w-12 h-12 rounded-full bg-rose-500/20 text-rose-400 text-xl font-bold flex items-center justify-center flex-shrink-0">3</span>
+        <h2 class="text-2xl font-bold">📄 Brief Inicial — Resumo do caso</h2>
+      </div>
+      <p class="text-neutral-400 mb-6 ml-16">Com o conflict check limpo, o agente lê os documentos de intake — PDFs, DOCX, e-mails — e produz um brief estruturado com partes, prazos, valores, e riscos identificados. É o primeiro documento real do caso, gerado em minutos a partir de materiais brutos.</p>
+
+      <div class="ml-16 space-y-6">
+        <div class="bg-gradient-to-br from-rose-900/20 to-dark-800 rounded-xl p-6 border border-rose-500/30">
+          <h3 class="text-rose-400 font-semibold mb-3">📋 Estrutura do brief_inicial.md</h3>
+          <div class="bg-dark-800/60 rounded-lg p-4 font-mono text-sm text-neutral-300 space-y-1">
+            <p class="text-rose-400 font-bold"># Brief: Acquisition_TechCorp_2026-05</p>
+            <p class="text-neutral-400">**Data:** 2026-05-15 | **Status:** Ativo | **Revisor:** Sally Tan</p>
+            <p class="mt-2 text-rose-400">## Partes</p>
+            <p class="text-neutral-400">- Adquirente: InnovateCo Inc. (Cliente representado)</p>
+            <p class="text-neutral-400">- Alvo: TechCorp Solutions Ltd.</p>
+            <p class="mt-2 text-rose-400">## Prazos Críticos</p>
+            <p class="text-neutral-400">- Due diligence: 30 dias a partir de 2026-05-20</p>
+            <p class="text-neutral-400">- Closing estimado: 2026-08-01</p>
+            <p class="mt-2 text-rose-400">## Riscos Identificados</p>
+            <p class="text-neutral-400">- IP em disputa (3 patentes, mencionadas no MOU)</p>
+            <p class="text-neutral-400">- Cláusula de non-compete vaga (§ 7.3)</p>
+          </div>
+        </div>
+
+        <div class="bg-primary/10 rounded-xl p-6 border border-primary/40">
+          <h3 class="text-primary font-semibold mb-3">💡 Multi-doc summarization com fidelidade</h3>
+          <p class="text-neutral-300 text-sm">O agente lê simultaneamente o MOU, os e-mails de intake, e o NDA. A instrução no CLAUDE.md é explícita: "Preserve termos jurídicos literalmente. Nunca parafraseie cláusulas. Quando incerto sobre interpretação, inclua o trecho original entre aspas." Isso evita o risco de o resumo distorcer o significado legal.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOPICO 4 -->
+    <section id="topico-4" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="w-12 h-12 rounded-full bg-rose-500/20 text-rose-400 text-xl font-bold flex items-center justify-center flex-shrink-0">4</span>
+        <h2 class="text-2xl font-bold">☁️ Bedrock-only — Compliance corporativa</h2>
+      </div>
+      <p class="text-neutral-400 mb-6 ml-16">O escritório da Sally tem um requisito não-negociável: dados de clientes não podem sair da conta AWS da firma. A solução é apontar o Claude Code para AWS Bedrock em vez da API pública da Anthropic — mesma inteligência, mas processamento dentro do perímetro corporativo.</p>
+
+      <div class="ml-16 space-y-6">
+        <div class="bg-gradient-to-br from-rose-900/20 to-dark-800 rounded-xl p-6 border border-rose-500/30">
+          <h3 class="text-rose-400 font-semibold mb-4">🔧 Configuração Bedrock no Claude Code</h3>
+          <div class="bg-dark-800/60 rounded-lg p-4 font-mono text-sm text-neutral-300 space-y-1">
+            <p class="text-neutral-400"># ~/.claude/settings.json</p>
+            <p>{</p>
+            <p class="ml-4"><span class="text-rose-400">"model"</span>: <span class="text-emerald-400">"anthropic.claude-sonnet-4-5"</span>,</p>
+            <p class="ml-4"><span class="text-rose-400">"apiProvider"</span>: <span class="text-emerald-400">"bedrock"</span>,</p>
+            <p class="ml-4"><span class="text-rose-400">"awsRegion"</span>: <span class="text-emerald-400">"us-east-1"</span>,</p>
+            <p class="ml-4"><span class="text-rose-400">"awsProfile"</span>: <span class="text-emerald-400">"lawfirm-prod"</span></p>
+            <p>}</p>
+          </div>
+        </div>
+
+        <div class="bg-blue-900/20 rounded-xl p-6 border border-blue-500/30">
+          <h3 class="text-blue-400 font-semibold mb-2">📊 Bedrock, data residency, no-egress</h3>
+          <p class="text-neutral-300 text-sm mb-3">Com Bedrock, os dados de inferência ficam na VPC da firma. A Anthropic não vê o conteúdo das requisições. Isso satisfaz três requisitos: (1) data residency para clientes com contratos de não-saída de dados; (2) SOC2 Type II do escritório; (3) exigências do BAA para casos com qualquer dado de saúde.</p>
+          <p class="text-neutral-300 text-sm"><span class="text-blue-400 font-semibold">Custo adicional:</span> pricing do Bedrock é ~15% mais caro que API direta. Para o escritório, é trivial vs. o risco de compliance.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOPICO 5 -->
+    <section id="topico-5" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="w-12 h-12 rounded-full bg-rose-500/20 text-rose-400 text-xl font-bold flex items-center justify-center flex-shrink-0">5</span>
+        <h2 class="text-2xl font-bold">📋 Audit Log de Cada Decisão — Para revisão ética</h2>
+      </div>
+      <p class="text-neutral-400 mb-6 ml-16">Toda saída do agente — conflict check, brief, análise de cláusula — fica registrada em um log imutável com input exato, modelo utilizado, timestamp e identificador do revisor. Bar association e comitê de ética exigem rastreabilidade; o audit log entrega isso automaticamente.</p>
+
+      <div class="ml-16 space-y-6">
+        <div class="bg-gradient-to-br from-rose-900/20 to-dark-800 rounded-xl p-6 border border-rose-500/30">
+          <h3 class="text-rose-400 font-semibold mb-3">📝 Estrutura do audit_log.jsonl</h3>
+          <div class="bg-dark-800/60 rounded-lg p-4 font-mono text-xs text-neutral-300 space-y-2">
+            <p>{</p>
+            <p class="ml-4"><span class="text-rose-400">"timestamp"</span>: <span class="text-emerald-400">"2026-05-15T14:23:11Z"</span>,</p>
+            <p class="ml-4"><span class="text-rose-400">"action"</span>: <span class="text-emerald-400">"conflict_check"</span>,</p>
+            <p class="ml-4"><span class="text-rose-400">"model"</span>: <span class="text-emerald-400">"anthropic.claude-sonnet-4-5@bedrock"</span>,</p>
+            <p class="ml-4"><span class="text-rose-400">"input_hash"</span>: <span class="text-emerald-400">"sha256:a3f9c2..."</span>,</p>
+            <p class="ml-4"><span class="text-rose-400">"result"</span>: <span class="text-emerald-400">"CLEAR"</span>,</p>
+            <p class="ml-4"><span class="text-rose-400">"reviewer"</span>: <span class="text-emerald-400">"sally.tan@firm.com"</span>,</p>
+            <p class="ml-4"><span class="text-rose-400">"reviewed_at"</span>: <span class="text-emerald-400">"2026-05-15T14:31:00Z"</span></p>
+            <p>}</p>
+          </div>
+        </div>
+
+        <div class="bg-primary/10 rounded-xl p-6 border border-primary/40">
+          <h3 class="text-primary font-semibold mb-3">💡 Tamper-proof via append-only</h3>
+          <p class="text-neutral-300 text-sm">O audit log é JSONL (uma linha por evento) com append-only — nenhuma linha pode ser editada depois de gravada. O hash do input garante que ninguém alterou o que o agente recebeu. Model attribution garante que, se o modelo mudar, fica registrado. Isso cria uma cadeia de custódia digital equivalente a um log de assinatura notarial.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOPICO 6 -->
+    <section id="topico-6" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="w-12 h-12 rounded-full bg-rose-500/20 text-rose-400 text-xl font-bold flex items-center justify-center flex-shrink-0">6</span>
+        <h2 class="text-2xl font-bold">📈 Resultado: 4-5h/caso recuperadas — ROI</h2>
+      </div>
+      <p class="text-neutral-400 mb-6 ml-16">Cinco casos por mês, quatro horas recuperadas por caso: 20 horas mensais redirecionadas de estruturação mecânica para trabalho estratégico. O ROI de Sally é medido em horas billable recuperadas — e em riscos de compliance evitados.</p>
+
+      <div class="ml-16 space-y-6">
+        <div class="bg-gradient-to-br from-rose-900/20 to-dark-800 rounded-xl p-6 border border-rose-500/30">
+          <h3 class="text-rose-400 font-semibold mb-4">📊 ROI em números</h3>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div class="text-center bg-dark-800/60 rounded-lg p-4">
+              <div class="text-3xl font-bold text-rose-400 mb-1">20h</div>
+              <div class="text-neutral-400 text-sm">recuperadas por mês</div>
+            </div>
+            <div class="text-center bg-dark-800/60 rounded-lg p-4">
+              <div class="text-3xl font-bold text-rose-400 mb-1">5 casos</div>
+              <div class="text-neutral-400 text-sm">por mês, todos auditados</div>
+            </div>
+            <div class="text-center bg-dark-800/60 rounded-lg p-4">
+              <div class="text-3xl font-bold text-rose-400 mb-1">0</div>
+              <div class="text-neutral-400 text-sm">conflitos não detectados</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-blue-900/20 rounded-xl p-6 border border-blue-500/30">
+          <h3 class="text-blue-400 font-semibold mb-2">📊 Time saved vs billable hours uplift</h3>
+          <p class="text-neutral-300 text-sm">Sally cobra $450/h. 20h recuperadas = $9.000/mês de capacidade adicional de faturamento — mesmo que só metade seja convertida em horas billables, o ROI é $4.500/mês sobre um investimento de ~$200/mês em API + infraestrutura. O argumento para o sócio sênior aprovar o projeto foi direto: payback em 2 semanas.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESUMO FINAL -->
+    <section class="bg-dark-800 rounded-xl p-8 border border-rose-500/30 mb-12">
+      <h2 class="text-2xl font-bold mb-6">✅ Resumo do Módulo 6.2</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
+        <div class="flex items-center space-x-3">
+          <span class="text-rose-400 text-lg">✓</span>
+          <span class="text-neutral-300 text-sm">/case launch cria scaffold + conflict check + audit log</span>
+        </div>
+        <div class="flex items-center space-x-3">
+          <span class="text-rose-400 text-lg">✓</span>
+          <span class="text-neutral-300 text-sm">Conflict check fuzzy com escalação obrigatória para Sally</span>
+        </div>
+        <div class="flex items-center space-x-3">
+          <span class="text-rose-400 text-lg">✓</span>
+          <span class="text-neutral-300 text-sm">Brief inicial via multi-doc summarization com fidelidade jurídica</span>
+        </div>
+        <div class="flex items-center space-x-3">
+          <span class="text-rose-400 text-lg">✓</span>
+          <span class="text-neutral-300 text-sm">Bedrock-only: dados nunca saem da conta AWS da firma</span>
+        </div>
+        <div class="flex items-center space-x-3">
+          <span class="text-rose-400 text-lg">✓</span>
+          <span class="text-neutral-300 text-sm">Audit log JSONL append-only com hash de input e model attribution</span>
+        </div>
+        <div class="flex items-center space-x-3">
+          <span class="text-rose-400 text-lg">✓</span>
+          <span class="text-neutral-300 text-sm">20h/mês recuperadas — ROI de payback em 2 semanas</span>
+        </div>
+      </div>
+
+      <div class="bg-dark-700/50 rounded-lg p-4 mb-6">
+        <p class="text-neutral-400 text-sm"><span class="text-rose-400 font-semibold">Próximo módulo:</span> Caso Dra. Sana — dermatologia. O caso mais crítico do curso: PHI obrigatoriamente isolado, biópsias com terminologia especializada, e a lição de que "esperança" em dados de saúde pode ter consequências reais.</p>
+      </div>
+
+      <div class="flex justify-start space-x-3">
+        <a href="modulo-6-1.html" class="px-5 py-2.5 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors text-sm">← Módulo anterior</a>
+        <a href="modulo-6-3.html" class="px-5 py-2.5 bg-rose-600 text-white rounded-lg font-semibold hover:bg-rose-500 transition-colors text-sm">Próximo módulo →</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="border-t border-dark-600 py-8 mt-4">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm">
+      <p>Agentic OS — <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300">INEMA.CLUB</a> — 2026</p>
+    </div>
+  </footer>
+
+  <script>
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+    const html = document.documentElement;
+
+    if (localStorage.getItem('theme') === 'light' || (!localStorage.getItem('theme') && !html.classList.contains('dark'))) {
+      themeToggleDarkIcon.classList.remove('hidden');
+      html.classList.remove('dark');
+    } else {
+      themeToggleLightIcon.classList.remove('hidden');
+    }
+
+    themeToggle.addEventListener('click', () => {
+      themeToggleDarkIcon.classList.toggle('hidden');
+      themeToggleLightIcon.classList.toggle('hidden');
+      html.classList.toggle('dark');
+      localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>3.1 — Silver Platters | Agentic OS</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script>tailwind.config={darkMode:'class',theme:{extend:{colors:{primary:'#FACC15',dark:{900:'#111827',800:'#1f2937',700:'#374151',600:'#4b5563'}}}}}</script>
+<style>
+body{font-family:'Inter',sans-serif}
+html:not(.dark) body{background:#f8fafc}html:not(.dark) .bg-dark-900{background:#fff}html:not(.dark) .bg-dark-800{background:#f9fafb}html:not(.dark) .bg-dark-700{background:#f3f4f6}html:not(.dark) .bg-dark-600{background:#e5e7eb}html:not(.dark) .text-neutral-100{color:#111827}html:not(.dark) .text-neutral-300{color:#4b5563}html:not(.dark) .text-neutral-400{color:#6b7280}html:not(.dark) .text-neutral-500{color:#9ca3af}html:not(.dark) .border-dark-600{border-color:#d1d5db}html:not(.dark) .border-dark-700{border-color:#e5e7eb}
+html:not(.dark) .text-purple-400{color:#7c3aed}html:not(.dark) .bg-purple-500\/20{background:rgba(124,58,237,.12)}html:not(.dark) .bg-purple-500\/10{background:rgba(124,58,237,.08)}html:not(.dark) .border-purple-500\/30{border-color:rgba(124,58,237,.25)}html:not(.dark) .bg-purple-900\/20{background:rgba(124,58,237,.06)}html:not(.dark) .bg-purple-900\/30{background:rgba(124,58,237,.06)}html:not(.dark) .bg-purple-900\/40{background:rgba(124,58,237,.08)}
+html:not(.dark) .text-blue-400{color:#2563eb}html:not(.dark) .bg-blue-900\/20{background:rgba(37,99,235,.06)}html:not(.dark) .border-blue-500\/30{border-color:rgba(37,99,235,.25)}
+html:not(.dark) .text-red-400{color:#b91c1c}html:not(.dark) .bg-red-900\/20{background:rgba(185,28,28,.06)}html:not(.dark) .border-red-500\/30{border-color:rgba(185,28,28,.25)}
+html:not(.dark) [class*="bg-gradient-to"]{background-image:none!important}html:not(.dark) .text-primary{color:#a16207}html:not(.dark) .bg-primary\/10{background:rgba(161,98,7,.08)}html:not(.dark) .border-primary\/30{border-color:rgba(161,98,7,.25)}html:not(.dark) .text-sky-400{color:#0369a1}html:not(.dark) .text-yellow-400{color:#a16207}html:not(.dark) .hover\:text-sky-300:hover{color:#0284c7}html:not(.dark) .hover\:text-yellow-300:hover{color:#854d0e}html:not(.dark) .bg-dark-900\/95{background:rgba(255,255,255,.95)}
+</style></head>
+<body class="bg-dark-900 text-neutral-100">
+<nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"><div class="flex justify-between items-center h-14"><div class="flex items-center space-x-4"><a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300"><span class="text-2xl">⚡</span><span class="font-bold text-lg hidden sm:inline">Agentic OS</span></a><span class="text-neutral-600">|</span><a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a></div><div class="flex items-center space-x-1 sm:space-x-2"><a href="../trilha1/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors"><span class="sm:hidden">T1</span><span class="hidden sm:inline">Fundamentos</span></a><a href="../trilha2/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors"><span class="sm:hidden">T2</span><span class="hidden sm:inline">Identidade</span></a><a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-purple-400 bg-purple-500/10"><span class="sm:hidden">T3</span><span class="hidden sm:inline">Conhecimento</span></a><a href="../trilha4/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-amber-400 hover:bg-amber-500/10 transition-colors"><span class="sm:hidden">T4</span><span class="hidden sm:inline">Trabalhadores</span></a><a href="../trilha5/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-teal-400 hover:bg-teal-500/10 transition-colors"><span class="sm:hidden">T5</span><span class="hidden sm:inline">Automação</span></a><a href="../trilha6/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-rose-400 hover:bg-rose-500/10 transition-colors"><span class="sm:hidden">T6</span><span class="hidden sm:inline">Implantação</span></a><button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2"><svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/></svg><svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"/></svg></button></div></div></div></nav>
+
+<nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4"><div class="flex items-center space-x-2 text-sm text-neutral-400"><a href="../../index.html" class="hover:text-purple-400">Início</a><span>/</span><a href="index.html" class="hover:text-purple-400">Trilha 3</a><span>/</span><span class="text-purple-400">Módulo 3.1</span></div></nav>
+
+<header class="bg-gradient-to-br from-purple-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"><span class="inline-block px-3 py-1 bg-purple-500/20 text-purple-400 text-xs font-semibold rounded-full mb-4">MÓDULO 3.1</span><h1 class="text-3xl sm:text-4xl font-bold mb-4">🍽️ Silver Platters — resumos como filesystem</h1><p class="text-lg text-neutral-400 max-w-3xl">Agentes leem resumos preparados, não caos bruto. A ponte entre dado e raciocínio — o arquivo .md que elimina alucinação e torna o contexto confiável.</p><div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl"><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">6</div><div class="text-xs text-neutral-400">Tópicos</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">50</div><div class="text-xs text-neutral-400">Minutos</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">Médio</div><div class="text-xs text-neutral-400">Nível</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">Prático</div><div class="text-xs text-neutral-400">Tipo</div></div></div></div></header>
+
+<main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+<section id="topico-1" class="mb-16">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">1</span><h2 class="text-2xl font-bold">📋 O que é um Silver Platter</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Um <strong class="text-purple-400">Silver Platter</strong> é um arquivo de texto estruturado — geralmente Markdown — que resume uma área de negócio em formato pronto para consumo por agentes. É pré-processado por humanos ou por código determinístico, não gerado on-the-fly pelo LLM. <strong class="text-purple-400">É a bandeja pronta</strong>: você coloca na frente do agente e ele tem tudo que precisa para raciocinar sem precisar varrer arquivos brutos.</p>
+<div class="bg-gradient-to-br from-purple-900/30 to-dark-800 rounded-xl border border-purple-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-purple-400 mb-4 flex items-center"><span class="mr-2">🍽️</span> A metáfora da bandeja</h3>
+<p class="text-neutral-300 mb-4">Imagine um chef de cozinha. Ele não vai ao mercado durante o serviço — a mise en place já está pronta. Silver Platter é a mise en place do agente:</p>
+<ul class="space-y-2 text-neutral-300 text-sm">
+<li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong class="text-neutral-100">Dado já processado</strong> — números calculados por Python, não estimados pelo LLM.</span></li>
+<li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong class="text-neutral-100">Estrutura previsível</strong> — o agente sabe exatamente onde encontrar o KPI de vendas.</span></li>
+<li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong class="text-neutral-100">Contexto relevante</strong> — só o que o agente precisa, sem ruído de arquivos irrelevantes.</span></li>
+<li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong class="text-neutral-100">Timestamp explícito</strong> — o agente sabe se o dado é de hoje ou de uma semana atrás.</span></li>
+</ul>
+</div>
+<div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-blue-400 mb-3 flex items-center"><span class="mr-2">📊</span> Por que isso importa</h3>
+<p class="text-neutral-300 mb-3">Sem Silver Platters, agentes cometem erros previsíveis:</p>
+<ul class="space-y-2 text-neutral-300 text-sm">
+<li><strong>Alucinação numérica</strong> — LLM inventa KPIs que não existem no dado bruto.</li>
+<li><strong>Perda de contexto</strong> — janela de contexto explode tentando ler CSVs inteiros.</li>
+<li><strong>Dado desatualizado</strong> — agente usa memória de treino, não dado real do negócio.</li>
+<li><strong>Latência</strong> — cada chamada precisa reprocessar tudo do zero.</li>
+</ul>
+</div>
+</section>
+
+<section id="topico-2" class="mb-16">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">2</span><h2 class="text-2xl font-bold">🔄 Bruto → Silver Platter → Agente</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">O fluxo tem três estágios claramente separados. <strong class="text-purple-400">Dados brutos</strong> (vendas.csv, campanhas.xlsx, contratos.pdf, logs de sistema) passam por uma <strong class="text-purple-400">etapa de preparação</strong> (Python, SQL, scripts) e geram Silver Platters estruturados que o agente consome. Esses estágios não devem se misturar.</p>
+<div class="space-y-6 mb-6">
+<div class="flex items-start space-x-4">
+<div class="flex-shrink-0 w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center"><span class="text-purple-400 font-bold">1</span></div>
+<div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+<h4 class="font-semibold text-white mb-2">Dados Brutos (Pantry)</h4>
+<p class="text-sm text-neutral-400 mb-3">Fontes originais — não tocar diretamente no contexto do agente</p>
+<p class="text-neutral-300 text-sm">vendas.csv, meta_ads.json, contratos.pdf, planilha_rh.xlsx, logs.jsonl — dados como vieram dos sistemas.</p>
+</div>
+</div>
+<div class="flex items-start space-x-4">
+<div class="flex-shrink-0 w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center"><span class="text-purple-400 font-bold">2</span></div>
+<div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+<h4 class="font-semibold text-white mb-2">Preparação (Prep Table)</h4>
+<p class="text-sm text-neutral-400 mb-3">Python, SQL, scripts determinísticos — nunca LLM para números</p>
+<pre class="bg-dark-700 rounded-lg p-3 text-xs text-neutral-300 overflow-x-auto">
+# Exemplo: gerar silver platter de marketing
+df = pd.read_csv('meta_ads.csv')
+kpis = {
+  'cac': df['gasto'].sum() / df['conversoes'].sum(),
+  'roas': df['receita'].sum() / df['gasto'].sum(),
+  'melhor_campanha': df.sort_values('roas').iloc[-1]['nome']
+}
+# Escreve o .md com timestamp
+write_platter('marketing.md', kpis, datetime.now())</pre>
+</div>
+</div>
+<div class="flex items-start space-x-4">
+<div class="flex-shrink-0 w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center"><span class="text-purple-400 font-bold">3</span></div>
+<div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+<h4 class="font-semibold text-white mb-2">Silver Platter (Plate)</h4>
+<p class="text-sm text-neutral-400 mb-3">O arquivo .md que o agente lê — compacto, preciso, timestampado</p>
+<p class="text-neutral-300 text-sm">marketing.md, financeiro.md, operacoes.md, clientes.md — um arquivo por domínio.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section id="topico-3" class="mb-16">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">3</span><h2 class="text-2xl font-bold">📐 Estrutura padrão de um Silver Platter</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Um Silver Platter bem estruturado tem seções fixas que o agente aprende a navegar. Sem padronização, cada platter vira uma surpresa — o agente perde tempo inferindo onde está o dado. <strong class="text-purple-400">Schema implícito é débito técnico</strong>.</p>
+<div class="bg-gradient-to-br from-purple-900/30 to-dark-800 rounded-xl border border-purple-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-purple-400 mb-4 flex items-center"><span class="mr-2">📄</span> Template canônico</h3>
+<pre class="bg-dark-700 rounded-lg p-4 text-xs text-neutral-300 overflow-x-auto">
+# Silver Platter: Marketing
+**Gerado em:** 2026-05-15 08:00 BRT
+**Fonte:** meta_ads.csv, google_analytics.json
+**TTL:** 24h (regenerar às 07:00)
+
+## Resumo Executivo
+CAC atual: R$ 87 (meta: R$ 90 ✅)
+ROAS: 3.2x (meta: 3.0x ✅)
+Leads mês: 1.847 (meta: 2.000 ⚠️)
+
+## KPIs Principais
+| Métrica | Valor | Δ vs mês ant | Status |
+|---------|-------|--------------|--------|
+| CAC | R$87 | -8% | ✅ |
+| ROAS | 3.2x | +5% | ✅ |
+| CTR | 2.4% | -0.3pp | ⚠️ |
+
+## Alertas
+- CTR caindo há 3 semanas seguidas
+- Budget de remarketing 92% consumido
+
+## Oportunidades
+- Campanha "Verão" tem ROAS 4.1x — candidata a escalar
+
+## Perguntas em Aberto
+- Por que CTR caiu em mobile específico?</pre>
+</div>
+<div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Regra de ouro</h3>
+<p class="text-neutral-300">O Resumo Executivo deve ser suficiente para 80% das perguntas. As seções seguintes são drill-down. Marco (e-commerce) usa essa estrutura para seu CMO Bot consumir todas as manhãs sem depender de dados brutos do Shopify.</p>
+</div>
+</section>
+
+<section id="topico-4" class="mb-16">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">4</span><h2 class="text-2xl font-bold">🤖 Determinístico vs Generativo</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Existe uma linha clara que separa o que deve ser calculado por código e o que pode ser gerado por LLM. <strong class="text-purple-400">Números são determinísticos</strong> — Python calcula, nunca o LLM. <strong class="text-purple-400">Narrativa é generativa</strong> — o LLM interpreta e explica os números calculados.</p>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+<div class="bg-purple-900/20 rounded-xl border border-purple-500/30 p-6">
+<h4 class="font-bold text-purple-400 mb-4">✓ Python/SQL faz</h4>
+<ul class="space-y-3 text-neutral-300 text-sm">
+<li class="flex items-start space-x-2"><span class="text-purple-400">✓</span><span>Somatório de receita, CAC, ROAS</span></li>
+<li class="flex items-start space-x-2"><span class="text-purple-400">✓</span><span>Contagem de registros, médias, percentuais</span></li>
+<li class="flex items-start space-x-2"><span class="text-purple-400">✓</span><span>Ranking e ordenação de campanha</span></li>
+<li class="flex items-start space-x-2"><span class="text-purple-400">✓</span><span>Detecção de anomalia com threshold fixo</span></li>
+<li class="flex items-start space-x-2"><span class="text-purple-400">✓</span><span>Timestamp e TTL</span></li>
+</ul>
+</div>
+<div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+<h4 class="font-bold text-red-400 mb-4">✗ LLM NÃO calcula</h4>
+<ul class="space-y-3 text-neutral-300 text-sm">
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Somar linhas de CSV diretamente</span></li>
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Inferir KPIs sem dado estruturado</span></li>
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Estimar porcentagens "de cabeça"</span></li>
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Decidir se dado está atualizado</span></li>
+</ul>
+</div>
+</div>
+<div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> O que o LLM faz bem no Silver Platter</h3>
+<p class="text-neutral-300">Após o Python preencher os KPIs, o LLM escreve o "Resumo Executivo" em linguagem natural, identifica padrões entre métricas e gera as "Perguntas em Aberto". Divisão clara: código computa, LLM interpreta.</p>
+</div>
+</section>
+
+<section id="topico-5" class="mb-16">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">5</span><h2 class="text-2xl font-bold">⏰ Frescor, TTL e Versionamento</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Um Silver Platter sem timestamp é uma bomba-relógio. <strong class="text-purple-400">Dado velho mata análise</strong> — o agente responde com segurança usando informação obsoleta. Cada platter deve declarar explicitamente quando foi gerado e quando expira.</p>
+<div class="bg-gradient-to-br from-purple-900/30 to-dark-800 rounded-xl border border-purple-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-purple-400 mb-4 flex items-center"><span class="mr-2">📅</span> TTL por tipo de dado</h3>
+<ul class="space-y-3 text-neutral-300 text-sm">
+<li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong class="text-neutral-100">KPIs de marketing</strong> — TTL 24h. Cron 07:00 diário.</span></li>
+<li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong class="text-neutral-100">Pipeline de vendas</strong> — TTL 4h. Cron a cada 4 horas em dias úteis.</span></li>
+<li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong class="text-neutral-100">Relatório financeiro</strong> — TTL 7 dias. Gerado às sextas após fechamento.</span></li>
+<li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong class="text-neutral-100">Briefing de cliente (Sally)</strong> — TTL por sessão de caso. Regenerado ao abrir novo processo.</span></li>
+<li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong class="text-neutral-100">Sumário clínico (Sana)</strong> — TTL por visita. Regenerado a cada nova consulta.</span></li>
+</ul>
+</div>
+<div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-blue-400 mb-3 flex items-center"><span class="mr-2">📊</span> Versionamento simples</h3>
+<p class="text-neutral-300 mb-3">Não é necessário git para platters. Padrão suficiente:</p>
+<pre class="bg-dark-700 rounded-lg p-3 text-xs text-neutral-300">
+platters/
+  marketing_20260515_0800.md   # versão com timestamp
+  marketing_current.md          # symlink para o mais recente
+  marketing_20260514_0800.md   # versão anterior (retenção 7 dias)</pre>
+</div>
+</section>
+
+<section id="topico-6" class="mb-16">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">6</span><h2 class="text-2xl font-bold">🌟 Karpathy LLM Wiki — a versão evoluída</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Andrej Karpathy propôs em 2025 que agentes deveriam manter uma <strong class="text-purple-400">wiki Markdown viva</strong> — compilada incrementalmente a cada nova observação. É o Silver Platter que se autoenriquece: entidades, contradições, sínteses e cross-links crescem com o uso.</p>
+<div class="bg-gradient-to-br from-purple-900/30 to-dark-800 rounded-xl border border-purple-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-purple-400 mb-4 flex items-center"><span class="mr-2">📖</span> Diferença: Platter estático vs Wiki viva</h3>
+<ul class="space-y-3 text-neutral-300 text-sm">
+<li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong class="text-neutral-100">Platter estático</strong> — gerado por script, substitui o anterior. Snapshot.</span></li>
+<li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong class="text-neutral-100">LLM Wiki</strong> — o agente lê novo dado e <em>atualiza</em> a página relevante, preserva histórico.</span></li>
+<li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong class="text-neutral-100">Cross-links</strong> — "Campanha A → relacionada a Cliente B → ver também: Contrato C".</span></li>
+<li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong class="text-neutral-100">Contradições rastreadas</strong> — quando dado novo contradiz antigo, a página registra o conflito.</span></li>
+</ul>
+</div>
+<div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Quando usar qual</h3>
+<p class="text-neutral-300">Silver Platters estáticos para operações repetitivas (relatórios diários, KPIs semanais). LLM Wiki para domínios ricos em entidades com histórico longo — casos legais (Sally), histórico clínico (Sana), carteira de clientes (Marco). Comece com Platters, evolua para Wiki quando o volume de entidades cresce.</p>
+</div>
+<div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-red-400 mb-3 flex items-center"><span class="mr-2">⚠️</span> Armadilha da wiki sem governança</h3>
+<p class="text-neutral-300">Wiki sem TTL e sem curador vira swamp. Defina: quem pode escrever, qual TTL por página, como resolver conflito. Sem isso, o agente confia em dado contraditório e a qualidade degrada silenciosamente.</p>
+</div>
+</section>
+
+<section class="mb-12">
+<div class="bg-gradient-to-br from-purple-900/40 via-dark-800 to-dark-800 rounded-xl border border-purple-500/30 p-8">
+<h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-3">📋</span> Resumo do Módulo</h2>
+<div class="space-y-4 mb-8">
+<div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-white">Silver Platter = arquivo .md pré-processado</strong><span class="text-neutral-400"> — dado pronto para o agente, sem processamento on-the-fly</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-white">Fluxo: Bruto → Prep → Platter → Agente</strong><span class="text-neutral-400"> — três estágios que nunca se misturam</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-white">Estrutura padrão</strong><span class="text-neutral-400"> — executivo, KPIs, alertas, oportunidades, perguntas em aberto</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-white">Python calcula, LLM interpreta</strong><span class="text-neutral-400"> — nunca pedir ao LLM para somar planilhas</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-white">TTL e timestamp obrigatórios</strong><span class="text-neutral-400"> — dado sem validade declarada é dado não confiável</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-white">Karpathy LLM Wiki = evolução</strong><span class="text-neutral-400"> — platter que se autoenriquece para domínios com muitas entidades</span></div></div>
+</div>
+<div class="bg-dark-800/50 rounded-lg p-4 mb-8"><h3 class="font-semibold text-purple-400 mb-2">Próximo Módulo:</h3><p class="text-neutral-300">3.2 — Pantry / Prep Table / Plate — mapa de dados</p></div>
+<div class="flex flex-col sm:flex-row gap-4"><a href="../trilha2/modulo-2-6.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">← Módulo Anterior</a><a href="modulo-3-2.html" class="flex-1 text-center px-6 py-3 bg-purple-600 text-white rounded-lg font-semibold hover:bg-purple-500 transition-colors">Próximo Módulo →</a></div>
+</div>
+</section>
+
+</main>
+<footer class="border-t border-dark-600 py-8 mt-16"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm"><p>Agentic OS — INEMA.CLUB · 2026</p></div></footer>
+<script>
+const tt=document.getElementById('theme-toggle'),tdi=document.getElementById('theme-toggle-dark-icon'),tli=document.getElementById('theme-toggle-light-icon'),h=document.documentElement;
+if(localStorage.getItem('theme')==='light'||(!localStorage.getItem('theme')&&!h.classList.contains('dark'))){tdi.classList.remove('hidden');h.classList.remove('dark')}else{tli.classList.remove('hidden')}
+tt.addEventListener('click',()=>{tdi.classList.toggle('hidden');tli.classList.toggle('hidden');h.classList.toggle('dark');localStorage.setItem('theme',h.classList.contains('dark')?'dark':'light')});
+</script>
+</body></html>

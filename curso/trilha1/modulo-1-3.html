@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1.3 — Por que sua IA não gera resultado | Agentic OS</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script>tailwind.config={darkMode:'class',theme:{extend:{colors:{primary:'#FACC15',dark:{900:'#111827',800:'#1f2937',700:'#374151',600:'#4b5563'}}}}}</script>
+<style>
+body{font-family:'Inter',sans-serif}
+html:not(.dark) body{background:#f8fafc}html:not(.dark) .bg-dark-900{background:#fff}html:not(.dark) .bg-dark-800{background:#f9fafb}html:not(.dark) .bg-dark-700{background:#f3f4f6}html:not(.dark) .bg-dark-600{background:#e5e7eb}html:not(.dark) .text-neutral-100{color:#111827}html:not(.dark) .text-neutral-300{color:#4b5563}html:not(.dark) .text-neutral-400{color:#6b7280}html:not(.dark) .text-neutral-500{color:#9ca3af}html:not(.dark) .border-dark-600{border-color:#d1d5db}html:not(.dark) .border-dark-700{border-color:#e5e7eb}
+html:not(.dark) .text-emerald-400{color:#059669}html:not(.dark) .bg-emerald-500\/20{background:rgba(5,150,105,.12)}html:not(.dark) .bg-emerald-500\/10{background:rgba(5,150,105,.08)}html:not(.dark) .border-emerald-500\/30{border-color:rgba(5,150,105,.25)}html:not(.dark) .bg-emerald-900\/20{background:rgba(5,150,105,.06)}html:not(.dark) .bg-emerald-900\/30{background:rgba(5,150,105,.06)}html:not(.dark) .bg-emerald-900\/40{background:rgba(5,150,105,.08)}
+html:not(.dark) .text-blue-400{color:#2563eb}html:not(.dark) .bg-blue-900\/20{background:rgba(37,99,235,.06)}html:not(.dark) .border-blue-500\/30{border-color:rgba(37,99,235,.25)}
+html:not(.dark) .text-red-400{color:#b91c1c}html:not(.dark) .bg-red-900\/20{background:rgba(185,28,28,.06)}html:not(.dark) .border-red-500\/30{border-color:rgba(185,28,28,.25)}
+html:not(.dark) [class*="bg-gradient-to"]{background-image:none!important}html:not(.dark) .text-primary{color:#a16207}html:not(.dark) .bg-primary\/10{background:rgba(161,98,7,.08)}html:not(.dark) .border-primary\/30{border-color:rgba(161,98,7,.25)}html:not(.dark) .text-sky-400{color:#0369a1}html:not(.dark) .text-yellow-400{color:#a16207}html:not(.dark) .hover\:text-sky-300:hover{color:#0284c7}html:not(.dark) .hover\:text-yellow-300:hover{color:#854d0e}html:not(.dark) .bg-dark-900\/95{background:rgba(255,255,255,.95)}
+</style></head>
+<body class="bg-dark-900 text-neutral-100">
+<nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"><div class="flex justify-between items-center h-14"><div class="flex items-center space-x-4"><a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300"><span class="text-2xl">⚡</span><span class="font-bold text-lg hidden sm:inline">Agentic OS</span></a><span class="text-neutral-600">|</span><a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a></div><div class="flex items-center space-x-1 sm:space-x-2"><a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-emerald-400 bg-emerald-500/10"><span class="sm:hidden">T1</span><span class="hidden sm:inline">Fundamentos</span></a><a href="../trilha2/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors"><span class="sm:hidden">T2</span><span class="hidden sm:inline">Identidade</span></a><a href="../trilha3/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors"><span class="sm:hidden">T3</span><span class="hidden sm:inline">Conhecimento</span></a><a href="../trilha4/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-amber-400 hover:bg-amber-500/10 transition-colors"><span class="sm:hidden">T4</span><span class="hidden sm:inline">Trabalhadores</span></a><a href="../trilha5/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-teal-400 hover:bg-teal-500/10 transition-colors"><span class="sm:hidden">T5</span><span class="hidden sm:inline">Automação</span></a><a href="../trilha6/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-rose-400 hover:bg-rose-500/10 transition-colors"><span class="sm:hidden">T6</span><span class="hidden sm:inline">Implantação</span></a><button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2"><svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/></svg><svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"/></svg></button></div></div></div></nav>
+
+<nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4"><div class="flex items-center space-x-2 text-sm text-neutral-400"><a href="../../index.html" class="hover:text-emerald-400">Início</a><span>/</span><a href="index.html" class="hover:text-emerald-400">Trilha 1</a><span>/</span><span class="text-emerald-400">Módulo 1.3</span></div></nav>
+
+<header class="bg-gradient-to-br from-emerald-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"><span class="inline-block px-3 py-1 bg-emerald-500/20 text-emerald-400 text-xs font-semibold rounded-full mb-4">MÓDULO 1.3</span><h1 class="text-3xl sm:text-4xl font-bold mb-4">⚠️ Por que sua IA não gera resultado</h1><p class="text-lg text-neutral-400 max-w-3xl">O problema não é falta de IA — é falta de estrutura. Improviso eterno versus sistema operacional. Seis diagnósticos que explicam por que 90% das implementações falham.</p><div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl"><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-emerald-400">6</div><div class="text-xs text-neutral-400">Tópicos</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-emerald-400">30</div><div class="text-xs text-neutral-400">Minutos</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-emerald-400">Básico</div><div class="text-xs text-neutral-400">Nível</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-emerald-400">Teoria</div><div class="text-xs text-neutral-400">Tipo</div></div></div></div></header>
+
+<main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+<section id="topico-1" class="mb-16">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">1</span><h2 class="text-2xl font-bold">🌪️ Bagunça amplificada</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">O erro mais comum de quem começa com IA é tratar o modelo como solução para a desorganização. <strong class="text-emerald-400">A IA não conserta dado ruim — ela amplifica a bagunça em escala</strong>. Marco, ao conectar seu Shopify direto ao Claude sem preparo nenhum, recebeu análises rápidas, confiantes e completamente erradas sobre seus whales.</p>
+<div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-emerald-400 mb-4 flex items-center"><span class="mr-2">🧠</span> O princípio garbage-in-garbage-out, em escala</h3>
+<p class="text-neutral-300 mb-4">Em programação clássica, dado inválido causa erro visível. Com IA, dado inválido gera resposta plausível, fluente e errada — muito mais perigoso. Quatro formas de bagunça amplificada:</p>
+<ul class="space-y-2 text-neutral-300 text-sm">
+<li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span><strong class="text-neutral-100">Dados fragmentados</strong> — planilhas em 5 formatos diferentes viram "insights" contraditórios.</span></li>
+<li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span><strong class="text-neutral-100">Nomenclatura inconsistente</strong> — "cliente" vs "user" vs "comprador" gera duplicação invisível.</span></li>
+<li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span><strong class="text-neutral-100">Contexto ausente</strong> — número sem unidade, data sem fuso, valor sem moeda.</span></li>
+<li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span><strong class="text-neutral-100">Fontes desatualizadas</strong> — relatório de janeiro tratado como realidade de maio.</span></li>
+</ul>
+</div>
+<div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-red-400 mb-3 flex items-center"><span class="mr-2">⚠️</span> Caso real: Marco e o P&L imaginário</h3>
+<p class="text-neutral-300 text-sm">Marco jogou 3 CSVs de fontes diferentes direto no Claude e pediu análise de lucratividade. O modelo respondeu com precisão de 2 casas decimais. O número estava errado em 34% porque dois arquivos usavam datas em formatos distintos e um incluía frete como receita. A IA não sinalizou o problema — entregou com confiança.</p>
+</div>
+</section>
+
+<section id="topico-2" class="mb-16">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">2</span><h2 class="text-2xl font-bold">🎰 Improviso eterno</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Cada sessão começando do zero, cada prompt escrito na hora, cada contexto reexplicado — isso não é usar IA, é <strong class="text-emerald-400">operar uma loteria</strong>. O resultado depende de como você formulou hoje, do que lembrou de incluir, do seu humor. Não há repetibilidade, não há previsibilidade, não há sistema.</p>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+<div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6">
+<h4 class="font-bold text-emerald-400 mb-4">✓ Com sistema</h4>
+<ul class="space-y-3 text-neutral-300 text-sm">
+<li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>CLAUDE.md define quem o agente é — uma vez, para sempre</span></li>
+<li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Skills codificam SOPs — /brief executa o mesmo processo toda segunda</span></li>
+<li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Silver Platters entregam contexto pré-processado — agente nunca lê dados brutos</span></li>
+<li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Hooks disparam automaticamente — sem depender de lembrar</span></li>
+</ul>
+</div>
+<div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+<h4 class="font-bold text-red-400 mb-4">✗ Sem sistema</h4>
+<ul class="space-y-3 text-neutral-300 text-sm">
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Cada conversa começa do zero — reexplicando empresa, contexto, tom</span></li>
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Qualidade depende do prompt do dia — variância alta, confiança baixa</span></li>
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Não há rastreabilidade — o que foi pedido? Quem aprovou? Quando?</span></li>
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Impossível delegar — o processo vive na cabeça de uma pessoa</span></li>
+</ul>
+</div>
+</div>
+<div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> A virada: transformar improviso em SOP</h3>
+<p class="text-neutral-300 text-sm">Quando Sally Tan criou o skill <code class="bg-dark-700 px-1 rounded">/case-launch</code>, o que levava 45 minutos de setup manual virou 3 minutos automatizados — e o resultado ficou mais consistente, não menos. O segredo: ela documentou o que fazia de cabeça e transformou em código declarativo.</p>
+</div>
+</section>
+
+<section id="topico-3" class="mb-16">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">3</span><h2 class="text-2xl font-bold">🧱 Dado bruto vs. dado preparado</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">A diferença entre um agente que entrega valor real e um que gera ruído está em <strong class="text-emerald-400">80% no preparo dos dados, 20% no agente</strong>. Profissionais de dados sabem isso faz décadas — na era agêntica a máxima é ainda mais crítica porque o agente não sinaliza quando o dado é insuficiente.</p>
+<div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-emerald-400 mb-4 flex items-center"><span class="mr-2">🍽️</span> Pantry → Prep Table → Plate</h3>
+<p class="text-neutral-300 mb-4 text-sm">A metáfora de cozinha que define o método PRATO (detalhado no módulo 1.5):</p>
+<ul class="space-y-3 text-neutral-300 text-sm">
+<li><strong class="text-neutral-100">Pantry (despensa)</strong> — dados brutos onde estão: Shopify, iManage, EHR, CSVs, PDFs, APIs.</li>
+<li><strong class="text-neutral-100">Prep Table (pré-preparo)</strong> — transformação: limpar, normalizar, resumir, estruturar.</li>
+<li><strong class="text-neutral-100">Plate (prato)</strong> — Silver Platter: financeiro.md, clientes.md, casos.md — bandejas prontas para o agente servir.</li>
+</ul>
+<div class="mt-4 bg-dark-700 rounded p-4 font-mono text-sm text-neutral-300">
+<span class="text-emerald-400"># Silver Platter: financeiro.md</span><br>
+## Estado atual (atualizado: 2026-05-15)<br>
+- Receita semana: R$ 48.200<br>
+- Margem bruta: 41%<br>
+- Top 3 SKUs: mystery-gold, limited-drop-v2, collab-k<br>
+- Alerta: custo de frete +12% vs semana anterior
+</div>
+</div>
+<div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-blue-400 mb-3 flex items-center"><span class="mr-2">📊</span> Custo real do dado não preparado</h3>
+<ul class="space-y-2 text-neutral-300 text-sm">
+<li><strong>3-5x</strong> mais tokens consumidos quando o agente lê dado bruto vs. resumo preparado</li>
+<li><strong>67%</strong> dos erros de agentes em produção são rastreados a dados de entrada inadequados (Anthropic, 2025)</li>
+<li><strong>Dra. Sana</strong> reduziu tempo de preparação de notas clínicas de 8 min para 90s depois de criar o Silver Platter de biópsias pendentes</li>
+</ul>
+</div>
+</section>
+
+<section id="topico-4" class="mb-16">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">4</span><h2 class="text-2xl font-bold">🤹 Agente solto vs. hierarquia</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Ter vários agentes sem hierarquia é como ter vários funcionários sem gerente — todos tentam fazer tudo, ninguém é responsável por nada, e a qualidade depende de quem respondeu mais rápido. <strong class="text-emerald-400">Hierarquia não é burocracia; é o que torna a delegação segura.</strong></p>
+<div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-emerald-400 mb-4 flex items-center"><span class="mr-2">🏗️</span> Orquestrador + especialistas</h3>
+<ul class="space-y-3 text-neutral-300 text-sm">
+<li><strong class="text-neutral-100">Chief-of-Staff (orquestrador)</strong> — recebe a pergunta, decide qual especialista acionar, sintetiza o resultado.</li>
+<li><strong class="text-neutral-100">CFO Bot</strong> — analisa dados financeiros, custo, margem. Não toca em marketing.</li>
+<li><strong class="text-neutral-100">CMO Bot</strong> — analisa voz do cliente, engajamento, campanha. Não toca em P&L.</li>
+<li><strong class="text-neutral-100">Ops Bot</strong> — rastreia operações, SLAs, fornecedores. Não toca em finanças.</li>
+</ul>
+<p class="text-neutral-400 text-sm mt-4">Resultado: Anthropic mediu <strong class="text-neutral-100">90,2% de melhora</strong> em qualidade de pesquisa com hierarquia vs. agente generalista solo.</p>
+</div>
+<div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-red-400 mb-3 flex items-center"><span class="mr-2">⚠️</span> O anti-padrão "um agente para tudo"</h3>
+<p class="text-neutral-300 text-sm">Marco criou um único "Agente SlabHaus" e pediu que ele fizesse P&L, análise de TikTok, suporte ao cliente e planejamento de estoque — simultaneamente. O agente respondeu tudo, de forma superficial, sem profundidade em nenhuma área. Separar em especialistas reduziu o tempo de análise financeira de 12 para 3 minutos e aumentou a confiança da decisão.</p>
+</div>
+</section>
+
+<section id="topico-5" class="mb-16">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">5</span><h2 class="text-2xl font-bold">🛡️ Segurança como esperança</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">A maioria das implementações confia que "o agente não vai fazer nada errado". Isso não é segurança — é torcer. <strong class="text-emerald-400">Segurança real vem da arquitetura: escopo de pasta, permissões, hooks de validação, auditoria</strong>. Para a Dra. Sana, esperança não é opção legal nem ética.</p>
+<div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-emerald-400 mb-4 flex items-center"><span class="mr-2">🔒</span> Camadas de segurança arquitetural</h3>
+<ul class="space-y-2 text-neutral-300 text-sm">
+<li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span><strong class="text-neutral-100">Path scoping</strong> — agente de billing só lê <code class="bg-dark-700 px-1 rounded">/billing/</code>, nunca <code class="bg-dark-700 px-1 rounded">/phi/</code>.</span></li>
+<li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span><strong class="text-neutral-100">ACL por ferramenta</strong> — CMO Bot não tem acesso a ferramentas financeiras, mesmo que tente.</span></li>
+<li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span><strong class="text-neutral-100">Hooks de validação</strong> — antes de qualquer ação irreversível, hook solicita confirmação humana.</span></li>
+<li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span><strong class="text-neutral-100">Audit trail</strong> — cada ação registrada com timestamp, agente, ferramenta e parâmetros.</span></li>
+<li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span><strong class="text-neutral-100">Modelo isolado para PHI</strong> — Dra. Sana usa AWS Bedrock em VPC isolada, dados nunca saem do ambiente.</span></li>
+</ul>
+</div>
+<div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center"><span class="mr-2">📊</span> O custo real de um erro sem auditoria</h3>
+<p class="text-neutral-300 text-sm mb-3">No caso de Sally Tan, um agente sem audit trail acessou documentos de um caso conflitante durante pesquisa. Sem log, era impossível provar o que foi lido e quando. Com audit trail, o mesmo incidente teria sido detectado, contido e documentado em minutos.</p>
+<ul class="space-y-2 text-neutral-300 text-sm">
+<li><strong>HIPAA:</strong> multas de US$ 100 a US$ 50.000 por violação de PHI, por registro</li>
+<li><strong>OAB:</strong> conflito de interesse é causa de suspensão — sem log, defesa impossível</li>
+<li><strong>LGPD:</strong> até 2% do faturamento bruto por incidente de dados não rastreado</li>
+</ul>
+</div>
+</section>
+
+<section id="topico-6" class="mb-16">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">6</span><h2 class="text-2xl font-bold">📊 Sem observabilidade não há melhoria</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Você não pode melhorar o que não mede. <strong class="text-emerald-400">Sem traces, evals e logs, você tem uma caixa preta</strong> que às vezes funciona e às vezes não — e você nunca sabe por quê. Operar sem observabilidade é aceitar que seu sistema vai degradar silenciosamente.</p>
+<div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-emerald-400 mb-4 flex items-center"><span class="mr-2">🔍</span> O que medir em um sistema agêntico</h3>
+<ul class="space-y-3 text-neutral-300 text-sm">
+<li><strong class="text-neutral-100">Traces</strong> — sequência completa de chamadas, ferramentas usadas, tokens consumidos por etapa.</li>
+<li><strong class="text-neutral-100">Evals</strong> — avaliação sistemática da qualidade: o agente acertou? A decisão foi correta? Baseado em quê?</li>
+<li><strong class="text-neutral-100">Latência p95</strong> — quanto tempo o usuário espera no pior caso? É aceitável?</li>
+<li><strong class="text-neutral-100">Custo por tarefa</strong> — quanto custa cada execução? Está dentro do orçamento de tokens?</li>
+<li><strong class="text-neutral-100">Taxa de fallback humano</strong> — com que frequência o agente pede intervenção humana? Aumentando ou diminuindo?</li>
+</ul>
+</div>
+<div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Ferramentas de observabilidade em 2026</h3>
+<ul class="space-y-2 text-neutral-300 text-sm">
+<li><strong>LangSmith</strong> — tracing nativo para LangChain/LangGraph, dashboard de evals</li>
+<li><strong>Langfuse</strong> — open source, self-host, integra com qualquer SDK</li>
+<li><strong>Claude traces</strong> — Anthropic Console exibe custo, tempo e tool calls por sessão</li>
+<li><strong>Hooks de log</strong> — PostToolUse hook salva cada ação em JSONL local, custo zero</li>
+</ul>
+</div>
+</section>
+
+<section class="mb-12">
+<div class="bg-gradient-to-br from-emerald-900/40 via-dark-800 to-dark-800 rounded-xl border border-emerald-500/30 p-8">
+<h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-3">📋</span> Resumo do Módulo</h2>
+<div class="space-y-4 mb-8">
+<div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">Bagunça amplificada</strong><span class="text-neutral-400"> — IA entrega resultado errado com confiança; dado ruim escala o problema</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">Improviso eterno</strong><span class="text-neutral-400"> — sem CLAUDE.md, skills e hooks, cada sessão é uma loteria</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">Dado bruto vs. preparado</strong><span class="text-neutral-400"> — Silver Platters são a ponte entre despensa e agente útil</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">Agente solto vs. hierarquia</strong><span class="text-neutral-400"> — orquestrador + especialistas superam generalista em 90,2% dos casos</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">Segurança arquitetural</strong><span class="text-neutral-400"> — path scoping, ACL, hooks de validação e audit trail, não esperança</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">Observabilidade</strong><span class="text-neutral-400"> — traces, evals e logs são obrigatórios para quem quer melhorar</span></div></div>
+</div>
+<div class="bg-dark-800/50 rounded-lg p-4 mb-8"><h3 class="font-semibold text-emerald-400 mb-2">Próximo Módulo:</h3><p class="text-neutral-300">1.4 — As 3 personas: Marco, Sally e Dra. Sana</p></div>
+<div class="flex flex-col sm:flex-row gap-4"><a href="modulo-1-2.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">← Módulo Anterior</a><a href="index.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">← Voltar para Trilha</a><a href="modulo-1-4.html" class="flex-1 text-center px-6 py-3 bg-emerald-600 text-white rounded-lg font-semibold hover:bg-emerald-500 transition-colors">Próximo Módulo →</a></div>
+</div>
+</section>
+
+</main>
+
+<footer class="border-t border-dark-600 py-8 mt-16"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm"><p>Agentic OS — INEMA.CLUB · 2026</p></div></footer>
+<script>
+const tt=document.getElementById('theme-toggle'),tdi=document.getElementById('theme-toggle-dark-icon'),tli=document.getElementById('theme-toggle-light-icon'),h=document.documentElement;
+if(localStorage.getItem('theme')==='light'||(!localStorage.getItem('theme')&&!h.classList.contains('dark'))){tdi.classList.remove('hidden');h.classList.remove('dark')}else{tli.classList.remove('hidden')}
+tt.addEventListener('click',()=>{tdi.classList.toggle('hidden');tli.classList.toggle('hidden');h.classList.toggle('dark');localStorage.setItem('theme',h.classList.contains('dark')?'dark':'light')});
+</script>
+</body></html>

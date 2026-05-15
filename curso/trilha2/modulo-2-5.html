@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2.5 — Governança como first-class citizen | Agentic OS</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script>tailwind.config={darkMode:'class',theme:{extend:{colors:{primary:'#FACC15',dark:{900:'#111827',800:'#1f2937',700:'#374151',600:'#4b5563'}}}}}</script>
+<style>
+body{font-family:'Inter',sans-serif}
+html:not(.dark) body{background:#f8fafc}html:not(.dark) .bg-dark-900{background:#fff}html:not(.dark) .bg-dark-800{background:#f9fafb}html:not(.dark) .bg-dark-700{background:#f3f4f6}html:not(.dark) .bg-dark-600{background:#e5e7eb}html:not(.dark) .text-neutral-100{color:#111827}html:not(.dark) .text-neutral-300{color:#4b5563}html:not(.dark) .text-neutral-400{color:#6b7280}html:not(.dark) .text-neutral-500{color:#9ca3af}html:not(.dark) .border-dark-600{border-color:#d1d5db}html:not(.dark) .border-dark-700{border-color:#e5e7eb}
+html:not(.dark) .text-blue-400{color:#2563eb}html:not(.dark) .bg-blue-500\/20{background:rgba(37,99,235,.12)}html:not(.dark) .bg-blue-500\/10{background:rgba(37,99,235,.08)}html:not(.dark) .border-blue-500\/30{border-color:rgba(37,99,235,.25)}html:not(.dark) .bg-blue-900\/20{background:rgba(37,99,235,.06)}html:not(.dark) .bg-blue-900\/30{background:rgba(37,99,235,.06)}html:not(.dark) .bg-blue-900\/40{background:rgba(37,99,235,.08)}
+html:not(.dark) .text-red-400{color:#b91c1c}html:not(.dark) .bg-red-900\/20{background:rgba(185,28,28,.06)}html:not(.dark) .border-red-500\/30{border-color:rgba(185,28,28,.25)}
+html:not(.dark) [class*="bg-gradient-to"]{background-image:none!important}html:not(.dark) .text-primary{color:#a16207}html:not(.dark) .bg-primary\/10{background:rgba(161,98,7,.08)}html:not(.dark) .border-primary\/30{border-color:rgba(161,98,7,.25)}html:not(.dark) .text-sky-400{color:#0369a1}html:not(.dark) .text-yellow-400{color:#a16207}html:not(.dark) .hover\:text-sky-300:hover{color:#0284c7}html:not(.dark) .hover\:text-yellow-300:hover{color:#854d0e}html:not(.dark) .bg-dark-900\/95{background:rgba(255,255,255,.95)}
+</style></head>
+<body class="bg-dark-900 text-neutral-100">
+<nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"><div class="flex justify-between items-center h-14"><div class="flex items-center space-x-4"><a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300"><span class="text-2xl">⚡</span><span class="font-bold text-lg hidden sm:inline">Agentic OS</span></a><span class="text-neutral-600">|</span><a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a></div><div class="flex items-center space-x-1 sm:space-x-2"><a href="../trilha1/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors"><span class="sm:hidden">T1</span><span class="hidden sm:inline">Fundamentos</span></a><a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-blue-400 bg-blue-500/10"><span class="sm:hidden">T2</span><span class="hidden sm:inline">Identidade</span></a><a href="../trilha3/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors"><span class="sm:hidden">T3</span><span class="hidden sm:inline">Conhecimento</span></a><a href="../trilha4/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-amber-400 hover:bg-amber-500/10 transition-colors"><span class="sm:hidden">T4</span><span class="hidden sm:inline">Trabalhadores</span></a><a href="../trilha5/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-teal-400 hover:bg-teal-500/10 transition-colors"><span class="sm:hidden">T5</span><span class="hidden sm:inline">Automação</span></a><a href="../trilha6/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-rose-400 hover:bg-rose-500/10 transition-colors"><span class="sm:hidden">T6</span><span class="hidden sm:inline">Implantação</span></a><button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2"><svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/></svg><svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"/></svg></button></div></div></div></nav>
+
+<nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4"><div class="flex items-center space-x-2 text-sm text-neutral-400"><a href="../../index.html" class="hover:text-blue-400">Início</a><span>/</span><a href="index.html" class="hover:text-blue-400">Trilha 2</a><span>/</span><span class="text-blue-400">Módulo 2.5</span></div></nav>
+
+<header class="bg-gradient-to-br from-blue-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"><span class="inline-block px-3 py-1 bg-blue-500/20 text-blue-400 text-xs font-semibold rounded-full mb-4">MÓDULO 2.5</span><h1 class="text-3xl sm:text-4xl font-bold mb-4">⚖️ Governança como first-class citizen</h1><p class="text-lg text-neutral-400 max-w-3xl">Rastreabilidade, auditoria e compliance fazem parte do kernel — não é overhead. Governança built-in é o que separa operações que escalam de experimentos que viram risco.</p><div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl"><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">6</div><div class="text-xs text-neutral-400">Tópicos</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">40</div><div class="text-xs text-neutral-400">Minutos</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">Básico</div><div class="text-xs text-neutral-400">Nível</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">Compliance</div><div class="text-xs text-neutral-400">Tipo</div></div></div></div></header>
+
+<main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+<section id="topico-1" class="mb-16">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">1</span><h2 class="text-2xl font-bold">📚 Por que governança vira kernel</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Na computação tradicional, governança de TI era uma camada adicionada depois: relatórios mensais, auditorias anuais, controles "bolt-on". Na era agêntica, isso não funciona mais. <strong class="text-blue-400">Quando um agente executa centenas de ações por dia, logs e audit trails precisam ser gerados dentro do agente</strong> — automaticamente, em tempo real, sem intervenção humana. Governança bolt-on quebra quando a escala aumenta; built-in escala junto com o sistema.</p>
+<div class="bg-gradient-to-br from-blue-900/30 to-dark-800 rounded-xl border border-blue-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center"><span class="mr-2">🏗️</span> Built-in vs bolt-on</h3>
+<ul class="space-y-3 text-neutral-300 text-sm">
+<li><strong class="text-neutral-100">Bolt-on (ruim)</strong>: governança adicionada depois. Dependente de humano lembrar. Quebra em automação. Inconsistente.</li>
+<li><strong class="text-neutral-100">Built-in (correto)</strong>: hooks que geram log automaticamente. Observabilidade como default. Zero overhead humano.</li>
+<li><strong class="text-neutral-100">Resultado</strong>: sistema que governança governa a si mesmo — não precisa de lembretes para registrar.</li>
+</ul>
+</div>
+<div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-blue-400 mb-3">📊 Custo real</h3>
+<p class="text-neutral-300">Governança bolt-on custa mais: horas de trabalho manual para compilar relatórios + inconsistências + gaps de cobertura + falha de audit em momentos críticos. Governança built-in tem custo único de setup e depois roda sozinha.</p>
+</div>
+</section>
+
+<section id="topico-2" class="mb-16">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">2</span><h2 class="text-2xl font-bold">📝 Audit trail por sessão</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Cada sessão de agente é um evento rastreável. O <strong class="text-blue-400">audit trail</strong> é o registro completo do que aconteceu: quais prompts foram dados, quais tools foram chamadas, quais arquivos foram editados, qual foi o custo em tokens, e quais decisões foram tomadas. Sem esse registro, você não tem como responder "o que o agente fez na terça-feira às 14h?" — e em ambientes regulados, essa pergunta não é opcional.</p>
+<div class="bg-gradient-to-br from-blue-900/30 to-dark-800 rounded-xl border border-blue-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-blue-400 mb-4">O que o audit trail captura</h3>
+<ul class="space-y-2 text-neutral-300 text-sm">
+<li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">•</span><span><strong class="text-neutral-100">Timestamp + usuário</strong> — quem iniciou, quando, em qual ambiente.</span></li>
+<li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">•</span><span><strong class="text-neutral-100">Prompts recebidos</strong> — a instrução original do humano.</span></li>
+<li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">•</span><span><strong class="text-neutral-100">Tools chamadas</strong> — Read, Edit, Bash — com parâmetros exatos.</span></li>
+<li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">•</span><span><strong class="text-neutral-100">Arquivos modificados</strong> — diff de cada mudança.</span></li>
+<li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">•</span><span><strong class="text-neutral-100">Custo de tokens</strong> — input + output + cache hits.</span></li>
+<li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">•</span><span><strong class="text-neutral-100">Aprovações humanas</strong> — o que foi confirmado, por quem, quando.</span></li>
+</ul>
+</div>
+<div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Implementação mínima</h3>
+<p class="text-neutral-300">Hook de PostToolUse que appenda ao /logs/session-YYYY-MM-DD.jsonl. Um arquivo JSON por dia, uma linha por chamada de tool. Simples, pesquisável, replicável para S3/GCS para retenção longa. A skill <code class="bg-dark-700 px-1 rounded">session-handoff</code> já gera esse tipo de registro automaticamente.</p>
+</div>
+</section>
+
+<section id="topico-3" class="mb-16">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">3</span><h2 class="text-2xl font-bold">🏛️ Compliance por arquitetura</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">HIPAA, GDPR, SOC2, ISO 27001 — todos esses frameworks têm uma coisa em comum: exigem <strong class="text-blue-400">evidência</strong> de que controles funcionam, não apenas promessas de que funcionam. A boa notícia é que path scoping + audit trail + permissões mínimas já constroem automaticamente a base auditável que esses frameworks exigem. Compliance não precisa ser um projeto separado; é um resultado emergente de uma boa arquitetura agêntica.</p>
+<div class="bg-gradient-to-br from-blue-900/30 to-dark-800 rounded-xl border border-blue-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-blue-400 mb-4">Mapeamento de controles</h3>
+<ul class="space-y-3 text-neutral-300 text-sm">
+<li><strong class="text-neutral-100">HIPAA Minimum Necessary</strong> → path scoping que limita acesso a PHI ao mínimo necessário por função.</li>
+<li><strong class="text-neutral-100">GDPR Right to Access</strong> → audit trail rastreável por titular de dados.</li>
+<li><strong class="text-neutral-100">SOC2 CC6.3 (Access Controls)</strong> → allowlist/denylist + jurisdição documentada por agente.</li>
+<li><strong class="text-neutral-100">SOC2 CC7.2 (Monitoring)</strong> → logs em tempo real + alertas de violação de escopo.</li>
+<li><strong class="text-neutral-100">ISO 27001 A.9 (Access Management)</strong> → least privilege + revisão periódica de permissões.</li>
+</ul>
+</div>
+<div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-blue-400 mb-3">Dra. Sana — HIPAA na prática</h3>
+<p class="text-neutral-300 text-sm">A clínica da Dra. Sana tem compliance HIPAA emergente da arquitetura: PHI em pasta isolada (minimum necessary), audit trail de toda leitura, aprovação humana para cruzamento de domínios, logs imutáveis por 7 anos. Custo de compliance: zero trabalho adicional — é o que o sistema já faz.</p>
+</div>
+</section>
+
+<section id="topico-4" class="mb-16">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">4</span><h2 class="text-2xl font-bold">🚨 Decisões de alto impacto</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Em sistemas agênticos, algumas decisões são <strong class="text-blue-400">irreversíveis ou de alto custo</strong>: deletar dados, enviar comunicações em massa, executar pagamentos, modificar configurações de segurança. Essas ações precisam de um processo formal de autorização — não apenas um "confirmar" no terminal, mas um registro documentado de quem autorizou, com base em quê, e quando.</p>
+<div class="bg-gradient-to-br from-blue-900/30 to-dark-800 rounded-xl border border-blue-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-blue-400 mb-4">Protocolo four-eyes</h3>
+<ul class="space-y-3 text-neutral-300 text-sm">
+<li><strong class="text-neutral-100">1. Agente prepara</strong> — lista exatamente o que vai fazer, impacto estimado, reversibilidade.</li>
+<li><strong class="text-neutral-100">2. Primeiro revisor</strong> — analisa a proposta, pode aprovar com condições ou rejeitar.</li>
+<li><strong class="text-neutral-100">3. Segundo revisor</strong> — para ações críticas (pagamentos acima de threshold, deletes em prod).</li>
+<li><strong class="text-neutral-100">4. Log assinado</strong> — ambas as aprovações registradas com timestamp e identidade.</li>
+<li><strong class="text-neutral-100">5. Execução rastreada</strong> — agente executa com hook que loga o resultado real vs esperado.</li>
+</ul>
+</div>
+<div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-red-400 mb-3 flex items-center"><span class="mr-2">⚠️</span> Sem paper trail — o risco legal</h3>
+<p class="text-neutral-300">Sally, a advogada, sabe: em litígio, a pergunta é sempre "quem autorizou?". Se a resposta for "o agente fez sozinho", não há defesa. O four-eyes com log assinado transforma essa resposta em "João Souza autorizou em 15/05/2026 às 14:23, após revisão de Pedro Lima".</p>
+</div>
+</section>
+
+<section id="topico-5" class="mb-16">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">5</span><h2 class="text-2xl font-bold">🧾 Evidências para auditoria</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Um auditor não aceita "funcionou" — aceita evidência. A <strong class="text-blue-400">evidência auditável</strong> é um pacote exportável que mostra, para cada ação relevante: qual era o estado antes, qual instrução foi dada, o que foi executado, qual o estado depois, e quem aprovou. Esse pacote precisa ser íntegro (não adulterável), acessível (recuperável anos depois) e legível (humano consegue entender).</p>
+<div class="bg-gradient-to-br from-blue-900/30 to-dark-800 rounded-xl border border-blue-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-blue-400 mb-4">Componentes do pacote auditável</h3>
+<ul class="space-y-2 text-neutral-300 text-sm">
+<li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">•</span><span><strong class="text-neutral-100">Input completo</strong> — prompt original, CLAUDE.md vigente, contexto da sessão.</span></li>
+<li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">•</span><span><strong class="text-neutral-100">Ações executadas</strong> — cada tool call com parâmetros, resultado, timestamp.</span></li>
+<li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">•</span><span><strong class="text-neutral-100">Estado antes/depois</strong> — git diff para código; snapshot para dados.</span></li>
+<li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">•</span><span><strong class="text-neutral-100">Aprovações</strong> — quem confirmou o quê, quando, com qual justificativa.</span></li>
+<li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">•</span><span><strong class="text-neutral-100">Hash de integridade</strong> — SHA-256 do log para detectar adulteração.</span></li>
+</ul>
+</div>
+<div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Retenção e armazenamento</h3>
+<p class="text-neutral-300">Logs de sessão em /logs/ local + replicação automática para S3 com Object Lock (tamper-proof). Retenção: 7 anos para dados HIPAA, 3 anos para dados GDPR por padrão. Custo de armazenamento é negligível vs custo de não ter quando precisar.</p>
+</div>
+</section>
+
+<section id="topico-6" class="mb-16">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">6</span><h2 class="text-2xl font-bold">📈 Métricas de governança</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Sem métricas, governança vira teatro — parece funcionar mas não tem como saber se funciona de verdade. As <strong class="text-blue-400">métricas de governança</strong> medem não só o que aconteceu, mas a saúde do próprio sistema de controle. São métricas de segundo nível: medem o processo, não só o resultado.</p>
+<div class="bg-gradient-to-br from-blue-900/30 to-dark-800 rounded-xl border border-blue-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-blue-400 mb-4">KPIs de governança agêntica</h3>
+<ul class="space-y-3 text-neutral-300 text-sm">
+<li><strong class="text-neutral-100">% ações cobertas por audit trail</strong> — meta: 100% para ações de alto risco, 80%+ geral.</li>
+<li><strong class="text-neutral-100">% ações com path scope definido</strong> — meta: 100% para agentes em produção.</li>
+<li><strong class="text-neutral-100">Tempo médio até aprovação</strong> — mede friction; muito alto = processo emperrado.</li>
+<li><strong class="text-neutral-100">Taxa de rejeição de aprovações</strong> — alto = agente propondo coisas erradas; baixo = controle eficaz.</li>
+<li><strong class="text-neutral-100">Desvios de escopo detectados</strong> — agente tentou acessar fora do path permitido.</li>
+<li><strong class="text-neutral-100">Cobertura de revisão do CLAUDE.md</strong> — % de mudanças que passaram por PR review.</li>
+</ul>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+<div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6">
+<h4 class="font-bold text-blue-400 mb-3">Leading indicators</h4>
+<p class="text-neutral-300 text-sm">Medem o processo antes do resultado: % sessões com log ativo, % agentes com jurisdição documentada. Permitem corrigir antes do problema.</p>
+</div>
+<div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6">
+<h4 class="font-bold text-blue-400 mb-3">Lagging indicators</h4>
+<p class="text-neutral-300 text-sm">Medem resultado: incidentes de segurança, falhas de audit, violações de compliance detectadas. Confirmam se o sistema funcionou.</p>
+</div>
+</div>
+</section>
+
+<section class="mb-12">
+<div class="bg-gradient-to-br from-blue-900/40 via-dark-800 to-dark-800 rounded-xl border border-blue-500/30 p-8">
+<h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-3">📋</span> Resumo do Módulo</h2>
+<div class="space-y-4 mb-8">
+<div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">Built-in vs bolt-on</strong><span class="text-neutral-400"> — governança dentro do agente, não adicionada depois; escala automática</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">Audit trail por sessão</strong><span class="text-neutral-400"> — prompts, tools, arquivos, custo, aprovações; JSONL append-only em /logs/</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">Compliance por arquitetura</strong><span class="text-neutral-400"> — HIPAA/GDPR/SOC2 emergentes da arquitetura; mapeamento de controles automático</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">Four-eyes protocol</strong><span class="text-neutral-400"> — dois aprovadores para ações críticas; paper trail assinado e timestampado</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">Evidência auditável</strong><span class="text-neutral-400"> — pacote exportável: input + ações + estado antes/depois + aprovações + hash</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">KPIs de governança</strong><span class="text-neutral-400"> — % cobertura, tempo de aprovação, desvios de escopo; leading + lagging indicators</span></div></div>
+</div>
+<div class="bg-dark-800/50 rounded-lg p-4 mb-8"><h3 class="font-semibold text-blue-400 mb-2">Próximo Módulo:</h3><p class="text-neutral-300">2.6 — Identidade &gt; prompt: o "passwd" da era agêntica</p></div>
+<div class="flex flex-col sm:flex-row gap-4"><a href="modulo-2-4.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">← Módulo 2.4</a><a href="modulo-2-6.html" class="flex-1 text-center px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-500 transition-colors">Próximo Módulo →</a></div>
+</div>
+</section>
+
+</main>
+
+<footer class="border-t border-dark-600 py-8 mt-16"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm"><p>Agentic OS — INEMA.CLUB · 2026</p></div></footer>
+<script>
+const tt=document.getElementById('theme-toggle'),tdi=document.getElementById('theme-toggle-dark-icon'),tli=document.getElementById('theme-toggle-light-icon'),h=document.documentElement;
+if(localStorage.getItem('theme')==='light'||(!localStorage.getItem('theme')&&!h.classList.contains('dark'))){tdi.classList.remove('hidden');h.classList.remove('dark')}else{tli.classList.remove('hidden')}
+tt.addEventListener('click',()=>{tdi.classList.toggle('hidden');tli.classList.toggle('hidden');h.classList.toggle('dark');localStorage.setItem('theme',h.classList.contains('dark')?'dark':'light')});
+</script>
+</body></html>

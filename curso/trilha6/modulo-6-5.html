@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Módulo 6.5 — Plano de 30 Dias | Agentic OS</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#FACC15',
+            dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' }
+          }
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #111827; }
+    .topic-explanation { display: none; }
+    .topic-explanation.active { display: block; }
+
+    html:not(.dark) body { background-color: #f9fafb; color: #111827; }
+    html:not(.dark) .bg-dark-900 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-800 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .bg-dark-700\/50 { background-color: rgba(243,244,246,0.7); }
+    html:not(.dark) .border-dark-600 { border-color: #e5e7eb; }
+    html:not(.dark) .text-neutral-100 { color: #111827; }
+    html:not(.dark) .text-neutral-300 { color: #374151; }
+    html:not(.dark) .text-neutral-400 { color: #6b7280; }
+    html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+    html:not(.dark) .hover\:bg-dark-700\/50:hover { background-color: rgba(243,244,246,0.7); }
+
+    html:not(.dark) .text-rose-400 { color: #9f1239; }
+    html:not(.dark) .bg-rose-500\/20 { background-color: rgba(159,18,57,0.12); }
+    html:not(.dark) .bg-rose-500\/10 { background-color: rgba(159,18,57,0.08); }
+    html:not(.dark) .border-rose-500\/30 { border-color: rgba(159,18,57,0.25); }
+    html:not(.dark) .hover\:bg-rose-500\/30:hover { background-color: rgba(159,18,57,0.18); }
+    html:not(.dark) .hover\:text-rose-400:hover { color: #9f1239; }
+    html:not(.dark) .bg-rose-900\/20 { background-color: rgba(159,18,57,0.06); }
+
+    html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; }
+
+    html:not(.dark) .text-primary { color: #a16207; }
+    html:not(.dark) .bg-primary\/10 { background-color: rgba(161,98,7,0.08); }
+    html:not(.dark) .border-primary\/40 { border-color: rgba(161,98,7,0.25); }
+    html:not(.dark) .text-sky-400 { color: #0369a1; }
+    html:not(.dark) .text-yellow-400 { color: #a16207; }
+    html:not(.dark) .hover\:text-sky-300:hover { color: #0284c7; }
+    html:not(.dark) .hover\:text-yellow-300:hover { color: #854d0e; }
+
+    html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255,255,255,0.95); }
+  </style>
+</head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen">
+
+  <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <div class="flex items-center space-x-6">
+          <a href="../../index.html" class="text-xl font-bold text-yellow-400">🤖 Agentic OS</a>
+          <a href="https://inema.club" target="_blank" class="text-sky-400 text-sm font-medium hover:text-sky-300">INEMA.CLUB</a>
+        </div>
+        <div class="hidden md:flex items-center space-x-1 text-sm">
+          <a href="../trilha1/index.html" class="px-3 py-1.5 rounded-lg text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors">Fundamentos</a>
+          <a href="../trilha2/index.html" class="px-3 py-1.5 rounded-lg text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors">Contexto</a>
+          <a href="../trilha3/index.html" class="px-3 py-1.5 rounded-lg text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors">Agentes</a>
+          <a href="../trilha4/index.html" class="px-3 py-1.5 rounded-lg text-neutral-400 hover:text-amber-400 hover:bg-amber-500/10 transition-colors">Skills</a>
+          <a href="../trilha5/index.html" class="px-3 py-1.5 rounded-lg text-neutral-400 hover:text-teal-400 hover:bg-teal-500/10 transition-colors">Automação</a>
+          <a href="index.html" class="px-3 py-1.5 rounded-lg text-rose-400 bg-rose-500/10">Implantação</a>
+        </div>
+        <button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors">
+          <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+          <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"></path></svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+    <div class="flex items-center space-x-2 text-sm text-neutral-400">
+      <a href="../../index.html" class="hover:text-rose-400">Início</a>
+      <span>/</span>
+      <a href="index.html" class="hover:text-rose-400">Trilha 6</a>
+      <span>/</span>
+      <span class="text-rose-400">Módulo 6.5</span>
+    </div>
+  </nav>
+
+  <header class="bg-gradient-to-br from-rose-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <span class="inline-block px-3 py-1 bg-rose-500/20 text-rose-400 text-xs font-semibold rounded-full mb-4">MÓDULO 6.5</span>
+      <h1 class="text-2xl font-bold mb-4">📅 Plano de 30 Dias</h1>
+      <p class="text-lg text-neutral-400 max-w-3xl">Roteiro sequencial em 4 semanas: Diagnóstico → Silver Platters → Skills/Agentes → Hooks/Operação. Cada semana tem entregável obrigatório. Sem o entregável, você não avança — disciplina é o que separa quem implanta de quem só planeja.</p>
+      <div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-rose-400">6</div>
+          <div class="text-xs text-neutral-400">Tópicos</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-rose-400">~50 min</div>
+          <div class="text-xs text-neutral-400">Duração</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-rose-400">Aplicado</div>
+          <div class="text-xs text-neutral-400">Nível</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+          <div class="text-xl font-bold text-rose-400">Roteiro</div>
+          <div class="text-xs text-neutral-400">Tipo</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <!-- TOPICO 1 -->
+    <section id="topico-1" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="w-12 h-12 rounded-full bg-rose-500/20 text-rose-400 text-xl font-bold flex items-center justify-center flex-shrink-0">1</span>
+        <h2 class="text-2xl font-bold">🗺️ Semana 1 — Diagnóstico (Mapa de dados)</h2>
+      </div>
+      <p class="text-neutral-400 mb-6 ml-16">A primeira semana não produz nenhum agente — e isso é intencional. Sem um diagnóstico honesto do seu ecossistema de dados, qualquer agente que você construir vai trabalhar no escuro. O entregável obrigatório da semana 1 é o Pantry Inventory completo.</p>
+
+      <div class="ml-16 space-y-6">
+        <div class="bg-gradient-to-br from-rose-900/20 to-dark-800 rounded-xl p-6 border border-rose-500/30">
+          <h3 class="text-rose-400 font-semibold mb-4">📋 Atividades da Semana 1</h3>
+          <div class="space-y-3">
+            <div class="flex items-start space-x-3 bg-dark-800/60 rounded-lg p-3">
+              <span class="w-6 h-6 rounded-full bg-rose-500/20 text-rose-400 text-xs font-bold flex items-center justify-center flex-shrink-0 mt-0.5">D1</span>
+              <div class="text-sm">
+                <p class="text-neutral-300 font-semibold">Pantry Audit</p>
+                <p class="text-neutral-400 text-xs">Liste todas as fontes de dados do seu trabalho. Para cada uma: nome, formato, freshness, owner, volume médio.</p>
+              </div>
+            </div>
+            <div class="flex items-start space-x-3 bg-dark-800/60 rounded-lg p-3">
+              <span class="w-6 h-6 rounded-full bg-rose-500/20 text-rose-400 text-xs font-bold flex items-center justify-center flex-shrink-0 mt-0.5">D3</span>
+              <div class="text-sm">
+                <p class="text-neutral-300 font-semibold">Mapeamento Pantry/Prep/Plate</p>
+                <p class="text-neutral-400 text-xs">Para cada fonte: onde ela entra no fluxo? É Pantry (bruto), Prep (processado) ou Plate (consumido)?</p>
+              </div>
+            </div>
+            <div class="flex items-start space-x-3 bg-dark-800/60 rounded-lg p-3">
+              <span class="w-6 h-6 rounded-full bg-rose-500/20 text-rose-400 text-xs font-bold flex items-center justify-center flex-shrink-0 mt-0.5">D5</span>
+              <div class="text-sm">
+                <p class="text-neutral-300 font-semibold">Quick Wins Identification</p>
+                <p class="text-neutral-400 text-xs">Identifique 2-3 tarefas que consomem &gt;2h/semana, têm dados já disponíveis, e são repetitivas. Esses são seus alvos.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-primary/10 rounded-xl p-6 border border-primary/40">
+          <h3 class="text-primary font-semibold mb-3">💡 Entregável obrigatório: pantry_inventory.md</h3>
+          <div class="bg-dark-800/60 rounded-lg p-3 font-mono text-xs text-neutral-300">
+            <p class="text-rose-400 font-bold mb-1"># Pantry Inventory — Semana 1</p>
+            <p>## Fontes de dados</p>
+            <p>| Fonte | Formato | Freshness | Owner | Quick Win? |</p>
+            <p>|-------|---------|-----------|-------|------------|</p>
+            <p>| CRM | CSV export | Diário | Mkt | SIM |</p>
+            <p>| ERP | API | Tempo real | TI | NÃO |</p>
+            <p>## Quick Wins Priorizados</p>
+            <p>1. Relatório semanal de vendas (3h/semana, CSV disponível)</p>
+            <p>2. ...</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOPICO 2 -->
+    <section id="topico-2" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="w-12 h-12 rounded-full bg-rose-500/20 text-rose-400 text-xl font-bold flex items-center justify-center flex-shrink-0">2</span>
+        <h2 class="text-2xl font-bold">📄 Semana 2 — Silver Platters + CLAUDE.md (Base limpa)</h2>
+      </div>
+      <p class="text-neutral-400 mb-6 ml-16">Com o mapa pronto, semana 2 constrói a base: os primeiros Silver Platters automatizados e o CLAUDE.md raiz do seu projeto. Esta semana é a fundação — tudo que vem depois (skills, agentes, hooks) depende de ter essa base sólida.</p>
+
+      <div class="ml-16 space-y-6">
+        <div class="bg-gradient-to-br from-rose-900/20 to-dark-800 rounded-xl p-6 border border-rose-500/30">
+          <h3 class="text-rose-400 font-semibold mb-4">⚙️ Atividades da Semana 2</h3>
+          <div class="space-y-3">
+            <div class="bg-dark-800/60 rounded-lg p-4">
+              <div class="text-rose-400 font-semibold text-sm mb-2">Silver Platters — primeiros 3-5</div>
+              <p class="text-neutral-300 text-sm">Para cada Quick Win da semana 1: escreva o script de extração e crie o template .md correspondente. Foco nos dados que já existem e são acessíveis agora.</p>
+              <div class="mt-2 font-mono text-xs text-neutral-400">/resumos/semanal/: vendas_semanal.md, pipeline.md, metricas.md</div>
+            </div>
+            <div class="bg-dark-800/60 rounded-lg p-4">
+              <div class="text-rose-400 font-semibold text-sm mb-2">CLAUDE.md raiz</div>
+              <p class="text-neutral-300 text-sm">Escreva as seções obrigatórias: identidade do sistema, fontes de dados disponíveis, regras de nunca fazer, tom de comunicação.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-primary/10 rounded-xl p-6 border border-primary/40">
+          <h3 class="text-primary font-semibold mb-3">💡 Foundation + automated refresh</h3>
+          <p class="text-neutral-300 text-sm mb-3">O CLAUDE.md raiz é o mais importante que você vai escrever. Ele define o character do sistema. Invista tempo aqui — um CLAUDE.md ruim faz todos os agentes futuros trabalharem com instruções vagas. Um bom CLAUDE.md é explícito: "Quando não souber, diga que não sabe. Nunca invente dados."</p>
+          <div class="bg-dark-800/60 rounded-lg p-3 font-mono text-xs text-neutral-400 space-y-1">
+            <p class="text-rose-400"># CLAUDE.md — [Seu Projeto]</p>
+            <p>## Identidade</p>
+            <p>Você é o assistente operacional de [empresa/pessoa].</p>
+            <p>## Fontes disponíveis</p>
+            <p>- /resumos/semanal/ — Silver Platters atualizados toda segunda</p>
+            <p>## Regras absolutas</p>
+            <p>- NUNCA acesse /dados/confidencial/ sem confirmação explícita</p>
+            <p>- NUNCA invente números ou métricas</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOPICO 3 -->
+    <section id="topico-3" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="w-12 h-12 rounded-full bg-rose-500/20 text-rose-400 text-xl font-bold flex items-center justify-center flex-shrink-0">3</span>
+        <h2 class="text-2xl font-bold">🤖 Semana 3 — Skills + Agentes (Trabalhadores)</h2>
+      </div>
+      <p class="text-neutral-400 mb-6 ml-16">A semana que o sistema começa a entregar valor visível. Com a base pronta, você constrói as primeiras skills (comandos slash) e o primeiro agente orquestrador com seus especialistas. Esta semana é onde você vê os Quick Wins virarem realidade.</p>
+
+      <div class="ml-16 space-y-6">
+        <div class="bg-gradient-to-br from-rose-900/20 to-dark-800 rounded-xl p-6 border border-rose-500/30">
+          <h3 class="text-rose-400 font-semibold mb-4">🏗️ O que construir na Semana 3</h3>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="bg-dark-800/60 rounded-lg p-4">
+              <div class="text-rose-400 font-semibold text-sm mb-2">2-3 Skills críticas</div>
+              <p class="text-neutral-300 text-xs">Escolha as tarefas mais repetitivas dos Quick Wins. Crie um slash command para cada uma. Cada skill deve ter CLAUDE.md próprio.</p>
+              <div class="mt-2 text-xs text-neutral-400">Exemplo: /weekly-report, /pipeline-summary</div>
+            </div>
+            <div class="bg-dark-800/60 rounded-lg p-4">
+              <div class="text-rose-400 font-semibold text-sm mb-2">1 Orquestrador + 2 Especialistas</div>
+              <p class="text-neutral-300 text-xs">Para o seu Quick Win principal, crie a estrutura multi-agente mínima: um agente que recebe a tarefa e dois que executam partes específicas.</p>
+              <div class="mt-2 text-xs text-neutral-400">Exemplo: EA → CFO Agent + Marketing Agent</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-blue-900/20 rounded-xl p-6 border border-blue-500/30">
+          <h3 class="text-blue-400 font-semibold mb-2">📊 First skill, first agent, eval</h3>
+          <p class="text-neutral-300 text-sm">Após construir a primeira skill, rode-a 3 vezes em dias diferentes. Compare o output com o que você faria manualmente. A avaliação não precisa ser formal — basta responder: "Eu entregaria isso para um cliente?" Se sim, a skill está pronta. Se não, identifique o que falta e ajuste o CLAUDE.md.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOPICO 4 -->
+    <section id="topico-4" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="w-12 h-12 rounded-full bg-rose-500/20 text-rose-400 text-xl font-bold flex items-center justify-center flex-shrink-0">4</span>
+        <h2 class="text-2xl font-bold">⚡ Semana 4 — Hooks + Operação (Tornar contínuo)</h2>
+      </div>
+      <p class="text-neutral-400 mb-6 ml-16">A semana que transforma um sistema que você opera em um sistema que se opera sozinho. Hooks, crons, e webhooks transformam ações manuais em fluxos automáticos. Observabilidade ativada garante que você saiba quando algo para de funcionar.</p>
+
+      <div class="ml-16 space-y-6">
+        <div class="bg-gradient-to-br from-rose-900/20 to-dark-800 rounded-xl p-6 border border-rose-500/30">
+          <h3 class="text-rose-400 font-semibold mb-4">⚙️ O que ativar na Semana 4</h3>
+          <div class="space-y-3">
+            <div class="bg-dark-800/60 rounded-lg p-3">
+              <div class="text-rose-400 font-semibold text-sm">Cron jobs</div>
+              <p class="text-neutral-300 text-xs mt-1">Agende os Silver Platters e o relatório principal. Use crontab ou GitHub Actions para ambientes simples.</p>
+              <div class="font-mono text-xs text-neutral-500 mt-1">0 6 * * 1 python3 /scripts/weekly_report.py</div>
+            </div>
+            <div class="bg-dark-800/60 rounded-lg p-3">
+              <div class="text-rose-400 font-semibold text-sm">Hooks de validação</div>
+              <p class="text-neutral-300 text-xs mt-1">Adicione verificações pré/pós-run: arquivo de output existe? Tamanho mínimo? Se falhar, notificação imediata.</p>
+            </div>
+            <div class="bg-dark-800/60 rounded-lg p-3">
+              <div class="text-rose-400 font-semibold text-sm">Observabilidade</div>
+              <p class="text-neutral-300 text-xs mt-1">Log de cada run com: timestamp, duração, tokens utilizados, status (success/failure). Até um arquivo .log simples serve.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-primary/10 rounded-xl p-6 border border-primary/40">
+          <h3 class="text-primary font-semibold mb-3">💡 Always-on + observabilidade + iteration</h3>
+          <p class="text-neutral-300 text-sm">Um sistema always-on sem observabilidade é um sistema que falha silenciosamente. O mínimo de observabilidade: (1) notificação quando um cron falha, (2) log de cada run, (3) dashboard semanal de "quantas vezes rodou vs falhou". Com isso, você sabe o que consertar antes que alguém perceba.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOPICO 5 -->
+    <section id="topico-5" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="w-12 h-12 rounded-full bg-rose-500/20 text-rose-400 text-xl font-bold flex items-center justify-center flex-shrink-0">5</span>
+        <h2 class="text-2xl font-bold">🚦 Critérios de Avanço — Sem pular semana</h2>
+      </div>
+      <p class="text-neutral-400 mb-6 ml-16">Cada semana tem um gate de avanço: um entregável concreto que precisa existir antes de passar para a próxima etapa. A disciplina de não pular semanas evita o cenário mais comum de fracasso: chegar na semana 4 sem base nenhuma e tentar fazer tudo de uma vez.</p>
+
+      <div class="ml-16 space-y-6">
+        <div class="bg-gradient-to-br from-rose-900/20 to-dark-800 rounded-xl p-6 border border-rose-500/30">
+          <h3 class="text-rose-400 font-semibold mb-4">✅ Gates de avanço por semana</h3>
+          <div class="space-y-3">
+            <div class="flex items-start space-x-3 bg-dark-800/60 rounded-lg p-3">
+              <span class="text-rose-400 font-bold text-sm w-20 flex-shrink-0">S1 → S2</span>
+              <div class="text-sm">
+                <p class="text-neutral-300">pantry_inventory.md existe com pelo menos 3 fontes mapeadas e 2 Quick Wins identificados.</p>
+              </div>
+            </div>
+            <div class="flex items-start space-x-3 bg-dark-800/60 rounded-lg p-3">
+              <span class="text-rose-400 font-bold text-sm w-20 flex-shrink-0">S2 → S3</span>
+              <div class="text-sm">
+                <p class="text-neutral-300">Pelo menos 2 Silver Platters rodando manualmente + CLAUDE.md raiz escrito com pelo menos 4 seções.</p>
+              </div>
+            </div>
+            <div class="flex items-start space-x-3 bg-dark-800/60 rounded-lg p-3">
+              <span class="text-rose-400 font-bold text-sm w-20 flex-shrink-0">S3 → S4</span>
+              <div class="text-sm">
+                <p class="text-neutral-300">Pelo menos 1 skill funcionando + 1 agente orquestrador rodando e entregando output aceitável (passou no seu eval).</p>
+              </div>
+            </div>
+            <div class="flex items-start space-x-3 bg-dark-800/60 rounded-lg p-3">
+              <span class="text-rose-400 font-bold text-sm w-20 flex-shrink-0">S4 → ✓</span>
+              <div class="text-sm">
+                <p class="text-neutral-300">Pelo menos 1 cron rodando automaticamente + log de 3 execuções bem-sucedidas.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-blue-900/20 rounded-xl p-6 border border-blue-500/30">
+          <h3 class="text-blue-400 font-semibold mb-2">📊 Definition of done — sem ambiguidade</h3>
+          <p class="text-neutral-300 text-sm">O erro clássico é definir "done" como "entendi o conceito" ou "escrevi o código". Done significa: o output existe, está em arquivo, e eu conseguiria mostrar para outra pessoa. Se não existe arquivo com a entrega, você não passou do gate. Simples assim.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOPICO 6 -->
+    <section id="topico-6" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="w-12 h-12 rounded-full bg-rose-500/20 text-rose-400 text-xl font-bold flex items-center justify-center flex-shrink-0">6</span>
+        <h2 class="text-2xl font-bold">🚀 Pós-30 dias — Como evoluir</h2>
+      </div>
+      <p class="text-neutral-400 mb-6 ml-16">O dia 31 não é o fim — é o início da operação contínua. O Agentic OS é um jogo infinito: a cada quinzena, você adiciona um agente, refina duas skills, e melhora seus evals. O sistema cresce organicamente conforme você identifica novos gargalos.</p>
+
+      <div class="ml-16 space-y-6">
+        <div class="bg-gradient-to-br from-rose-900/20 to-dark-800 rounded-xl p-6 border border-rose-500/30">
+          <h3 class="text-rose-400 font-semibold mb-4">📅 Cadência de iteração quinzenal</h3>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div class="bg-dark-800/60 rounded-lg p-4 text-center">
+              <div class="text-2xl font-bold text-rose-400 mb-2">+1</div>
+              <div class="text-neutral-300 text-sm font-semibold">Novo agente</div>
+              <div class="text-neutral-400 text-xs mt-1">A cada quinzena, identifique 1 tarefa recorrente e crie o agente correspondente.</div>
+            </div>
+            <div class="bg-dark-800/60 rounded-lg p-4 text-center">
+              <div class="text-2xl font-bold text-rose-400 mb-2">+2</div>
+              <div class="text-neutral-300 text-sm font-semibold">Skills refinadas</div>
+              <div class="text-neutral-400 text-xs mt-1">Revise 2 skills existentes com base no uso real. Pequenos ajustes de CLAUDE.md fazem grande diferença.</div>
+            </div>
+            <div class="bg-dark-800/60 rounded-lg p-4 text-center">
+              <div class="text-2xl font-bold text-rose-400 mb-2">+1</div>
+              <div class="text-neutral-300 text-sm font-semibold">Eval melhorado</div>
+              <div class="text-neutral-400 text-xs mt-1">Adicione um critério de avaliação ao relatório de observabilidade. O que você mede, você melhora.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-primary/10 rounded-xl p-6 border border-primary/40">
+          <h3 class="text-primary font-semibold mb-3">💡 Iteration cadence + kaizen</h3>
+          <p class="text-neutral-300 text-sm">Empresas como Toyota levaram décadas aprendendo que pequenas melhorias contínuas superam grandes redesenhos esporádicos. Seu Agentic OS segue a mesma lógica: 1% melhor a cada quinzena resulta em um sistema 26% mais eficaz ao fim do ano. Não espere acumular problemas para fazer uma "grande revisão" — itere sempre.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESUMO FINAL -->
+    <section class="bg-dark-800 rounded-xl p-8 border border-rose-500/30 mb-12">
+      <h2 class="text-2xl font-bold mb-6">✅ Resumo do Módulo 6.5</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
+        <div class="flex items-center space-x-3">
+          <span class="text-rose-400 text-lg">✓</span>
+          <span class="text-neutral-300 text-sm">Semana 1: diagnóstico + pantry_inventory.md</span>
+        </div>
+        <div class="flex items-center space-x-3">
+          <span class="text-rose-400 text-lg">✓</span>
+          <span class="text-neutral-300 text-sm">Semana 2: Silver Platters + CLAUDE.md raiz</span>
+        </div>
+        <div class="flex items-center space-x-3">
+          <span class="text-rose-400 text-lg">✓</span>
+          <span class="text-neutral-300 text-sm">Semana 3: 2-3 skills + 1 orquestrador + eval</span>
+        </div>
+        <div class="flex items-center space-x-3">
+          <span class="text-rose-400 text-lg">✓</span>
+          <span class="text-neutral-300 text-sm">Semana 4: crons + hooks + observabilidade ativada</span>
+        </div>
+        <div class="flex items-center space-x-3">
+          <span class="text-rose-400 text-lg">✓</span>
+          <span class="text-neutral-300 text-sm">Gates obrigatórios — sem entregável, sem avançar</span>
+        </div>
+        <div class="flex items-center space-x-3">
+          <span class="text-rose-400 text-lg">✓</span>
+          <span class="text-neutral-300 text-sm">Cadência quinzenal pós-30d — sistema é jogo infinito</span>
+        </div>
+      </div>
+
+      <div class="bg-dark-700/50 rounded-lg p-4 mb-6">
+        <p class="text-neutral-400 text-sm"><span class="text-rose-400 font-semibold">Próximo módulo:</span> Projeto Final — seu Agentic OS. O módulo de conclusão do curso: você entrega a pasta /agentic-os funcionando e descobre como continuar evoluindo nos próximos 90 dias.</p>
+      </div>
+
+      <div class="flex justify-start space-x-3">
+        <a href="modulo-6-4.html" class="px-5 py-2.5 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors text-sm">← Módulo anterior</a>
+        <a href="modulo-6-6.html" class="px-5 py-2.5 bg-rose-600 text-white rounded-lg font-semibold hover:bg-rose-500 transition-colors text-sm">Próximo módulo →</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="border-t border-dark-600 py-8 mt-4">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm">
+      <p>Agentic OS — <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300">INEMA.CLUB</a> — 2026</p>
+    </div>
+  </footer>
+
+  <script>
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+    const html = document.documentElement;
+
+    if (localStorage.getItem('theme') === 'light' || (!localStorage.getItem('theme') && !html.classList.contains('dark'))) {
+      themeToggleDarkIcon.classList.remove('hidden');
+      html.classList.remove('dark');
+    } else {
+      themeToggleLightIcon.classList.remove('hidden');
+    }
+
+    themeToggle.addEventListener('click', () => {
+      themeToggleDarkIcon.classList.toggle('hidden');
+      themeToggleLightIcon.classList.toggle('hidden');
+      html.classList.toggle('dark');
+      localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+    });
+  </script>
+</body>
+</html>

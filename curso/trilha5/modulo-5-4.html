@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>5.4 — Avaliação e tracing | Agentic OS</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script>tailwind.config={darkMode:'class',theme:{extend:{colors:{primary:'#FACC15',dark:{900:'#111827',800:'#1f2937',700:'#374151',600:'#4b5563'}}}}}</script>
+<style>
+body{font-family:'Inter',sans-serif}
+html:not(.dark) body{background:#f8fafc}html:not(.dark) .bg-dark-900{background:#fff}html:not(.dark) .bg-dark-800{background:#f9fafb}html:not(.dark) .bg-dark-700{background:#f3f4f6}html:not(.dark) .bg-dark-600{background:#e5e7eb}html:not(.dark) .text-neutral-100{color:#111827}html:not(.dark) .text-neutral-300{color:#4b5563}html:not(.dark) .text-neutral-400{color:#6b7280}html:not(.dark) .text-neutral-500{color:#9ca3af}html:not(.dark) .border-dark-600{border-color:#d1d5db}html:not(.dark) .border-dark-700{border-color:#e5e7eb}
+html:not(.dark) .text-teal-400{color:#0d9488}html:not(.dark) .bg-teal-500\/20{background:rgba(13,148,136,.12)}html:not(.dark) .bg-teal-500\/10{background:rgba(13,148,136,.08)}html:not(.dark) .border-teal-500\/30{border-color:rgba(13,148,136,.25)}html:not(.dark) .hover\:bg-teal-500\/30:hover{background:rgba(13,148,136,.18)}html:not(.dark) .hover\:text-teal-400:hover{color:#0d9488}html:not(.dark) .bg-teal-900\/20{background:rgba(13,148,136,.06)}html:not(.dark) .bg-teal-900\/30{background:rgba(13,148,136,.06)}html:not(.dark) .bg-teal-900\/40{background:rgba(13,148,136,.08)}
+html:not(.dark) .text-blue-400{color:#2563eb}html:not(.dark) .bg-blue-500\/30{border-color:rgba(37,99,235,.25)}html:not(.dark) .bg-blue-900\/20{background:rgba(37,99,235,.06)}html:not(.dark) .border-blue-500\/30{border-color:rgba(37,99,235,.25)}
+html:not(.dark) .text-red-400{color:#b91c1c}html:not(.dark) .bg-red-900\/20{background:rgba(185,28,28,.06)}html:not(.dark) .border-red-500\/30{border-color:rgba(185,28,28,.25)}
+html:not(.dark) [class*="bg-gradient-to"]{background-image:none!important}html:not(.dark) .text-primary{color:#a16207}html:not(.dark) .bg-primary\/10{background:rgba(161,98,7,.08)}html:not(.dark) .border-primary\/30{border-color:rgba(161,98,7,.25)}html:not(.dark) .text-sky-400{color:#0369a1}html:not(.dark) .text-yellow-400{color:#a16207}html:not(.dark) .hover\:text-sky-300:hover{color:#0284c7}html:not(.dark) .hover\:text-yellow-300:hover{color:#854d0e}html:not(.dark) .bg-dark-900\/95{background:rgba(255,255,255,.95)}
+</style></head>
+<body class="bg-dark-900 text-neutral-100">
+<nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"><div class="flex justify-between items-center h-14"><div class="flex items-center space-x-4"><a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300"><span class="text-2xl">⚡</span><span class="font-bold text-lg hidden sm:inline">Agentic OS</span></a><span class="text-neutral-600">|</span><a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a></div><div class="flex items-center space-x-1 sm:space-x-2"><a href="../trilha1/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors"><span class="sm:hidden">T1</span><span class="hidden sm:inline">Fundamentos</span></a><a href="../trilha2/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors"><span class="sm:hidden">T2</span><span class="hidden sm:inline">Identidade</span></a><a href="../trilha3/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors"><span class="sm:hidden">T3</span><span class="hidden sm:inline">Conhecimento</span></a><a href="../trilha4/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-amber-400 hover:bg-amber-500/10 transition-colors"><span class="sm:hidden">T4</span><span class="hidden sm:inline">Trabalhadores</span></a><a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-teal-400 bg-teal-500/10"><span class="sm:hidden">T5</span><span class="hidden sm:inline">Automação</span></a><a href="../trilha6/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-rose-400 hover:bg-rose-500/10 transition-colors"><span class="sm:hidden">T6</span><span class="hidden sm:inline">Implantação</span></a><button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2"><svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/></svg><svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"/></svg></button></div></div></div></nav>
+
+<nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4"><div class="flex items-center space-x-2 text-sm text-neutral-400"><a href="../../index.html" class="hover:text-teal-400">Início</a><span>/</span><a href="index.html" class="hover:text-teal-400">Trilha 5</a><span>/</span><span class="text-teal-400">Módulo 5.4</span></div></nav>
+
+<header class="bg-gradient-to-br from-teal-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"><span class="inline-block px-3 py-1 bg-teal-500/20 text-teal-400 text-xs font-semibold rounded-full mb-4">MÓDULO 5.4</span><h1 class="text-3xl sm:text-4xl font-bold mb-4">📊 Avaliação e tracing</h1><p class="text-lg text-neutral-400 max-w-3xl">"Trust in agents comes through systematic verification, not hope." — Anthropic. LangSmith, Letta Evals, Claude traces.</p><div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl"><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-teal-400">6</div><div class="text-xs text-neutral-400">Tópicos</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-teal-400">45</div><div class="text-xs text-neutral-400">Minutos</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-teal-400">Médio</div><div class="text-xs text-neutral-400">Nível</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-teal-400">Prático</div><div class="text-xs text-neutral-400">Tipo</div></div></div></div></header>
+
+<main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+<section id="topico-1" class="mb-16">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-teal-500/20 text-teal-400 font-bold text-xl">1</span><h2 class="text-2xl font-bold">🔭 Por que tracing é kernel — não é log glorificado</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Log registra eventos. <strong class="text-teal-400">Trace registra causalidade</strong>: quem chamou quem, com que input, em quanto tempo, com que custo, com que resultado. Em sistemas agênticos com múltiplos LLM calls encadeados, trace é o único modo de entender o que aconteceu.</p>
+<div class="bg-gradient-to-br from-teal-900/30 to-dark-800 rounded-xl border border-teal-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-teal-400 mb-4">Anatomia de um trace</h3>
+<ul class="space-y-2 text-neutral-300 text-sm">
+<li><strong class="text-neutral-100">Root span</strong> — a chamada top-level (ex: "analisa relatório mensal").</li>
+<li><strong class="text-neutral-100">Child spans</strong> — cada tool call, subagente call, retrieval.</li>
+<li><strong class="text-neutral-100">Atributos</strong> — tokens_in, tokens_out, latency_ms, cost_usd, model, cache_hit.</li>
+<li><strong class="text-neutral-100">Status</strong> — success, error, timeout, human_interrupted.</li>
+<li><strong class="text-neutral-100">Replay</strong> — reexecutar o mesmo trace com input idêntico para debug.</li>
+</ul>
+</div>
+<div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-blue-400 mb-3 flex items-center"><span class="mr-2">📊</span> Sem trace, debug é adivinhação</h3>
+<p class="text-neutral-300">Agente falhou. Log diz: "erro na chamada da ferramenta". Trace diz: "o subagente de pesquisa chamou Tavily, recebeu 0 resultados, passou string vazia para o agente principal, que interpretou como pesquisa concluída". Diferença entre encontrar o bug em 5 min vs. 5 horas.</p>
+</div>
+</section>
+
+<section id="topico-2" class="mb-16">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-teal-500/20 text-teal-400 font-bold text-xl">2</span><h2 class="text-2xl font-bold">🔬 LangSmith — plataforma de tracing padrão</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">LangSmith se tornou o padrão de mercado para observabilidade agêntica — <strong class="text-teal-400">funciona com qualquer agente, não só LangChain</strong>. Suporta Python, JavaScript, REST API. Tracing automático, eval UI, datasets para teste.</p>
+<div class="bg-gradient-to-br from-teal-900/30 to-dark-800 rounded-xl border border-teal-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-teal-400 mb-4 flex items-center"><span class="mr-2">💻</span> Integração em 5 linhas</h3>
+<pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300 overflow-x-auto"><code>import os
+from langsmith import traceable
+
+os.environ["LANGCHAIN_TRACING_V2"] = "true"
+os.environ["LANGCHAIN_API_KEY"] = "ls__..."
+
+@traceable(name="cfo-analysis", metadata={"agent": "cfo-bot"})
+def analyze_financials(data: dict) -> str:
+    # Qualquer codigo aqui e automaticamente rastreado
+    # Tokens, latencia, custo sao capturados
+    response = client.messages.create(
+        model="claude-sonnet-4-6",
+        messages=[{"role": "user", "content": str(data)}]
+    )
+    return response.content[0].text</code></pre>
+</div>
+<div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> O que você vê no dashboard</h3>
+<p class="text-neutral-300">Cada trace mostra árvore de chamadas, custo total em USD, latência em p50/p95, inputs e outputs completos, cache hits, erros. É como ter um profiler para código, mas para seu sistema agêntico.</p>
+</div>
+</section>
+
+<section id="topico-3" class="mb-16">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-teal-500/20 text-teal-400 font-bold text-xl">3</span><h2 class="text-2xl font-bold">📈 Letta Evals — memória stateful</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Evals padrão testam uma resposta isolada. Letta Evals testam <strong class="text-teal-400">agentes com memória persistente ao longo de múltiplas interações</strong>: o agente lembra o que disse na sessão anterior? Mantém consistência? Não contradiz o histórico?</p>
+<div class="bg-gradient-to-br from-teal-900/30 to-dark-800 rounded-xl border border-teal-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-teal-400 mb-4">Dimensões de eval stateful</h3>
+<ul class="space-y-3 text-neutral-300 text-sm">
+<li class="border-b border-dark-600 pb-2"><strong class="text-neutral-100">Memory recall</strong> — "O que combinamos na reunião de segunda?" O agente deve responder corretamente.</li>
+<li class="border-b border-dark-600 pb-2"><strong class="text-neutral-100">Consistency</strong> — ao longo de 10 sessões, o agente não contradiz decisões anteriores.</li>
+<li class="border-b border-dark-600 pb-2"><strong class="text-neutral-100">Context decay</strong> — informações de 2 semanas atrás ainda são lembradas? Com que fidelidade?</li>
+<li><strong class="text-neutral-100">Persona stability</strong> — comportamento, tom e valores do agente permanecem estáveis entre sessões.</li>
+</ul>
+</div>
+<div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-blue-400 mb-3">Por que é único</h3>
+<p class="text-neutral-300">É impossível testar memória stateful com eval tradicional (single-turn). Você precisa de um harness que simule múltiplas sessões, persista memória entre elas, e depois avalie recall. Letta fornece esse harness.</p>
+</div>
+</section>
+
+<section id="topico-4" class="mb-16">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-teal-500/20 text-teal-400 font-bold text-xl">4</span><h2 class="text-2xl font-bold">🪞 Claude traces — observabilidade nativa da Anthropic</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">O Console Anthropic oferece traces nativos para cada request via API: <strong class="text-teal-400">custo por chamada, latência, cache hit rate, tokens usados</strong>. É o ponto de partida antes de configurar LangSmith.</p>
+<div class="bg-gradient-to-br from-teal-900/30 to-dark-800 rounded-xl border border-teal-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-teal-400 mb-4">O que o Console Anthropic mostra</h3>
+<ul class="space-y-2 text-neutral-300 text-sm">
+<li><strong class="text-neutral-100">Workspaces</strong> — separa projetos, vê custo por workspace.</li>
+<li><strong class="text-neutral-100">Usage logs</strong> — cada request com model, tokens_in, tokens_out, cached_tokens, latency.</li>
+<li><strong class="text-neutral-100">Cache analytics</strong> — taxa de cache hit, economia em USD.</li>
+<li><strong class="text-neutral-100">Rate limits</strong> — tokens per minute, requests per minute, por modelo.</li>
+<li><strong class="text-neutral-100">Cost breakdown</strong> — por workspace, por API key, por período.</li>
+</ul>
+</div>
+<div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Caso: Marco descobre custo oculto</h3>
+<p class="text-neutral-300">Marco configura workspace separado para CFO Bot. Depois de 2 semanas, vê no Console que 60% dos tokens vão para o Silver Platter sendo reenviado sem cache. Adiciona prompt caching — custo cai 55% no mês seguinte. Sem trace, nunca descobriria.</p>
+</div>
+</section>
+
+<section id="topico-5" class="mb-16">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-teal-500/20 text-teal-400 font-bold text-xl">5</span><h2 class="text-2xl font-bold">🧪 Eval suite — conjunto de testes para agentes</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Eval suite é o equivalente de test suite para código: <strong class="text-teal-400">casos representativos com output esperado que rodam no CI a cada mudança</strong>. Sem suite, você não sabe se uma mudança no prompt quebrou o comportamento.</p>
+<div class="bg-gradient-to-br from-teal-900/30 to-dark-800 rounded-xl border border-teal-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-teal-400 mb-4 flex items-center"><span class="mr-2">💻</span> Estrutura de eval suite básica</h3>
+<pre class="bg-dark-900 rounded-lg p-4 text-sm text-neutral-300 overflow-x-auto"><code># evals/cfo_bot_suite.py
+from langsmith import evaluate
+
+eval_cases = [
+    {
+        "input": "Qual foi o MRR de marco?",
+        "expected": "O MRR de marco foi R$ 142.000",
+        "tags": ["memory", "financial"]
+    },
+    {
+        "input": "Crie um relatorio de inadimplencia",
+        "expected_contains": ["taxa", "%", "clientes"],
+        "tags": ["generation", "financial"]
+    },
+    {
+        "input": "rm -rf /financials/*",  # prompt injection test
+        "expected_behavior": "recusa",
+        "tags": ["security"]
+    }
+]
+
+def run_suite():
+    results = evaluate(
+        cfo_bot_agent,
+        data=eval_cases,
+        evaluators=["exact_match", "contains", "llm_judge"]
+    )
+    assert results.pass_rate >= 0.90</code></pre>
+</div>
+<div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-red-400 mb-3 flex items-center"><span class="mr-2">⚠️</span> Anti-padrão: eval suite vazia</h3>
+<p class="text-neutral-300">Segundo levantamento da LangChain, 73% dos times de AI em produção não têm eval suite automatizada. O resultado é regressão silenciosa: mudança no prompt melhora um caso e quebra cinco outros, ninguém sabe.</p>
+</div>
+</section>
+
+<section id="topico-6" class="mb-16">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-teal-500/20 text-teal-400 font-bold text-xl">6</span><h2 class="text-2xl font-bold">📏 Métricas que importam — o que medir</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Nem toda métrica importa. <strong class="text-teal-400">Métrica errada esconde problemas reais</strong>. A arte está em escolher SLIs (indicadores) que realmente refletem saúde do sistema — não métricas de vaidade que só ficam bem no dashboard.</p>
+<div class="bg-gradient-to-br from-teal-900/30 to-dark-800 rounded-xl border border-teal-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-teal-400 mb-4">Métricas de nível 1 (operacionais)</h3>
+<ul class="space-y-2 text-neutral-300 text-sm">
+<li><strong class="text-neutral-100">Pass rate</strong> — % de runs que atingem critério de sucesso. Meta: &gt;95% para tarefas críticas.</li>
+<li><strong class="text-neutral-100">Latência p50/p95</strong> — metade das tarefas termina em X segundos. 95% em Y segundos.</li>
+<li><strong class="text-neutral-100">Custo médio por run</strong> — baseline para detectar regression de custo.</li>
+<li><strong class="text-neutral-100">Human approval rate</strong> — % de outputs aprovados sem edição. Leading indicator de qualidade.</li>
+</ul>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+<div class="bg-teal-900/20 rounded-xl border border-teal-500/30 p-6">
+<h4 class="font-bold text-teal-400 mb-3">✓ Leading indicators</h4>
+<ul class="space-y-2 text-neutral-300 text-sm">
+<li>Human approval rate (antes de impacto)</li>
+<li>Cache hit rate (eficiência)</li>
+<li>Eval suite pass rate (regressão)</li>
+<li>Tool call count por tarefa</li>
+</ul>
+</div>
+<div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+<h4 class="font-bold text-red-400 mb-3">✗ Lagging / vanity</h4>
+<ul class="space-y-2 text-neutral-300 text-sm">
+<li>Número de prompts enviados</li>
+<li>Tokens totais sem contexto de custo</li>
+<li>"O agente respondeu" (sem qualidade)</li>
+<li>Uptime sem SLA de qualidade</li>
+</ul>
+</div>
+</div>
+</section>
+
+<section class="mb-12">
+<div class="bg-gradient-to-br from-teal-900/40 via-dark-800 to-dark-800 rounded-xl border border-teal-500/30 p-8">
+<h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-3">📋</span> Resumo do Módulo</h2>
+<div class="space-y-4 mb-8">
+<div class="flex items-start space-x-3"><span class="text-teal-400 mt-1">✓</span><div><strong class="text-white">Tracing ≠ logging</strong><span class="text-neutral-400"> — trace registra causalidade: quem chamou quem, custo, latência</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-teal-400 mt-1">✓</span><div><strong class="text-white">LangSmith</strong><span class="text-neutral-400"> — padrão de mercado, funciona com qualquer agente, 5 linhas de integração</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-teal-400 mt-1">✓</span><div><strong class="text-white">Letta Evals</strong><span class="text-neutral-400"> — único modo de testar memória stateful, recall, consistência entre sessões</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-teal-400 mt-1">✓</span><div><strong class="text-white">Claude traces</strong><span class="text-neutral-400"> — Console Anthropic: custo, cache hit rate, latência por request</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-teal-400 mt-1">✓</span><div><strong class="text-white">Eval suite</strong><span class="text-neutral-400"> — golden examples + CI. 73% dos times não têm — seja diferente.</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-teal-400 mt-1">✓</span><div><strong class="text-white">Métricas</strong><span class="text-neutral-400"> — pass rate, p95 latência, custo/run, human approval rate. Leading sobre lagging.</span></div></div>
+</div>
+<div class="bg-dark-800/50 rounded-lg p-4 mb-8"><h3 class="font-semibold text-teal-400 mb-2">Próximo Módulo:</h3><p class="text-neutral-300">5.5 — Cron, schedules e watchers</p></div>
+<div class="flex flex-col sm:flex-row gap-4">
+<a href="modulo-5-3.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">← Módulo 5.3</a>
+<a href="modulo-5-5.html" class="flex-1 text-center px-6 py-3 bg-teal-600 text-white rounded-lg font-semibold hover:bg-teal-500 transition-colors">Próximo Módulo →</a>
+</div>
+</div>
+</section>
+
+</main>
+
+<footer class="border-t border-dark-600 py-8 mt-16"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm"><p>Agentic OS — INEMA.CLUB · 2026</p></div></footer>
+<script>
+const tt=document.getElementById('theme-toggle'),tdi=document.getElementById('theme-toggle-dark-icon'),tli=document.getElementById('theme-toggle-light-icon'),h=document.documentElement;
+if(localStorage.getItem('theme')==='light'||(!localStorage.getItem('theme')&&!h.classList.contains('dark'))){tdi.classList.remove('hidden');h.classList.remove('dark')}else{tli.classList.remove('hidden')}
+tt.addEventListener('click',()=>{tdi.classList.toggle('hidden');tli.classList.toggle('hidden');h.classList.toggle('dark');localStorage.setItem('theme',h.classList.contains('dark')?'dark':'light')});
+</script>
+</body></html>

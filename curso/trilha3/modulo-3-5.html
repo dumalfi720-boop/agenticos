@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>3.5 — Context Engineering | Agentic OS</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script>tailwind.config={darkMode:'class',theme:{extend:{colors:{primary:'#FACC15',dark:{900:'#111827',800:'#1f2937',700:'#374151',600:'#4b5563'}}}}}</script>
+<style>
+body{font-family:'Inter',sans-serif}
+html:not(.dark) body{background:#f8fafc}html:not(.dark) .bg-dark-900{background:#fff}html:not(.dark) .bg-dark-800{background:#f9fafb}html:not(.dark) .bg-dark-700{background:#f3f4f6}html:not(.dark) .bg-dark-600{background:#e5e7eb}html:not(.dark) .text-neutral-100{color:#111827}html:not(.dark) .text-neutral-300{color:#4b5563}html:not(.dark) .text-neutral-400{color:#6b7280}html:not(.dark) .text-neutral-500{color:#9ca3af}html:not(.dark) .border-dark-600{border-color:#d1d5db}html:not(.dark) .border-dark-700{border-color:#e5e7eb}
+html:not(.dark) .text-purple-400{color:#7c3aed}html:not(.dark) .bg-purple-500\/20{background:rgba(124,58,237,.12)}html:not(.dark) .bg-purple-500\/10{background:rgba(124,58,237,.08)}html:not(.dark) .border-purple-500\/30{border-color:rgba(124,58,237,.25)}html:not(.dark) .bg-purple-900\/20{background:rgba(124,58,237,.06)}html:not(.dark) .bg-purple-900\/30{background:rgba(124,58,237,.06)}html:not(.dark) .bg-purple-900\/40{background:rgba(124,58,237,.08)}
+html:not(.dark) .text-blue-400{color:#2563eb}html:not(.dark) .bg-blue-900\/20{background:rgba(37,99,235,.06)}html:not(.dark) .border-blue-500\/30{border-color:rgba(37,99,235,.25)}
+html:not(.dark) .text-red-400{color:#b91c1c}html:not(.dark) .bg-red-900\/20{background:rgba(185,28,28,.06)}html:not(.dark) .border-red-500\/30{border-color:rgba(185,28,28,.25)}
+html:not(.dark) [class*="bg-gradient-to"]{background-image:none!important}html:not(.dark) .text-primary{color:#a16207}html:not(.dark) .bg-primary\/10{background:rgba(161,98,7,.08)}html:not(.dark) .border-primary\/30{border-color:rgba(161,98,7,.25)}html:not(.dark) .text-sky-400{color:#0369a1}html:not(.dark) .text-yellow-400{color:#a16207}html:not(.dark) .hover\:text-sky-300:hover{color:#0284c7}html:not(.dark) .hover\:text-yellow-300:hover{color:#854d0e}html:not(.dark) .bg-dark-900\/95{background:rgba(255,255,255,.95)}
+</style></head>
+<body class="bg-dark-900 text-neutral-100">
+<nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"><div class="flex justify-between items-center h-14"><div class="flex items-center space-x-4"><a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300"><span class="text-2xl">⚡</span><span class="font-bold text-lg hidden sm:inline">Agentic OS</span></a><span class="text-neutral-600">|</span><a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a></div><div class="flex items-center space-x-1 sm:space-x-2"><a href="../trilha1/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors"><span class="sm:hidden">T1</span><span class="hidden sm:inline">Fundamentos</span></a><a href="../trilha2/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors"><span class="sm:hidden">T2</span><span class="hidden sm:inline">Identidade</span></a><a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-purple-400 bg-purple-500/10"><span class="sm:hidden">T3</span><span class="hidden sm:inline">Conhecimento</span></a><a href="../trilha4/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-amber-400 hover:bg-amber-500/10 transition-colors"><span class="sm:hidden">T4</span><span class="hidden sm:inline">Trabalhadores</span></a><a href="../trilha5/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-teal-400 hover:bg-teal-500/10 transition-colors"><span class="sm:hidden">T5</span><span class="hidden sm:inline">Automação</span></a><a href="../trilha6/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-rose-400 hover:bg-rose-500/10 transition-colors"><span class="sm:hidden">T6</span><span class="hidden sm:inline">Implantação</span></a><button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2"><svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/></svg><svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"/></svg></button></div></div></div></nav>
+
+<nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4"><div class="flex items-center space-x-2 text-sm text-neutral-400"><a href="../../index.html" class="hover:text-purple-400">Início</a><span>/</span><a href="index.html" class="hover:text-purple-400">Trilha 3</a><span>/</span><span class="text-purple-400">Módulo 3.5</span></div></nav>
+
+<header class="bg-gradient-to-br from-purple-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"><span class="inline-block px-3 py-1 bg-purple-500/20 text-purple-400 text-xs font-semibold rounded-full mb-4">MÓDULO 3.5</span><h1 class="text-3xl sm:text-4xl font-bold mb-4">🧠 Context Engineering — a nova disciplina</h1><p class="text-lg text-neutral-400 max-w-3xl">Anthropic, set/2025: não é prompt engineering para agentes. É a engenharia de qual contexto produz qual comportamento — token economy, just-in-time loading, compactação e os Three Rs.</p><div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl"><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">6</div><div class="text-xs text-neutral-400">Tópicos</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">40</div><div class="text-xs text-neutral-400">Minutos</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">Avançado</div><div class="text-xs text-neutral-400">Nível</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">Teoria</div><div class="text-xs text-neutral-400">Tipo</div></div></div></div></header>
+
+<main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+<section id="topico-1" class="mb-16">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">1</span><h2 class="text-2xl font-bold">📚 Por que prompt engineering ficou obsoleto</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed"><strong class="text-purple-400">Prompt engineering era a disciplina de um único prompt</strong> — você escrevia uma instrução e recebia uma resposta. Era suficiente para chatbots. <strong class="text-purple-400">Agentes fazem centenas de chamadas em sequência</strong>: pesquisam arquivos, executam tools, chamam subagentes, sumarizam resultados. Prompt engineering não escala para isso.</p>
+<div class="bg-gradient-to-br from-purple-900/30 to-dark-800 rounded-xl border border-purple-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-purple-400 mb-4 flex items-center"><span class="mr-2">🔄</span> A evolução das disciplinas</h3>
+<div class="space-y-3 text-sm text-neutral-300">
+<div class="flex items-start space-x-4 bg-dark-700/50 rounded-lg p-3">
+<span class="text-purple-400 font-bold w-32 flex-shrink-0">2022-2023</span>
+<div><strong>Prompt Engineering</strong> — escrever o prompt certo para 1 chamada. Zero-shot, few-shot, chain-of-thought.</div>
+</div>
+<div class="flex items-start space-x-4 bg-dark-700/50 rounded-lg p-3">
+<span class="text-purple-400 font-bold w-32 flex-shrink-0">2024</span>
+<div><strong>RAG Engineering</strong> — recuperar os documentos certos para enriquecer o prompt. Embeddings, vector search.</div>
+</div>
+<div class="flex items-start space-x-4 bg-dark-700/50 rounded-lg p-3">
+<span class="text-purple-400 font-bold w-32 flex-shrink-0">2025-2026</span>
+<div><strong>Context Engineering</strong> — gerenciar qual informação entra na janela, quando, em qual formato, durante loops de agente de longa duração.</div>
+</div>
+</div>
+</div>
+<div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-blue-400 mb-3 flex items-center"><span class="mr-2">📊</span> Anthropic, setembro 2025</h3>
+<p class="text-neutral-300 italic">"Context engineering is the practice of carefully crafting and managing information in the context window to produce specific behaviors from AI systems."</p>
+<p class="text-neutral-400 text-sm mt-2">— Documentação oficial da Anthropic, set/2025.</p>
+</div>
+</section>
+
+<section id="topico-2" class="mb-16">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">2</span><h2 class="text-2xl font-bold">🪟 Janela de contexto como recurso escasso</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">A janela de contexto não é infinita — cada token ocupa espaço, custa dinheiro e <strong class="text-purple-400">compete por atenção com todos os outros tokens</strong>. Janela cheia de ruído dilui o sinal das instruções importantes. Janela bem gerenciada = agente mais preciso e mais barato.</p>
+<div class="bg-gradient-to-br from-purple-900/30 to-dark-800 rounded-xl border border-purple-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-purple-400 mb-4 flex items-center"><span class="mr-2">💰</span> Token economy na prática</h3>
+<ul class="space-y-2 text-neutral-300 text-sm">
+<li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong class="text-neutral-100">Claude Sonnet 4.5</strong> — 200K tokens de contexto. ~150K palavras. Parece muito, não é.</span></li>
+<li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong class="text-neutral-100">1 CSV de 5MB</strong> — facilmente 500K+ tokens. Não cabe. Precisa de Silver Platter.</span></li>
+<li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong class="text-neutral-100">Sessão longa sem poda</strong> — histórico de tool calls acumula. Degrada performance após ~50 turnos.</span></li>
+<li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong class="text-neutral-100">Custo real</strong> — agente que processa 1M tokens/dia × R$0.003/1K = R$3.000/mês só em input.</span></li>
+</ul>
+</div>
+<div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-red-400 mb-3 flex items-center"><span class="mr-2">⚠️</span> Atenção dilui com contexto inflado</h3>
+<p class="text-neutral-300">Pesquisa da Anthropic mostra que instruções no meio de um contexto muito longo recebem menos atenção que instruções no início ou fim. "Lost in the middle" é real. <strong class="text-neutral-100">Contexto menor, com sinal mais puro, produz respostas melhores.</strong></p>
+</div>
+</section>
+
+<section id="topico-3" class="mb-16">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">3</span><h2 class="text-2xl font-bold">🎯 Just-in-time Context</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Em vez de injetar toda a informação no início da sessão, o agente carrega o que precisa <strong class="text-purple-400">no momento em que precisa</strong>. A analogia é o lazy loading de código: você não carrega o módulo inteiro, carrega a função quando ela é chamada. <strong class="text-purple-400">Paths em vez de conteúdo</strong> — o agente lê o arquivo quando necessário.</p>
+<div class="bg-gradient-to-br from-purple-900/30 to-dark-800 rounded-xl border border-purple-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-purple-400 mb-4 flex items-center"><span class="mr-2">⚡</span> Padrão just-in-time</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-neutral-300">
+<div class="bg-dark-700/50 rounded-lg p-4">
+<h4 class="font-semibold text-red-400 mb-2">✗ Eager loading (ruim)</h4>
+<pre class="bg-dark-600 rounded p-2 text-xs mt-2">System prompt com:
+- marketing.md completo
+- financeiro.md completo
+- operacoes.md completo
+- historico.md completo
+Total: 40K tokens antes de
+o agente fazer qualquer coisa</pre>
+</div>
+<div class="bg-dark-700/50 rounded-lg p-4">
+<h4 class="font-semibold text-purple-400 mb-2">✓ Just-in-time (bom)</h4>
+<pre class="bg-dark-600 rounded p-2 text-xs mt-2">System prompt com:
+- Paths dos platters disponíveis
+- Instrução: "leia o platter
+  relevante antes de responder"
+Total: 500 tokens. Agente lê
+só o que precisa, quando precisa</pre>
+</div>
+</div>
+</div>
+<div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> CLAUDE.md como índice</h3>
+<p class="text-neutral-300">O CLAUDE.md do projeto é a implementação natural de just-in-time context. Ele não carrega todo o código — lista onde estão os arquivos importantes e quando ler cada um. O agente navega sob demanda. Esta é a razão pela qual CLAUDE.md funciona melhor quando é um índice enxuto, não um dump de documentação.</p>
+</div>
+</section>
+
+<section id="topico-4" class="mb-16">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">4</span><h2 class="text-2xl font-bold">🗂️ Compactação e Poda</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Sessões longas acumulam lixo: tool outputs verbosos, mensagens intermediárias, contexto obsoleto. <strong class="text-purple-400">Sem compactação, a sessão degenera</strong> — o agente começa a perder o fio da meada, repetir informação ou ignorar instruções antigas. Compactação é manutenção ativa da qualidade.</p>
+<div class="bg-gradient-to-br from-purple-900/30 to-dark-800 rounded-xl border border-purple-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-purple-400 mb-4 flex items-center"><span class="mr-2">✂️</span> O que compactar</h3>
+<ul class="space-y-2 text-neutral-300 text-sm">
+<li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong class="text-neutral-100">Tool outputs longos</strong> — resultado de busca com 200 itens → sumarizar para os 5 relevantes.</span></li>
+<li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong class="text-neutral-100">Histórico de reasoning</strong> — pensamentos intermediários após decisão tomada.</span></li>
+<li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong class="text-neutral-100">Contexto obsoleto</strong> — informação sobre versão anterior do problema já resolvida.</span></li>
+<li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong class="text-neutral-100">Arquivos de referência lidos</strong> — após extrair o que precisava, remover o conteúdo bruto.</span></li>
+</ul>
+</div>
+<div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-blue-400 mb-3 flex items-center"><span class="mr-2">⚙️</span> Compactação automática no Claude Code</h3>
+<p class="text-neutral-300 mb-3">Claude Code tem compactação automática configurável via hooks:</p>
+<pre class="bg-dark-700 rounded-lg p-3 text-xs text-neutral-300">
+# settings.json — hook pós-compactação
+{
+  "hooks": {
+    "PostCompact": [{
+      "matcher": ".*",
+      "hooks": [{
+        "type": "command",
+        "command": "echo 'Contexto compactado. Verifique CLAUDE.md.'"
+      }]
+    }]
+  }
+}</pre>
+</div>
+</section>
+
+<section id="topico-5" class="mb-16">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">5</span><h2 class="text-2xl font-bold">⚡ Prompt Caching — TTL de 5 minutos</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">A Anthropic mantém o prefixo do prompt em cache por 5 minutos — e cobra <strong class="text-purple-400">90% menos</strong> por tokens servidos do cache. Para agentes que processam muitas chamadas com o mesmo sistema de contexto (CLAUDE.md, Silver Platters, identidade), o cache é ganho automático se a estrutura estiver correta.</p>
+<div class="bg-gradient-to-br from-purple-900/30 to-dark-800 rounded-xl border border-purple-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-purple-400 mb-4 flex items-center"><span class="mr-2">💰</span> Como funciona o cache</h3>
+<ul class="space-y-2 text-neutral-300 text-sm">
+<li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong class="text-neutral-100">Prefixo estável</strong> — o que vem antes do ponto de cache não muda entre chamadas.</span></li>
+<li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong class="text-neutral-100">Cache write</strong> — primeira chamada paga preço normal + pequena taxa de escrita.</span></li>
+<li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong class="text-neutral-100">Cache hit</strong> — chamadas subsequentes nos 5 min pagam 10% do preço original.</span></li>
+<li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong class="text-neutral-100">Desconto na prática</strong> — CLAUDE.md de 10K tokens × 100 chamadas/dia = R$X vs R$X/10.</span></li>
+</ul>
+</div>
+<div class="bg-gradient-to-br from-purple-900/30 to-dark-800 rounded-xl border border-purple-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-purple-400 mb-4 flex items-center"><span class="mr-2">📐</span> Ordem do contexto para máximo cache hit</h3>
+<div class="space-y-2 text-sm text-neutral-300">
+<div class="bg-dark-700/50 rounded-lg p-3 flex items-center space-x-3">
+<span class="text-purple-400 font-bold w-6">1</span>
+<span><strong>Sistema / identidade</strong> (mais estável — muda raramente)</span>
+</div>
+<div class="bg-dark-700/50 rounded-lg p-3 flex items-center space-x-3">
+<span class="text-purple-400 font-bold w-6">2</span>
+<span><strong>Silver Platters / contexto base</strong> (muda diariamente)</span>
+</div>
+<div class="bg-dark-700/50 rounded-lg p-3 flex items-center space-x-3">
+<span class="text-purple-400 font-bold w-6">3</span>
+<span><strong>Histórico de conversa</strong> (muda a cada turno)</span>
+</div>
+<div class="bg-dark-700/50 rounded-lg p-3 flex items-center space-x-3">
+<span class="text-purple-400 font-bold w-6">4</span>
+<span><strong>Mensagem do usuário</strong> (mais dinâmica — nunca cacheada)</span>
+</div>
+</div>
+</div>
+</section>
+
+<section id="topico-6" class="mb-16">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">6</span><h2 class="text-2xl font-bold">📐 Os Three Rs da Anthropic</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Em setembro de 2025, a Anthropic publicou os princípios do Context Engineering em três regras simples: <strong class="text-purple-400">Right Context, Right Time, Right Format</strong>. Uma heurística que cabe na cabeça e cobre 90% das decisões de design de contexto.</p>
+<div class="bg-gradient-to-br from-purple-900/30 to-dark-800 rounded-xl border border-purple-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-purple-400 mb-6 flex items-center"><span class="mr-2">📐</span> Os Three Rs</h3>
+<div class="space-y-4">
+<div class="bg-dark-700/50 rounded-xl p-5">
+<h4 class="text-lg font-semibold text-white mb-2">1. Right Context (contexto certo)</h4>
+<p class="text-neutral-300 text-sm mb-2">Só o que é relevante para a tarefa atual. Não "tudo que pode ser útil" — o que <em>é</em> útil agora.</p>
+<p class="text-neutral-400 text-xs">Exemplo: para analisar campanha de marketing, injete marketing.md — não financeiro.md, não contratos.md.</p>
+</div>
+<div class="bg-dark-700/50 rounded-xl p-5">
+<h4 class="text-lg font-semibold text-white mb-2">2. Right Time (momento certo)</h4>
+<p class="text-neutral-300 text-sm mb-2">Carregar quando o agente precisa, não antes. Just-in-time, não eager loading.</p>
+<p class="text-neutral-400 text-xs">Exemplo: Silver Platter de cliente específico → carregar quando o agente abre aquele caso, não no início da sessão.</p>
+</div>
+<div class="bg-dark-700/50 rounded-xl p-5">
+<h4 class="text-lg font-semibold text-white mb-2">3. Right Format (formato certo)</h4>
+<p class="text-neutral-300 text-sm mb-2">Estrutura que o agente parse eficientemente. Markdown estruturado > texto livre. Tabelas > parágrafos para dados numéricos.</p>
+<p class="text-neutral-400 text-xs">Exemplo: KPIs em tabela Markdown, não em parágrafo narrativo — o agente extrai números mais precisamente.</p>
+</div>
+</div>
+</div>
+<div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Aplicando os Three Rs</h3>
+<p class="text-neutral-300">Antes de cada decisão de contexto, pergunte: "Esse dado é o certo? Estou carregando no momento certo? O formato é o que o agente processa melhor?" Se a resposta for "não" para qualquer uma, redesenhe antes de escalar.</p>
+</div>
+</section>
+
+<section class="mb-12">
+<div class="bg-gradient-to-br from-purple-900/40 via-dark-800 to-dark-800 rounded-xl border border-purple-500/30 p-8">
+<h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-3">📋</span> Resumo do Módulo</h2>
+<div class="space-y-4 mb-8">
+<div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-white">Prompt engineering ficou obsoleto</strong><span class="text-neutral-400"> — era para 1 chamada; agentes fazem centenas. Disciplina diferente.</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-white">Janela = recurso escasso</strong><span class="text-neutral-400"> — cada token compete por atenção e custa dinheiro</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-white">Just-in-time loading</strong><span class="text-neutral-400"> — paths em vez de conteúdo; agente carrega quando precisa</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-white">Compactação ativa</strong><span class="text-neutral-400"> — sumarizar tool outputs, podar histórico obsoleto, manter sinal puro</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-white">Prompt caching = 90% desconto</strong><span class="text-neutral-400"> — prefixo estável primeiro, conteúdo dinâmico depois</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-white">Three Rs</strong><span class="text-neutral-400"> — Right Context + Right Time + Right Format. Heurística que governa tudo.</span></div></div>
+</div>
+<div class="bg-dark-800/50 rounded-lg p-4 mb-8"><h3 class="font-semibold text-purple-400 mb-2">Próximo Módulo:</h3><p class="text-neutral-300">3.6 — Memória como filesystem</p></div>
+<div class="flex flex-col sm:flex-row gap-4"><a href="modulo-3-4.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">← Módulo Anterior</a><a href="modulo-3-6.html" class="flex-1 text-center px-6 py-3 bg-purple-600 text-white rounded-lg font-semibold hover:bg-purple-500 transition-colors">Próximo Módulo →</a></div>
+</div>
+</section>
+
+</main>
+<footer class="border-t border-dark-600 py-8 mt-16"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm"><p>Agentic OS — INEMA.CLUB · 2026</p></div></footer>
+<script>
+const tt=document.getElementById('theme-toggle'),tdi=document.getElementById('theme-toggle-dark-icon'),tli=document.getElementById('theme-toggle-light-icon'),h=document.documentElement;
+if(localStorage.getItem('theme')==='light'||(!localStorage.getItem('theme')&&!h.classList.contains('dark'))){tdi.classList.remove('hidden');h.classList.remove('dark')}else{tli.classList.remove('hidden')}
+tt.addEventListener('click',()=>{tdi.classList.toggle('hidden');tli.classList.toggle('hidden');h.classList.toggle('dark');localStorage.setItem('theme',h.classList.contains('dark')?'dark':'light')});
+</script>
+</body></html>

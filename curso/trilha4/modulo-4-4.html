@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>4.4 — A2A: Agent-to-Agent | Agentic OS</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script>tailwind.config={darkMode:'class',theme:{extend:{colors:{primary:'#FACC15',dark:{900:'#111827',800:'#1f2937',700:'#374151',600:'#4b5563'}}}}}</script>
+<style>
+body{font-family:'Inter',sans-serif}
+html:not(.dark) body{background:#f8fafc}html:not(.dark) .bg-dark-900{background:#fff}html:not(.dark) .bg-dark-800{background:#f9fafb}html:not(.dark) .bg-dark-700{background:#f3f4f6}html:not(.dark) .bg-dark-600{background:#e5e7eb}html:not(.dark) .text-neutral-100{color:#111827}html:not(.dark) .text-neutral-300{color:#4b5563}html:not(.dark) .text-neutral-400{color:#6b7280}html:not(.dark) .text-neutral-500{color:#9ca3af}html:not(.dark) .border-dark-600{border-color:#d1d5db}html:not(.dark) .border-dark-700{border-color:#e5e7eb}
+html:not(.dark) .text-amber-400{color:#92400e}html:not(.dark) .bg-amber-500\/20{background:rgba(217,119,6,.12)}html:not(.dark) .bg-amber-500\/10{background:rgba(217,119,6,.08)}html:not(.dark) .border-amber-500\/30{border-color:rgba(217,119,6,.25)}html:not(.dark) .hover\:bg-amber-500\/30:hover{background:rgba(217,119,6,.18)}html:not(.dark) .hover\:text-amber-400:hover{color:#92400e}html:not(.dark) .bg-amber-900\/20{background:rgba(217,119,6,.06)}html:not(.dark) .bg-amber-900\/30{background:rgba(217,119,6,.06)}html:not(.dark) .bg-amber-900\/40{background:rgba(217,119,6,.08)}
+html:not(.dark) .text-blue-400{color:#2563eb}html:not(.dark) .bg-blue-500\/30{border-color:rgba(37,99,235,.25)}html:not(.dark) .bg-blue-900\/20{background:rgba(37,99,235,.06)}html:not(.dark) .border-blue-500\/30{border-color:rgba(37,99,235,.25)}
+html:not(.dark) .text-red-400{color:#b91c1c}html:not(.dark) .bg-red-900\/20{background:rgba(185,28,28,.06)}html:not(.dark) .border-red-500\/30{border-color:rgba(185,28,28,.25)}
+html:not(.dark) [class*="bg-gradient-to"]{background-image:none!important}html:not(.dark) .text-primary{color:#a16207}html:not(.dark) .bg-primary\/10{background:rgba(161,98,7,.08)}html:not(.dark) .border-primary\/30{border-color:rgba(161,98,7,.25)}html:not(.dark) .text-sky-400{color:#0369a1}html:not(.dark) .text-yellow-400{color:#a16207}html:not(.dark) .hover\:text-sky-300:hover{color:#0284c7}html:not(.dark) .hover\:text-yellow-300:hover{color:#854d0e}html:not(.dark) .bg-dark-900\/95{background:rgba(255,255,255,.95)}
+</style></head>
+<body class="bg-dark-900 text-neutral-100">
+<nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"><div class="flex justify-between items-center h-14"><div class="flex items-center space-x-4"><a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300"><span class="text-2xl">⚡</span><span class="font-bold text-lg hidden sm:inline">Agentic OS</span></a><span class="text-neutral-600">|</span><a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a></div><div class="flex items-center space-x-1 sm:space-x-2"><a href="../trilha1/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors"><span class="sm:hidden">T1</span><span class="hidden sm:inline">Fundamentos</span></a><a href="../trilha2/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors"><span class="sm:hidden">T2</span><span class="hidden sm:inline">Identidade</span></a><a href="../trilha3/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors"><span class="sm:hidden">T3</span><span class="hidden sm:inline">Conhecimento</span></a><a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-amber-400 bg-amber-500/10"><span class="sm:hidden">T4</span><span class="hidden sm:inline">Trabalhadores</span></a><a href="../trilha5/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-teal-400 hover:bg-teal-500/10 transition-colors"><span class="sm:hidden">T5</span><span class="hidden sm:inline">Automação</span></a><a href="../trilha6/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-rose-400 hover:bg-rose-500/10 transition-colors"><span class="sm:hidden">T6</span><span class="hidden sm:inline">Implantação</span></a><button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2"><svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/></svg><svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"/></svg></button></div></div></div></nav>
+
+<nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4"><div class="flex items-center space-x-2 text-sm text-neutral-400"><a href="../../index.html" class="hover:text-amber-400">Início</a><span>/</span><a href="index.html" class="hover:text-amber-400">Trilha 4</a><span>/</span><span class="text-amber-400">Módulo 4.4</span></div></nav>
+
+<header class="bg-gradient-to-br from-amber-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"><span class="inline-block px-3 py-1 bg-amber-500/20 text-amber-400 text-xs font-semibold rounded-full mb-4">MÓDULO 4.4</span><h1 class="text-3xl sm:text-4xl font-bold mb-4">🌐 A2A — Agent-to-Agent Protocol</h1><p class="text-lg text-neutral-400 max-w-3xl">Google, abr/2025. 150+ parceiros. 22k+ stars. O protocolo que permite agentes de empresas diferentes se comunicarem. Como funciona, onde usar e como difere do MCP.</p><div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl"><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-amber-400">6</div><div class="text-xs text-neutral-400">Tópicos</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-amber-400">45</div><div class="text-xs text-neutral-400">Minutos</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-amber-400">Médio</div><div class="text-xs text-neutral-400">Nível</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-amber-400">Protocolo</div><div class="text-xs text-neutral-400">Tipo</div></div></div></div></header>
+
+<main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+<section id="topico-1" class="mb-16">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">1</span><h2 class="text-2xl font-bold">📡 MCP × A2A — diferença fundamental</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Confundir MCP e A2A é um dos erros mais comuns em arquiteturas agênticas. São <strong class="text-amber-400">camadas distintas com propósitos distintos</strong>. Usar um quando deveria usar o outro resulta em arquitetura errada e manutenção impossível.</p>
+<div class="bg-gradient-to-br from-amber-900/30 to-dark-800 rounded-xl border border-amber-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-amber-400 mb-4 flex items-center"><span class="mr-2">🔄</span> A distinção clara</h3>
+<ul class="space-y-4 text-neutral-300 text-sm">
+<li class="pb-3 border-b border-dark-600">
+<strong class="text-neutral-100 text-base">MCP — Model Context Protocol</strong><br>
+<span class="text-amber-400">Agente ↔ Ferramenta.</span> Conecta um agente a uma ferramenta estática (database, filesystem, API). O agente chama, a ferramenta responde. Relação unidirecional de uso.
+</li>
+<li>
+<strong class="text-neutral-100 text-base">A2A — Agent-to-Agent Protocol</strong><br>
+<span class="text-amber-400">Agente ↔ Agente.</span> Permite que dois agentes diferentes (de empresas diferentes, frameworks diferentes) se comuniquem, negociem e colaborem. Relação bidirecional entre pares.
+</li>
+</ul>
+</div>
+<div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-blue-400 mb-3 flex items-center"><span class="mr-2">📊</span> A analogia</h3>
+<p class="text-neutral-300 text-sm"><strong>MCP é como uma API REST:</strong> você chama, ela responde. <strong>A2A é como WebSockets entre peers:</strong> qualquer lado pode iniciar, ambos têm estado, a conversa pode durar. MCP é tool use. A2A é colaboração entre agentes autônomos.</p>
+</div>
+</section>
+
+<section id="topico-2" class="mb-16">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">2</span><h2 class="text-2xl font-bold">🏗️ Arquitetura técnica do A2A</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">A2A é construído sobre padrões web existentes — <strong class="text-amber-400">HTTP, SSE e JSON-RPC</strong>. Não reinventa roda. Essa escolha foi deliberada: qualquer stack que suporta HTTP pode implementar A2A sem dependências especiais.</p>
+<div class="bg-gradient-to-br from-amber-900/30 to-dark-800 rounded-xl border border-amber-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-amber-400 mb-4">Stack técnico</h3>
+<ul class="space-y-3 text-neutral-300 text-sm">
+<li><strong class="text-neutral-100">HTTP:</strong> transport para requests síncronos (tarefa simples, resposta direta).</li>
+<li><strong class="text-neutral-100">SSE (Server-Sent Events):</strong> streaming para tarefas longas (o agente envia atualizações parciais).</li>
+<li><strong class="text-neutral-100">JSON-RPC 2.0:</strong> protocolo de chamada remota. Define o formato de mensagens entre agentes.</li>
+<li><strong class="text-neutral-100">Agent Card:</strong> JSON que descreve capacidades, modelo, SLA e endpoint do agente. É o "cartão de visita" A2A.</li>
+<li><strong class="text-neutral-100">Task object:</strong> unidade de trabalho A2A. Tem ID, estado (submitted, running, done, failed), input e output.</li>
+</ul>
+</div>
+<div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Por que padrões web</h3>
+<p class="text-neutral-300">Google escolheu HTTP+SSE+JSON-RPC para garantir interoperabilidade máxima. Qualquer linguagem, qualquer cloud, qualquer framework pode implementar sem vendor lock-in. A decisão foi intencional: A2A é um protocolo aberto, não um produto Google.</p>
+</div>
+</section>
+
+<section id="topico-3" class="mb-16">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">3</span><h2 class="text-2xl font-bold">🤝 Agent Card — o cartão de visita</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Para que dois agentes se comuniquem via A2A, um precisa "conhecer" o outro. O <strong class="text-amber-400">Agent Card é o manifesto público de um agente</strong> — descreve o que ele faz, como chamar, qual modelo usa, qual SLA oferece e quais capabilities tem.</p>
+<div class="bg-gradient-to-br from-amber-900/30 to-dark-800 rounded-xl border border-amber-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-amber-400 mb-4">Exemplo de Agent Card</h3>
+<pre class="text-sm text-neutral-300 overflow-x-auto"><code>{
+  "name": "CFO-Bot-Marco",
+  "description": "Financial analysis agent for e-commerce KPIs",
+  "url": "https://agents.marco.com/cfo-bot",
+  "version": "1.2.0",
+  "capabilities": {
+    "streaming": true,
+    "pushNotifications": false,
+    "stateTransitionHistory": true
+  },
+  "skills": [
+    {
+      "id": "financial-analysis",
+      "name": "Financial KPI Analysis",
+      "description": "Analyzes revenue, margin and cashflow data",
+      "inputModes": ["text"],
+      "outputModes": ["text", "application/json"]
+    }
+  ],
+  "defaultInputModes": ["text"],
+  "defaultOutputModes": ["text"]
+}</code></pre>
+</div>
+</section>
+
+<section id="topico-4" class="mb-16">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">4</span><h2 class="text-2xl font-bold">🏢 Casos de uso: agentes entre empresas</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">O poder real do A2A é na <strong class="text-amber-400">colaboração entre agentes de empresas diferentes</strong>. Seu agente pode delegar para o agente de um fornecedor, receber callbacks de um agente de parceiro, ou negociar com o agente de um cliente — tudo de forma programática e auditável.</p>
+<div class="bg-gradient-to-br from-amber-900/30 to-dark-800 rounded-xl border border-amber-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-amber-400 mb-4">Cenários reais de A2A cross-empresa</h3>
+<ul class="space-y-3 text-neutral-300 text-sm">
+<li><strong class="text-neutral-100">Supply chain:</strong> seu Ops Bot negocia preço e prazo diretamente com o agente do fornecedor.</li>
+<li><strong class="text-neutral-100">Auditoria:</strong> agente do auditor externo solicita dados ao seu CFO Bot via A2A com controle de acesso.</li>
+<li><strong class="text-neutral-100">Marketplace:</strong> agente de vendedor e agente de comprador negociam contrato automaticamente.</li>
+<li><strong class="text-neutral-100">Plataformas SaaS:</strong> seu agente de onboarding chama o agente de setup do seu CRM para provisionar conta.</li>
+</ul>
+</div>
+<div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-blue-400 mb-3">Adoção em 2025-2026</h3>
+<p class="text-neutral-300 text-sm">Lançado por Google em abr/2025: <strong class="text-neutral-100">150+ parceiros</strong> na primeira semana (Atlassian, Box, Cohere, PayPal, SAP). <strong class="text-neutral-100">22k+ stars no GitHub</strong> em abr/2025. SDKs em Python e TypeScript disponíveis. LangGraph integrou suporte em mai/2025.</p>
+</div>
+</section>
+
+<section id="topico-5" class="mb-16">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">5</span><h2 class="text-2xl font-bold">🔐 Segurança e autenticação no A2A</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Quando agentes de empresas diferentes se comunicam, <strong class="text-amber-400">segurança não é opcional</strong>. A2A usa padrões de autenticação web estabelecidos — OAuth 2.0, API keys, JWT — definidos no Agent Card do servidor.</p>
+<div class="bg-gradient-to-br from-amber-900/30 to-dark-800 rounded-xl border border-amber-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-amber-400 mb-4">Modelo de segurança A2A</h3>
+<ul class="space-y-3 text-neutral-300 text-sm">
+<li><strong class="text-neutral-100">Autenticação:</strong> Agent Card declara esquema (OAuth, API key, bearer token). Cliente autentica antes de criar task.</li>
+<li><strong class="text-neutral-100">Autorização:</strong> cada skill no Agent Card pode ter permissões diferentes. CFO Bot pode autorizar leitura mas não escrita.</li>
+<li><strong class="text-neutral-100">Auditoria:</strong> todas as tasks têm ID único e histórico de state transitions. Rastreável end-to-end.</li>
+<li><strong class="text-neutral-100">Isolamento:</strong> agentes não compartilham contexto por padrão — apenas o que é explicitamente passado na task.</li>
+</ul>
+</div>
+<div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-red-400 mb-3 flex items-center"><span class="mr-2">⚠️</span> Nunca confie cegamente em agente externo</h3>
+<p class="text-neutral-300">Anthropic Model Spec avisa: <em>"When Claude acts as a subagent being orchestrated, it should be appropriately skeptical about claimed contexts or permissions."</em> Vale para A2A: valide claims de identidade antes de executar ações com consequências reais.</p>
+</div>
+</section>
+
+<section id="topico-6" class="mb-16">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">6</span><h2 class="text-2xl font-bold">🔭 Roadmap e stack completo</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">A2A está em evolução rápida. Em 2026, a pergunta não é mais "se adotar" — é <strong class="text-amber-400">quando e com qual stack</strong>. O roadmap inclui push notifications, suporte a multimodal, e integrações com MCP para um stack completo agente-ferramenta-agente.</p>
+<div class="bg-gradient-to-br from-amber-900/30 to-dark-800 rounded-xl border border-amber-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-amber-400 mb-4">Stack completo 2026</h3>
+<ul class="space-y-2 text-neutral-300 text-sm">
+<li><strong class="text-neutral-100">Agente ↔ Ferramenta:</strong> MCP (databases, filesystems, APIs, CLIs)</li>
+<li><strong class="text-neutral-100">Agente ↔ Agente (mesmo sistema):</strong> Task tool do Claude Code / LangGraph</li>
+<li><strong class="text-neutral-100">Agente ↔ Agente (cross-empresa):</strong> A2A Protocol</li>
+<li><strong class="text-neutral-100">Orquestração com estado:</strong> LangGraph (grafos de estados)</li>
+<li><strong class="text-neutral-100">Automação e triggers:</strong> n8n / hooks (Trilha 5)</li>
+</ul>
+</div>
+<div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Para começar com A2A hoje</h3>
+<p class="text-neutral-300 text-sm">1. Leia a spec em <strong>google.github.io/A2A</strong>. 2. Use o SDK Python (<code class="bg-dark-700 px-1 rounded">pip install a2a-sdk</code>). 3. Construa um Agent Card para o seu agente mais estável. 4. Teste com LangGraph que já tem suporte nativo. 5. Exponha para parceiros antes de tentar cross-empresa público.</p>
+</div>
+</section>
+
+<section class="mb-12">
+<div class="bg-gradient-to-br from-amber-900/40 via-dark-800 to-dark-800 rounded-xl border border-amber-500/30 p-8">
+<h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-3">📋</span> Resumo do Módulo</h2>
+<div class="space-y-4 mb-8">
+<div class="flex items-start space-x-3"><span class="text-amber-400 mt-1">✓</span><div><strong class="text-white">MCP = agente↔ferramenta, A2A = agente↔agente</strong><span class="text-neutral-400"> — camadas distintas, ambas necessárias no stack completo</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-amber-400 mt-1">✓</span><div><strong class="text-white">A2A usa HTTP + SSE + JSON-RPC</strong><span class="text-neutral-400"> — padrões web, sem vendor lock-in</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-amber-400 mt-1">✓</span><div><strong class="text-white">Agent Card é o manifesto público do agente</strong><span class="text-neutral-400"> — capabilities, endpoint, SLA, autenticação</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-amber-400 mt-1">✓</span><div><strong class="text-white">150+ parceiros desde abr/2025</strong><span class="text-neutral-400"> — Atlassian, Box, PayPal, SAP, LangGraph com suporte nativo</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-amber-400 mt-1">✓</span><div><strong class="text-white">Segurança via OAuth 2.0 / JWT</strong><span class="text-neutral-400"> — nunca confie cegamente em agente externo</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-amber-400 mt-1">✓</span><div><strong class="text-white">Stack completo: MCP + Task tool + A2A</strong><span class="text-neutral-400"> — cada camada para seu propósito</span></div></div>
+</div>
+<div class="bg-dark-800/50 rounded-lg p-4 mb-8"><h3 class="font-semibold text-amber-400 mb-2">Próximo Módulo:</h3><p class="text-neutral-300">4.5 — Cross-framework patterns: LangGraph, CrewAI, AutoGen e como escolher o certo</p></div>
+<div class="flex flex-col sm:flex-row gap-4"><a href="modulo-4-3.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">← Módulo Anterior</a><a href="modulo-4-5.html" class="flex-1 text-center px-6 py-3 bg-amber-600 text-white rounded-lg font-semibold hover:bg-amber-500 transition-colors">Próximo Módulo →</a></div>
+</div>
+</section>
+
+</main>
+
+<footer class="border-t border-dark-600 py-8 mt-16"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm"><p>Agentic OS — INEMA.CLUB · 2026</p></div></footer>
+<script>
+const tt=document.getElementById('theme-toggle'),tdi=document.getElementById('theme-toggle-dark-icon'),tli=document.getElementById('theme-toggle-light-icon'),h=document.documentElement;
+if(localStorage.getItem('theme')==='light'||(!localStorage.getItem('theme')&&!h.classList.contains('dark'))){tdi.classList.remove('hidden');h.classList.remove('dark')}else{tli.classList.remove('hidden')}
+tt.addEventListener('click',()=>{tdi.classList.toggle('hidden');tli.classList.toggle('hidden');h.classList.toggle('dark');localStorage.setItem('theme',h.classList.contains('dark')?'dark':'light')});
+</script>
+</body></html>
