@@ -1,12 +1,12 @@
-<!DOCTYPE html>
-<html lang="pt-BR" class="dark">
+html
+<html class="dark" lang="pt-BR">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>2.3 — Regras com escopo de caminho | Agentic OS</title>
-<script src="https://cdn.tailwindcss.com"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<script>tailwind.config={darkMode:'class',theme:{extend:{colors:{primary:'#FACC15',dark:{900:'#111827',800:'#1f2937',700:'#374151',600:'#4b5563'}}}}}</script>
-<style>
+<meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>2.3 — Path-scoped rules | Agentic OS</title>
+<script data-notranslate="True" src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<script data-notranslate="True">tailwind.config={darkMode:'class',theme:{extend:{colors:{primary:'#FACC15',dark:{900:'#111827',800:'#1f2937',700:'#374151',600:'#4b5563'}}}}}</script>
+<style data-notranslate="True">
 body{font-family:'Inter',sans-serif}
 html:not(.dark) body{background:#f8fafc}html:not(.dark) .bg-dark-900{background:#fff}html:not(.dark) .bg-dark-800{background:#f9fafb}html:not(.dark) .bg-dark-700{background:#f3f4f6}html:not(.dark) .bg-dark-600{background:#e5e7eb}html:not(.dark) .text-neutral-100{color:#111827}html:not(.dark) .text-neutral-300{color:#4b5563}html:not(.dark) .text-neutral-400{color:#6b7280}html:not(.dark) .text-neutral-500{color:#9ca3af}html:not(.dark) .border-dark-600{border-color:#d1d5db}html:not(.dark) .border-dark-700{border-color:#e5e7eb}
 html:not(.dark) .text-blue-400{color:#2563eb}html:not(.dark) .bg-blue-500\/20{background:rgba(37,99,235,.12)}html:not(.dark) .bg-blue-500\/10{background:rgba(37,99,235,.08)}html:not(.dark) .border-blue-500\/30{border-color:rgba(37,99,235,.25)}html:not(.dark) .bg-blue-900\/20{background:rgba(37,99,235,.06)}html:not(.dark) .bg-blue-900\/30{background:rgba(37,99,235,.06)}html:not(.dark) .bg-blue-900\/40{background:rgba(37,99,235,.08)}
@@ -14,76 +14,69 @@ html:not(.dark) .text-red-400{color:#b91c1c}html:not(.dark) .bg-red-900\/20{back
 html:not(.dark) [class*="bg-gradient-to"]{background-image:none!important}html:not(.dark) .text-primary{color:#a16207}html:not(.dark) .bg-primary\/10{background:rgba(161,98,7,.08)}html:not(.dark) .border-primary\/30{border-color:rgba(161,98,7,.25)}html:not(.dark) .text-sky-400{color:#0369a1}html:not(.dark) .text-yellow-400{color:#a16207}html:not(.dark) .hover\:text-sky-300:hover{color:#0284c7}html:not(.dark) .hover\:text-yellow-300:hover{color:#854d0e}html:not(.dark) .bg-dark-900\/95{background:rgba(255,255,255,.95)}
 </style></head>
 <body class="bg-dark-900 text-neutral-100">
-<nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"><div class="flex justify-between items-center h-14"><div class="flex items-center space-x-4"><a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300"><span class="text-2xl">⚡</span><span class="font-bold text-lg hidden sm:inline">Agentic OS</span></a><span class="text-neutral-600">|</span><a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a></div><div class="flex items-center space-x-1 sm:space-x-2"><a href="../trilha1/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors"><span class="sm:hidden">T1</span><span class="hidden sm:inline">Fundamentos</span></a><a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-blue-400 bg-blue-500/10"><span class="sm:hidden">T2</span><span class="hidden sm:inline">Identidade</span></a><a href="../trilha3/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors"><span class="sm:hidden">T3</span><span class="hidden sm:inline">Conhecimento</span></a><a href="../trilha4/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-amber-400 hover:bg-amber-500/10 transition-colors"><span class="sm:hidden">T4</span><span class="hidden sm:inline">Trabalhadores</span></a><a href="../trilha5/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-teal-400 hover:bg-teal-500/10 transition-colors"><span class="sm:hidden">T5</span><span class="hidden sm:inline">Automação</span></a><a href="../trilha6/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-rose-400 hover:bg-rose-500/10 transition-colors"><span class="sm:hidden">T6</span><span class="hidden sm:inline">Implantação</span></a><button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2"><svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/></svg><svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"/></svg></button></div></div></div></nav>
-
-<nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4"><div class="flex items-center space-x-2 text-sm text-neutral-400"><a href="../../index.html" class="hover:text-blue-400">Início</a><span>/</span><a href="index.html" class="hover:text-blue-400">Trilha 2</a><span>/</span><span class="text-blue-400">Módulo 2.3</span></div></nav>
-
-<header class="bg-gradient-to-br from-blue-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"><span class="inline-block px-3 py-1 bg-blue-500/20 text-blue-400 text-xs font-semibold rounded-full mb-4">MÓDULO 2.3</span><h1 class="text-3xl sm:text-4xl font-bold mb-4">🚧 Regras com escopo de caminho</h1><p class="text-lg text-neutral-400 max-w-3xl">Path-scoped rules. Onde pasta vira fronteira de comportamento. A estrutura do filesystem como ACL nativa do agente.</p><div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl"><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">6</div><div class="text-xs text-neutral-400">Tópicos</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">40</div><div class="text-xs text-neutral-400">Minutos</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">Básico</div><div class="text-xs text-neutral-400">Nível</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">Segurança</div><div class="text-xs text-neutral-400">Tipo</div></div></div></div></header>
-
+<nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"><div class="flex justify-between items-center h-14"><div class="flex items-center space-x-4"><a class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300" href="../../index.html"><span class="text-2xl">⚡</span><span class="font-bold text-lg hidden sm:inline">Agentic OS</span></a><span class="text-neutral-600">|</span><a class="text-sky-400 hover:text-sky-300 text-sm font-medium" href="https://duclub" target="_blank">duclub</a></div><div class="flex items-center space-x-1 sm:space-x-2"><a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors" href="../trilha1/index.html"><span class="sm:hidden">T1</span><span class="hidden sm:inline">Fundamentals</span></a><a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-blue-400 bg-blue-500/10" href="index.html"><span class="sm:hidden">T2</span><span class="hidden sm:inline">Identity</span></a><a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors" href="../trilha3/index.html"><span class="sm:hidden">T3</span><span class="hidden sm:inline">Knowledge</span></a><a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-amber-400 hover:bg-amber-500/10 transition-colors" href="../trilha4/index.html"><span class="sm:hidden">T4</span><span class="hidden sm:inline">Workers</span></a><a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-teal-400 hover:bg-teal-500/10 transition-colors" href="../trilha5/index.html"><span class="sm:hidden">T5</span><span class="hidden sm:inline">Automation</span></a><a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-rose-400 hover:bg-rose-500/10 transition-colors" href="../trilha6/index.html"><span class="sm:hidden">T6</span><span class="hidden sm:inline">Implantation</span></a><button class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2" id="theme-toggle"><svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-dark-icon" viewbox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg><svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-light-icon" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd"></path></svg></button></div></div></div></nav>
+<nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4"><div class="flex items-center space-x-2 text-sm text-neutral-400"><a class="hover:text-blue-400" href="../../index.html">Start</a><span>/</span><a class="hover:text-blue-400" href="index.html">Track 2</a><span>/</span><span class="text-blue-400">Module 2.3</span></div></nav>
+<header class="bg-gradient-to-br from-blue-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"><span class="inline-block px-3 py-1 bg-blue-500/20 text-blue-400 text-xs font-semibold rounded-full mb-4">MODULE 2.3</span><h1 class="text-3xl sm:text-4xl font-bold mb-4">🚧 Path-scoped rules</h1><p class="text-lg text-neutral-400 max-w-3xl">Path-scoped rules. Where pasture becomes a frontier of behavior. The filesystem structure as the agent's native ACL.</p><div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl"><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">6</div><div class="text-xs text-neutral-400">Topics</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">40</div><div class="text-xs text-neutral-400">Minutes</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">Basic</div><div class="text-xs text-neutral-400">Level</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">Security</div><div class="text-xs text-neutral-400">Type</div></div></div></div></header>
 <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-
-<section id="topico-1" class="mb-16">
-<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">1</span><h2 class="text-2xl font-bold">📁 Por que pastas viram fronteiras</h2></div>
-<p class="text-neutral-300 mb-6 leading-relaxed">Em sistemas Unix, as permissões de arquivo são a ACL mais antiga e confiável da computação. Na era agêntica, o mesmo princípio se aplica: <strong class="text-blue-400">a estrutura de pastas é a primeira linha de controle de acesso do agente</strong>. Quando você define que "em /clinical/* aplique regra X" e "em /billing/* aplique regra Y", você está usando o filesystem como mecanismo de enforcement — não como convenção, mas como arquitetura.</p>
+<section class="mb-16" id="topico-1">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">1</span><h2 class="text-2xl font-bold">📁 Why folders become borders</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">On Unix systems, file permissions are the oldest and most trusted ACL in computing. In the agentic era, the same principle applies:<strong class="text-blue-400">the folder structure is the first line of agent access control</strong>. When you define that "in /clinical/* apply rule X" and "in /billing/* apply rule Y", you are using the filesystem as an enforcement mechanism — not as a convention, but as an architecture.</p>
 <div class="bg-gradient-to-br from-blue-900/30 to-dark-800 rounded-xl border border-blue-500/30 p-6 mb-6">
-<h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center"><span class="mr-2">🏗️</span> Filesystem como ACL</h3>
+<h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center"><span class="mr-2">🏗️</span>Filesystem as ACL</h3>
 <ul class="space-y-2 text-neutral-300 text-sm">
-<li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">•</span><span><strong class="text-neutral-100">Fronteiras físicas</strong> — pastas separadas = domínios separados. Não é soft policy.</span></li>
-<li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">•</span><span><strong class="text-neutral-100">CLAUDE.md local</strong> — cada pasta pode ter seu próprio arquivo de regras.</span></li>
-<li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">•</span><span><strong class="text-neutral-100">Settings.json</strong> — allowlist/denylist por padrão de path (glob syntax).</span></li>
-<li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">•</span><span><strong class="text-neutral-100">Regras no CLAUDE.md raiz</strong> — "NEVER leia /secrets/", "ONLY edite /src/*".</span></li>
+<li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">•</span><span><strong class="text-neutral-100">Physical borders</strong>— separate folders = separate domains. It's not soft policy.</span></li>
+<li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">•</span><span><strong class="text-neutral-100">CLAUDE.md site</strong>— each folder can have its own rules file.</span></li>
+<li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">•</span><span><strong class="text-neutral-100">Settings.json</strong>— allowlist/denylist by path pattern (glob syntax).</span></li>
+<li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">•</span><span><strong class="text-neutral-100">Rules in the root CLAUDE.md</strong>— "NEVER read /secrets/", "ONLY edit /src/*".</span></li>
 </ul>
 </div>
 <div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
-<h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Princípio fundamental</h3>
-<p class="text-neutral-300">Segurança por arquitetura é mais robusta que segurança por instrução. "Nunca leia /secrets/" no CLAUDE.md é mais frágil que uma permissão de filesystem que fisicamente impede o acesso. Use as duas camadas.</p>
+<h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span>Fundamental principle</h3>
+<p class="text-neutral-300">Security by architecture is more robust than security by instruction. "Never read /secrets/" in CLAUDE.md is more fragile than a filesystem permission that physically prevents access. Use both layers.</p>
 </div>
 </section>
-
-<section id="topico-2" class="mb-16">
-<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">2</span><h2 class="text-2xl font-bold">🩺 Caso da Dra. Sana</h2></div>
-<p class="text-neutral-300 mb-6 leading-relaxed">A Dra. Sana é dermatologista com clínica própria. Ela usa agentes para apoio clínico e administrativo. O desafio: dados clínicos (PHI — Protected Health Information) e dados administrativos (billing, agendamento) precisam ser tratados de formas radicalmente diferentes. <strong class="text-blue-400">A solução foi path scoping</strong>: dois domínios, dois agentes, uma ponte controlada.</p>
+<section class="mb-16" id="topico-2">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">2</span><h2 class="text-2xl font-bold">🩺 Case of Dr. Sana</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Dr. Sana is a dermatologist with her own clinic. It uses agents for clinical and administrative support. The challenge: clinical data (PHI — Protected Health Information) and administrative data (billing, scheduling) need to be treated in radically different ways.<strong class="text-blue-400">The solution was path scoping</strong>: two domains, two agents, one controlled bridge.</p>
 <div class="bg-gradient-to-br from-blue-900/30 to-dark-800 rounded-xl border border-blue-500/30 p-6 mb-6">
-<h3 class="text-lg font-semibold text-blue-400 mb-4">Arquitetura da clínica da Dra. Sana</h3>
+<h3 class="text-lg font-semibold text-blue-400 mb-4">Architecture of Dr. Sana's clinic</h3>
 <ul class="space-y-3 text-neutral-300 text-sm">
-<li><strong class="text-neutral-100">/data/clinical/</strong> — prontuários, diagnósticos, exames. PHI. Agente clínico só lê. Zero escrita sem confirmação.</li>
-<li><strong class="text-neutral-100">/data/billing/</strong> — faturas, seguros, pagamentos. Admin. Agente billing tem acesso total aqui.</li>
-<li><strong class="text-neutral-100">/data/clinical/CLAUDE.md</strong> — "NUNCA exporte dados desta pasta. Nunca envie por email. Log toda leitura."</li>
-<li><strong class="text-neutral-100">/data/billing/CLAUDE.md</strong> — "NUNCA acesse /data/clinical/. Use apenas IDs anonimizados para cruzamento."</li>
-<li><strong class="text-neutral-100">Ponte controlada</strong> — script auditado que extrai dados mínimos necessários, com log e aprovação.</li>
+<li><strong class="text-neutral-100">/data/clinical/</strong>— medical records, diagnoses, exams. PHI. Clinical agent just reads. Zero writing without confirmation.</li>
+<li><strong class="text-neutral-100">/data/billing/</strong>— invoices, insurance, payments. Admin. Billing agent has full access here.</li>
+<li><strong class="text-neutral-100">/data/clinical/CLAUDE.md</strong>— "NEVER export data from this folder. Never send by email. Log every reading."</li>
+<li><strong class="text-neutral-100">/data/billing/CLAUDE.md</strong>— "NEVER access /data/clinical/. Only use anonymized IDs for cross-referencing."</li>
+<li><strong class="text-neutral-100">Controlled bridge</strong>— audited script that extracts minimum required data, with log and approval.</li>
 </ul>
 </div>
 <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6 mb-6">
-<h3 class="text-lg font-semibold text-red-400 mb-3 flex items-center"><span class="mr-2">⚠️</span> Sem path scoping — o risco</h3>
-<p class="text-neutral-300">Sem fronteiras explícitas, o agente de billing poderia, em algum contexto de tarefa, acabar lendo prontuários de pacientes para "entender melhor o contexto". HIPAA não aceita "foi sem querer". A penalidade começa em $100 por registro vazado.</p>
+<h3 class="text-lg font-semibold text-red-400 mb-3 flex items-center"><span class="mr-2">⚠️</span>No path scoping — the risk</h3>
+<p class="text-neutral-300">Without explicit boundaries, the billing agent could, in some task context, end up reading patient records to "better understand the context". HIPAA does not accept “it was by accident”. The penalty starts at $100 per leaked record.</p>
 </div>
 </section>
-
-<section id="topico-3" class="mb-16">
-<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">3</span><h2 class="text-2xl font-bold">📂 Estrutura de pastas para escopo</h2></div>
-<p class="text-neutral-300 mb-6 leading-relaxed">A convenção de pastas não é decoração — é a <strong class="text-blue-400">base física do escopo</strong>. Quando todas as equipes concordam que /data/&lt;domínio&gt;/ significa "dados desse domínio específico", o path scoping funciona. Quando as pastas são nomeadas aleatoriamente, o escopo não tem onde se apoiar. Convenção é metade da segurança.</p>
+<section class="mb-16" id="topico-3">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">3</span><h2 class="text-2xl font-bold">📂 Folder structure for scope</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">The folder convention isn't decoration — it's the<strong class="text-blue-400">physical basis of the scope</strong>. When all teams agree that /data/&lt;domain&gt;/ means "data from that specific domain", path scoping works. When folders are named randomly, the scope has nowhere to stand. Convention is half the security.</p>
 <div class="bg-gradient-to-br from-blue-900/30 to-dark-800 rounded-xl border border-blue-500/30 p-6 mb-6">
-<h3 class="text-lg font-semibold text-blue-400 mb-4">Convenção mínima recomendada</h3>
+<h3 class="text-lg font-semibold text-blue-400 mb-4">Recommended minimum convention</h3>
 <ul class="space-y-2 text-neutral-300 text-sm">
-<li><code class="bg-dark-700 px-1 rounded">/data/&lt;domínio&gt;/</code> — dados por área de negócio (clinical, billing, marketing).</li>
-<li><code class="bg-dark-700 px-1 rounded">/resumos/&lt;área&gt;/</code> — Silver Platters e contexto por domínio.</li>
-<li><code class="bg-dark-700 px-1 rounded">/agentes/&lt;nome&gt;/</code> — CLAUDE.md e configuração de cada agente especializado.</li>
-<li><code class="bg-dark-700 px-1 rounded">/skills/</code> — slash commands compartilhados entre agentes.</li>
-<li><code class="bg-dark-700 px-1 rounded">/logs/</code> — audit trail, sessões, decisões. Read-only para agentes.</li>
-<li><code class="bg-dark-700 px-1 rounded">/secrets/</code> — jamais acessível por agente. Permissão de filesystem.</li>
+<li><code class="bg-dark-700 px-1 rounded" data-notranslate="True">/data/&lt;domínio&gt;/</code>— data by business area (clinical, billing, marketing).</li>
+<li><code class="bg-dark-700 px-1 rounded" data-notranslate="True">/resumos/&lt;área&gt;/</code>— Silver Platters and context by domain.</li>
+<li><code class="bg-dark-700 px-1 rounded" data-notranslate="True">/agentes/&lt;nome&gt;/</code>— CLAUDE.md and configuration of each specialized agent.</li>
+<li><code class="bg-dark-700 px-1 rounded" data-notranslate="True">/skills/</code>— slash commands shared between agents.</li>
+<li><code class="bg-dark-700 px-1 rounded" data-notranslate="True">/logs/</code>— audit trail, sessions, decisions. Read-only for agents.</li>
+<li><code class="bg-dark-700 px-1 rounded" data-notranslate="True">/secrets/</code>— never accessible by agent. Filesystem permission.</li>
 </ul>
 </div>
 <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
-<h3 class="text-lg font-semibold text-blue-400 mb-3">Sally — escritório jurídico</h3>
-<p class="text-neutral-300 text-sm">Sally separou /cases/&lt;cliente&gt;/ por cliente. O agente de pesquisa jurídica só tem acesso ao /cases/cliente-ativo/ da sessão corrente. Nunca vê os casos de outros clientes. Privilege attorney-client preservado por arquitetura.</p>
+<h3 class="text-lg font-semibold text-blue-400 mb-3">Sally — legal office</h3>
+<p class="text-neutral-300 text-sm">Sally separated /cases/&lt;cliente&gt;/ by client. The legal research agent only has access to /cases/cliente-active/ of the current session. Never sees other clients' cases. Attorney-client privilege preserved by architecture.</p>
 </div>
 </section>
-
-<section id="topico-4" class="mb-16">
-<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">4</span><h2 class="text-2xl font-bold">🚫 Regras de proibição por path</h2></div>
-<p class="text-neutral-300 mb-6 leading-relaxed">As allow lists e deny lists no CLAUDE.md e no settings.json são o mecanismo declarativo de path scoping. Você especifica exatamente o que o agente <strong class="text-blue-400">pode</strong> fazer e o que ele <strong class="text-blue-400">nunca pode</strong> fazer, com granularidade de pasta, arquivo e operação. É simples de escrever e poderoso na prática.</p>
+<section class="mb-16" id="topico-4">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">4</span><h2 class="text-2xl font-bold">🚫 Ban rules by path</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">The allow lists and deny lists in CLAUDE.md and settings.json are the declarative path scoping mechanism. You specify exactly what the agent<strong class="text-blue-400">he can</strong>do and what he<strong class="text-blue-400">can never</strong>do, with folder, file and operation granularity. It's simple to write and powerful in practice.</p>
 <div class="bg-gradient-to-br from-blue-900/30 to-dark-800 rounded-xl border border-blue-500/30 p-6 mb-6">
-<h3 class="text-lg font-semibold text-blue-400 mb-4">Exemplos de regras por path</h3>
+<h3 class="text-lg font-semibold text-blue-400 mb-4">Examples of rules per path</h3>
 <ul class="space-y-2 text-neutral-300 text-sm font-mono">
 <li class="bg-dark-700/50 px-3 py-2 rounded">NEVER read /secrets/</li>
 <li class="bg-dark-700/50 px-3 py-2 rounded">NEVER write outside /src/ without approval</li>
@@ -95,73 +88,68 @@ html:not(.dark) [class*="bg-gradient-to"]{background-image:none!important}html:n
 </div>
 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
 <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6">
-<h4 class="font-bold text-blue-400 mb-3">No settings.json</h4>
-<p class="text-neutral-300 text-sm">Use a chave <code class="bg-dark-700 px-1 rounded">permissions</code> com padrões glob. Ex: <code class="bg-dark-700 px-1 rounded">"Read(data/clinical/*)"</code> na deny list bloqueia leitura nesse path.</p>
+<h4 class="font-bold text-blue-400 mb-3">In settings.json</h4>
+<p class="text-neutral-300 text-sm">Use the key<code class="bg-dark-700 px-1 rounded" data-notranslate="True">permissions</code>with global standards. Ex:<code class="bg-dark-700 px-1 rounded" data-notranslate="True">"Read(data/clinical/*)"</code>in the deny list blocks reading in this path.</p>
 </div>
 <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6">
-<h4 class="font-bold text-blue-400 mb-3">No CLAUDE.md</h4>
-<p class="text-neutral-300 text-sm">Regras em linguagem natural na seção "Regras Inegociáveis". O agente lê e aplica. Mais flexível, menos enforcement duro.</p>
+<h4 class="font-bold text-blue-400 mb-3">On CLAUDE.md</h4>
+<p class="text-neutral-300 text-sm">Natural language rules in the "Non-Negotiable Rules" section. The agent reads and applies it. More flexible, less harsh enforcement.</p>
 </div>
 </div>
 </section>
-
-<section id="topico-5" class="mb-16">
-<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">5</span><h2 class="text-2xl font-bold">🛂 CLAUDE.md por subpasta</h2></div>
-<p class="text-neutral-300 mb-6 leading-relaxed">O recurso mais poderoso do path scoping é colocar um CLAUDE.md dentro de uma subpasta específica. Esse arquivo é lido <em>apenas</em> quando o agente está trabalhando dentro daquela pasta — ou seja, as regras se ativam automaticamente pelo contexto de localização. <strong class="text-blue-400">Override granular sem inflar o CLAUDE.md raiz.</strong></p>
+<section class="mb-16" id="topico-5">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">5</span><h2 class="text-2xl font-bold">🛂 CLAUDE.md by subfolder</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">The most powerful feature of path scoping is placing a CLAUDE.md inside a specific subfolder. This file is read<em>just</em>when the agent is working within that folder — that is, the rules are automatically activated by the location context.<strong class="text-blue-400">Granular override without inflating the root CLAUDE.md.</strong></p>
 <div class="bg-gradient-to-br from-blue-900/30 to-dark-800 rounded-xl border border-blue-500/30 p-6 mb-6">
-<h3 class="text-lg font-semibold text-blue-400 mb-4">Como funciona na prática</h3>
+<h3 class="text-lg font-semibold text-blue-400 mb-4">How it works in practice</h3>
 <ul class="space-y-3 text-neutral-300 text-sm">
-<li><strong class="text-neutral-100">/projeto/CLAUDE.md</strong> — regras gerais do projeto. Sempre ativo.</li>
-<li><strong class="text-neutral-100">/projeto/data/clinical/CLAUDE.md</strong> — ativo apenas quando trabalhando em /data/clinical/.</li>
-<li><strong class="text-neutral-100">/projeto/src/api/CLAUDE.md</strong> — ativo apenas quando editando código da API.</li>
-<li><strong class="text-neutral-100">Regras específicas de domínio</strong> ficam no CLAUDE.md da subpasta; não poluem o raiz.</li>
+<li><strong class="text-neutral-100">/project/CLAUDE.md</strong>— general project rules. Always active.</li>
+<li><strong class="text-neutral-100">/projeto/data/clinical/CLAUDE.md</strong>— active only when working in /data/clinical/.</li>
+<li><strong class="text-neutral-100">/projeto/src/api/CLAUDE.md</strong>— active only when editing API code.</li>
+<li><strong class="text-neutral-100">Domain specific rules</strong>they are in the CLAUDE.md subfolder; do not pollute the root.</li>
 </ul>
 </div>
 <div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
-<h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Padrão recomendado — Dra. Sana</h3>
-<p class="text-neutral-300">O /data/clinical/CLAUDE.md da Dra. Sana contém: "Você está trabalhando com PHI. Toda leitura deve ser logada. Nunca copie dados para fora desta pasta. Nunca mencione nome de paciente em conversas não auditadas." Essas 4 regras só existem nessa pasta — não pesam nas outras sessões.</p>
+<h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span>Recommended standard — Dr. Sana</h3>
+<p class="text-neutral-300">Dr. Sana's /data/clinical/CLAUDE.md contains: "You are working with PHI. All readings must be logged. Never copy data out of this folder. Never mention a patient's name in unaudited conversations." These 4 rules only exist in this folder — they do not affect other sessions.</p>
 </div>
 </section>
-
-<section id="topico-6" class="mb-16">
-<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">6</span><h2 class="text-2xl font-bold">✅ Validação cruzada</h2></div>
-<p class="text-neutral-300 mb-6 leading-relaxed">Domínios isolados às vezes precisam se comunicar — é inevitável. O billing da Dra. Sana precisa saber se um procedimento foi realizado para faturar. A solução não é abrir os domínios, mas criar uma <strong class="text-blue-400">ponte controlada</strong>: um processo explícito, auditado e com aprovação humana que permite o cruzamento mínimo necessário.</p>
+<section class="mb-16" id="topico-6">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">6</span><h2 class="text-2xl font-bold">✅ Cross validation</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Isolated domains sometimes need to communicate — it's inevitable. Dr. Sana's billing needs to know if a procedure was performed to bill. The solution is not to open the domains, but to create a<strong class="text-blue-400">controlled bridge</strong>: an explicit, audited, human-approved process that allows for the minimum necessary crossover.</p>
 <div class="bg-gradient-to-br from-blue-900/30 to-dark-800 rounded-xl border border-blue-500/30 p-6 mb-6">
-<h3 class="text-lg font-semibold text-blue-400 mb-4">Arquitetura de ponte controlada</h3>
+<h3 class="text-lg font-semibold text-blue-400 mb-4">Controlled bridge architecture</h3>
 <ul class="space-y-3 text-neutral-300 text-sm">
-<li><strong class="text-neutral-100">1. Identificar o mínimo necessário</strong> — qual dado exatamente precisa cruzar? Apenas ID + status?</li>
-<li><strong class="text-neutral-100">2. Script de extração auditado</strong> — código revisado que extrai só o necessário, sem raw PHI.</li>
-<li><strong class="text-neutral-100">3. Aprovação humana</strong> — o hook de cruzamento requer confirmação explícita.</li>
-<li><strong class="text-neutral-100">4. Log imutável</strong> — registro de quem autorizou, quando, qual dado cruzou.</li>
-<li><strong class="text-neutral-100">5. Dado anonimizado</strong> — o lado billing recebe ID interno, não nome ou prontuário.</li>
+<li><strong class="text-neutral-100">1. Identify the minimum necessary</strong>— which data exactly needs to be crossed? Just ID + status?</li>
+<li><strong class="text-neutral-100">2. Audited extraction script</strong>— revised code that extracts only what is necessary, without raw PHI.</li>
+<li><strong class="text-neutral-100">3. Human approval</strong>— crossover hook requires explicit confirmation.</li>
+<li><strong class="text-neutral-100">4. Immutable Log</strong>— record of who authorized, when, what data was crossed.</li>
+<li><strong class="text-neutral-100">5. Anonymized data</strong>— the billing side receives internal ID, not name or record.</li>
 </ul>
 </div>
 <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6 mb-6">
-<h3 class="text-lg font-semibold text-red-400 mb-3 flex items-center"><span class="mr-2">⚠️</span> Anti-padrão</h3>
-<p class="text-neutral-300">Criar um agente "super-admin" com acesso a todos os domínios para "facilitar" o cruzamento. Esse agente é o ponto de falha mais crítico do sistema. Se comprometido, todos os domínios vazam. Pontualidade compensa o overhead da ponte.</p>
+<h3 class="text-lg font-semibold text-red-400 mb-3 flex items-center"><span class="mr-2">⚠️</span>Anti-pattern</h3>
+<p class="text-neutral-300">Create a "super-admin" agent with access to all domains to "facilitate" crossover. This agent is the most critical point of failure in the system. If compromised, all domains are leaked. Punctuality compensates for bridge overhead.</p>
 </div>
 </section>
-
 <section class="mb-12">
 <div class="bg-gradient-to-br from-blue-900/40 via-dark-800 to-dark-800 rounded-xl border border-blue-500/30 p-8">
-<h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-3">📋</span> Resumo do Módulo</h2>
+<h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-3">📋</span>Module Summary</h2>
 <div class="space-y-4 mb-8">
-<div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">Filesystem como ACL</strong><span class="text-neutral-400"> — pasta = fronteira de domínio; path scoping é segurança por arquitetura</span></div></div>
-<div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">Caso Dra. Sana</strong><span class="text-neutral-400"> — PHI em /clinical/, billing em /billing/, ponte controlada com log</span></div></div>
-<div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">Convenção de pastas</strong><span class="text-neutral-400"> — /data/domínio/, /agentes/, /logs/, /secrets/ — base do escopo</span></div></div>
-<div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">Allow/Deny por path</strong><span class="text-neutral-400"> — glob patterns no settings.json e CLAUDE.md; NEVER/ONLY como regras explícitas</span></div></div>
-<div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">CLAUDE.md por subpasta</strong><span class="text-neutral-400"> — ativa automaticamente por localização; mantém raiz enxuto</span></div></div>
-<div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">Ponte controlada</strong><span class="text-neutral-400"> — cruzamento mínimo + aprovação humana + log imutável; nunca super-admin</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">Filesystem as ACL</strong><span class="text-neutral-400">— folder = domain border; path scoping is security by architecture</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">Dr. Sana Case</strong><span class="text-neutral-400">— PHI in /clinical/, billing in /billing/, bridge controlled with log</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">Folder convention</strong><span class="text-neutral-400">— /data/domain/, /agents/, /logs/, /secrets/ — scope base</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">Allow/Deny by path</strong><span class="text-neutral-400">— glob patterns in settings.json and CLAUDE.md; NEVER/ONLY as explicit rules</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">CLAUDE.md by subfolder</strong><span class="text-neutral-400">— activates automatically by location; keeps root dry</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">Controlled bridge</strong><span class="text-neutral-400">— minimal crossover + human approval + immutable log; never super-admin</span></div></div>
 </div>
-<div class="bg-dark-800/50 rounded-lg p-4 mb-8"><h3 class="font-semibold text-blue-400 mb-2">Próximo Módulo:</h3><p class="text-neutral-300">2.4 — Permissões e jurisdição de agente</p></div>
-<div class="flex flex-col sm:flex-row gap-4"><a href="modulo-2-2.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">← Módulo 2.2</a><a href="modulo-2-4.html" class="flex-1 text-center px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-500 transition-colors">Próximo Módulo →</a></div>
+<div class="bg-dark-800/50 rounded-lg p-4 mb-8"><h3 class="font-semibold text-blue-400 mb-2">Next Module:</h3><p class="text-neutral-300">2.4 — Agent Permissions and Jurisdiction</p></div>
+<div class="flex flex-col sm:flex-row gap-4"><a class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors" href="modulo-2-2.html">← Module 2.2</a><a class="flex-1 text-center px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-500 transition-colors" href="modulo-2-4.html">Next Module →</a></div>
 </div>
 </section>
-
 </main>
-
-<footer class="border-t border-dark-600 py-8 mt-16"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm"><p>Agentic OS — INEMA.CLUB · 2026</p></div></footer>
-<script>
+<footer class="border-t border-dark-600 py-8 mt-16"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm"><p>Agentic OS — duclub · 2026</p></div></footer>
+<script data-notranslate="True">
 const tt=document.getElementById('theme-toggle'),tdi=document.getElementById('theme-toggle-dark-icon'),tli=document.getElementById('theme-toggle-light-icon'),h=document.documentElement;
 if(localStorage.getItem('theme')==='light'||(!localStorage.getItem('theme')&&!h.classList.contains('dark'))){tdi.classList.remove('hidden');h.classList.remove('dark')}else{tli.classList.remove('hidden')}
 tt.addEventListener('click',()=>{tdi.classList.toggle('hidden');tli.classList.toggle('hidden');h.classList.toggle('dark');localStorage.setItem('theme',h.classList.contains('dark')?'dark':'light')});
