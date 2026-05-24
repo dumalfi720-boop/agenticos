@@ -1,12 +1,12 @@
-<!DOCTYPE html>
-<html lang="pt-BR" class="dark">
+html
+<html class="dark" lang="pt-BR">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>1.6 — Como usar este curso | Agentic OS</title>
-<script src="https://cdn.tailwindcss.com"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<script>tailwind.config={darkMode:'class',theme:{extend:{colors:{primary:'#FACC15',dark:{900:'#111827',800:'#1f2937',700:'#374151',600:'#4b5563'}}}}}</script>
-<style>
+<meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>1.6 — How to use this course | Agentic OS</title>
+<script data-notranslate="True" src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<script data-notranslate="True">tailwind.config={darkMode:'class',theme:{extend:{colors:{primary:'#FACC15',dark:{900:'#111827',800:'#1f2937',700:'#374151',600:'#4b5563'}}}}}</script>
+<style data-notranslate="True">
 body{font-family:'Inter',sans-serif}
 html:not(.dark) body{background:#f8fafc}html:not(.dark) .bg-dark-900{background:#fff}html:not(.dark) .bg-dark-800{background:#f9fafb}html:not(.dark) .bg-dark-700{background:#f3f4f6}html:not(.dark) .bg-dark-600{background:#e5e7eb}html:not(.dark) .text-neutral-100{color:#111827}html:not(.dark) .text-neutral-300{color:#4b5563}html:not(.dark) .text-neutral-400{color:#6b7280}html:not(.dark) .text-neutral-500{color:#9ca3af}html:not(.dark) .border-dark-600{border-color:#d1d5db}html:not(.dark) .border-dark-700{border-color:#e5e7eb}
 html:not(.dark) .text-emerald-400{color:#059669}html:not(.dark) .bg-emerald-500\/20{background:rgba(5,150,105,.12)}html:not(.dark) .bg-emerald-500\/10{background:rgba(5,150,105,.08)}html:not(.dark) .border-emerald-500\/30{border-color:rgba(5,150,105,.25)}html:not(.dark) .bg-emerald-900\/20{background:rgba(5,150,105,.06)}html:not(.dark) .bg-emerald-900\/30{background:rgba(5,150,105,.06)}html:not(.dark) .bg-emerald-900\/40{background:rgba(5,150,105,.08)}
@@ -15,225 +15,200 @@ html:not(.dark) .text-red-400{color:#b91c1c}html:not(.dark) .bg-red-900\/20{back
 html:not(.dark) [class*="bg-gradient-to"]{background-image:none!important}html:not(.dark) .text-primary{color:#a16207}html:not(.dark) .bg-primary\/10{background:rgba(161,98,7,.08)}html:not(.dark) .border-primary\/30{border-color:rgba(161,98,7,.25)}html:not(.dark) .text-sky-400{color:#0369a1}html:not(.dark) .text-yellow-400{color:#a16207}html:not(.dark) .hover\:text-sky-300:hover{color:#0284c7}html:not(.dark) .hover\:text-yellow-300:hover{color:#854d0e}html:not(.dark) .bg-dark-900\/95{background:rgba(255,255,255,.95)}
 </style></head>
 <body class="bg-dark-900 text-neutral-100">
-<nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"><div class="flex justify-between items-center h-14"><div class="flex items-center space-x-4"><a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300"><span class="text-2xl">⚡</span><span class="font-bold text-lg hidden sm:inline">Agentic OS</span></a><span class="text-neutral-600">|</span><a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a></div><div class="flex items-center space-x-1 sm:space-x-2"><a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-emerald-400 bg-emerald-500/10"><span class="sm:hidden">T1</span><span class="hidden sm:inline">Fundamentos</span></a><a href="../trilha2/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors"><span class="sm:hidden">T2</span><span class="hidden sm:inline">Identidade</span></a><a href="../trilha3/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors"><span class="sm:hidden">T3</span><span class="hidden sm:inline">Conhecimento</span></a><a href="../trilha4/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-amber-400 hover:bg-amber-500/10 transition-colors"><span class="sm:hidden">T4</span><span class="hidden sm:inline">Trabalhadores</span></a><a href="../trilha5/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-teal-400 hover:bg-teal-500/10 transition-colors"><span class="sm:hidden">T5</span><span class="hidden sm:inline">Automação</span></a><a href="../trilha6/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-rose-400 hover:bg-rose-500/10 transition-colors"><span class="sm:hidden">T6</span><span class="hidden sm:inline">Implantação</span></a><button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2"><svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/></svg><svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"/></svg></button></div></div></div></nav>
-
-<nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4"><div class="flex items-center space-x-2 text-sm text-neutral-400"><a href="../../index.html" class="hover:text-emerald-400">Início</a><span>/</span><a href="index.html" class="hover:text-emerald-400">Trilha 1</a><span>/</span><span class="text-emerald-400">Módulo 1.6</span></div></nav>
-
-<header class="bg-gradient-to-br from-emerald-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"><span class="inline-block px-3 py-1 bg-emerald-500/20 text-emerald-400 text-xs font-semibold rounded-full mb-4">MÓDULO 1.6</span><h1 class="text-3xl sm:text-4xl font-bold mb-4">🗺️ Como usar este curso</h1><p class="text-lg text-neutral-400 max-w-3xl">Mapa das 6 trilhas, ritmo sugerido, pré-requisitos técnicos, projeto final e o convite para a comunidade inema.vip. Tudo que você precisa para transformar leitura em resultado real.</p><div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl"><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-emerald-400">6</div><div class="text-xs text-neutral-400">Tópicos</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-emerald-400">20</div><div class="text-xs text-neutral-400">Minutos</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-emerald-400">Básico</div><div class="text-xs text-neutral-400">Nível</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-emerald-400">Guia</div><div class="text-xs text-neutral-400">Tipo</div></div></div></div></header>
-
+<nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"><div class="flex justify-between items-center h-14"><div class="flex items-center space-x-4"><a class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300" href="../../index.html"><span class="text-2xl">⚡</span><span class="font-bold text-lg hidden sm:inline">Agentic OS</span></a><span class="text-neutral-600">|</span><a class="text-sky-400 hover:text-sky-300 text-sm font-medium" href="https://duclub" target="_blank">duclub</a></div><div class="flex items-center space-x-1 sm:space-x-2"><a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-emerald-400 bg-emerald-500/10" href="index.html"><span class="sm:hidden">T1</span><span class="hidden sm:inline">Fundamentals</span></a><a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors" href="../trilha2/index.html"><span class="sm:hidden">T2</span><span class="hidden sm:inline">Identity</span></a><a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors" href="../trilha3/index.html"><span class="sm:hidden">T3</span><span class="hidden sm:inline">Knowledge</span></a><a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-amber-400 hover:bg-amber-500/10 transition-colors" href="../trilha4/index.html"><span class="sm:hidden">T4</span><span class="hidden sm:inline">Workers</span></a><a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-teal-400 hover:bg-teal-500/10 transition-colors" href="../trilha5/index.html"><span class="sm:hidden">T5</span><span class="hidden sm:inline">Automation</span></a><a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-rose-400 hover:bg-rose-500/10 transition-colors" href="../trilha6/index.html"><span class="sm:hidden">T6</span><span class="hidden sm:inline">Implantation</span></a><button class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2" id="theme-toggle"><svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-dark-icon" viewbox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg><svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-light-icon" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd"></path></svg></button></div></div></div></nav>
+<nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4"><div class="flex items-center space-x-2 text-sm text-neutral-400"><a class="hover:text-emerald-400" href="../../index.html">Start</a><span>/</span><a class="hover:text-emerald-400" href="index.html">Track 1</a><span>/</span><span class="text-emerald-400">Module 1.6</span></div></nav>
+<header class="bg-gradient-to-br from-emerald-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"><span class="inline-block px-3 py-1 bg-emerald-500/20 text-emerald-400 text-xs font-semibold rounded-full mb-4">MODULE 1.6</span><h1 class="text-3xl sm:text-4xl font-bold mb-4">🗺️ How to use this course</h1><p class="text-lg text-neutral-400 max-w-3xl">Map of the 6 trails, suggested pace, technical prerequisites, final project and invitation to the duvip.vip community. Everything you need to turn reading into real results.</p><div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl"><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-emerald-400">6</div><div class="text-xs text-neutral-400">Topics</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-emerald-400">20</div><div class="text-xs text-neutral-400">Minutes</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-emerald-400">Basic</div><div class="text-xs text-neutral-400">Level</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-emerald-400">Guide</div><div class="text-xs text-neutral-400">Type</div></div></div></div></header>
 <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-
-<section id="topico-1" class="mb-16">
-<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">1</span><h2 class="text-2xl font-bold">🧭 Mapa das 6 trilhas</h2></div>
-<p class="text-neutral-300 mb-6 leading-relaxed">O curso Agentic OS tem uma estrutura deliberada: <strong class="text-emerald-400">T1 funda o modelo mental, T2-T5 são as 4 camadas do kernel, T6 é a implantação completa</strong>. Entender esse mapa antes de avançar poupa retrabalho e garante que cada trilha faz sentido no contexto do todo.</p>
+<section class="mb-16" id="topico-1">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">1</span><h2 class="text-2xl font-bold">🧭 Map of the 6 trails</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">The Agentic OS course has a deliberate structure:<strong class="text-emerald-400">T1 founds the mental model, T2-T5 are the 4 layers of the kernel, T6 is the complete deployment</strong>. Understanding this map before moving forward saves rework and ensures that each track makes sense in the context of the whole.</p>
 <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
-<h3 class="text-lg font-semibold text-emerald-400 mb-4 flex items-center"><span class="mr-2">🗂️</span> As 6 trilhas e o que cada uma cobre</h3>
+<h3 class="text-lg font-semibold text-emerald-400 mb-4 flex items-center"><span class="mr-2">🗂️</span>The 6 trails and what each one covers</h3>
 <div class="space-y-3 text-sm">
 <div class="flex items-start space-x-3">
 <span class="flex-shrink-0 px-2 py-1 rounded bg-emerald-500/20 text-emerald-400 font-bold text-xs">T1</span>
-<div><p class="font-semibold text-neutral-100">Fundamentos — Modelo Mental</p><p class="text-neutral-400">Tese das camadas, Software 3.0, diagnóstico de falhas, 3 personas, método PRATO. Aqui você muda como pensa antes de tocar em ferramenta.</p></div>
+<div><p class="font-semibold text-neutral-100">Fundamentals — Mental Model</p><p class="text-neutral-400">Layers thesis, Software 3.0, fault diagnosis, 3 personas, PRATO method. Here you change how you think before touching a tool.</p></div>
 </div>
 <div class="flex items-start space-x-3">
 <span class="flex-shrink-0 px-2 py-1 rounded bg-blue-500/20 text-blue-400 font-bold text-xs">T2</span>
-<div><p class="font-semibold text-neutral-100">Identidade — Camada 1 do Kernel</p><p class="text-neutral-400">CLAUDE.md, AGENTS.md, regras com escopo, governança. Quem o agente é, o que pode e o que não pode fazer.</p></div>
+<div><p class="font-semibold text-neutral-100">Identity — Kernel Layer 1</p><p class="text-neutral-400">CLAUDE.md, AGENTS.md, scoped rules, governance. Who the agent is, what he can and cannot do.</p></div>
 </div>
 <div class="flex items-start space-x-3">
 <span class="flex-shrink-0 px-2 py-1 rounded bg-purple-500/20 text-purple-400 font-bold text-xs">T3</span>
-<div><p class="font-semibold text-neutral-100">Conhecimento — Camada 2 do Kernel</p><p class="text-neutral-400">Silver Platters, MCP, skills, memória. O que o agente sabe e como busca informação.</p></div>
+<div><p class="font-semibold text-neutral-100">Knowledge — Layer 2 of the Kernel</p><p class="text-neutral-400">Silver Platters, MCP, skills, memory. What the agent knows and how he seeks information.</p></div>
 </div>
 <div class="flex items-start space-x-3">
 <span class="flex-shrink-0 px-2 py-1 rounded bg-amber-500/20 text-amber-400 font-bold text-xs">T4</span>
-<div><p class="font-semibold text-neutral-100">Trabalhadores — Camada 3 do Kernel</p><p class="text-neutral-400">Orquestrador + especialistas, hierarquia agêntica, handoff, multi-agent. Quem executa o quê.</p></div>
+<div><p class="font-semibold text-neutral-100">Workers — Kernel Layer 3</p><p class="text-neutral-400">Orchestrator + experts, agentic hierarchy, handoff, multi-agent. Who executes what.</p></div>
 </div>
 <div class="flex items-start space-x-3">
 <span class="flex-shrink-0 px-2 py-1 rounded bg-teal-500/20 text-teal-400 font-bold text-xs">T5</span>
-<div><p class="font-semibold text-neutral-100">Automação — Camada 4 do Kernel</p><p class="text-neutral-400">Hooks, schedules, observabilidade, evals. O trabalho invisível que dá previsibilidade à operação.</p></div>
+<div><p class="font-semibold text-neutral-100">Automation — Kernel Layer 4</p><p class="text-neutral-400">Hooks, schedules, observability, evals. The invisible work that gives predictability to the operation.</p></div>
 </div>
 <div class="flex items-start space-x-3">
 <span class="flex-shrink-0 px-2 py-1 rounded bg-rose-500/20 text-rose-400 font-bold text-xs">T6</span>
-<div><p class="font-semibold text-neutral-100">Implantação — Casos Completos</p><p class="text-neutral-400">Marco, Sally e Dra. Sana com implementação end-to-end. Do problema à produção, passo a passo.</p></div>
+<div><p class="font-semibold text-neutral-100">Implementation — Complete Cases</p><p class="text-neutral-400">Marco, Sally and Dr. Sana with end-to-end implementation. From problem to production, step by step.</p></div>
 </div>
 </div>
 </div>
 </section>
-
-<section id="topico-2" class="mb-16">
-<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">2</span><h2 class="text-2xl font-bold">🏃 Ritmo sugerido</h2></div>
-<p class="text-neutral-300 mb-6 leading-relaxed">Não existe um ritmo único — depende do seu objetivo. <strong class="text-emerald-400">Modo intenso para quem quer visão geral rápida; modo aplicado para quem quer implementar enquanto aprende.</strong> Escolha o que se encaixa na sua realidade e seja consistente.</p>
+<section class="mb-16" id="topico-2">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">2</span><h2 class="text-2xl font-bold">🏃 Suggested pace</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">There is no single pace — it depends on your goal.<strong class="text-emerald-400">Intense mode for those who want a quick overview; applied mode for those who want to implement while learning.</strong>Choose what fits your reality and be consistent.</p>
 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
 <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6">
-<h4 class="font-bold text-emerald-400 mb-4">⚡ Modo Intenso (1-2 semanas)</h4>
+<h4 class="font-bold text-emerald-400 mb-4">⚡ Intense Mode (1-2 weeks)</h4>
 <ul class="space-y-2 text-neutral-300 text-sm">
-<li class="flex items-start space-x-2"><span class="text-emerald-400">•</span><span><strong>1 trilha por dia</strong> — 2-4 horas de estudo concentrado</span></li>
-<li class="flex items-start space-x-2"><span class="text-emerald-400">•</span><span>Foco em entender o modelo mental primeiro</span></li>
-<li class="flex items-start space-x-2"><span class="text-emerald-400">•</span><span>Anota dúvidas — implementa depois</span></li>
-<li class="flex items-start space-x-2"><span class="text-emerald-400">•</span><span>Ideal para: fundadores tomando decisão de stack</span></li>
+<li class="flex items-start space-x-2"><span class="text-emerald-400">•</span><span><strong>1 trail per day</strong>— 2-4 hours of focused study</span></li>
+<li class="flex items-start space-x-2"><span class="text-emerald-400">•</span><span>Focus on understanding the mental model first</span></li>
+<li class="flex items-start space-x-2"><span class="text-emerald-400">•</span><span>Write down questions — implement later</span></li>
+<li class="flex items-start space-x-2"><span class="text-emerald-400">•</span><span>Best for: Founders making stack decisions</span></li>
 </ul>
 </div>
 <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6">
-<h4 class="font-bold text-emerald-400 mb-4">🌱 Modo Aplicado (3-4 semanas)</h4>
+<h4 class="font-bold text-emerald-400 mb-4">🌱 Applied Mode (3-4 weeks)</h4>
 <ul class="space-y-2 text-neutral-300 text-sm">
-<li class="flex items-start space-x-2"><span class="text-emerald-400">•</span><span><strong>1 trilha por semana</strong> — estuda + implementa</span></li>
-<li class="flex items-start space-x-2"><span class="text-emerald-400">•</span><span>Cada trilha tem um deliverable concreto</span></li>
-<li class="flex items-start space-x-2"><span class="text-emerald-400">•</span><span>Prática antes de avançar para a próxima</span></li>
-<li class="flex items-start space-x-2"><span class="text-emerald-400">•</span><span>Ideal para: consultores e builders em produção</span></li>
+<li class="flex items-start space-x-2"><span class="text-emerald-400">•</span><span><strong>1 trail per week</strong>— study + implement</span></li>
+<li class="flex items-start space-x-2"><span class="text-emerald-400">•</span><span>Each track has a concrete deliverable</span></li>
+<li class="flex items-start space-x-2"><span class="text-emerald-400">•</span><span>Practice before moving on to the next</span></li>
+<li class="flex items-start space-x-2"><span class="text-emerald-400">•</span><span>Ideal for: consultants and builders in production</span></li>
 </ul>
 </div>
 </div>
 <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
-<h3 class="text-lg font-semibold text-blue-400 mb-3 flex items-center"><span class="mr-2">📊</span> Deliverable por trilha (modo aplicado)</h3>
+<h3 class="text-lg font-semibold text-blue-400 mb-3 flex items-center"><span class="mr-2">📊</span>Deliverable by track (applied mode)</h3>
 <ul class="space-y-2 text-neutral-300 text-sm">
-<li><strong>T1:</strong> Arquivo <code class="bg-dark-700 px-1 rounded">minha-persona.md</code> com seu caso mapeado</li>
-<li><strong>T2:</strong> CLAUDE.md funcional para o seu contexto</li>
-<li><strong>T3:</strong> 2-3 Silver Platters para as principais áreas do seu negócio</li>
-<li><strong>T4:</strong> AGENTS.md com orquestrador + 2 especialistas</li>
-<li><strong>T5:</strong> Pelo menos 1 hook automático funcionando</li>
-<li><strong>T6:</strong> Sistema completo rodando, relatório semanal automático</li>
+<li><strong>T1:</strong>File<code class="bg-dark-700 px-1 rounded" data-notranslate="True">minha-persona.md</code>with your case mapped out</li>
+<li><strong>T2:</strong>CLAUDE.md functional for your context</li>
+<li><strong>T3:</strong>2-3 Silver Platters for the main areas of your business</li>
+<li><strong>T4:</strong>AGENTS.md with orchestrator + 2 experts</li>
+<li><strong>T5:</strong>At least 1 automatic hook working</li>
+<li><strong>T6:</strong>Complete system running, automatic weekly report</li>
 </ul>
 </div>
 </section>
-
-<section id="topico-3" class="mb-16">
-<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">3</span><h2 class="text-2xl font-bold">🛠️ Pré-requisitos</h2></div>
-<p class="text-neutral-300 mb-6 leading-relaxed">O curso é sobre operar, não sobre assistir. <strong class="text-emerald-400">Sem ferramenta na mão, você vai ler teoria e esquecer em 48 horas.</strong> Os pré-requisitos são mínimos, mas obrigatórios. Levam 15 minutos para configurar se você ainda não tem.</p>
+<section class="mb-16" id="topico-3">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">3</span><h2 class="text-2xl font-bold">🛠️ Prerequisites</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">The course is about operating, not watching.<strong class="text-emerald-400">Without a tool in hand, you will read theory and forget it in 48 hours.</strong>Prerequisites are minimal, but mandatory. It takes 15 minutes to set up if you haven't already.</p>
 <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
-<h3 class="text-lg font-semibold text-emerald-400 mb-4 flex items-center"><span class="mr-2">✅</span> O que você precisa ter instalado</h3>
+<h3 class="text-lg font-semibold text-emerald-400 mb-4 flex items-center"><span class="mr-2">✅</span>What you need to have installed</h3>
 <div class="space-y-4 text-sm">
 <div class="bg-dark-700/50 rounded-lg p-4">
-<p class="font-semibold text-neutral-100 mb-2">1. CLI agêntica (escolha uma)</p>
+<p class="font-semibold text-neutral-100 mb-2">1. Agentic CLI (choose one)</p>
 <ul class="space-y-1 text-neutral-300">
-<li><code class="bg-dark-700 px-1 rounded">npm install -g @anthropic-ai/claude-code</code> — Claude Code (recomendado)</li>
-<li><code class="bg-dark-700 px-1 rounded">npm install -g @openai/codex</code> — Codex CLI (alternativa)</li>
+<li><code class="bg-dark-700 px-1 rounded" data-notranslate="True">npm install -g @anthropic-ai/claude-code</code>—Claude Code (recommended)</li>
+<li><code class="bg-dark-700 px-1 rounded" data-notranslate="True">npm install -g @openai/codex</code>— Codex CLI (alternative)</li>
 </ul>
 </div>
 <div class="bg-dark-700/50 rounded-lg p-4">
-<p class="font-semibold text-neutral-100 mb-2">2. Conta e API Key</p>
+<p class="font-semibold text-neutral-100 mb-2">2. Account and API Key</p>
 <ul class="space-y-1 text-neutral-300">
-<li>Anthropic Console: <code class="bg-dark-700 px-1 rounded">console.anthropic.com</code> — cadastro + billing</li>
-<li>Export: <code class="bg-dark-700 px-1 rounded">export ANTHROPIC_API_KEY=sk-ant-...</code></li>
+<li>Anthropic Console:<code class="bg-dark-700 px-1 rounded" data-notranslate="True">console.anthropic.com</code>— registration + billing</li>
+<li>Export:<code class="bg-dark-700 px-1 rounded" data-notranslate="True">export ANTHROPIC_API_KEY=sk-ant-...</code></li>
 </ul>
 </div>
 <div class="bg-dark-700/50 rounded-lg p-4">
-<p class="font-semibold text-neutral-100 mb-2">3. Terminal aberto</p>
+<p class="font-semibold text-neutral-100 mb-2">3. Open Terminal</p>
 <ul class="space-y-1 text-neutral-300">
-<li>macOS: Terminal.app ou iTerm2</li>
-<li>Windows: WSL2 + Ubuntu (recomendado) ou PowerShell</li>
-<li>Linux: qualquer terminal</li>
+<li>macOS: Terminal.app or iTerm2</li>
+<li>Windows: WSL2 + Ubuntu (recommended) or PowerShell</li>
+<li>Linux: any terminal</li>
 </ul>
 </div>
 <div class="bg-dark-700/50 rounded-lg p-4">
-<p class="font-semibold text-neutral-100 mb-2">4. Git configurado</p>
+<p class="font-semibold text-neutral-100 mb-2">4. Git configured</p>
 <ul class="space-y-1 text-neutral-300">
-<li><code class="bg-dark-700 px-1 rounded">git config --global user.name "Seu Nome"</code></li>
-<li><code class="bg-dark-700 px-1 rounded">git config --global user.email "seu@email.com"</code></li>
+<li><code class="bg-dark-700 px-1 rounded" data-notranslate="True">git config --global user.name "Seu Nome"</code></li>
+<li><code class="bg-dark-700 px-1 rounded" data-notranslate="True">git config --global user.email "seu@email.com"</code></li>
 </ul>
 </div>
 </div>
 </div>
 <div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
-<h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Não é necessário saber programar</h3>
-<p class="text-neutral-300 text-sm">O curso exige que você saiba usar terminal (abrir, navegar pastas, copiar comandos). Não exige que você escreva código. Os skills, hooks e configurações são declarativos — você edita arquivos de texto, não escreve funções.</p>
+<h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span>No need to know how to program</h3>
+<p class="text-neutral-300 text-sm">The course requires you to know how to use a terminal (open, navigate folders, copy commands). It doesn't require you to write code. Skills, hooks and configurations are declarative — you edit text files, not write functions.</p>
 </div>
 </section>
-
-<section id="topico-4" class="mb-16">
-<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">4</span><h2 class="text-2xl font-bold">🎯 Projeto final</h2></div>
-<p class="text-neutral-300 mb-6 leading-relaxed">O projeto final não é uma avaliação — é o objetivo real do curso. <strong class="text-emerald-400">Você termina o Agentic OS com uma pasta <code class="bg-dark-700 px-1 rounded">/agentic-os</code> funcionando</strong>: CLAUDE.md, Silver Platters, skills, agentes, hooks e pelo menos um relatório semanal automático. Sem entrega, conhecimento evapora.</p>
+<section class="mb-16" id="topico-4">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">4</span><h2 class="text-2xl font-bold">🎯 Final project</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">The final project is not an assessment — it is the real objective of the course.<strong class="text-emerald-400">You end Agentic OS with a folder<code class="bg-dark-700 px-1 rounded" data-notranslate="True">/agentic-os</code>working</strong>: CLAUDE.md, Silver Platters, skills, agents, hooks and at least one automatic weekly report. Without delivery, knowledge evaporates.</p>
 <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
-<h3 class="text-lg font-semibold text-emerald-400 mb-4 flex items-center"><span class="mr-2">📁</span> Estrutura do projeto final</h3>
+<h3 class="text-lg font-semibold text-emerald-400 mb-4 flex items-center"><span class="mr-2">📁</span>Final project structure</h3>
 <div class="bg-dark-700 rounded p-4 font-mono text-sm text-neutral-300">
-<span class="text-emerald-400">/agentic-os/</span><br>
-├── CLAUDE.md &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-neutral-500"># identidade do agente</span><br>
-├── AGENTS.md &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-neutral-500"># especialistas + orquestrador</span><br>
-├── .claude/<br>
-│&nbsp;&nbsp; ├── settings.json <span class="text-neutral-500">&nbsp;&nbsp;# hooks + permissões</span><br>
-│&nbsp;&nbsp; └── skills/ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-neutral-500"># seus slash commands</span><br>
-│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; └── brief.md<br>
-├── silver-platters/<br>
-│&nbsp;&nbsp; ├── financeiro.md<br>
-│&nbsp;&nbsp; ├── clientes.md<br>
-│&nbsp;&nbsp; └── operacoes.md<br>
-└── relatorios/<br>
-&nbsp;&nbsp;&nbsp; └── semana-2026-05-12.md
-</div>
+<span class="text-emerald-400">/agentic-os/</span><br/>├── CLAUDE.md<span class="text-neutral-500"># agent identity</span><br/>├── AGENTS.md<span class="text-neutral-500"># experts + orchestrator</span><br/>├── .claude/<br/>│   ├── settings.json<span class="text-neutral-500"># hooks + permissions</span><br/>│   └── skills/<span class="text-neutral-500"># your slash commands</span><br/>│       └── brief.md<br/>├── silver-platters/<br/>│   ├── financial.md<br/>│   ├── cliente.md<br/>│   └── operations.md<br/>└── reports/<br/>└── week-2026-05-12.md</div>
 </div>
 <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
-<h3 class="text-lg font-semibold text-blue-400 mb-3 flex items-center"><span class="mr-2">📊</span> Escopo mínimo viável</h3>
-<p class="text-neutral-300 text-sm mb-3">Você não precisa ter tudo perfeito. O MVP do projeto final é:</p>
+<h3 class="text-lg font-semibold text-blue-400 mb-3 flex items-center"><span class="mr-2">📊</span>Minimum viable scope</h3>
+<p class="text-neutral-300 text-sm mb-3">You don't have to have everything perfect. The final project MVP is:</p>
 <ul class="space-y-2 text-neutral-300 text-sm">
-<li class="flex items-start space-x-2"><span class="text-blue-400">✓</span><span>1 CLAUDE.md que define claramente quem é o agente e o que pode fazer</span></li>
-<li class="flex items-start space-x-2"><span class="text-blue-400">✓</span><span>2-3 Silver Platters para as principais áreas do seu negócio</span></li>
-<li class="flex items-start space-x-2"><span class="text-blue-400">✓</span><span>1 skill <code class="bg-dark-700 px-1 rounded">/brief</code> que gera relatório semanal</span></li>
-<li class="flex items-start space-x-2"><span class="text-blue-400">✓</span><span>1 hook automático funcionando (mesmo que simples)</span></li>
-<li class="flex items-start space-x-2"><span class="text-blue-400">✓</span><span>1 relatório semanal real gerado e aprovado por você</span></li>
+<li class="flex items-start space-x-2"><span class="text-blue-400">✓</span><span>1 CLAUDE.md that clearly defines who the agent is and what he can do</span></li>
+<li class="flex items-start space-x-2"><span class="text-blue-400">✓</span><span>2-3 Silver Platters for the main areas of your business</span></li>
+<li class="flex items-start space-x-2"><span class="text-blue-400">✓</span><span>1 skill<code class="bg-dark-700 px-1 rounded" data-notranslate="True">/brief</code>which generates weekly report</span></li>
+<li class="flex items-start space-x-2"><span class="text-blue-400">✓</span><span>1 working automatic hook (even if simple)</span></li>
+<li class="flex items-start space-x-2"><span class="text-blue-400">✓</span><span>1 real weekly report generated and approved by you</span></li>
 </ul>
 </div>
 </section>
-
-<section id="topico-5" class="mb-16">
-<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">5</span><h2 class="text-2xl font-bold">💬 Comunidade inema.vip</h2></div>
-<p class="text-neutral-300 mb-6 leading-relaxed">Curso é teoria. <strong class="text-emerald-400">Comunidade é onde o caso vira aprendizado coletivo</strong>. A inema.vip é a comunidade do INEMA — empreendedores, consultores e builders implantando Agentic OS em projetos reais, com problemas reais e soluções auditáveis.</p>
+<section class="mb-16" id="topico-5">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">5</span><h2 class="text-2xl font-bold">💬 duvip.vip Community</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Course is theory.<strong class="text-emerald-400">Community is where the case becomes collective learning</strong>. duvip.vip is the DUVIP community — entrepreneurs, consultants and builders deploying Agentic OS in real projects, with real problems and auditable solutions.</p>
 <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
-<h3 class="text-lg font-semibold text-emerald-400 mb-4 flex items-center"><span class="mr-2">🌐</span> O que você encontra na comunidade</h3>
+<h3 class="text-lg font-semibold text-emerald-400 mb-4 flex items-center"><span class="mr-2">🌐</span>What do you find in the community</h3>
 <ul class="space-y-3 text-neutral-300 text-sm">
-<li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span><strong class="text-neutral-100">Casos reais publicados</strong> — membros compartilham seus Agentic OS: stack, resultado, aprendizados.</span></li>
-<li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span><strong class="text-neutral-100">Peer review de Silver Platters</strong> — alguém mais experiente revisa seu .md antes de você subir para produção.</span></li>
-<li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span><strong class="text-neutral-100">Threads por vertical</strong> — saúde, jurídico, e-commerce, consultoria, tech. Aprenda com quem tem o mesmo contexto.</span></li>
-<li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span><strong class="text-neutral-100">Biblioteca de skills</strong> — skills abertos que membros contribuem e você pode adaptar ao seu caso.</span></li>
-<li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span><strong class="text-neutral-100">Sessões ao vivo</strong> — builders mostrando o sistema deles em tempo real, com perguntas da audiência.</span></li>
+<li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span><strong class="text-neutral-100">Real published cases</strong>— members share their Agentic OS: stack, results, learnings.</span></li>
+<li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span><strong class="text-neutral-100">Peer review of Silver Platters</strong>— someone more experienced reviews your .md before you go into production.</span></li>
+<li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span><strong class="text-neutral-100">Threads by vertical</strong>— health, legal, e-commerce, consultancy, tech. Learn from those who have the same context.</span></li>
+<li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span><strong class="text-neutral-100">Skill library</strong>— open skills that members contribute and you can adapt to your case.</span></li>
+<li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span><strong class="text-neutral-100">Live Sessions</strong>— builders showing their system in real time, with questions from the audience.</span></li>
 </ul>
 </div>
 <div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
-<h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Acesso</h3>
-<p class="text-neutral-300 text-sm">Comunidade em <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300">inema.club</a>. Membros do curso têm acesso ao canal #agentic-os onde casos do curso são discutidos. Trazer o seu projeto final para revisão é o melhor uso que você pode fazer da comunidade.</p>
+<h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span>Access</h3>
+<p class="text-neutral-300 text-sm">community in<a class="text-sky-400 hover:text-sky-300" href="https://duclub" target="_blank">duclub</a>. Course members have access to the #agentic-os channel where course cases are discussed. Bringing your final project in for review is the best use you can make of the community.</p>
 </div>
 </section>
-
-<section id="topico-6" class="mb-16">
-<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">6</span><h2 class="text-2xl font-bold">🚀 Próximo passo: Trilha 2</h2></div>
-<p class="text-neutral-300 mb-6 leading-relaxed">Você terminou a Trilha 1. Tem o modelo mental, entende os erros a evitar, conhece as personas, domina o método PRATO e sabe como usar o curso. <strong class="text-emerald-400">Agora começa a construção real: a Trilha 2 (Identidade)</strong> é onde tudo toma forma concreta — CLAUDE.md, AGENTS.md, regras e escopo.</p>
+<section class="mb-16" id="topico-6">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">6</span><h2 class="text-2xl font-bold">🚀 Next step: Track 2</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">You have finished Track 1. You have the mental model, you understand the mistakes to avoid, you know the personas, you have mastered the PRATO method and you know how to use the course.<strong class="text-emerald-400">Now the real construction begins: Track 2 (Identity)</strong>This is where everything takes concrete form — CLAUDE.md, AGENTS.md, rules and scope.</p>
 <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
-<h3 class="text-lg font-semibold text-emerald-400 mb-4 flex items-center"><span class="mr-2">🎯</span> O que você vai construir na Trilha 2</h3>
+<h3 class="text-lg font-semibold text-emerald-400 mb-4 flex items-center"><span class="mr-2">🎯</span>What will you build on Track 2</h3>
 <ul class="space-y-3 text-neutral-300 text-sm">
-<li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span><strong class="text-neutral-100">CLAUDE.md</strong> — o documento central de identidade. Quem é o agente, como age, o que pode e não pode fazer.</span></li>
-<li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span><strong class="text-neutral-100">AGENTS.md</strong> — o manifesto dos especialistas. Cada agente documentado com escopo e ferramentas.</span></li>
-<li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span><strong class="text-neutral-100">Regras com escopo</strong> — o que cada agente pode tocar, e o que está fora dos limites.</span></li>
-<li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span><strong class="text-neutral-100">Governança</strong> — como decisões são tomadas, auditadas e revertidas quando necessário.</span></li>
+<li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span><strong class="text-neutral-100">CLAUDE.md</strong>— the central identity document. Who the agent is, how he acts, what he can and cannot do.</span></li>
+<li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span><strong class="text-neutral-100">AGENTS.md</strong>— the experts’ manifesto. Each agent documented with scope and tools.</span></li>
+<li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span><strong class="text-neutral-100">Scoped Rules</strong>— what each agent can touch, and what is off limits.</span></li>
+<li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span><strong class="text-neutral-100">Governance</strong>— how decisions are made, audited and reversed when necessary.</span></li>
 </ul>
 </div>
 <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
-<h3 class="text-lg font-semibold text-blue-400 mb-3 flex items-center"><span class="mr-2">💬</span> Por que identidade vem primeiro</h3>
-<p class="text-neutral-300 text-sm">É tentador pular para ferramentas. Não faça isso. Um agente sem identidade definida vai ser inconsistente, vai ultrapassar limites que você não quer que ele ultrapasse, e vai tomar decisões que você não aprovou. Identity-first não é filosofia — é engenharia.</p>
+<h3 class="text-lg font-semibold text-blue-400 mb-3 flex items-center"><span class="mr-2">💬</span>Why identity comes first</h3>
+<p class="text-neutral-300 text-sm">It's tempting to jump to tools. Don't do that. An agent without a defined identity will be inconsistent, will cross limits that you don't want him to cross, and will make decisions that you don't approve of. Identity-first is not philosophy — it is engineering.</p>
 </div>
 </section>
-
 <section class="mb-12">
 <div class="bg-gradient-to-br from-emerald-900/40 via-dark-800 to-dark-800 rounded-xl border border-emerald-500/30 p-8">
-<h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-3">📋</span> Resumo do Módulo — e da Trilha 1</h2>
+<h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-3">📋</span>Module Summary — and Track 1</h2>
 <div class="space-y-4 mb-8">
-<div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">Mapa das 6 trilhas</strong><span class="text-neutral-400"> — T1 funda, T2-T5 são as 4 camadas, T6 é implantação</span></div></div>
-<div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">Ritmo</strong><span class="text-neutral-400"> — intenso (1-2 sem.) ou aplicado (3-4 sem.) com deliverable por trilha</span></div></div>
-<div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">Pré-requisitos</strong><span class="text-neutral-400"> — CLI instalada, API key configurada, terminal aberto, git pronto</span></div></div>
-<div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">Projeto final</strong><span class="text-neutral-400"> — /agentic-os com CLAUDE.md, Silver Platters, skills, hooks e relatório semanal</span></div></div>
-<div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">Comunidade inema.vip</strong><span class="text-neutral-400"> — casos reais, peer review, biblioteca de skills, sessões ao vivo</span></div></div>
-<div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">Próximo: Trilha 2 (Identidade)</strong><span class="text-neutral-400"> — CLAUDE.md, AGENTS.md, regras, escopo, governança</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">Map of the 6 trails</strong><span class="text-neutral-400">— T1 deep, T2-T5 are the 4 layers, T6 is implantation</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">Rhythm</strong><span class="text-neutral-400">— intense (1-2 weeks) or applied (3-4 weeks) with deliverable per track</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">Prerequisites</strong><span class="text-neutral-400">— CLI installed, API key configured, terminal open, git ready</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">Final project</strong><span class="text-neutral-400">— /agentic-os with CLAUDE.md, Silver Platters, skills, hooks and weekly report</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">duvip.vip community</strong><span class="text-neutral-400">— real cases, peer review, skills library, live sessions</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">Next: Track 2 (Identity)</strong><span class="text-neutral-400">— CLAUDE.md, AGENTS.md, rules, scope, governance</span></div></div>
 </div>
 <div class="bg-dark-800/50 rounded-lg p-4 mb-8">
-<h3 class="font-semibold text-emerald-400 mb-2">Você completou a Trilha 1 — Fundamentos.</h3>
-<p class="text-neutral-300">O modelo mental está instalado. A próxima trilha começa a construção real do seu Agentic OS.</p>
+<h3 class="font-semibold text-emerald-400 mb-2">You have completed Track 1 — Fundamentals.</h3>
+<p class="text-neutral-300">The mental model is in place. The next track begins the actual build of your Agentic OS.</p>
 </div>
 <div class="flex flex-col sm:flex-row gap-4">
-<a href="modulo-1-5.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">← Módulo Anterior</a>
-<a href="index.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">← Voltar para Trilha</a>
-<a href="../trilha2/index.html" class="flex-1 text-center px-6 py-3 bg-emerald-600 text-white rounded-lg font-semibold hover:bg-emerald-500 transition-colors">Próxima Trilha: Identidade →</a>
+<a class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors" href="modulo-1-5.html">← Previous Module</a>
+<a class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors" href="index.html">← Back to Trail</a>
+<a class="flex-1 text-center px-6 py-3 bg-emerald-600 text-white rounded-lg font-semibold hover:bg-emerald-500 transition-colors" href="../trilha2/index.html">Next Track: Identity →</a>
 </div>
 </div>
 </section>
-
 </main>
-
-<footer class="border-t border-dark-600 py-8 mt-16"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm"><p>Agentic OS — INEMA.CLUB · 2026</p></div></footer>
-<script>
+<footer class="border-t border-dark-600 py-8 mt-16"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm"><p>Agentic OS — duclub · 2026</p></div></footer>
+<script data-notranslate="True">
 const tt=document.getElementById('theme-toggle'),tdi=document.getElementById('theme-toggle-dark-icon'),tli=document.getElementById('theme-toggle-light-icon'),h=document.documentElement;
 if(localStorage.getItem('theme')==='light'||(!localStorage.getItem('theme')&&!h.classList.contains('dark'))){tdi.classList.remove('hidden');h.classList.remove('dark')}else{tli.classList.remove('hidden')}
 tt.addEventListener('click',()=>{tdi.classList.toggle('hidden');tli.classList.toggle('hidden');h.classList.toggle('dark');localStorage.setItem('theme',h.classList.contains('dark')?'dark':'light')});
