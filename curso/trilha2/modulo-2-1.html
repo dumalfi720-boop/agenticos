@@ -1,12 +1,12 @@
-<!DOCTYPE html>
-<html lang="pt-BR" class="dark">
+html
+<html class="dark" lang="pt-BR">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>2.1 — CLAUDE.md como controle de tráfego | Agentic OS</title>
-<script src="https://cdn.tailwindcss.com"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<script>tailwind.config={darkMode:'class',theme:{extend:{colors:{primary:'#FACC15',dark:{900:'#111827',800:'#1f2937',700:'#374151',600:'#4b5563'}}}}}</script>
-<style>
+<meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>2.1 — CLAUDE.md as traffic control | Agentic OS</title>
+<script data-notranslate="True" src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<script data-notranslate="True">tailwind.config={darkMode:'class',theme:{extend:{colors:{primary:'#FACC15',dark:{900:'#111827',800:'#1f2937',700:'#374151',600:'#4b5563'}}}}}</script>
+<style data-notranslate="True">
 body{font-family:'Inter',sans-serif}
 html:not(.dark) body{background:#f8fafc}html:not(.dark) .bg-dark-900{background:#fff}html:not(.dark) .bg-dark-800{background:#f9fafb}html:not(.dark) .bg-dark-700{background:#f3f4f6}html:not(.dark) .bg-dark-600{background:#e5e7eb}html:not(.dark) .text-neutral-100{color:#111827}html:not(.dark) .text-neutral-300{color:#4b5563}html:not(.dark) .text-neutral-400{color:#6b7280}html:not(.dark) .text-neutral-500{color:#9ca3af}html:not(.dark) .border-dark-600{border-color:#d1d5db}html:not(.dark) .border-dark-700{border-color:#e5e7eb}
 html:not(.dark) .text-blue-400{color:#2563eb}html:not(.dark) .bg-blue-500\/20{background:rgba(37,99,235,.12)}html:not(.dark) .bg-blue-500\/10{background:rgba(37,99,235,.08)}html:not(.dark) .border-blue-500\/30{border-color:rgba(37,99,235,.25)}html:not(.dark) .bg-blue-900\/20{background:rgba(37,99,235,.06)}html:not(.dark) .bg-blue-900\/30{background:rgba(37,99,235,.06)}html:not(.dark) .bg-blue-900\/40{background:rgba(37,99,235,.08)}
@@ -14,180 +14,168 @@ html:not(.dark) .text-red-400{color:#b91c1c}html:not(.dark) .bg-red-900\/20{back
 html:not(.dark) [class*="bg-gradient-to"]{background-image:none!important}html:not(.dark) .text-primary{color:#a16207}html:not(.dark) .bg-primary\/10{background:rgba(161,98,7,.08)}html:not(.dark) .border-primary\/30{border-color:rgba(161,98,7,.25)}html:not(.dark) .text-sky-400{color:#0369a1}html:not(.dark) .text-yellow-400{color:#a16207}html:not(.dark) .hover\:text-sky-300:hover{color:#0284c7}html:not(.dark) .hover\:text-yellow-300:hover{color:#854d0e}html:not(.dark) .bg-dark-900\/95{background:rgba(255,255,255,.95)}
 </style></head>
 <body class="bg-dark-900 text-neutral-100">
-<nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"><div class="flex justify-between items-center h-14"><div class="flex items-center space-x-4"><a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300"><span class="text-2xl">⚡</span><span class="font-bold text-lg hidden sm:inline">Agentic OS</span></a><span class="text-neutral-600">|</span><a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a></div><div class="flex items-center space-x-1 sm:space-x-2"><a href="../trilha1/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors"><span class="sm:hidden">T1</span><span class="hidden sm:inline">Fundamentos</span></a><a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-blue-400 bg-blue-500/10"><span class="sm:hidden">T2</span><span class="hidden sm:inline">Identidade</span></a><a href="../trilha3/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors"><span class="sm:hidden">T3</span><span class="hidden sm:inline">Conhecimento</span></a><a href="../trilha4/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-amber-400 hover:bg-amber-500/10 transition-colors"><span class="sm:hidden">T4</span><span class="hidden sm:inline">Trabalhadores</span></a><a href="../trilha5/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-teal-400 hover:bg-teal-500/10 transition-colors"><span class="sm:hidden">T5</span><span class="hidden sm:inline">Automação</span></a><a href="../trilha6/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-rose-400 hover:bg-rose-500/10 transition-colors"><span class="sm:hidden">T6</span><span class="hidden sm:inline">Implantação</span></a><button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2"><svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/></svg><svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"/></svg></button></div></div></div></nav>
-
-<nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4"><div class="flex items-center space-x-2 text-sm text-neutral-400"><a href="../../index.html" class="hover:text-blue-400">Início</a><span>/</span><a href="index.html" class="hover:text-blue-400">Trilha 2</a><span>/</span><span class="text-blue-400">Módulo 2.1</span></div></nav>
-
-<header class="bg-gradient-to-br from-blue-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"><span class="inline-block px-3 py-1 bg-blue-500/20 text-blue-400 text-xs font-semibold rounded-full mb-4">MÓDULO 2.1</span><h1 class="text-3xl sm:text-4xl font-bold mb-4">📜 CLAUDE.md como controle de tráfego</h1><p class="text-lg text-neutral-400 max-w-3xl">Não é diário — é o documento que orienta cada decisão do agente. O CLAUDE.md é a memória persistente que transforma sessões isoladas em um sistema coerente.</p><div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl"><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">6</div><div class="text-xs text-neutral-400">Tópicos</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">40</div><div class="text-xs text-neutral-400">Minutos</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">Básico</div><div class="text-xs text-neutral-400">Nível</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">Prática</div><div class="text-xs text-neutral-400">Tipo</div></div></div></div></header>
-
+<nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"><div class="flex justify-between items-center h-14"><div class="flex items-center space-x-4"><a class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300" href="../../index.html"><span class="text-2xl">⚡</span><span class="font-bold text-lg hidden sm:inline">Agentic OS</span></a><span class="text-neutral-600">|</span><a class="text-sky-400 hover:text-sky-300 text-sm font-medium" href="https://duclub" target="_blank">duclub</a></div><div class="flex items-center space-x-1 sm:space-x-2"><a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors" href="../trilha1/index.html"><span class="sm:hidden">T1</span><span class="hidden sm:inline">Fundamentals</span></a><a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-blue-400 bg-blue-500/10" href="index.html"><span class="sm:hidden">T2</span><span class="hidden sm:inline">Identity</span></a><a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors" href="../trilha3/index.html"><span class="sm:hidden">T3</span><span class="hidden sm:inline">Knowledge</span></a><a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-amber-400 hover:bg-amber-500/10 transition-colors" href="../trilha4/index.html"><span class="sm:hidden">T4</span><span class="hidden sm:inline">Workers</span></a><a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-teal-400 hover:bg-teal-500/10 transition-colors" href="../trilha5/index.html"><span class="sm:hidden">T5</span><span class="hidden sm:inline">Automation</span></a><a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-rose-400 hover:bg-rose-500/10 transition-colors" href="../trilha6/index.html"><span class="sm:hidden">T6</span><span class="hidden sm:inline">Implantation</span></a><button class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2" id="theme-toggle"><svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-dark-icon" viewbox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg><svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-light-icon" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd"></path></svg></button></div></div></div></nav>
+<nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4"><div class="flex items-center space-x-2 text-sm text-neutral-400"><a class="hover:text-blue-400" href="../../index.html">Start</a><span>/</span><a class="hover:text-blue-400" href="index.html">Track 2</a><span>/</span><span class="text-blue-400">Module 2.1</span></div></nav>
+<header class="bg-gradient-to-br from-blue-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"><span class="inline-block px-3 py-1 bg-blue-500/20 text-blue-400 text-xs font-semibold rounded-full mb-4">MODULE 2.1</span><h1 class="text-3xl sm:text-4xl font-bold mb-4">📜 CLAUDE.md as traffic control</h1><p class="text-lg text-neutral-400 max-w-3xl">It's not a diary — it's the document that guides the agent's every decision. CLAUDE.md is persistent memory that transforms isolated sessions into a coherent system.</p><div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl"><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">6</div><div class="text-xs text-neutral-400">Topics</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">40</div><div class="text-xs text-neutral-400">Minutes</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">Basic</div><div class="text-xs text-neutral-400">Level</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">Practice</div><div class="text-xs text-neutral-400">Type</div></div></div></div></header>
 <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-
-<section id="topico-1" class="mb-16">
-<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">1</span><h2 class="text-2xl font-bold">🎯 O que é CLAUDE.md</h2></div>
-<p class="text-neutral-300 mb-6 leading-relaxed">Toda vez que você abre o Claude Code em um projeto, ele procura um arquivo chamado <strong class="text-blue-400">CLAUDE.md</strong> e o lê automaticamente, antes de qualquer coisa. Esse arquivo é seu documento central de identidade — define quem o agente é naquele contexto, quais regras seguir, o que nunca fazer e qual o estado atual do projeto. Sem ele, cada sessão começa do zero. Com ele, o agente sabe exatamente onde está e como operar.</p>
+<section class="mb-16" id="topico-1">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">1</span><h2 class="text-2xl font-bold">🎯 What is CLAUDE.md</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Every time you open Claude Code in a project, it looks for a file called<strong class="text-blue-400">CLAUDE.md</strong>and reads it automatically, before anything else. This file is your central identity document — it defines who the agent is in that context, what rules to follow, what to never do, and the current state of the project. Without it, each session starts from scratch. With it, the agent knows exactly where it is and how to operate.</p>
 <div class="bg-gradient-to-br from-blue-900/30 to-dark-800 rounded-xl border border-blue-500/30 p-6 mb-6">
-<h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center"><span class="mr-2">📌</span> O que o CLAUDE.md carrega</h3>
+<h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center"><span class="mr-2">📌</span>What CLAUDE.md loads</h3>
 <ul class="space-y-2 text-neutral-300 text-sm">
-<li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">•</span><span><strong class="text-neutral-100">Identidade do agente</strong> — nome, função, persona, tom de voz.</span></li>
-<li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">•</span><span><strong class="text-neutral-100">Contexto do negócio</strong> — o que é o projeto, quem são os usuários, qual o objetivo.</span></li>
-<li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">•</span><span><strong class="text-neutral-100">Regras inegociáveis</strong> — o que nunca fazer, o que sempre fazer.</span></li>
-<li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">•</span><span><strong class="text-neutral-100">Decisões já tomadas</strong> — para não revisitar o que já foi resolvido.</span></li>
-<li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">•</span><span><strong class="text-neutral-100">Padrões técnicos</strong> — stack, convenções de código, estrutura de pastas.</span></li>
+<li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">•</span><span><strong class="text-neutral-100">Agent identity</strong>— name, role, persona, tone of voice.</span></li>
+<li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">•</span><span><strong class="text-neutral-100">Business context</strong>— what the project is, who the users are, what the objective is.</span></li>
+<li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">•</span><span><strong class="text-neutral-100">Non-negotiable rules</strong>— what to never do, what to always do.</span></li>
+<li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">•</span><span><strong class="text-neutral-100">Decisions already taken</strong>— so as not to revisit what has already been resolved.</span></li>
+<li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">•</span><span><strong class="text-neutral-100">Technical standards</strong>— stack, code conventions, folder structure.</span></li>
 </ul>
 </div>
 <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
-<h3 class="text-lg font-semibold text-blue-400 mb-3 flex items-center"><span class="mr-2">👤</span> Marco, e-commerce de moda</h3>
-<p class="text-neutral-300 italic">"Antes do CLAUDE.md eu passava 10 minutos no início de cada sessão explicando o projeto. Depois, o agente já sabia tudo — stack, tom, o que era produto, o que era variante. Ganho imediato."</p>
+<h3 class="text-lg font-semibold text-blue-400 mb-3 flex items-center"><span class="mr-2">👤</span>Marco, fashion e-commerce</h3>
+<p class="text-neutral-300 italic">"Before CLAUDE.md, I spent 10 minutes at the beginning of each session explaining the project. Afterwards, the agent already knew everything — stack, tone, what the product was, what the variant was. Immediate gain."</p>
 </div>
 </section>
-
-<section id="topico-2" class="mb-16">
-<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">2</span><h2 class="text-2xl font-bold">🏗️ Estrutura de um CLAUDE.md útil</h2></div>
-<p class="text-neutral-300 mb-6 leading-relaxed">Um CLAUDE.md sem estrutura vira diário de bordo — cresce sem critério e perde sinal no ruído. Um CLAUDE.md com estrutura clara é um <strong class="text-blue-400">manual operacional</strong>: qualquer agente que o lê sabe exatamente como operar. A estrutura não precisa ser rígida, mas precisa ser intencional.</p>
+<section class="mb-16" id="topico-2">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">2</span><h2 class="text-2xl font-bold">🏗️ Structure of a useful CLAUDE.md</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">A CLAUDE.md without structure becomes a logbook — it grows without criteria and loses signal in the noise. A CLAUDE.md with a clear structure is a<strong class="text-blue-400">operating manual</strong>: any agent who reads it knows exactly how to operate. The structure doesn't have to be rigid, but it does need to be intentional.</p>
 <div class="bg-gradient-to-br from-blue-900/30 to-dark-800 rounded-xl border border-blue-500/30 p-6 mb-6">
-<h3 class="text-lg font-semibold text-blue-400 mb-4">Seções recomendadas</h3>
+<h3 class="text-lg font-semibold text-blue-400 mb-4">Recommended sections</h3>
 <ul class="space-y-3 text-neutral-300 text-sm">
-<li><strong class="text-neutral-100"># Identidade</strong> — quem sou, função, tom de voz, língua padrão.</li>
-<li><strong class="text-neutral-100"># Contexto do Projeto</strong> — o que é, stack, estrutura de pastas chave.</li>
-<li><strong class="text-neutral-100"># Regras Inegociáveis</strong> — NUNCA / SEMPRE. Máximo 10 itens, objetivos.</li>
-<li><strong class="text-neutral-100"># Decisões Tomadas</strong> — escolhas arquiteturais já resolvidas + motivo.</li>
-<li><strong class="text-neutral-100"># Estado Atual</strong> — o que está em progresso, o que está bloqueado.</li>
-<li><strong class="text-neutral-100"># Personas</strong> — usuário-alvo, stakeholders chave (opcional).</li>
+<li><strong class="text-neutral-100"># Identity</strong>— who I am, role, tone of voice, standard language.</li>
+<li><strong class="text-neutral-100"># Project Context</strong>— what is it, stack, key folder structure.</li>
+<li><strong class="text-neutral-100"># Non-Negotiable Rules</strong>— NEVER / ALWAYS. Maximum 10 items, objectives.</li>
+<li><strong class="text-neutral-100"># Decisions Made</strong>— architectural choices already resolved + reason.</li>
+<li><strong class="text-neutral-100"># Current Status</strong>— what is in progress, what is blocked.</li>
+<li><strong class="text-neutral-100"># Personas</strong>— target user, key stakeholders (optional).</li>
 </ul>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
 <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6">
-<h4 class="font-bold text-blue-400 mb-4">✓ Bom CLAUDE.md</h4>
+<h4 class="font-bold text-blue-400 mb-4">✓ Good CLAUDE.md</h4>
 <ul class="space-y-2 text-neutral-300 text-sm">
-<li class="flex items-start space-x-2"><span class="text-blue-400">✓</span><span>Seções claras com headers</span></li>
-<li class="flex items-start space-x-2"><span class="text-blue-400">✓</span><span>Regras curtas e acionáveis</span></li>
-<li class="flex items-start space-x-2"><span class="text-blue-400">✓</span><span>Exemplos concretos</span></li>
-<li class="flex items-start space-x-2"><span class="text-blue-400">✓</span><span>Menos de 500 tokens</span></li>
-<li class="flex items-start space-x-2"><span class="text-blue-400">✓</span><span>Atualizado após cada erro recorrente</span></li>
+<li class="flex items-start space-x-2"><span class="text-blue-400">✓</span><span>Clear sections with headers</span></li>
+<li class="flex items-start space-x-2"><span class="text-blue-400">✓</span><span>Short, actionable rules</span></li>
+<li class="flex items-start space-x-2"><span class="text-blue-400">✓</span><span>Concrete examples</span></li>
+<li class="flex items-start space-x-2"><span class="text-blue-400">✓</span><span>Less than 500 tokens</span></li>
+<li class="flex items-start space-x-2"><span class="text-blue-400">✓</span><span>Updated after each recurring error</span></li>
 </ul>
 </div>
 <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
-<h4 class="font-bold text-red-400 mb-4">✗ CLAUDE.md problemático</h4>
+<h4 class="font-bold text-red-400 mb-4">✗ CLAUDE.md problematic</h4>
 <ul class="space-y-2 text-neutral-300 text-sm">
-<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Parágrafo longo sem estrutura</span></li>
-<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Duplica o README inteiro</span></li>
-<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Changelog de commits</span></li>
-<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Mais de 2000 tokens</span></li>
-<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Regras vagas ("seja cuidadoso")</span></li>
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Long paragraph without structure</span></li>
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Duplicates the entire README</span></li>
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Commit changelog</span></li>
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>More than 2000 tokens</span></li>
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Vague rules ("be careful")</span></li>
 </ul>
 </div>
 </div>
 </section>
-
-<section id="topico-3" class="mb-16">
-<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">3</span><h2 class="text-2xl font-bold">🌳 Hierarquia: global → projeto → local</h2></div>
-<p class="text-neutral-300 mb-6 leading-relaxed">O Claude Code suporta três níveis de CLAUDE.md que se combinam em cascade. O <strong class="text-blue-400">global</strong> fica em <code class="bg-dark-700 px-1 rounded">~/.claude/CLAUDE.md</code> e define regras que valem em todos os projetos. O <strong class="text-blue-400">projeto</strong> fica na raiz do repositório e define contexto específico. O <strong class="text-blue-400">local</strong> fica em subpastas e sobrescreve apenas naquele escopo.</p>
+<section class="mb-16" id="topico-3">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">3</span><h2 class="text-2xl font-bold">🌳 Hierarchy: global → project → local</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Claude Code supports three levels of CLAUDE.md that cascade together. THE<strong class="text-blue-400">global</strong>stay in<code class="bg-dark-700 px-1 rounded" data-notranslate="True">~/.claude/CLAUDE.md</code>and defines rules that apply to all projects. THE<strong class="text-blue-400">project</strong>it sits at the root of the repository and defines specific context. THE<strong class="text-blue-400">location</strong>it stays in subfolders and overwrites only in that scope.</p>
 <div class="bg-gradient-to-br from-blue-900/30 to-dark-800 rounded-xl border border-blue-500/30 p-6 mb-6">
-<h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center"><span class="mr-2">🌳</span> Cascade de CLAUDE.md</h3>
+<h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center"><span class="mr-2">🌳</span>Cascade by CLAUDE.md</h3>
 <ul class="space-y-3 text-neutral-300 text-sm">
-<li><strong class="text-neutral-100">~/.claude/CLAUDE.md</strong> — regras globais: língua, estilo, proibições universais.</li>
-<li><strong class="text-neutral-100">projeto/CLAUDE.md</strong> — contexto do projeto: stack, regras de negócio, personas.</li>
-<li><strong class="text-neutral-100">projeto/subpasta/CLAUDE.md</strong> — override local: regras específicas para aquela área.</li>
+<li><strong class="text-neutral-100">~/.claude/CLAUDE.md</strong>— global rules: language, style, universal prohibitions.</li>
+<li><strong class="text-neutral-100">project/CLAUDE.md</strong>— project context: stack, business rules, personas.</li>
+<li><strong class="text-neutral-100">project/subfolder/CLAUDE.md</strong>— local override: specific rules for that area.</li>
 </ul>
-<p class="text-neutral-400 text-sm mt-4">Regra mais específica vence. Local sobrescreve projeto; projeto sobrescreve global.</p>
+<p class="text-neutral-400 text-sm mt-4">More specific rule wins. Location overwrites project; project overwrites global.</p>
 </div>
 <div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
-<h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Dica prática — Sally, escritório jurídico</h3>
-<p class="text-neutral-300">Sally tem no global: "sempre responder em inglês formal". No projeto do cliente X tem: "responder em português". O agente no projeto X usa português — sem conflito, sem confusão. Cascade funciona como CSS: específico ganha.</p>
+<h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span>Practical tip — Sally, legal office</h3>
+<p class="text-neutral-300">Sally has the overall: "always respond in formal English". In client X's project there is: "reply in Portuguese". The agent in project X uses Portuguese — no conflict, no confusion. Cascade works like CSS: specific wins.</p>
 </div>
 </section>
-
-<section id="topico-4" class="mb-16">
-<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">4</span><h2 class="text-2xl font-bold">📐 Tom, estilo e regras inegociáveis</h2></div>
-<p class="text-neutral-300 mb-6 leading-relaxed">As regras inegociáveis são o DNA do agente — o que ele faz em <em>todas</em> as situações, sem depender do prompt. São guardas-rails que protegem contra erros recorrentes, desvios de qualidade e comportamentos que você já aprendeu a custo que precisam ser bloqueados. Escreva-as como comandos diretos: NUNCA, SEMPRE, OBRIGATÓRIO.</p>
+<section class="mb-16" id="topico-4">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">4</span><h2 class="text-2xl font-bold">📐 Tone, style and non-negotiable rules</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">The non-negotiable rules are the agent’s DNA — what he does in<em>all</em>situations, without depending on the prompt. They are guardrails that protect against recurring errors, quality deviations and behaviors that you have already learned with difficulty that need to be blocked. Write them as direct commands: NEVER, ALWAYS, REQUIRED.</p>
 <div class="bg-gradient-to-br from-blue-900/30 to-dark-800 rounded-xl border border-blue-500/30 p-6 mb-6">
-<h3 class="text-lg font-semibold text-blue-400 mb-4">Exemplos de regras eficazes</h3>
+<h3 class="text-lg font-semibold text-blue-400 mb-4">Examples of effective rules</h3>
 <ul class="space-y-2 text-neutral-300 text-sm">
-<li><strong class="text-neutral-100">Tom:</strong> "Sempre responda em português. Nunca use linguagem informal com clientes."</li>
-<li><strong class="text-neutral-100">Código:</strong> "Nunca faça commit diretamente em main. Sempre crie branch feature/."</li>
-<li><strong class="text-neutral-100">Dados:</strong> "Nunca leia /secrets/. Nunca escreva fora de /src/ sem aprovação."</li>
-<li><strong class="text-neutral-100">Qualidade:</strong> "Sempre rodar testes antes de propor PR. Nunca silenciar erros com try/catch vazio."</li>
-<li><strong class="text-neutral-100">Formato:</strong> "Sempre usar 2 espaços de indentação. TypeScript strict mode obrigatório."</li>
+<li><strong class="text-neutral-100">Tone:</strong>"Always respond in Portuguese. Never use informal language with customers."</li>
+<li><strong class="text-neutral-100">Code:</strong>"Never commit directly to main. Always create a feature/ branch."</li>
+<li><strong class="text-neutral-100">Data:</strong>"Never read /secrets/. Never write outside of /src/ without approval."</li>
+<li><strong class="text-neutral-100">Quality:</strong>"Always run tests before proposing PR. Never silence errors with empty try/catch."</li>
+<li><strong class="text-neutral-100">Format:</strong>"Always use 2 spaces of indentation. TypeScript strict mode required."</li>
 </ul>
 </div>
 <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
-<h3 class="text-lg font-semibold text-blue-400 mb-3">📊 Regra dos 10</h3>
-<p class="text-neutral-300">Mantenha no máximo 10 regras inegociáveis por CLAUDE.md. Mais que isso, o sinal se dilui. Se você tem 20 regras, provavelmente metade é redundante ou deveria ser uma convenção de código — não uma regra do agente.</p>
+<h3 class="text-lg font-semibold text-blue-400 mb-3">📊 Rule of 10</h3>
+<p class="text-neutral-300">Maintain a maximum of 10 non-negotiable rules per CLAUDE.md. More than that, the signal is diluted. If you have 20 rules, probably half are redundant or should be a code convention — not an agent rule.</p>
 </div>
 </section>
-
-<section id="topico-5" class="mb-16">
-<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">5</span><h2 class="text-2xl font-bold">🚫 O que NÃO colocar</h2></div>
-<p class="text-neutral-300 mb-6 leading-relaxed">O CLAUDE.md é lido em <strong class="text-blue-400">todas as sessões</strong>, inteiro, antes de qualquer trabalho. Cada token que você coloca tem custo real em tempo e dinheiro. Um CLAUDE.md inflado com conteúdo de baixo valor é literalmente dinheiro queimado em overhead, toda sessão. A disciplina de manter o documento enxuto é tão importante quanto mantê-lo atualizado.</p>
+<section class="mb-16" id="topico-5">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">5</span><h2 class="text-2xl font-bold">🚫 What NOT to put</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">CLAUDE.md is read in<strong class="text-blue-400">all sessions</strong>, in full, before any work. Each token you place has a real cost in time and money. A CLAUDE.md inflated with low-value content is literally money burned in overhead, every session. The discipline of keeping the document lean is as important as keeping it updated.</p>
 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
 <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
-<h4 class="font-bold text-red-400 mb-4">✗ Não pertence ao CLAUDE.md</h4>
+<h4 class="font-bold text-red-400 mb-4">✗ Does not belong to CLAUDE.md</h4>
 <ul class="space-y-2 text-neutral-300 text-sm">
-<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Changelog / histórico de decisões antigas</span></li>
-<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Credenciais, tokens, senhas (NUNCA)</span></li>
-<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Documentação técnica extensa</span></li>
-<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Duplicata do README ou docs/</span></li>
-<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Listas de todos os arquivos do projeto</span></li>
-<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Instruções para uma única tarefa pontual</span></li>
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Changelog/history of old decisions</span></li>
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Credentials, tokens, passwords (NEVER)</span></li>
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Extensive technical documentation</span></li>
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Duplicate of README or docs/</span></li>
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Lists of all project files</span></li>
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Instructions for a single one-off task</span></li>
 </ul>
 </div>
 <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6">
-<h4 class="font-bold text-blue-400 mb-4">✓ Pertence ao CLAUDE.md</h4>
+<h4 class="font-bold text-blue-400 mb-4">✓ Belongs to CLAUDE.md</h4>
 <ul class="space-y-2 text-neutral-300 text-sm">
-<li class="flex items-start space-x-2"><span class="text-blue-400">✓</span><span>Identidade e função do agente</span></li>
-<li class="flex items-start space-x-2"><span class="text-blue-400">✓</span><span>Regras que se aplicam em toda sessão</span></li>
-<li class="flex items-start space-x-2"><span class="text-blue-400">✓</span><span>Decisões arquiteturais + motivo</span></li>
-<li class="flex items-start space-x-2"><span class="text-blue-400">✓</span><span>Stack e convenções mínimas</span></li>
-<li class="flex items-start space-x-2"><span class="text-blue-400">✓</span><span>O que está em progresso agora</span></li>
-<li class="flex items-start space-x-2"><span class="text-blue-400">✓</span><span>Links para Silver Platters relevantes</span></li>
+<li class="flex items-start space-x-2"><span class="text-blue-400">✓</span><span>Agent identity and role</span></li>
+<li class="flex items-start space-x-2"><span class="text-blue-400">✓</span><span>Rules that apply to every session</span></li>
+<li class="flex items-start space-x-2"><span class="text-blue-400">✓</span><span>Architectural decisions + reason</span></li>
+<li class="flex items-start space-x-2"><span class="text-blue-400">✓</span><span>Minimal stack and conventions</span></li>
+<li class="flex items-start space-x-2"><span class="text-blue-400">✓</span><span>What's in progress now</span></li>
+<li class="flex items-start space-x-2"><span class="text-blue-400">✓</span><span>Links to relevant Silver Platters</span></li>
 </ul>
 </div>
 </div>
 <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6 mb-6">
-<h3 class="text-lg font-semibold text-red-400 mb-3 flex items-center"><span class="mr-2">⚠️</span> Alerta crítico</h3>
-<p class="text-neutral-300">Jamais coloque credenciais, API keys ou senhas em CLAUDE.md. O arquivo normalmente vai para o git. Use variáveis de ambiente ou cofre de secrets. Um vazamento acidental custa muito mais que qualquer conveniência.</p>
+<h3 class="text-lg font-semibold text-red-400 mb-3 flex items-center"><span class="mr-2">⚠️</span>Critical Alert</h3>
+<p class="text-neutral-300">Never put credentials, API keys or passwords in CLAUDE.md. The file normally goes into git. Use environment variables or secret vault. An accidental leak costs much more than any convenience.</p>
 </div>
 </section>
-
-<section id="topico-6" class="mb-16">
-<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">6</span><h2 class="text-2xl font-bold">🔄 Evolução do CLAUDE.md</h2></div>
-<p class="text-neutral-300 mb-6 leading-relaxed">O CLAUDE.md não é um documento que você escreve uma vez e esquece — é um <strong class="text-blue-400">organismo vivo</strong>. Cada vez que o agente comete um erro recorrente, você adiciona uma regra. Cada vez que uma decisão arquitetural é tomada, você registra. Cada vez que o projeto muda de direção, você atualiza o contexto. A maturidade do CLAUDE.md reflete diretamente a maturidade do seu sistema agêntico.</p>
+<section class="mb-16" id="topico-6">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">6</span><h2 class="text-2xl font-bold">🔄 Evolution of CLAUDE.md</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">CLAUDE.md is not a document that you write once and forget about — it is a<strong class="text-blue-400">living organism</strong>. Every time the agent makes a recurring error, you add a rule. Every time an architectural decision is made, you record it. Each time the project changes direction, you update the context. The maturity of CLAUDE.md directly reflects the maturity of its agentic system.</p>
 <div class="bg-gradient-to-br from-blue-900/30 to-dark-800 rounded-xl border border-blue-500/30 p-6 mb-6">
-<h3 class="text-lg font-semibold text-blue-400 mb-4">Ciclo de evolução</h3>
+<h3 class="text-lg font-semibold text-blue-400 mb-4">Evolution cycle</h3>
 <ul class="space-y-3 text-neutral-300 text-sm">
-<li><strong class="text-neutral-100">1. Erro recorrente detectado</strong> → adiciona regra inegociável no CLAUDE.md.</li>
-<li><strong class="text-neutral-100">2. Decisão tomada</strong> → registra em "Decisões Tomadas" com motivo.</li>
-<li><strong class="text-neutral-100">3. CLAUDE.md cresce demais</strong> → faz limpeza: remove o que não é universal, move para Silver Platters.</li>
-<li><strong class="text-neutral-100">4. Projeto muda de fase</strong> → atualiza "Estado Atual" e "Contexto".</li>
-<li><strong class="text-neutral-100">5. Novo agente entra no projeto</strong> → lê o CLAUDE.md e está operacional em minutos.</li>
+<li><strong class="text-neutral-100">1. Recurring error detected</strong>→ adds non-negotiable rule to CLAUDE.md.</li>
+<li><strong class="text-neutral-100">2. Decision made</strong>→ records in "Decisions Made" with reason.</li>
+<li><strong class="text-neutral-100">3. CLAUDE.md grows too much</strong>→ cleans: removes what is not universal, moves to Silver Platters.</li>
+<li><strong class="text-neutral-100">4. Project changes phase</strong>→ updates "Current State" and "Context".</li>
+<li><strong class="text-neutral-100">5. New agent joins the project</strong>→ reads CLAUDE.md and is operational in minutes.</li>
 </ul>
 </div>
 <div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
-<h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> CLAUDE.md em controle de versão</h3>
-<p class="text-neutral-300">Versionar o CLAUDE.md no git é obrigatório. Mudanças no documento de identidade do agente precisam passar por review — da mesma forma que mudanças em código crítico. Um PR que altera as regras inegociáveis do agente merece a mesma atenção que um PR que altera a autenticação.</p>
+<h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span>CLAUDE.md in version control</h3>
+<p class="text-neutral-300">Versioning CLAUDE.md in git is mandatory. Changes to the agent's identity document must be reviewed — in the same way as changes to critical code. A PR that changes the agent's non-negotiable rules deserves the same attention as a PR that changes authentication.</p>
 </div>
 </section>
-
 <section class="mb-12">
 <div class="bg-gradient-to-br from-blue-900/40 via-dark-800 to-dark-800 rounded-xl border border-blue-500/30 p-8">
-<h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-3">📋</span> Resumo do Módulo</h2>
+<h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-3">📋</span>Module Summary</h2>
 <div class="space-y-4 mb-8">
-<div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">CLAUDE.md = memória persistente</strong><span class="text-neutral-400"> — lido automaticamente em toda sessão, antes de qualquer instrução</span></div></div>
-<div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">Estrutura intencional</strong><span class="text-neutral-400"> — seções de identidade, contexto, regras, decisões, estado atual</span></div></div>
-<div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">Hierarquia em 3 níveis</strong><span class="text-neutral-400"> — global → projeto → local; específico sobrescreve geral</span></div></div>
-<div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">Regras inegociáveis</strong><span class="text-neutral-400"> — máximo 10, objetivas, com NUNCA/SEMPRE explícito</span></div></div>
-<div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">Sem credenciais, sem ruído</strong><span class="text-neutral-400"> — token cost real; CLAUDE.md inflado é overhead em toda sessão</span></div></div>
-<div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">Documento vivo</strong><span class="text-neutral-400"> — evolui com o sistema; cada erro recorrente vira regra; versionado em git</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">CLAUDE.md = persistent memory</strong><span class="text-neutral-400">— automatically read every session, before any instructions</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">Intentional structure</strong><span class="text-neutral-400">— identity, context, rules, decisions, current state sections</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">Hierarchy in 3 levels</strong><span class="text-neutral-400">— global → project → local; specific overrides general</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">Non-negotiable rules</strong><span class="text-neutral-400">— maximum 10, objective, with explicit NEVER/ALWAYS</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">No credentials, no noise</strong><span class="text-neutral-400">— real token cost; Inflated CLAUDE.md is overhead throughout the session</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">Living document</strong><span class="text-neutral-400">— evolves with the system; each recurring error becomes a rule; versioned in git</span></div></div>
 </div>
-<div class="bg-dark-800/50 rounded-lg p-4 mb-8"><h3 class="font-semibold text-blue-400 mb-2">Próximo Módulo:</h3><p class="text-neutral-300">2.2 — AGENTS.md como padrão multi-vendor</p></div>
-<div class="flex flex-col sm:flex-row gap-4"><a href="../trilha1/modulo-1-6.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">← Módulo 1.6</a><a href="modulo-2-2.html" class="flex-1 text-center px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-500 transition-colors">Próximo Módulo →</a></div>
+<div class="bg-dark-800/50 rounded-lg p-4 mb-8"><h3 class="font-semibold text-blue-400 mb-2">Next Module:</h3><p class="text-neutral-300">2.2 — AGENTS.md as multi-vendor standard</p></div>
+<div class="flex flex-col sm:flex-row gap-4"><a class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors" href="../trilha1/modulo-1-6.html">← Module 1.6</a><a class="flex-1 text-center px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-500 transition-colors" href="modulo-2-2.html">Next Module →</a></div>
 </div>
 </section>
-
 </main>
-
-<footer class="border-t border-dark-600 py-8 mt-16"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm"><p>Agentic OS — INEMA.CLUB · 2026</p></div></footer>
-<script>
+<footer class="border-t border-dark-600 py-8 mt-16"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm"><p>Agentic OS — duclub · 2026</p></div></footer>
+<script data-notranslate="True">
 const tt=document.getElementById('theme-toggle'),tdi=document.getElementById('theme-toggle-dark-icon'),tli=document.getElementById('theme-toggle-light-icon'),h=document.documentElement;
 if(localStorage.getItem('theme')==='light'||(!localStorage.getItem('theme')&&!h.classList.contains('dark'))){tdi.classList.remove('hidden');h.classList.remove('dark')}else{tli.classList.remove('hidden')}
 tt.addEventListener('click',()=>{tdi.classList.toggle('hidden');tli.classList.toggle('hidden');h.classList.toggle('dark');localStorage.setItem('theme',h.classList.contains('dark')?'dark':'light')});
