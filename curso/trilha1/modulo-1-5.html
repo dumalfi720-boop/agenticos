@@ -1,12 +1,12 @@
-<!DOCTYPE html>
-<html lang="pt-BR" class="dark">
+html
+<html class="dark" lang="pt-BR">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>1.5 — O método PRATO — visão geral | Agentic OS</title>
-<script src="https://cdn.tailwindcss.com"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<script>tailwind.config={darkMode:'class',theme:{extend:{colors:{primary:'#FACC15',dark:{900:'#111827',800:'#1f2937',700:'#374151',600:'#4b5563'}}}}}</script>
-<style>
+<meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>1.5 — The PRATO method — overview | Agentic OS</title>
+<script data-notranslate="True" src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<script data-notranslate="True">tailwind.config={darkMode:'class',theme:{extend:{colors:{primary:'#FACC15',dark:{900:'#111827',800:'#1f2937',700:'#374151',600:'#4b5563'}}}}}</script>
+<style data-notranslate="True">
 body{font-family:'Inter',sans-serif}
 html:not(.dark) body{background:#f8fafc}html:not(.dark) .bg-dark-900{background:#fff}html:not(.dark) .bg-dark-800{background:#f9fafb}html:not(.dark) .bg-dark-700{background:#f3f4f6}html:not(.dark) .bg-dark-600{background:#e5e7eb}html:not(.dark) .text-neutral-100{color:#111827}html:not(.dark) .text-neutral-300{color:#4b5563}html:not(.dark) .text-neutral-400{color:#6b7280}html:not(.dark) .text-neutral-500{color:#9ca3af}html:not(.dark) .border-dark-600{border-color:#d1d5db}html:not(.dark) .border-dark-700{border-color:#e5e7eb}
 html:not(.dark) .text-emerald-400{color:#059669}html:not(.dark) .bg-emerald-500\/20{background:rgba(5,150,105,.12)}html:not(.dark) .bg-emerald-500\/10{background:rgba(5,150,105,.08)}html:not(.dark) .border-emerald-500\/30{border-color:rgba(5,150,105,.25)}html:not(.dark) .bg-emerald-900\/20{background:rgba(5,150,105,.06)}html:not(.dark) .bg-emerald-900\/30{background:rgba(5,150,105,.06)}html:not(.dark) .bg-emerald-900\/40{background:rgba(5,150,105,.08)}
@@ -15,200 +15,175 @@ html:not(.dark) .text-red-400{color:#b91c1c}html:not(.dark) .bg-red-900\/20{back
 html:not(.dark) [class*="bg-gradient-to"]{background-image:none!important}html:not(.dark) .text-primary{color:#a16207}html:not(.dark) .bg-primary\/10{background:rgba(161,98,7,.08)}html:not(.dark) .border-primary\/30{border-color:rgba(161,98,7,.25)}html:not(.dark) .text-sky-400{color:#0369a1}html:not(.dark) .text-yellow-400{color:#a16207}html:not(.dark) .hover\:text-sky-300:hover{color:#0284c7}html:not(.dark) .hover\:text-yellow-300:hover{color:#854d0e}html:not(.dark) .bg-dark-900\/95{background:rgba(255,255,255,.95)}
 </style></head>
 <body class="bg-dark-900 text-neutral-100">
-<nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"><div class="flex justify-between items-center h-14"><div class="flex items-center space-x-4"><a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300"><span class="text-2xl">⚡</span><span class="font-bold text-lg hidden sm:inline">Agentic OS</span></a><span class="text-neutral-600">|</span><a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a></div><div class="flex items-center space-x-1 sm:space-x-2"><a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-emerald-400 bg-emerald-500/10"><span class="sm:hidden">T1</span><span class="hidden sm:inline">Fundamentos</span></a><a href="../trilha2/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors"><span class="sm:hidden">T2</span><span class="hidden sm:inline">Identidade</span></a><a href="../trilha3/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors"><span class="sm:hidden">T3</span><span class="hidden sm:inline">Conhecimento</span></a><a href="../trilha4/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-amber-400 hover:bg-amber-500/10 transition-colors"><span class="sm:hidden">T4</span><span class="hidden sm:inline">Trabalhadores</span></a><a href="../trilha5/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-teal-400 hover:bg-teal-500/10 transition-colors"><span class="sm:hidden">T5</span><span class="hidden sm:inline">Automação</span></a><a href="../trilha6/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-rose-400 hover:bg-rose-500/10 transition-colors"><span class="sm:hidden">T6</span><span class="hidden sm:inline">Implantação</span></a><button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2"><svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/></svg><svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"/></svg></button></div></div></div></nav>
-
-<nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4"><div class="flex items-center space-x-2 text-sm text-neutral-400"><a href="../../index.html" class="hover:text-emerald-400">Início</a><span>/</span><a href="index.html" class="hover:text-emerald-400">Trilha 1</a><span>/</span><span class="text-emerald-400">Módulo 1.5</span></div></nav>
-
-<header class="bg-gradient-to-br from-emerald-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"><span class="inline-block px-3 py-1 bg-emerald-500/20 text-emerald-400 text-xs font-semibold rounded-full mb-4">MÓDULO 1.5</span><h1 class="text-3xl sm:text-4xl font-bold mb-4">🍽️ O método PRATO — visão geral</h1><p class="text-lg text-neutral-400 max-w-3xl">Preparar, Resumir, Agenciar, Traçar, Operar. As 5 letras que organizam todo o curso e toda a sua implementação. Um mapa completo antes de mergulhar nas trilhas.</p><div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl"><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-emerald-400">6</div><div class="text-xs text-neutral-400">Tópicos</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-emerald-400">30</div><div class="text-xs text-neutral-400">Minutos</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-emerald-400">Básico</div><div class="text-xs text-neutral-400">Nível</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-emerald-400">Framework</div><div class="text-xs text-neutral-400">Tipo</div></div></div></div></header>
-
+<nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"><div class="flex justify-between items-center h-14"><div class="flex items-center space-x-4"><a class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300" href="../../index.html"><span class="text-2xl">⚡</span><span class="font-bold text-lg hidden sm:inline">Agentic OS</span></a><span class="text-neutral-600">|</span><a class="text-sky-400 hover:text-sky-300 text-sm font-medium" href="https://duclub" target="_blank">duclub</a></div><div class="flex items-center space-x-1 sm:space-x-2"><a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-emerald-400 bg-emerald-500/10" href="index.html"><span class="sm:hidden">T1</span><span class="hidden sm:inline">Fundamentals</span></a><a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors" href="../trilha2/index.html"><span class="sm:hidden">T2</span><span class="hidden sm:inline">Identity</span></a><a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors" href="../trilha3/index.html"><span class="sm:hidden">T3</span><span class="hidden sm:inline">Knowledge</span></a><a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-amber-400 hover:bg-amber-500/10 transition-colors" href="../trilha4/index.html"><span class="sm:hidden">T4</span><span class="hidden sm:inline">Trabalhadores</span></a><a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-teal-400 hover:bg-teal-500/10 transition-colors" href="../trilha5/index.html"><span class="sm:hidden">T5</span><span class="hidden sm:inline">Automation</span></a><a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-rose-400 hover:bg-rose-500/10 transition-colors" href="../trilha6/index.html"><span class="sm:hidden">T6</span><span class="hidden sm:inline">Implantation</span></a><button class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2" id="theme-toggle"><svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-dark-icon" viewbox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg><svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-light-icon" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd"></path></svg></button></div></div></div></nav>
+<nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4"><div class="flex items-center space-x-2 text-sm text-neutral-400"><a class="hover:text-emerald-400" href="../../index.html">Start</a><span>/</span><a class="hover:text-emerald-400" href="index.html">Track 1</a><span>/</span><span class="text-emerald-400">Module 1.5</span></div></nav>
+<header class="bg-gradient-to-br from-emerald-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"><span class="inline-block px-3 py-1 bg-emerald-500/20 text-emerald-400 text-xs font-semibold rounded-full mb-4">MODULE 1.5</span><h1 class="text-3xl sm:text-4xl font-bold mb-4">🍽️ The DISH method — overview</h1><p class="text-lg text-neutral-400 max-w-3xl">Prepare, Summarize, Agency, Plot, Operate. The 5 letters that organize the entire course and its entire implementation. A complete map before diving into the trails.</p><div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl"><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-emerald-400">6</div><div class="text-xs text-neutral-400">Topics</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-emerald-400">30</div><div class="text-xs text-neutral-400">Minutes</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-emerald-400">Basic</div><div class="text-xs text-neutral-400">Level</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-emerald-400">Framework</div><div class="text-xs text-neutral-400">Type</div></div></div></div></header>
 <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-
-<section id="topico-1" class="mb-16">
-<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">1</span><h2 class="text-2xl font-bold">📂 P — Preparar</h2></div>
-<p class="text-neutral-300 mb-6 leading-relaxed">Antes de qualquer agente, antes de qualquer skill, antes de qualquer automação — <strong class="text-emerald-400">você precisa saber onde seus dados estão</strong>. Preparar é o inventário da despensa: mapear fontes, identificar sistemas, entender formatos e definir o source-of-truth de cada tipo de dado.</p>
+<section class="mb-16" id="topico-1">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">1</span><h2 class="text-2xl font-bold">📂 P — Prepare</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Before any agent, before any skill, before any automation —<strong class="text-emerald-400">you need to know where your data is</strong>. Preparing is the pantry inventory: mapping sources, identifying systems, understanding formats and defining the source-of-truth of each type of data.</p>
 <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
-<h3 class="text-lg font-semibold text-emerald-400 mb-4 flex items-center"><span class="mr-2">📦</span> A metáfora da despensa (Pantry)</h3>
-<p class="text-neutral-300 text-sm mb-4">Um chef profissional não começa a cozinhar sem conhecer o que tem na despensa. O método PRATO usa a mesma lógica:</p>
+<h3 class="text-lg font-semibold text-emerald-400 mb-4 flex items-center"><span class="mr-2">📦</span>The pantry metaphor</h3>
+<p class="text-neutral-300 text-sm mb-4">A professional chef doesn't start cooking without knowing what's in the pantry. The DISH method uses the same logic:</p>
 <ul class="space-y-2 text-neutral-300 text-sm">
-<li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span><strong class="text-neutral-100">Inventário de fontes</strong> — liste todos os sistemas: CRM, EHR, planilhas, APIs, arquivos locais, emails.</span></li>
-<li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span><strong class="text-neutral-100">Mapeamento de formatos</strong> — CSV, JSON, PDF, XLS, SQL — cada um exige tratamento diferente.</span></li>
-<li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span><strong class="text-neutral-100">Identificação do source-of-truth</strong> — quando há conflito, qual sistema vence? Definir isso evita o erro do Marco.</span></li>
-<li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span><strong class="text-neutral-100">Diagnóstico de qualidade</strong> — dados duplicados? Desatualizados? Incompletos? Documentar antes de prosseguir.</span></li>
+<li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span><strong class="text-neutral-100">Font inventory</strong>— list all systems: CRM, EHR, spreadsheets, APIs, local files, emails.</span></li>
+<li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span><strong class="text-neutral-100">Format mapping</strong>— CSV, JSON, PDF, XLS, SQL — each requires different treatment.</span></li>
+<li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span><strong class="text-neutral-100">Source-of-truth identification</strong>— when there is conflict, which system wins? Defining this avoids Marco's error.</span></li>
+<li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span><strong class="text-neutral-100">Quality diagnostics</strong>— duplicate data? Outdated? Incomplete? Document before proceeding.</span></li>
 </ul>
 </div>
 <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
-<h3 class="text-lg font-semibold text-blue-400 mb-3 flex items-center"><span class="mr-2">📊</span> P na prática: Marco prepara o SlabHaus</h3>
-<p class="text-neutral-300 text-sm">Marco lista: Shopify (pedidos, estoque), Stripe (receita), Meta Ads (custo de aquisição), TikTok Analytics (engajamento), Gorgias (tickets). Source-of-truth de receita: Stripe. Source-of-truth de cliente: Shopify. Conflito identificado: frete está em Shopify e Stripe com valores diferentes — Shopify é o correto (confirmado com o contador).</p>
+<h3 class="text-lg font-semibold text-blue-400 mb-3 flex items-center"><span class="mr-2">📊</span>P in practice: Marco prepares the SlabHaus</h3>
+<p class="text-neutral-300 text-sm">Marco list: Shopify (orders, inventory), Stripe (revenue), Meta Ads (acquisition cost), TikTok Analytics (engagement), Gorgias (tickets). Revenue source-of-truth: Stripe. Customer source-of-truth: Shopify. Conflict identified: shipping is on Shopify and Stripe with different values ​​— Shopify is correct (confirmed with the accountant).</p>
 </div>
 </section>
-
-<section id="topico-2" class="mb-16">
-<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">2</span><h2 class="text-2xl font-bold">📝 R — Resumir</h2></div>
-<p class="text-neutral-300 mb-6 leading-relaxed">Dado preparado ainda não é dado utilizável pelo agente. A segunda etapa é <strong class="text-emerald-400">transformar dados brutos em Silver Platters</strong> — arquivos markdown estruturados que o agente consegue consumir em segundos, com os KPIs certos, na granularidade certa, com frescor definido.</p>
+<section class="mb-16" id="topico-2">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">2</span><h2 class="text-2xl font-bold">📝 R — Summarize</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Prepared data is not yet usable data by the agent. The second step is<strong class="text-emerald-400">transform raw data into Silver Platters</strong>— structured markdown files that the agent can consume in seconds, with the right KPIs, at the right granularity, with defined freshness.</p>
 <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
-<h3 class="text-lg font-semibold text-emerald-400 mb-4 flex items-center"><span class="mr-2">🍽️</span> O que é um Silver Platter</h3>
-<p class="text-neutral-300 text-sm mb-4">Um arquivo <code class="bg-dark-700 px-1 rounded">.md</code> que contém um resumo estruturado de uma área de conhecimento. Características obrigatórias:</p>
+<h3 class="text-lg font-semibold text-emerald-400 mb-4 flex items-center"><span class="mr-2">🍽️</span>What is a Silver Plater</h3>
+<p class="text-neutral-300 text-sm mb-4">A file<code class="bg-dark-700 px-1 rounded" data-notranslate="True">.md</code>which contains a structured summary of an area of ​​knowledge. Mandatory Features:</p>
 <ul class="space-y-2 text-neutral-300 text-sm">
-<li><strong class="text-neutral-100">Escopo claro</strong> — <code class="bg-dark-700 px-1 rounded">financeiro.md</code> fala só de finanças, nunca de marketing.</li>
-<li><strong class="text-neutral-100">Frescor definido</strong> — atualizado diariamente, semanalmente ou por evento. Sempre com timestamp.</li>
-<li><strong class="text-neutral-100">Granularidade certa</strong> — KPIs que o decisor precisa, não todos os dados disponíveis.</li>
-<li><strong class="text-neutral-100">Alertas embutidos</strong> — desvios, anomalias, urgências — o agente lê e já sabe o que importa.</li>
+<li><strong class="text-neutral-100">Clear scope</strong> — <code class="bg-dark-700 px-1 rounded" data-notranslate="True">financeiro.md</code>He only talks about finance, never about marketing.</li>
+<li><strong class="text-neutral-100">Defined freshness</strong>— updated daily, weekly or by event. Always with timestamp.</li>
+<li><strong class="text-neutral-100">Right granularity</strong>— KPIs that the decision maker needs, not all available data.</li>
+<li><strong class="text-neutral-100">Built-in alerts</strong>— deviations, anomalies, emergencies — the agent reads and already knows what matters.</li>
 </ul>
 <div class="mt-4 bg-dark-700 rounded p-4 font-mono text-sm text-neutral-300">
-<span class="text-emerald-400"># Silver Platter: clientes.md (Marco/SlabHaus)</span><br>
-<span class="text-neutral-500">## Atualizado: 2026-05-15 08:00</span><br><br>
-## Whales (LTV &gt; R$ 5.000)<br>
-- Total: 47 clientes<br>
-- Compra média: R$ 1.240<br>
-- Frequência: 2.3x/mês<br><br>
-## Alerta<br>
-- 12 whales sem compra há &gt;30 dias (risco churn)<br>
-- Top whale: @usuario_xyz — R$ 18.400 LTV
-</div>
+<span class="text-emerald-400"># Silver Platter: cliente.md (Marco/SlabHaus)</span><br/>
+<span class="text-neutral-500">## Updated: 2026-05-15 08:00</span><br/><br/>## Whales (LTV &gt; R$5,000)<br/>- Total: 47 customers<br/>- Average purchase: R$ 1,240<br/>- Frequency: 2.3x/month<br/><br/>## Alert<br/>- 12 whales without purchase for &gt;30 days (churn risk)<br/>- Top whale: @usuario_xyz — R$ 18,400 LTV</div>
 </div>
 <div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
-<h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> R está na Trilha 3</h3>
-<p class="text-neutral-300 text-sm">A Trilha 3 (Conhecimento) é inteiramente dedicada a Resumir: como criar Silver Platters, qual granularidade usar, como automatizar a atualização, como versionar. Aqui em 1.5 você entende o conceito — lá você implementa.</p>
+<h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span>R is on Track 3</h3>
+<p class="text-neutral-300 text-sm">Track 3 (Knowledge) is entirely dedicated to Summarizing: how to create Silver Platters, what granularity to use, how to automate the update, how to version. Here in 1.5 you understand the concept — there you implement it.</p>
 </div>
 </section>
-
-<section id="topico-3" class="mb-16">
-<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">3</span><h2 class="text-2xl font-bold">👔 A — Agenciar</h2></div>
-<p class="text-neutral-300 mb-6 leading-relaxed">Com dados preparados e resumos prontos, a terceira etapa é montar a equipe agêntica. <strong class="text-emerald-400">Agenciar é definir quem faz o quê</strong>: que especialistas existem, qual é o escopo de cada um, quais ferramentas têm acesso, e como o orquestrador coordena o fluxo.</p>
+<section class="mb-16" id="topico-3">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">3</span><h2 class="text-2xl font-bold">👔 A — Agency</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">With data prepared and summaries ready, the third step is to assemble the agentic team.<strong class="text-emerald-400">Agency is defining who does what</strong>: which experts exist, what is the scope of each one, which tools they have access to, and how the orchestrator coordinates the flow.</p>
 <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
-<h3 class="text-lg font-semibold text-emerald-400 mb-4 flex items-center"><span class="mr-2">🏢</span> Estrutura agêntica padrão</h3>
+<h3 class="text-lg font-semibold text-emerald-400 mb-4 flex items-center"><span class="mr-2">🏢</span>Standard agentic structure</h3>
 <div class="space-y-3 text-sm">
 <div class="flex items-start space-x-3">
 <div class="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-500/20 flex items-center justify-center text-emerald-400 font-bold text-xs">EA</div>
-<div class="flex-1"><p class="font-semibold text-neutral-100">EA Orchestrator (Chief-of-Staff)</p><p class="text-neutral-400">Recebe pergunta, decide qual especialista acionar, sintetiza resultado. Acesso de leitura a todos os Silver Platters.</p></div>
+<div class="flex-1"><p class="font-semibold text-neutral-100">EA Orchestrator (Chief-of-Staff)</p><p class="text-neutral-400">Receives questions, decides which specialist to call, summarizes results. Read access to all Silver Platters.</p></div>
 </div>
 <div class="flex items-start space-x-3">
 <div class="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-500/20 flex items-center justify-center text-emerald-400 font-bold text-xs">CFO</div>
-<div class="flex-1"><p class="font-semibold text-neutral-100">CFO Bot (Finanças)</p><p class="text-neutral-400">Analisa P&L, margem, custo. Acesso: <code class="bg-dark-700 px-1 rounded">/financeiro/</code> e <code class="bg-dark-700 px-1 rounded">/billing/</code>. Sem acesso a marketing ou operações.</p></div>
+<div class="flex-1"><p class="font-semibold text-neutral-100">CFO Bot (Finance)</p><p class="text-neutral-400">Analyzes P&amp;L, margin, cost. Access:<code class="bg-dark-700 px-1 rounded" data-notranslate="True">/financeiro/</code> e <code class="bg-dark-700 px-1 rounded" data-notranslate="True">/billing/</code>. No access to marketing or operations.</p></div>
 </div>
 <div class="flex items-start space-x-3">
 <div class="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-500/20 flex items-center justify-center text-emerald-400 font-bold text-xs">CMO</div>
-<div class="flex-1"><p class="font-semibold text-neutral-100">CMO Bot (Marketing/Cliente)</p><p class="text-neutral-400">Analisa engajamento, voz do cliente, campanha. Acesso: <code class="bg-dark-700 px-1 rounded">/marketing/</code> e <code class="bg-dark-700 px-1 rounded">/clientes/</code>. Sem acesso a finanças.</p></div>
+<div class="flex-1"><p class="font-semibold text-neutral-100">CMO Bot (Marketing/Customer)</p><p class="text-neutral-400">Analyzes engagement, voice of the customer, campaign. Access:<code class="bg-dark-700 px-1 rounded" data-notranslate="True">/marketing/</code> e <code class="bg-dark-700 px-1 rounded" data-notranslate="True">/clientes/</code>. No access to finances.</p></div>
 </div>
 <div class="flex items-start space-x-3">
 <div class="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-500/20 flex items-center justify-center text-emerald-400 font-bold text-xs">OPS</div>
-<div class="flex-1"><p class="font-semibold text-neutral-100">Ops Bot (Operações)</p><p class="text-neutral-400">Rastreia operações, SLAs, fornecedores. Acesso: <code class="bg-dark-700 px-1 rounded">/ops/</code>. Escopo estrito.</p></div>
+<div class="flex-1"><p class="font-semibold text-neutral-100">Ops Bot (Operations)</p><p class="text-neutral-400">Tracks operations, SLAs, suppliers. Access:<code class="bg-dark-700 px-1 rounded" data-notranslate="True">/ops/</code>. Strict scope.</p></div>
 </div>
 </div>
 </div>
 <div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
-<h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> A está na Trilha 4</h3>
-<p class="text-neutral-300 text-sm">A Trilha 4 (Trabalhadores) cobre Agenciar em profundidade: como criar AGENTS.md, como definir escopo, como construir o orquestrador, como fazer handoff entre especialistas. Aqui você entende o conceito — lá você constrói.</p>
+<h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span>A is on Track 4</h3>
+<p class="text-neutral-300 text-sm">Track 4 (Workers) covers Agency in depth: how to create AGENTS.md, how to define scope, how to build the orchestrator, how to handoff between experts. Here you understand the concept — there you build.</p>
 </div>
 </section>
-
-<section id="topico-4" class="mb-16">
-<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">4</span><h2 class="text-2xl font-bold">⚙️ T — Traçar</h2></div>
-<p class="text-neutral-300 mb-6 leading-relaxed">Agentes prontos ainda precisam de gatilhos. <strong class="text-emerald-400">Traçar é configurar os hooks e automações que fazem o trabalho acontecer sem depender de você lembrar</strong>. SessionStart, PostToolUse, Stop, schedules — são o sistema nervoso autônomo da sua operação agêntica.</p>
+<section class="mb-16" id="topico-4">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">4</span><h2 class="text-2xl font-bold">⚙️ T — Trace</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Ready agents still need triggers.<strong class="text-emerald-400">Tracing is configuring the hooks and automations that make the work happen without relying on you to remember</strong>. SessionStart, PostToolUse, Stop, schedules — these are the autonomic nervous system of your agentic operation.</p>
 <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
-<h3 class="text-lg font-semibold text-emerald-400 mb-4 flex items-center"><span class="mr-2">🔗</span> Tipos de hooks e seus usos</h3>
+<h3 class="text-lg font-semibold text-emerald-400 mb-4 flex items-center"><span class="mr-2">🔗</span>Types of hooks and their uses</h3>
 <ul class="space-y-3 text-neutral-300 text-sm">
-<li><strong class="text-neutral-100">PreToolUse</strong> — antes de qualquer ferramenta executar. Ideal para validação, confirmação, logs de audit.</li>
-<li><strong class="text-neutral-100">PostToolUse</strong> — depois de ferramenta executar. Ideal para notificações, atualização de Silver Platters, alertas.</li>
-<li><strong class="text-neutral-100">SessionStart</strong> — ao iniciar uma sessão. Carrega contexto, atualiza dados, define estado.</li>
-<li><strong class="text-neutral-100">Stop</strong> — ao encerrar. Gera resumo, salva decisões, agenda próxima ação.</li>
-<li><strong class="text-neutral-100">Schedules</strong> — cron-like. "Todo dia às 7h, atualiza Silver Platters." Trabalho invisível.</li>
+<li><strong class="text-neutral-100">PreToolUse</strong>— before any tool runs. Ideal for validation, confirmation, audit logs.</li>
+<li><strong class="text-neutral-100">PostToolUse</strong>— after tool runs. Ideal for notifications, updating Silver Platters, alerts.</li>
+<li><strong class="text-neutral-100">SessionStart</strong>— when starting a session. Loads context, updates data, sets state.</li>
+<li><strong class="text-neutral-100">Stop</strong>— when closing. Generates summary, saves decisions, schedules next action.</li>
+<li><strong class="text-neutral-100">Schedules</strong>— cron-like. "Every day at 7am, updates Silver Platters." Invisible work.</li>
 </ul>
 <div class="mt-4 bg-dark-700 rounded p-4 font-mono text-sm text-neutral-300">
-<span class="text-emerald-400"># Exemplo: hook Sunday do Marco</span><br>
-<span class="text-neutral-500"># Toda sexta às 18h via schedule</span><br>
-script: consolidar_semana.sh<br>
-→ Shopify export → normalizar → financeiro.md<br>
-→ TikTok export → normalizar → marketing.md<br>
-→ Notificar Marco via Slack com resumo
-</div>
+<span class="text-emerald-400"># Example: Marco's Sunday hook</span><br/>
+<span class="text-neutral-500"># Every Friday at 6pm via schedule</span><br/>script: consolidate_week.sh<br/>→ Shopify export → normalize → financier.md<br/>→ TikTok export → normalize → marketing.md<br/>→ Notify Marco via Slack with summary</div>
 </div>
 <div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
-<h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> T está na Trilha 5</h3>
-<p class="text-neutral-300 text-sm">A Trilha 5 (Automação) cobre Traçar: como configurar hooks no settings.json, como criar schedules, como testar idempotência, como lidar com falhas. Aqui o conceito — lá a implementação.</p>
+<h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span>T is on Track 5</h3>
+<p class="text-neutral-300 text-sm">Track 5 (Automation) covers Tracing: how to configure hooks in settings.json, how to create schedules, how to test idempotence, how to handle failures. Here the concept — there the implementation.</p>
 </div>
 </section>
-
-<section id="topico-5" class="mb-16">
-<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">5</span><h2 class="text-2xl font-bold">🚀 O — Operar</h2></div>
-<p class="text-neutral-300 mb-6 leading-relaxed">O sistema está montado. Agora vem a parte que a maioria negligencia: <strong class="text-emerald-400">colocar em produção com observabilidade e governança</strong>. Operar não é "ligar e torcer" — é monitorar, avaliar, iterar e manter o sistema saudável ao longo do tempo.</p>
+<section class="mb-16" id="topico-5">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">5</span><h2 class="text-2xl font-bold">🚀 O — Operate</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">The system is assembled. Now comes the part that most people overlook:<strong class="text-emerald-400">put into production with observability and governance</strong>. Operating isn't about "plugging in and hoping" — it's about monitoring, evaluating, iterating, and keeping the system healthy over time.</p>
 <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
-<h3 class="text-lg font-semibold text-emerald-400 mb-4 flex items-center"><span class="mr-2">📊</span> O que "operar" significa na prática</h3>
+<h3 class="text-lg font-semibold text-emerald-400 mb-4 flex items-center"><span class="mr-2">📊</span>What “operate” means in practice</h3>
 <ul class="space-y-3 text-neutral-300 text-sm">
-<li><strong class="text-neutral-100">Traces em produção</strong> — toda execução registrada. Saber o que aconteceu, quando e com que resultado.</li>
-<li><strong class="text-neutral-100">Evals periódicas</strong> — a cada semana ou sprint, revisar amostras das respostas dos agentes. Qualidade mantida.</li>
-<li><strong class="text-neutral-100">Validação humana</strong> — para decisões de alto impacto, humano-no-loop obrigatório. Não como exceção, como regra.</li>
-<li><strong class="text-neutral-100">Plano de evolução</strong> — o sistema melhora. Novos Silver Platters, novos skills, novos agentes à medida que o negócio cresce.</li>
-<li><strong class="text-neutral-100">Custos sob controle</strong> — orçamento de tokens por agente, alerta quando ultrapassar threshold.</li>
+<li><strong class="text-neutral-100">Traces in production</strong>— every execution recorded. Know what happened, when and with what result.</li>
+<li><strong class="text-neutral-100">Periodic evals</strong>— each week or sprint, review samples of agent responses. Maintained quality.</li>
+<li><strong class="text-neutral-100">Human validation</strong>— for high-impact, human-in-the-loop mandatory decisions. Not as an exception, as a rule.</li>
+<li><strong class="text-neutral-100">Evolution plan</strong>— the system improves. New Silver Platters, new skills, new agents as the business grows.</li>
+<li><strong class="text-neutral-100">Costs under control</strong>— token budget per agent, alert when exceeding threshold.</li>
 </ul>
 </div>
 <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
-<h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center"><span class="mr-2">📈</span> O ciclo de melhoria contínua</h3>
+<h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center"><span class="mr-2">📈</span>The continuous improvement cycle</h3>
 <div class="space-y-2 text-sm text-neutral-300">
-<div class="flex items-center space-x-3"><span class="text-blue-400 font-bold">1.</span><span>Executar → traces automáticos coletam dados de qualidade</span></div>
-<div class="flex items-center space-x-3"><span class="text-blue-400 font-bold">2.</span><span>Revisar → evals identificam onde o agente errou ou foi impreciso</span></div>
-<div class="flex items-center space-x-3"><span class="text-blue-400 font-bold">3.</span><span>Diagnosticar → raiz do erro: dado, prompt, lógica ou ferramenta?</span></div>
-<div class="flex items-center space-x-3"><span class="text-blue-400 font-bold">4.</span><span>Corrigir → atualiza Silver Platter, skill ou CLAUDE.md conforme necessário</span></div>
-<div class="flex items-center space-x-3"><span class="text-blue-400 font-bold">5.</span><span>Validar → testa a correção antes de subir para produção</span></div>
-<div class="flex items-center space-x-3"><span class="text-blue-400 font-bold">6.</span><span>Repetir → sistema fica melhor a cada iteração</span></div>
+<div class="flex items-center space-x-3"><span class="text-blue-400 font-bold">1.</span><span>Run → automatic traces collect quality data</span></div>
+<div class="flex items-center space-x-3"><span class="text-blue-400 font-bold">2.</span><span>Review → evals identify where the agent made a mistake or was inaccurate</span></div>
+<div class="flex items-center space-x-3"><span class="text-blue-400 font-bold">3.</span><span>Diagnose → root of the error: data, prompt, logic or tool?</span></div>
+<div class="flex items-center space-x-3"><span class="text-blue-400 font-bold">4.</span><span>Fix → update Silver Platter, skill or CLAUDE.md as needed</span></div>
+<div class="flex items-center space-x-3"><span class="text-blue-400 font-bold">5.</span><span>Validate → test the fix before going to production</span></div>
+<div class="flex items-center space-x-3"><span class="text-blue-400 font-bold">6.</span><span>Repeat → system gets better with each iteration</span></div>
 </div>
 </div>
 </section>
-
-<section id="topico-6" class="mb-16">
-<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">6</span><h2 class="text-2xl font-bold">🧭 PRATO × trilhas</h2></div>
-<p class="text-neutral-300 mb-6 leading-relaxed">O método PRATO não é uma sequência de leitura — é um mapa de onde cada trilha mora. <strong class="text-emerald-400">Você sempre sabe em que etapa do método está</strong>, o que já tem e o que falta construir. Isso evita o erro de pular direto para automação sem ter base.</p>
+<section class="mb-16" id="topico-6">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">6</span><h2 class="text-2xl font-bold">🧭 DISH × trails</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">The DISH method isn't a reading sequence — it's a map of where each track lives.<strong class="text-emerald-400">You always know which step of the method you are in</strong>, what you already have and what needs to be built. This avoids the mistake of jumping straight into automation without having a foundation.</p>
 <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
-<h3 class="text-lg font-semibold text-emerald-400 mb-4 flex items-center"><span class="mr-2">🗺️</span> Onde cada letra mora no curso</h3>
+<h3 class="text-lg font-semibold text-emerald-400 mb-4 flex items-center"><span class="mr-2">🗺️</span>Where each letter lives on the course</h3>
 <div class="space-y-3 text-sm">
 <div class="flex items-start space-x-3">
 <span class="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-500/20 flex items-center justify-center text-emerald-400 font-bold">P</span>
-<div><p class="font-semibold text-neutral-100">Preparar → Trilha 1 (fundamento) + Trilha 3 (implementação)</p><p class="text-neutral-400">T1 explica o conceito. T3 ensina a criar o inventário de dados e organizar fontes.</p></div>
+<div><p class="font-semibold text-neutral-100">Prepare → Track 1 (fundamental) + Track 3 (implementation)</p><p class="text-neutral-400">T1 explains the concept. T3 teaches you how to create data inventory and organize sources.</p></div>
 </div>
 <div class="flex items-start space-x-3">
 <span class="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-500/20 flex items-center justify-center text-emerald-400 font-bold">R</span>
-<div><p class="font-semibold text-neutral-100">Resumir → Trilha 3 (Silver Platters)</p><p class="text-neutral-400">Como criar, atualizar, versionar e testar Silver Platters para cada área do negócio.</p></div>
+<div><p class="font-semibold text-neutral-100">Summarize → Track 3 (Silver Platters)</p><p class="text-neutral-400">How to create, update, version and test Silver Platters for each area of ​​the business.</p></div>
 </div>
 <div class="flex items-start space-x-3">
 <span class="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-500/20 flex items-center justify-center text-emerald-400 font-bold">A</span>
-<div><p class="font-semibold text-neutral-100">Agenciar → Trilha 2 (Identidade) + Trilha 4 (Trabalhadores)</p><p class="text-neutral-400">T2: CLAUDE.md, AGENTS.md, identidade. T4: orquestrador, especialistas, handoff.</p></div>
+<div><p class="font-semibold text-neutral-100">Agency → Track 2 (Identity) + Track 4 (Workers)</p><p class="text-neutral-400">T2: CLAUDE.md, AGENTS.md, identity. T4: orchestrator, experts, handoff.</p></div>
 </div>
 <div class="flex items-start space-x-3">
 <span class="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-500/20 flex items-center justify-center text-emerald-400 font-bold">T</span>
-<div><p class="font-semibold text-neutral-100">Traçar → Trilha 5 (Automação)</p><p class="text-neutral-400">Hooks, schedules, eventos de ciclo de vida, idempotência e tratamento de falhas.</p></div>
+<div><p class="font-semibold text-neutral-100">Trace → Track 5 (Automation)</p><p class="text-neutral-400">Hooks, schedules, lifecycle events, idempotence and failure handling.</p></div>
 </div>
 <div class="flex items-start space-x-3">
 <span class="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-500/20 flex items-center justify-center text-emerald-400 font-bold">O</span>
-<div><p class="font-semibold text-neutral-100">Operar → Trilha 5 + Trilha 6 (Implantação)</p><p class="text-neutral-400">T5: observabilidade e evals. T6: implantação completa com os 3 casos (Marco, Sally, Sana).</p></div>
+<div><p class="font-semibold text-neutral-100">Operate → Track 5 + Track 6 (Deployment)</p><p class="text-neutral-400">T5: observability and evals. T6: complete implementation with the 3 cases (Marco, Sally, Sana).</p></div>
 </div>
 </div>
 </div>
 <div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
-<h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> PRATO como autoavaliação</h3>
-<p class="text-neutral-300 text-sm">A qualquer momento durante o curso, você pode perguntar: "Estou em qual letra do PRATO?" Se você sabe onde está, sabe o que falta. Se você sabe o que falta, sabe qual trilha priorizar. O método é também um diagnóstico da sua maturidade operacional.</p>
+<h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span>DISH as self-assessment</h3>
+<p class="text-neutral-300 text-sm">At any time during the course, you can ask, "Which letter on the PLATE am I?" If you know where you are, you know what's missing. If you know what’s missing, you know which trail to prioritize. The method is also a diagnosis of its operational maturity.</p>
 </div>
 </section>
-
 <section class="mb-12">
 <div class="bg-gradient-to-br from-emerald-900/40 via-dark-800 to-dark-800 rounded-xl border border-emerald-500/30 p-8">
-<h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-3">📋</span> Resumo do Módulo</h2>
+<h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-3">📋</span>Module Summary</h2>
 <div class="space-y-4 mb-8">
-<div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">P — Preparar</strong><span class="text-neutral-400"> — inventário de fontes, source-of-truth, diagnóstico de qualidade antes de qualquer IA</span></div></div>
-<div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">R — Resumir</strong><span class="text-neutral-400"> — Silver Platters .md com escopo, frescor, granularidade e alertas embutidos</span></div></div>
-<div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">A — Agenciar</strong><span class="text-neutral-400"> — orquestrador + especialistas com escopo, ferramentas e SLA definidos</span></div></div>
-<div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">T — Traçar</strong><span class="text-neutral-400"> — hooks e schedules que fazem o trabalho acontecer sem depender de lembrar</span></div></div>
-<div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">O — Operar</strong><span class="text-neutral-400"> — traces, evals, governança e ciclo de melhoria contínua em produção</span></div></div>
-<div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">PRATO × trilhas</strong><span class="text-neutral-400"> — mapa completo: cada letra tem trilha(s) dedicada(s) para implementação</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">P — Prepare</strong><span class="text-neutral-400">— source inventory, source-of-truth, quality diagnosis before any AI</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">R — Summarize</strong><span class="text-neutral-400">— Silver Platters .md with scope, freshness, granularity and built-in alerts</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">A — Agency</strong><span class="text-neutral-400">— orchestrator + experts with defined scope, tools and SLA</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">T — Trace</strong><span class="text-neutral-400">— hooks and schedules that make work happen without relying on remembering</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">O — Operate</strong><span class="text-neutral-400">— traces, evals, governance and continuous improvement cycle in production</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">DISH × trails</strong><span class="text-neutral-400">— full map: each letter has dedicated track(s) for implementation</span></div></div>
 </div>
-<div class="bg-dark-800/50 rounded-lg p-4 mb-8"><h3 class="font-semibold text-emerald-400 mb-2">Próximo Módulo:</h3><p class="text-neutral-300">1.6 — Como usar este curso: mapa, ritmo e projeto final</p></div>
-<div class="flex flex-col sm:flex-row gap-4"><a href="modulo-1-4.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">← Módulo Anterior</a><a href="index.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">← Voltar para Trilha</a><a href="modulo-1-6.html" class="flex-1 text-center px-6 py-3 bg-emerald-600 text-white rounded-lg font-semibold hover:bg-emerald-500 transition-colors">Próximo Módulo →</a></div>
+<div class="bg-dark-800/50 rounded-lg p-4 mb-8"><h3 class="font-semibold text-emerald-400 mb-2">Next Module:</h3><p class="text-neutral-300">1.6 — How to use this course: map, rhythm and final project</p></div>
+<div class="flex flex-col sm:flex-row gap-4"><a class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors" href="modulo-1-4.html">← Previous Module</a><a class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors" href="index.html">← Back to Trail</a><a class="flex-1 text-center px-6 py-3 bg-emerald-600 text-white rounded-lg font-semibold hover:bg-emerald-500 transition-colors" href="modulo-1-6.html">Next Module →</a></div>
 </div>
 </section>
-
 </main>
-
-<footer class="border-t border-dark-600 py-8 mt-16"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm"><p>Agentic OS — INEMA.CLUB · 2026</p></div></footer>
-<script>
+<footer class="border-t border-dark-600 py-8 mt-16"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm"><p>Agentic OS — duclub · 2026</p></div></footer>
+<script data-notranslate="True">
 const tt=document.getElementById('theme-toggle'),tdi=document.getElementById('theme-toggle-dark-icon'),tli=document.getElementById('theme-toggle-light-icon'),h=document.documentElement;
 if(localStorage.getItem('theme')==='light'||(!localStorage.getItem('theme')&&!h.classList.contains('dark'))){tdi.classList.remove('hidden');h.classList.remove('dark')}else{tli.classList.remove('hidden')}
 tt.addEventListener('click',()=>{tdi.classList.toggle('hidden');tli.classList.toggle('hidden');h.classList.toggle('dark');localStorage.setItem('theme',h.classList.contains('dark')?'dark':'light')});
