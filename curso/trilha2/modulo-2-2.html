@@ -1,12 +1,12 @@
-<!DOCTYPE html>
-<html lang="pt-BR" class="dark">
+html
+<html class="dark" lang="pt-BR">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>2.2 — AGENTS.md como padrão multi-vendor | Agentic OS</title>
-<script src="https://cdn.tailwindcss.com"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<script>tailwind.config={darkMode:'class',theme:{extend:{colors:{primary:'#FACC15',dark:{900:'#111827',800:'#1f2937',700:'#374151',600:'#4b5563'}}}}}</script>
-<style>
+<meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>2.2 — AGENTS.md as multi-vendor standard | Agentic OS</title>
+<script data-notranslate="True" src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<script data-notranslate="True">tailwind.config={darkMode:'class',theme:{extend:{colors:{primary:'#FACC15',dark:{900:'#111827',800:'#1f2937',700:'#374151',600:'#4b5563'}}}}}</script>
+<style data-notranslate="True">
 body{font-family:'Inter',sans-serif}
 html:not(.dark) body{background:#f8fafc}html:not(.dark) .bg-dark-900{background:#fff}html:not(.dark) .bg-dark-800{background:#f9fafb}html:not(.dark) .bg-dark-700{background:#f3f4f6}html:not(.dark) .bg-dark-600{background:#e5e7eb}html:not(.dark) .text-neutral-100{color:#111827}html:not(.dark) .text-neutral-300{color:#4b5563}html:not(.dark) .text-neutral-400{color:#6b7280}html:not(.dark) .text-neutral-500{color:#9ca3af}html:not(.dark) .border-dark-600{border-color:#d1d5db}html:not(.dark) .border-dark-700{border-color:#e5e7eb}
 html:not(.dark) .text-blue-400{color:#2563eb}html:not(.dark) .bg-blue-500\/20{background:rgba(37,99,235,.12)}html:not(.dark) .bg-blue-500\/10{background:rgba(37,99,235,.08)}html:not(.dark) .border-blue-500\/30{border-color:rgba(37,99,235,.25)}html:not(.dark) .bg-blue-900\/20{background:rgba(37,99,235,.06)}html:not(.dark) .bg-blue-900\/30{background:rgba(37,99,235,.06)}html:not(.dark) .bg-blue-900\/40{background:rgba(37,99,235,.08)}
@@ -14,174 +14,162 @@ html:not(.dark) .text-red-400{color:#b91c1c}html:not(.dark) .bg-red-900\/20{back
 html:not(.dark) [class*="bg-gradient-to"]{background-image:none!important}html:not(.dark) .text-primary{color:#a16207}html:not(.dark) .bg-primary\/10{background:rgba(161,98,7,.08)}html:not(.dark) .border-primary\/30{border-color:rgba(161,98,7,.25)}html:not(.dark) .text-sky-400{color:#0369a1}html:not(.dark) .text-yellow-400{color:#a16207}html:not(.dark) .hover\:text-sky-300:hover{color:#0284c7}html:not(.dark) .hover\:text-yellow-300:hover{color:#854d0e}html:not(.dark) .bg-dark-900\/95{background:rgba(255,255,255,.95)}
 </style></head>
 <body class="bg-dark-900 text-neutral-100">
-<nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"><div class="flex justify-between items-center h-14"><div class="flex items-center space-x-4"><a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300"><span class="text-2xl">⚡</span><span class="font-bold text-lg hidden sm:inline">Agentic OS</span></a><span class="text-neutral-600">|</span><a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a></div><div class="flex items-center space-x-1 sm:space-x-2"><a href="../trilha1/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors"><span class="sm:hidden">T1</span><span class="hidden sm:inline">Fundamentos</span></a><a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-blue-400 bg-blue-500/10"><span class="sm:hidden">T2</span><span class="hidden sm:inline">Identidade</span></a><a href="../trilha3/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors"><span class="sm:hidden">T3</span><span class="hidden sm:inline">Conhecimento</span></a><a href="../trilha4/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-amber-400 hover:bg-amber-500/10 transition-colors"><span class="sm:hidden">T4</span><span class="hidden sm:inline">Trabalhadores</span></a><a href="../trilha5/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-teal-400 hover:bg-teal-500/10 transition-colors"><span class="sm:hidden">T5</span><span class="hidden sm:inline">Automação</span></a><a href="../trilha6/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-rose-400 hover:bg-rose-500/10 transition-colors"><span class="sm:hidden">T6</span><span class="hidden sm:inline">Implantação</span></a><button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2"><svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/></svg><svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"/></svg></button></div></div></div></nav>
-
-<nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4"><div class="flex items-center space-x-2 text-sm text-neutral-400"><a href="../../index.html" class="hover:text-blue-400">Início</a><span>/</span><a href="index.html" class="hover:text-blue-400">Trilha 2</a><span>/</span><span class="text-blue-400">Módulo 2.2</span></div></nav>
-
-<header class="bg-gradient-to-br from-blue-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"><span class="inline-block px-3 py-1 bg-blue-500/20 text-blue-400 text-xs font-semibold rounded-full mb-4">MÓDULO 2.2</span><h1 class="text-3xl sm:text-4xl font-bold mb-4">🌐 AGENTS.md como padrão multi-vendor</h1><p class="text-lg text-neutral-400 max-w-3xl">Sob a Linux Foundation. Usado por OpenAI Codex, Google Jules, Cursor, Factory, Amp. O padrão que funciona independentemente do agente que você usa.</p><div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl"><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">6</div><div class="text-xs text-neutral-400">Tópicos</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">35</div><div class="text-xs text-neutral-400">Minutos</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">Básico</div><div class="text-xs text-neutral-400">Nível</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">Padrão</div><div class="text-xs text-neutral-400">Tipo</div></div></div></div></header>
-
+<nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"><div class="flex justify-between items-center h-14"><div class="flex items-center space-x-4"><a class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300" href="../../index.html"><span class="text-2xl">⚡</span><span class="font-bold text-lg hidden sm:inline">Agentic OS</span></a><span class="text-neutral-600">|</span><a class="text-sky-400 hover:text-sky-300 text-sm font-medium" href="https://duclub" target="_blank">duclub</a></div><div class="flex items-center space-x-1 sm:space-x-2"><a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors" href="../trilha1/index.html"><span class="sm:hidden">T1</span><span class="hidden sm:inline">Fundamentals</span></a><a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-blue-400 bg-blue-500/10" href="index.html"><span class="sm:hidden">T2</span><span class="hidden sm:inline">Identity</span></a><a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors" href="../trilha3/index.html"><span class="sm:hidden">T3</span><span class="hidden sm:inline">Knowledge</span></a><a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-amber-400 hover:bg-amber-500/10 transition-colors" href="../trilha4/index.html"><span class="sm:hidden">T4</span><span class="hidden sm:inline">Workers</span></a><a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-teal-400 hover:bg-teal-500/10 transition-colors" href="../trilha5/index.html"><span class="sm:hidden">T5</span><span class="hidden sm:inline">Automation</span></a><a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-rose-400 hover:bg-rose-500/10 transition-colors" href="../trilha6/index.html"><span class="sm:hidden">T6</span><span class="hidden sm:inline">Implantation</span></a><button class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2" id="theme-toggle"><svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-dark-icon" viewbox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg><svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-light-icon" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd"></path></svg></button></div></div></div></nav>
+<nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4"><div class="flex items-center space-x-2 text-sm text-neutral-400"><a class="hover:text-blue-400" href="../../index.html">Start</a><span>/</span><a class="hover:text-blue-400" href="index.html">Track 2</a><span>/</span><span class="text-blue-400">Module 2.2</span></div></nav>
+<header class="bg-gradient-to-br from-blue-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"><span class="inline-block px-3 py-1 bg-blue-500/20 text-blue-400 text-xs font-semibold rounded-full mb-4">MODULE 2.2</span><h1 class="text-3xl sm:text-4xl font-bold mb-4">🌐 AGENTS.md as multi-vendor standard</h1><p class="text-lg text-neutral-400 max-w-3xl">Under the Linux Foundation. Used by OpenAI Codex, Google Jules, Cursor, Factory, Amp. The pattern that works regardless of the agent you use.</p><div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl"><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">6</div><div class="text-xs text-neutral-400">Topics</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">35</div><div class="text-xs text-neutral-400">Minutes</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">Basic</div><div class="text-xs text-neutral-400">Level</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">Standard</div><div class="text-xs text-neutral-400">Type</div></div></div></div></header>
 <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-
-<section id="topico-1" class="mb-16">
-<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">1</span><h2 class="text-2xl font-bold">📖 O que é AGENTS.md</h2></div>
-<p class="text-neutral-300 mb-6 leading-relaxed">Se o CLAUDE.md é um documento específico do ecossistema Anthropic, o <strong class="text-blue-400">AGENTS.md</strong> é a resposta da indústria para a mesma necessidade — um arquivo padronizado que qualquer agente de código pode ler. Iniciado como padrão comunitário e adotado pela Linux Foundation em 2025, o AGENTS.md é o "README para máquinas": fornece contexto de projeto, build steps, convenções e restrições de forma que funciona em OpenAI Codex, Google Jules, Cursor, Factory e qualquer agente que siga o padrão.</p>
+<section class="mb-16" id="topico-1">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">1</span><h2 class="text-2xl font-bold">📖 What is AGENTS.md</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">If CLAUDE.md is a document specific to the Anthropic ecosystem, the<strong class="text-blue-400">AGENTS.md</strong>is the industry's answer to the same need — a standardized file that any code agent can read. Started as a community standard and adopted by the Linux Foundation in 2025, AGENTS.md is the "README for machines": it provides project context, build steps, conventions and constraints so that it works in OpenAI Codex, Google Jules, Cursor, Factory and any agent that follows the standard.</p>
 <div class="bg-gradient-to-br from-blue-900/30 to-dark-800 rounded-xl border border-blue-500/30 p-6 mb-6">
-<h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center"><span class="mr-2">🌐</span> Por que um padrão aberto importa</h3>
+<h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center"><span class="mr-2">🌐</span>Why an open standard matters</h3>
 <ul class="space-y-2 text-neutral-300 text-sm">
-<li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">•</span><span><strong class="text-neutral-100">Portabilidade</strong> — escreva uma vez, funciona em múltiplos agentes.</span></li>
-<li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">•</span><span><strong class="text-neutral-100">Sem vendor lock-in</strong> — não amarra seu projeto a um único provider.</span></li>
-<li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">•</span><span><strong class="text-neutral-100">Ecossistema</strong> — contribuições de OpenAI, Google, Anthropic, Cursor e outros.</span></li>
-<li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">•</span><span><strong class="text-neutral-100">Evolução governada</strong> — Linux Foundation garante processo de mudança aberto.</span></li>
+<li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">•</span><span><strong class="text-neutral-100">Portability</strong>— write once, works on multiple agents.</span></li>
+<li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">•</span><span><strong class="text-neutral-100">No vendor lock-in</strong>— does not tie your project to a single provider.</span></li>
+<li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">•</span><span><strong class="text-neutral-100">Ecosystem</strong>—contributions from OpenAI, Google, Anthropic, Cursor, and others.</span></li>
+<li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">•</span><span><strong class="text-neutral-100">Governed evolution</strong>— Linux Foundation guarantees open change process.</span></li>
 </ul>
 </div>
 <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
-<h3 class="text-lg font-semibold text-blue-400 mb-3">📊 Adoção em 2026</h3>
+<h3 class="text-lg font-semibold text-blue-400 mb-3">📊 Adoption in 2026</h3>
 <ul class="space-y-1 text-neutral-300 text-sm">
-<li><strong>OpenAI Codex</strong> — suporte oficial desde lançamento (mai/2025)</li>
-<li><strong>Google Jules</strong> — adoção confirmada junto ao A2A (abr/2025)</li>
-<li><strong>Cursor, Amp, Factory</strong> — suporte nativo ao AGENTS.md</li>
-<li><strong>agents.md</strong> — site oficial com spec, exemplos e guias</li>
-<li><strong>Linux Foundation</strong> — governança desde dez/2025</li>
+<li><strong>OpenAI Codex</strong>— official support since launch (May/2025)</li>
+<li><strong>Google Jules</strong>— adoption confirmed with A2A (Apr/2025)</li>
+<li><strong>Cursor, Amp, Factory</strong>— native support for AGENTS.md</li>
+<li><strong>agents.md</strong>— official website with spec, examples and guides</li>
+<li><strong>Linux Foundation</strong>— governance since Dec/2025</li>
 </ul>
 </div>
 </section>
-
-<section id="topico-2" class="mb-16">
+<section class="mb-16" id="topico-2">
 <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">2</span><h2 class="text-2xl font-bold">🆚 CLAUDE.md vs AGENTS.md</h2></div>
-<p class="text-neutral-300 mb-6 leading-relaxed">Os dois documentos têm o mesmo objetivo — dar contexto ao agente — mas diferem em escopo e audiência. O <strong class="text-blue-400">CLAUDE.md</strong> é Anthropic-específico: lido pelo Claude Code, pode usar recursos e sintaxe próprios do Claude. O <strong class="text-blue-400">AGENTS.md</strong> é vendor-neutral: funciona em qualquer agente compatível. Em projetos multi-agente de 2026, ter os dois é comum e recomendado.</p>
+<p class="text-neutral-300 mb-6 leading-relaxed">The two documents have the same objective — to give context to the agent — but they differ in scope and audience. THE<strong class="text-blue-400">CLAUDE.md</strong>is Anthropic-specific: read by Claude Code, can use Claude's own features and syntax. THE<strong class="text-blue-400">AGENTS.md</strong>It is vendor-neutral: it works on any compatible agent. In 2026 multi-agent projects, having both is common and recommended.</p>
 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
 <div class="bg-gradient-to-br from-blue-900/30 to-dark-800 rounded-xl border border-blue-500/30 p-6">
 <h4 class="font-bold text-blue-400 mb-4">CLAUDE.md</h4>
 <ul class="space-y-2 text-neutral-300 text-sm">
-<li class="flex items-start space-x-2"><span class="text-blue-400">•</span><span>Lido pelo Claude Code</span></li>
-<li class="flex items-start space-x-2"><span class="text-blue-400">•</span><span>Identidade, regras, personas</span></li>
-<li class="flex items-start space-x-2"><span class="text-blue-400">•</span><span>Pode referenciar skills e hooks</span></li>
-<li class="flex items-start space-x-2"><span class="text-blue-400">•</span><span>Hierarquia: global/projeto/local</span></li>
+<li class="flex items-start space-x-2"><span class="text-blue-400">•</span><span>Read by Claude Code</span></li>
+<li class="flex items-start space-x-2"><span class="text-blue-400">•</span><span>Identity, rules, personas</span></li>
+<li class="flex items-start space-x-2"><span class="text-blue-400">•</span><span>Can reference skills and hooks</span></li>
+<li class="flex items-start space-x-2"><span class="text-blue-400">•</span><span>Hierarchy: global/project/local</span></li>
 <li class="flex items-start space-x-2"><span class="text-blue-400">•</span><span>Vendor: Anthropic</span></li>
 </ul>
 </div>
 <div class="bg-gradient-to-br from-blue-900/30 to-dark-800 rounded-xl border border-blue-500/30 p-6">
 <h4 class="font-bold text-blue-400 mb-4">AGENTS.md</h4>
 <ul class="space-y-2 text-neutral-300 text-sm">
-<li class="flex items-start space-x-2"><span class="text-blue-400">•</span><span>Lido por Codex, Jules, Cursor...</span></li>
-<li class="flex items-start space-x-2"><span class="text-blue-400">•</span><span>Build, test, convenções técnicas</span></li>
-<li class="flex items-start space-x-2"><span class="text-blue-400">•</span><span>Contexto técnico do projeto</span></li>
-<li class="flex items-start space-x-2"><span class="text-blue-400">•</span><span>Override chain por pasta</span></li>
-<li class="flex items-start space-x-2"><span class="text-blue-400">•</span><span>Vendor: Linux Foundation (aberto)</span></li>
+<li class="flex items-start space-x-2"><span class="text-blue-400">•</span><span>Read by Codex, Jules, Cursor...</span></li>
+<li class="flex items-start space-x-2"><span class="text-blue-400">•</span><span>Build, test, technical conventions</span></li>
+<li class="flex items-start space-x-2"><span class="text-blue-400">•</span><span>Technical context of the project</span></li>
+<li class="flex items-start space-x-2"><span class="text-blue-400">•</span><span>Override chain per folder</span></li>
+<li class="flex items-start space-x-2"><span class="text-blue-400">•</span><span>Vendor: Linux Foundation (open)</span></li>
 </ul>
 </div>
 </div>
 <div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
-<h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Estratégia recomendada</h3>
-<p class="text-neutral-300">Mantenha os dois. O AGENTS.md carrega o contexto técnico portável (build, test, stack). O CLAUDE.md carrega identidade, regras de negócio e recursos específicos do Claude. Se há conflito, o CLAUDE.md prevalece para o Claude Code.</p>
+<h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span>Recommended strategy</h3>
+<p class="text-neutral-300">Keep both. AGENTS.md loads the portable technical context (build, test, stack). CLAUDE.md carries Claude-specific identity, business rules and resources. If there is a conflict, CLAUDE.md prevails over Claude Code.</p>
 </div>
 </section>
-
-<section id="topico-3" class="mb-16">
-<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">3</span><h2 class="text-2xl font-bold">🔗 Cadeia de instrução do Codex</h2></div>
-<p class="text-neutral-300 mb-6 leading-relaxed">O OpenAI Codex implementou uma cadeia de instrução hierárquica que espelha a lógica do CLAUDE.md, mas com nomenclatura própria. Entender essa cadeia é útil para qualquer equipe que usa múltiplos agentes — e o <strong class="text-blue-400">padrão AGENTS.md</strong> serve como denominador comum entre todos eles.</p>
+<section class="mb-16" id="topico-3">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">3</span><h2 class="text-2xl font-bold">🔗 Codex instruction chain</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">OpenAI Codex implemented a hierarchical instruction chain that mirrors the logic of CLAUDE.md, but with its own nomenclature. Understanding this chain is useful for any team that uses multiple agents — and the<strong class="text-blue-400">AGENTS.md pattern</strong>serves as a common denominator between them all.</p>
 <div class="bg-gradient-to-br from-blue-900/30 to-dark-800 rounded-xl border border-blue-500/30 p-6 mb-6">
-<h3 class="text-lg font-semibold text-blue-400 mb-4">Cadeia de precedência no Codex</h3>
+<h3 class="text-lg font-semibold text-blue-400 mb-4">Chain of precedence in the Codex</h3>
 <ul class="space-y-3 text-neutral-300 text-sm">
-<li><strong class="text-neutral-100">1. AGENTS.override.md (global)</strong> — regras pessoais do usuário, máxima precedência.</li>
-<li><strong class="text-neutral-100">2. AGENTS.md (projeto)</strong> — contexto e convenções do repositório.</li>
-<li><strong class="text-neutral-100">3. AGENTS.md (subpasta)</strong> — override local para área específica.</li>
-<li><strong class="text-neutral-100">4. System prompt do agente</strong> — fallback padrão se nenhum arquivo encontrado.</li>
+<li><strong class="text-neutral-100">1. AGENTS.override.md (global)</strong>— user's personal rules, maximum precedence.</li>
+<li><strong class="text-neutral-100">2. AGENTS.md (project)</strong>— repository context and conventions.</li>
+<li><strong class="text-neutral-100">3. AGENTS.md (subfolder)</strong>— local override for specific area.</li>
+<li><strong class="text-neutral-100">4. Agent System Prompt</strong>— default fallback if no files found.</li>
 </ul>
-<p class="text-neutral-400 text-sm mt-4">Mesma lógica do CSS: mais específico ganha. Mais próximo do arquivo em questão, mais relevante.</p>
+<p class="text-neutral-400 text-sm mt-4">Same logic as CSS: more specific wins. Closer to the file in question, more relevant.</p>
 </div>
 <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
-<h3 class="text-lg font-semibold text-blue-400 mb-3">Analogia CSS</h3>
-<p class="text-neutral-300">Pense em AGENTS.override.md como <code class="bg-dark-700 px-1 rounded">!important</code>: sobrescreve tudo. O AGENTS.md do projeto é o stylesheet da página. O AGENTS.md da subpasta é estilo inline. A cascata é previsível e intencional.</p>
+<h3 class="text-lg font-semibold text-blue-400 mb-3">CSS Analogy</h3>
+<p class="text-neutral-300">Think of AGENTS.override.md as<code class="bg-dark-700 px-1 rounded" data-notranslate="True">!important</code>: overwrites everything. The project's AGENTS.md is the page's stylesheet. The subfolder AGENTS.md is inline style. The cascade is predictable and intentional.</p>
 </div>
 </section>
-
-<section id="topico-4" class="mb-16">
-<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">4</span><h2 class="text-2xl font-bold">🤝 Adoção real em 2026</h2></div>
-<p class="text-neutral-300 mb-6 leading-relaxed">O AGENTS.md deixou de ser padrão emergente para se tornar <strong class="text-blue-400">infraestrutura de fato</strong> em 2026. Equipes que investiram cedo já colhem o retorno: um único arquivo de contexto funciona com Codex, Jules, Cursor e Factory sem adaptação. Esse é o tipo de padronização que acontece uma vez e dura anos.</p>
+<section class="mb-16" id="topico-4">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">4</span><h2 class="text-2xl font-bold">🤝 Actual adoption in 2026</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">AGENTS.md went from being an emerging standard to becoming<strong class="text-blue-400">actual infrastructure</strong>in 2026. Teams that invested early are already reaping the rewards: a single context file works with Codex, Jules, Cursor and Factory without adaptation. This is the kind of standardization that happens once and lasts for years.</p>
 <div class="bg-gradient-to-br from-blue-900/30 to-dark-800 rounded-xl border border-blue-500/30 p-6 mb-6">
-<h3 class="text-lg font-semibold text-blue-400 mb-4">Quem adotou e como</h3>
+<h3 class="text-lg font-semibold text-blue-400 mb-4">Who adopted and how</h3>
 <ul class="space-y-3 text-neutral-300 text-sm">
-<li><strong class="text-neutral-100">OpenAI Codex</strong> — suporte nativo, documentação oficial referencia AGENTS.md como padrão primário.</li>
-<li><strong class="text-neutral-100">Google Jules</strong> — integrado ao lançamento; JulesBot lê AGENTS.md automaticamente.</li>
-<li><strong class="text-neutral-100">Cursor</strong> — suporta AGENTS.md via Rules for AI, combinável com cursorrules.</li>
-<li><strong class="text-neutral-100">Factory Droids</strong> — usa AGENTS.md como fonte de contexto para agendar tarefas.</li>
-<li><strong class="text-neutral-100">Amp (Sourcegraph)</strong> — leitura automática de AGENTS.md em todo repositório.</li>
+<li><strong class="text-neutral-100">OpenAI Codex</strong>— native support, official documentation references AGENTS.md as primary standard.</li>
+<li><strong class="text-neutral-100">Google Jules</strong>— integrated into the launch; JulesBot reads AGENTS.md automatically.</li>
+<li><strong class="text-neutral-100">Cursor</strong>— supports AGENTS.md via Rules for AI, composable with cursorrules.</li>
+<li><strong class="text-neutral-100">Factory Droids</strong>— uses AGENTS.md as a context source for scheduling tasks.</li>
+<li><strong class="text-neutral-100">Amp (Sourcegraph)</strong>— automatic reading of AGENTS.md in every repository.</li>
 </ul>
 </div>
 <div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
-<h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> ROI do padrão</h3>
-<p class="text-neutral-300">Quem investe em AGENTS.md bem escrito hoje colhe em todos os agentes que adotarem o padrão amanhã. É como escrever HTML semântico: o trabalho de hoje paga dividendos em todos os browsers do futuro. O custo é uma hora; o benefício é anos de portabilidade.</p>
+<h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span>Pattern ROI</h3>
+<p class="text-neutral-300">Anyone who invests in well-written AGENTS.md today will reap the benefits of all agents who adopt the standard tomorrow. It's like writing semantic HTML: today's work pays dividends in every browser of the future. The cost is one hour; the benefit is years of portability.</p>
 </div>
 </section>
-
-<section id="topico-5" class="mb-16">
-<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">5</span><h2 class="text-2xl font-bold">📋 Template inicial</h2></div>
-<p class="text-neutral-300 mb-6 leading-relaxed">Um AGENTS.md eficaz não precisa ser longo — precisa ser <strong class="text-blue-400">completo nas seções certas</strong>. As seções Project, Build, Test, Conventions, Constraints e Context cobrem tudo que um agente de código precisa para operar sem fazer perguntas desnecessárias. Um arquivo de 200 linhas bem estruturado elimina horas de overhead conversacional.</p>
+<section class="mb-16" id="topico-5">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">5</span><h2 class="text-2xl font-bold">📋 Starter Template</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">An effective AGENTS.md doesn't need to be long — it needs to be<strong class="text-blue-400">complete in the right sections</strong>. The Project, Build, Test, Conventions, Constraints, and Context sections cover everything a code agent needs to operate without asking unnecessary questions. A well-structured 200-line file eliminates hours of conversational overhead.</p>
 <div class="bg-gradient-to-br from-blue-900/30 to-dark-800 rounded-xl border border-blue-500/30 p-6 mb-6">
-<h3 class="text-lg font-semibold text-blue-400 mb-4">Seções do template padrão</h3>
+<h3 class="text-lg font-semibold text-blue-400 mb-4">Default template sections</h3>
 <ul class="space-y-3 text-neutral-300 text-sm">
-<li><strong class="text-neutral-100"># Project</strong> — o que é o projeto, linguagem, framework, arquitetura resumida.</li>
-<li><strong class="text-neutral-100"># Build</strong> — como buildar: comandos exatos, dependências, ordem.</li>
-<li><strong class="text-neutral-100"># Test</strong> — como rodar testes, coverage mínimo, o que não pode quebrar.</li>
-<li><strong class="text-neutral-100"># Conventions</strong> — naming, estilo de código, padrões de PR, mensagens de commit.</li>
-<li><strong class="text-neutral-100"># Constraints</strong> — o que o agente NUNCA deve fazer (escrever em /prod, apagar banco).</li>
-<li><strong class="text-neutral-100"># Context</strong> — estado atual, o que está em andamento, links relevantes.</li>
+<li><strong class="text-neutral-100">#Project</strong>— what is the project, language, framework, architecture in summary.</li>
+<li><strong class="text-neutral-100"># Build</strong>— how to build: exact commands, dependencies, order.</li>
+<li><strong class="text-neutral-100">#Test</strong>— how to run tests, minimal coverage, which cannot break.</li>
+<li><strong class="text-neutral-100">#Conventions</strong>— naming, code style, PR standards, commit messages.</li>
+<li><strong class="text-neutral-100">#Constraints</strong>— what the agent should NEVER do (write to /prod, delete bank).</li>
+<li><strong class="text-neutral-100">#Context</strong>— current status, what’s in progress, relevant links.</li>
 </ul>
 </div>
 <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
-<h3 class="text-lg font-semibold text-blue-400 mb-3">Marco — e-commerce de moda</h3>
-<p class="text-neutral-300 text-sm">Marco criou um AGENTS.md em 45 minutos para seu projeto Next.js. Na semana seguinte, trocou de Claude Code para Cursor para testar performance em um módulo específico. O Cursor leu o AGENTS.md e já sabia o stack, os comandos de build e as convenções. Zero tempo de setup.</p>
+<h3 class="text-lg font-semibold text-blue-400 mb-3">Marco — fashion e-commerce</h3>
+<p class="text-neutral-300 text-sm">Marco created an AGENTS.md in 45 minutes for his Next.js project. The following week, he switched from Claude Code to Cursor to test performance in a specific module. Cursor read AGENTS.md and already knew the stack, build commands and conventions. Zero setup time.</p>
 </div>
 </section>
-
-<section id="topico-6" class="mb-16">
-<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">6</span><h2 class="text-2xl font-bold">⚠️ Limitações do padrão</h2></div>
-<p class="text-neutral-300 mb-6 leading-relaxed">O AGENTS.md é markdown puro, sem schema obrigatório, sem validação. Isso é uma escolha deliberada — a simplicidade facilita adoção — mas cria responsabilidades que ficam inteiramente com você. Sem validação automática, a qualidade do arquivo depende exclusivamente da disciplina da equipe. Entender as limitações é essencial para não superestimar o que o padrão entrega sozinho.</p>
+<section class="mb-16" id="topico-6">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">6</span><h2 class="text-2xl font-bold">⚠️ Standard limitations</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">AGENTS.md is pure markdown, with no required schema, no validation. This is a deliberate choice — simplicity facilitates adoption — but it creates responsibilities that are entirely up to you. Without automatic validation, file quality depends solely on team discipline. Understanding the limitations is essential to not overestimate what the standard delivers on its own.</p>
 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
 <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
-<h4 class="font-bold text-red-400 mb-4">Limitações reais</h4>
+<h4 class="font-bold text-red-400 mb-4">Real limitations</h4>
 <ul class="space-y-2 text-neutral-300 text-sm">
-<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Sem schema — qualquer formato "vale"</span></li>
-<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Sem linter — você não sabe se está bom</span></li>
-<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Sem versioning semântico do padrão</span></li>
-<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Drift silencioso: fica desatualizado sem avisar</span></li>
-<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Não há garantia de que o agente leu</span></li>
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>No schema — any format “goes”</span></li>
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>No linter — you don't know if it's good</span></li>
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>No semantic versioning of the pattern</span></li>
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Silent Drift: Goes out of date without warning</span></li>
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>There is no guarantee that the agent read</span></li>
 </ul>
 </div>
 <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6">
-<h4 class="font-bold text-blue-400 mb-4">Como mitigar</h4>
+<h4 class="font-bold text-blue-400 mb-4">How to mitigate</h4>
 <ul class="space-y-2 text-neutral-300 text-sm">
-<li class="flex items-start space-x-2"><span class="text-blue-400">✓</span><span>Review obrigatório no PR de mudança</span></li>
-<li class="flex items-start space-x-2"><span class="text-blue-400">✓</span><span>Atualização mensal como rotina</span></li>
-<li class="flex items-start space-x-2"><span class="text-blue-400">✓</span><span>Teste: peça ao agente para resumir o AGENTS.md</span></li>
-<li class="flex items-start space-x-2"><span class="text-blue-400">✓</span><span>Mantenha seções nomeadas consistentemente</span></li>
-<li class="flex items-start space-x-2"><span class="text-blue-400">✓</span><span>Use CHANGELOG.md separado para histórico</span></li>
+<li class="flex items-start space-x-2"><span class="text-blue-400">✓</span><span>Mandatory review in change PR</span></li>
+<li class="flex items-start space-x-2"><span class="text-blue-400">✓</span><span>Monthly update as a routine</span></li>
+<li class="flex items-start space-x-2"><span class="text-blue-400">✓</span><span>Test: Ask the agent to summarize AGENTS.md</span></li>
+<li class="flex items-start space-x-2"><span class="text-blue-400">✓</span><span>Keep sections named consistently</span></li>
+<li class="flex items-start space-x-2"><span class="text-blue-400">✓</span><span>Use separate CHANGELOG.md for history</span></li>
 </ul>
 </div>
 </div>
 </section>
-
 <section class="mb-12">
 <div class="bg-gradient-to-br from-blue-900/40 via-dark-800 to-dark-800 rounded-xl border border-blue-500/30 p-8">
-<h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-3">📋</span> Resumo do Módulo</h2>
+<h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-3">📋</span>Module Summary</h2>
 <div class="space-y-4 mb-8">
-<div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">AGENTS.md = README para máquinas</strong><span class="text-neutral-400"> — padrão aberto, funciona em Codex, Jules, Cursor, Factory</span></div></div>
-<div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">Linux Foundation governa</strong><span class="text-neutral-400"> — padrão consolidado desde dez/2025, não vai desaparecer</span></div></div>
-<div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">CLAUDE.md + AGENTS.md</strong><span class="text-neutral-400"> — complementares; técnico portável no AGENTS, identidade no CLAUDE</span></div></div>
-<div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">Override chain tipo CSS</strong><span class="text-neutral-400"> — global → projeto → local; mais específico vence</span></div></div>
-<div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">Template: 6 seções</strong><span class="text-neutral-400"> — Project, Build, Test, Conventions, Constraints, Context</span></div></div>
-<div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">Sem linter — disciplina sua</strong><span class="text-neutral-400"> — review obrigatório, atualização regular, teste com resumo</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">AGENTS.md = README for machines</strong><span class="text-neutral-400">— open standard, works on Codex, Jules, Cursor, Factory</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">Linux Foundation governs</strong><span class="text-neutral-400">— consolidated pattern since Dec/2025, will not disappear</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">CLAUDE.md + AGENTS.md</strong><span class="text-neutral-400">— complementary; portable technician in AGENTS, identity in CLAUDE</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">CSS type override chain</strong><span class="text-neutral-400">— global → project → local; more specific wins</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">Template: 6 sections</strong><span class="text-neutral-400">— Project, Build, Test, Conventions, Constraints, Context</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">No linter — discipline yourself</strong><span class="text-neutral-400">— mandatory review, regular update, test with summary</span></div></div>
 </div>
-<div class="bg-dark-800/50 rounded-lg p-4 mb-8"><h3 class="font-semibold text-blue-400 mb-2">Próximo Módulo:</h3><p class="text-neutral-300">2.3 — Regras com escopo de caminho</p></div>
-<div class="flex flex-col sm:flex-row gap-4"><a href="modulo-2-1.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">← Módulo 2.1</a><a href="modulo-2-3.html" class="flex-1 text-center px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-500 transition-colors">Próximo Módulo →</a></div>
+<div class="bg-dark-800/50 rounded-lg p-4 mb-8"><h3 class="font-semibold text-blue-400 mb-2">Next Module:</h3><p class="text-neutral-300">2.3 — Path-scoped rules</p></div>
+<div class="flex flex-col sm:flex-row gap-4"><a class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors" href="modulo-2-1.html">← Module 2.1</a><a class="flex-1 text-center px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-500 transition-colors" href="modulo-2-3.html">Next Module →</a></div>
 </div>
 </section>
-
 </main>
-
-<footer class="border-t border-dark-600 py-8 mt-16"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm"><p>Agentic OS — INEMA.CLUB · 2026</p></div></footer>
-<script>
+<footer class="border-t border-dark-600 py-8 mt-16"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm"><p>Agentic OS — duclub · 2026</p></div></footer>
+<script data-notranslate="True">
 const tt=document.getElementById('theme-toggle'),tdi=document.getElementById('theme-toggle-dark-icon'),tli=document.getElementById('theme-toggle-light-icon'),h=document.documentElement;
 if(localStorage.getItem('theme')==='light'||(!localStorage.getItem('theme')&&!h.classList.contains('dark'))){tdi.classList.remove('hidden');h.classList.remove('dark')}else{tli.classList.remove('hidden')}
 tt.addEventListener('click',()=>{tdi.classList.toggle('hidden');tli.classList.toggle('hidden');h.classList.toggle('dark');localStorage.setItem('theme',h.classList.contains('dark')?'dark':'light')});
