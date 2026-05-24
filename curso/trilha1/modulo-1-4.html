@@ -1,12 +1,12 @@
-<!DOCTYPE html>
-<html lang="pt-BR" class="dark">
+html
+<html class="dark" lang="pt-BR">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>1.4 — As 3 personas: Marco, Sally e Dra. Sana | Agentic OS</title>
-<script src="https://cdn.tailwindcss.com"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<script>tailwind.config={darkMode:'class',theme:{extend:{colors:{primary:'#FACC15',dark:{900:'#111827',800:'#1f2937',700:'#374151',600:'#4b5563'}}}}}</script>
-<style>
+<meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>1.4 — The 3 personas: Marco, Sally and Dr. Sana | Agentic OS</title>
+<script data-notranslate="True" src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<script data-notranslate="True">tailwind.config={darkMode:'class',theme:{extend:{colors:{primary:'#FACC15',dark:{900:'#111827',800:'#1f2937',700:'#374151',600:'#4b5563'}}}}}</script>
+<style data-notranslate="True">
 body{font-family:'Inter',sans-serif}
 html:not(.dark) body{background:#f8fafc}html:not(.dark) .bg-dark-900{background:#fff}html:not(.dark) .bg-dark-800{background:#f9fafb}html:not(.dark) .bg-dark-700{background:#f3f4f6}html:not(.dark) .bg-dark-600{background:#e5e7eb}html:not(.dark) .text-neutral-100{color:#111827}html:not(.dark) .text-neutral-300{color:#4b5563}html:not(.dark) .text-neutral-400{color:#6b7280}html:not(.dark) .text-neutral-500{color:#9ca3af}html:not(.dark) .border-dark-600{border-color:#d1d5db}html:not(.dark) .border-dark-700{border-color:#e5e7eb}
 html:not(.dark) .text-emerald-400{color:#059669}html:not(.dark) .bg-emerald-500\/20{background:rgba(5,150,105,.12)}html:not(.dark) .bg-emerald-500\/10{background:rgba(5,150,105,.08)}html:not(.dark) .border-emerald-500\/30{border-color:rgba(5,150,105,.25)}html:not(.dark) .bg-emerald-900\/20{background:rgba(5,150,105,.06)}html:not(.dark) .bg-emerald-900\/30{background:rgba(5,150,105,.06)}html:not(.dark) .bg-emerald-900\/40{background:rgba(5,150,105,.08)}
@@ -15,248 +15,236 @@ html:not(.dark) .text-red-400{color:#b91c1c}html:not(.dark) .bg-red-900\/20{back
 html:not(.dark) [class*="bg-gradient-to"]{background-image:none!important}html:not(.dark) .text-primary{color:#a16207}html:not(.dark) .bg-primary\/10{background:rgba(161,98,7,.08)}html:not(.dark) .border-primary\/30{border-color:rgba(161,98,7,.25)}html:not(.dark) .text-sky-400{color:#0369a1}html:not(.dark) .text-yellow-400{color:#a16207}html:not(.dark) .hover\:text-sky-300:hover{color:#0284c7}html:not(.dark) .hover\:text-yellow-300:hover{color:#854d0e}html:not(.dark) .bg-dark-900\/95{background:rgba(255,255,255,.95)}
 </style></head>
 <body class="bg-dark-900 text-neutral-100">
-<nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"><div class="flex justify-between items-center h-14"><div class="flex items-center space-x-4"><a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300"><span class="text-2xl">⚡</span><span class="font-bold text-lg hidden sm:inline">Agentic OS</span></a><span class="text-neutral-600">|</span><a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a></div><div class="flex items-center space-x-1 sm:space-x-2"><a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-emerald-400 bg-emerald-500/10"><span class="sm:hidden">T1</span><span class="hidden sm:inline">Fundamentos</span></a><a href="../trilha2/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors"><span class="sm:hidden">T2</span><span class="hidden sm:inline">Identidade</span></a><a href="../trilha3/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors"><span class="sm:hidden">T3</span><span class="hidden sm:inline">Conhecimento</span></a><a href="../trilha4/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-amber-400 hover:bg-amber-500/10 transition-colors"><span class="sm:hidden">T4</span><span class="hidden sm:inline">Trabalhadores</span></a><a href="../trilha5/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-teal-400 hover:bg-teal-500/10 transition-colors"><span class="sm:hidden">T5</span><span class="hidden sm:inline">Automação</span></a><a href="../trilha6/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-rose-400 hover:bg-rose-500/10 transition-colors"><span class="sm:hidden">T6</span><span class="hidden sm:inline">Implantação</span></a><button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2"><svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/></svg><svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"/></svg></button></div></div></div></nav>
-
-<nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4"><div class="flex items-center space-x-2 text-sm text-neutral-400"><a href="../../index.html" class="hover:text-emerald-400">Início</a><span>/</span><a href="index.html" class="hover:text-emerald-400">Trilha 1</a><span>/</span><span class="text-emerald-400">Módulo 1.4</span></div></nav>
-
-<header class="bg-gradient-to-br from-emerald-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"><span class="inline-block px-3 py-1 bg-emerald-500/20 text-emerald-400 text-xs font-semibold rounded-full mb-4">MÓDULO 1.4</span><h1 class="text-3xl sm:text-4xl font-bold mb-4">👥 As 3 personas: Marco, Sally e Dra. Sana</h1><p class="text-lg text-neutral-400 max-w-3xl">Os mesmos 3 casos voltam na Trilha 6 com implantação completa. Aqui você entende o problema antes de ver a solução — e encontra a sua persona antes de escolher a sua stack.</p><div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl"><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-emerald-400">6</div><div class="text-xs text-neutral-400">Tópicos</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-emerald-400">45</div><div class="text-xs text-neutral-400">Minutos</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-emerald-400">Básico</div><div class="text-xs text-neutral-400">Nível</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-emerald-400">Casos</div><div class="text-xs text-neutral-400">Tipo</div></div></div></div></header>
-
+<nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"><div class="flex justify-between items-center h-14"><div class="flex items-center space-x-4"><a class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300" href="../../index.html"><span class="text-2xl">⚡</span><span class="font-bold text-lg hidden sm:inline">Agentic OS</span></a><span class="text-neutral-600">|</span><a class="text-sky-400 hover:text-sky-300 text-sm font-medium" href="https://duclub" target="_blank">duclub</a></div><div class="flex items-center space-x-1 sm:space-x-2"><a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-emerald-400 bg-emerald-500/10" href="index.html"><span class="sm:hidden">T1</span><span class="hidden sm:inline">Fundamentals</span></a><a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors" href="../trilha2/index.html"><span class="sm:hidden">T2</span><span class="hidden sm:inline">Identity</span></a><a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors" href="../trilha3/index.html"><span class="sm:hidden">T3</span><span class="hidden sm:inline">Knowledge</span></a><a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-amber-400 hover:bg-amber-500/10 transition-colors" href="../trilha4/index.html"><span class="sm:hidden">T4</span><span class="hidden sm:inline">Workers</span></a><a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-teal-400 hover:bg-teal-500/10 transition-colors" href="../trilha5/index.html"><span class="sm:hidden">T5</span><span class="hidden sm:inline">Automation</span></a><a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-rose-400 hover:bg-rose-500/10 transition-colors" href="../trilha6/index.html"><span class="sm:hidden">T6</span><span class="hidden sm:inline">Implantation</span></a><button class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2" id="theme-toggle"><svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-dark-icon" viewbox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg><svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-light-icon" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd"></path></svg></button></div></div></div></nav>
+<nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4"><div class="flex items-center space-x-2 text-sm text-neutral-400"><a class="hover:text-emerald-400" href="../../index.html">Start</a><span>/</span><a class="hover:text-emerald-400" href="index.html">Track 1</a><span>/</span><span class="text-emerald-400">Module 1.4</span></div></nav>
+<header class="bg-gradient-to-br from-emerald-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"><span class="inline-block px-3 py-1 bg-emerald-500/20 text-emerald-400 text-xs font-semibold rounded-full mb-4">MODULE 1.4</span><h1 class="text-3xl sm:text-4xl font-bold mb-4">👥 The 3 personas: Marco, Sally and Dr. Sana</h1><p class="text-lg text-neutral-400 max-w-3xl">The same 3 cases return on Track 6 with full implementation. Here you understand the problem before seeing the solution — and find your persona before choosing your stack.</p><div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl"><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-emerald-400">6</div><div class="text-xs text-neutral-400">Topics</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-emerald-400">45</div><div class="text-xs text-neutral-400">Minutes</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-emerald-400">Basic</div><div class="text-xs text-neutral-400">Level</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-emerald-400">Cases</div><div class="text-xs text-neutral-400">Type</div></div></div></div></header>
 <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-
-<section id="topico-1" class="mb-16">
-<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">1</span><h2 class="text-2xl font-bold">📦 Marco — fundador SlabHaus</h2></div>
-<p class="text-neutral-300 mb-6 leading-relaxed">Marco é cofundador de um e-commerce de mystery boxes ao vivo. Opera em três frentes simultâneas: Shopify para pedidos, TikTok e Twitch para livestream, Meta Ads para aquisição. <strong class="text-emerald-400">Todo domingo ele passa 3 horas consolidando planilhas que deveriam ser automatizadas.</strong> A dor é clássica do empreendedor solo sobrecarregado.</p>
+<section class="mb-16" id="topico-1">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">1</span><h2 class="text-2xl font-bold">📦 Marco — founder SlabHaus</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Marco is the co-founder of a live mystery box e-commerce. It operates on three simultaneous fronts: Shopify for orders, TikTok and Twitch for livestream, Meta Ads for acquisition.<strong class="text-emerald-400">Every Sunday he spends 3 hours consolidating spreadsheets that should be automated.</strong>The pain is classic for the overworked solopreneur.</p>
 <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
-<h3 class="text-lg font-semibold text-emerald-400 mb-4 flex items-center"><span class="mr-2">🏪</span> Stack e dores do Marco</h3>
+<h3 class="text-lg font-semibold text-emerald-400 mb-4 flex items-center"><span class="mr-2">🏪</span>Marco's Stack and Pain</h3>
 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
 <div>
-<p class="text-neutral-400 font-semibold mb-2">Stack atual</p>
+<p class="text-neutral-400 font-semibold mb-2">Current stack</p>
 <ul class="space-y-1 text-neutral-300">
-<li>• Shopify (pedidos, estoque, fulfillment)</li>
-<li>• Meta Ads + TikTok Ads (aquisição)</li>
+<li>• Shopify (orders, inventory, fulfillment)</li>
+<li>• Meta Ads + TikTok Ads (acquisition)</li>
 <li>• Twitch + TikTok Live (livestream)</li>
-<li>• Google Sheets (análise manual)</li>
-<li>• Stripe (financeiro)</li>
-<li>• Gorgias (suporte ao cliente)</li>
+<li>• Google Sheets (manual analysis)</li>
+<li>• Stripe (financial)</li>
+<li>• Gorgias (customer support)</li>
 </ul>
 </div>
 <div>
-<p class="text-neutral-400 font-semibold mb-2">Dores principais</p>
+<p class="text-neutral-400 font-semibold mb-2">Main pains</p>
 <ul class="space-y-1 text-neutral-300">
-<li>• Brief semanal manual (3h todo domingo)</li>
-<li>• Análise de whales sem automação</li>
-<li>• P&L espalhado em 4 planilhas</li>
-<li>• Sem rastreamento de LTV por canal</li>
-<li>• Decisões de estoque no "feeling"</li>
-<li>• Suporte lento durante livestream</li>
+<li>• Manual weekly brief (3h every Sunday)</li>
+<li>• Whale analysis without automation</li>
+<li>• P&amp;L spread across 4 spreadsheets</li>
+<li>• No LTV tracking by channel</li>
+<li>• Inventory decisions on "feeling"</li>
+<li>• Slow support during livestream</li>
 </ul>
 </div>
 </div>
 </div>
 <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
-<h3 class="text-lg font-semibold text-blue-400 mb-3 flex items-center"><span class="mr-2">💬</span> Como Marco vai usar o Agentic OS</h3>
-<p class="text-neutral-300 text-sm mb-3">Na Trilha 6, Marco implementa:</p>
+<h3 class="text-lg font-semibold text-blue-400 mb-3 flex items-center"><span class="mr-2">💬</span>How Marco will use Agentic OS</h3>
+<p class="text-neutral-300 text-sm mb-3">In Track 6, Marco implements:</p>
 <ul class="space-y-2 text-neutral-300 text-sm">
-<li><strong>/brief</strong> — skill que gera o relatório semanal completo em 3 minutos, não 3 horas</li>
-<li><strong>CFO Bot</strong> — analisa P&L, margem por SKU, custo de frete automaticamente</li>
-<li><strong>CMO Bot</strong> — lê engajamento de TikTok, identifica whales e tendências de produto</li>
-<li><strong>Hook Sunday</strong> — toda sexta às 18h consolida dados e prepara a semana seguinte</li>
+<li><strong>/brief</strong>— skill that generates the complete weekly report in 3 minutes, not 3 hours</li>
+<li><strong>CFO Bot</strong>— analyzes P&amp;L, margin per SKU, shipping cost automatically</li>
+<li><strong>CMO Bot</strong>— reads TikTok engagement, identifies whales and product trends</li>
+<li><strong>Hook Sunday</strong>— every Friday at 6pm consolidates data and prepares the following week</li>
 </ul>
 </div>
 </section>
-
-<section id="topico-2" class="mb-16">
+<section class="mb-16" id="topico-2">
 <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">2</span><h2 class="text-2xl font-bold">⚖️ Sally Tan — boutique law firm</h2></div>
-<p class="text-neutral-300 mb-6 leading-relaxed">Sally é associada em um escritório boutique especializado em litigation e M&A. Abre 4 a 5 novos casos por mês, cada um exigindo conflict check manual, setup de pasta, pesquisa jurisprudencial e briefing da equipe. <strong class="text-emerald-400">O ambiente é regulado, o custo de erro é alto, e a documentação precisa ser auditável.</strong></p>
+<p class="text-neutral-300 mb-6 leading-relaxed">Sally is an associate at a boutique firm specializing in litigation and M&amp;A. Opens 4 to 5 new cases per month, each requiring manual conflict check, folder setup, case law research and team briefing.<strong class="text-emerald-400">The environment is regulated, the cost of error is high, and documentation needs to be auditable.</strong></p>
 <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
-<h3 class="text-lg font-semibold text-emerald-400 mb-4 flex items-center"><span class="mr-2">⚖️</span> Stack e dores da Sally</h3>
+<h3 class="text-lg font-semibold text-emerald-400 mb-4 flex items-center"><span class="mr-2">⚖️</span>Sally's Stack and Pain</h3>
 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
 <div>
-<p class="text-neutral-400 font-semibold mb-2">Stack atual</p>
+<p class="text-neutral-400 font-semibold mb-2">Current stack</p>
 <ul class="space-y-1 text-neutral-300">
-<li>• iManage (gestão de documentos)</li>
-<li>• Outlook + Teams (comunicação)</li>
-<li>• AWS Bedrock (modelo aprovado pela firma)</li>
-<li>• Westlaw (pesquisa jurídica)</li>
-<li>• Excel (billing manual)</li>
+<li>• iManage (document management)</li>
+<li>• Outlook + Teams (communication)</li>
+<li>• AWS Bedrock (model approved by the firm)</li>
+<li>• Westlaw (legal research)</li>
+<li>• Excel (manual billing)</li>
 </ul>
 </div>
 <div>
-<p class="text-neutral-400 font-semibold mb-2">Dores principais</p>
+<p class="text-neutral-400 font-semibold mb-2">Main pains</p>
 <ul class="space-y-1 text-neutral-300">
-<li>• Conflict check manual (45 min por caso)</li>
-<li>• Setup de pasta de caso repetitivo</li>
-<li>• Pesquisa jurisprudencial lenta</li>
-<li>• Briefing de equipe inconsistente</li>
-<li>• Sem rastreamento de horas automático</li>
+<li>• Manual conflict check (45 min per case)</li>
+<li>• Repetitive case folder setup</li>
+<li>• Slow jurisprudential research</li>
+<li>• Inconsistent team briefing</li>
+<li>• No automatic time tracking</li>
 </ul>
 </div>
 </div>
 </div>
 <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6 mb-6">
-<h3 class="text-lg font-semibold text-red-400 mb-3 flex items-center"><span class="mr-2">🔒</span> A restrição não-negociável de Sally</h3>
-<p class="text-neutral-300 text-sm">O escritório exige que todos os dados de casos permaneçam no AWS Bedrock (VPC interna), sem chamadas para APIs externas não aprovadas. Isso não é limitação técnica — é requisito de compliance da OAB e dos clientes. A arquitetura precisa respeitar essa restrição desde o primeiro dia, não como afterthought.</p>
+<h3 class="text-lg font-semibold text-red-400 mb-3 flex items-center"><span class="mr-2">🔒</span>Sally's non-negotiable constraint</h3>
+<p class="text-neutral-300 text-sm">The office requires that all case data remain in AWS Bedrock (internal VPC), with no calls to unapproved external APIs. This is not a technical limitation — it is a compliance requirement for OAB and customers. The architecture needs to respect this constraint from day one, not as an afterthought.</p>
 </div>
 </section>
-
-<section id="topico-3" class="mb-16">
-<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">3</span><h2 class="text-2xl font-bold">🩺 Dra. Sana Anwar — dermatologista</h2></div>
-<p class="text-neutral-300 mb-6 leading-relaxed">Dra. Sana tem uma clínica solo de dermatologia — 30 a 40 pacientes por dia, biópsias, resultados, prescrições e PHI (Protected Health Information). <strong class="text-emerald-400">É o caso mais difícil: onde "esperança" não é estratégia de segurança, é negligência médica e legal.</strong> A arquitetura precisa ser infalível antes de qualquer automação.</p>
+<section class="mb-16" id="topico-3">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">3</span><h2 class="text-2xl font-bold">🩺 Dr. Sana Anwar — dermatologist</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Dr. Sana has a solo dermatology practice — 30 to 40 patients a day, biopsies, results, prescriptions and PHI (Protected Health Information).<strong class="text-emerald-400">It's the most difficult case: where "hope" is not a safety strategy, it is medical and legal malpractice.</strong>The architecture needs to be foolproof before any automation.</p>
 <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
-<h3 class="text-lg font-semibold text-emerald-400 mb-4 flex items-center"><span class="mr-2">🏥</span> Stack e dores da Dra. Sana</h3>
+<h3 class="text-lg font-semibold text-emerald-400 mb-4 flex items-center"><span class="mr-2">🏥</span>Dr. Sana's Stack and Pain</h3>
 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
 <div>
-<p class="text-neutral-400 font-semibold mb-2">Stack atual</p>
+<p class="text-neutral-400 font-semibold mb-2">Current stack</p>
 <ul class="space-y-1 text-neutral-300">
 <li>• EHR (Electronic Health Records)</li>
-<li>• Sistema de biópsia externo</li>
-<li>• Software de billing separado</li>
-<li>• AWS Bedrock (único LLM aprovado)</li>
-<li>• VPC isolada — zero saída de PHI</li>
+<li>• External biopsy system</li>
+<li>• Separate billing software</li>
+<li>• AWS Bedrock (only approved LLM)</li>
+<li>• Isolated VPC — zero PHI output</li>
 </ul>
 </div>
 <div>
-<p class="text-neutral-400 font-semibold mb-2">Dores principais</p>
+<p class="text-neutral-400 font-semibold mb-2">Main pains</p>
 <ul class="space-y-1 text-neutral-300">
-<li>• Notas clínicas pós-consulta (8 min/paciente)</li>
-<li>• Biópsias pendentes sem alertas</li>
-<li>• Relatórios de seguimento manual</li>
-<li>• Billing desconectado do EHR</li>
-<li>• Sem observabilidade de qualidade das notas</li>
+<li>• Post-consultation clinical notes (8 min/patient)</li>
+<li>• Pending biopsies without alerts</li>
+<li>• Manual tracking reports</li>
+<li>• Billing disconnected from EHR</li>
+<li>• No observability of grade quality</li>
 </ul>
 </div>
 </div>
 </div>
 <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
-<h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center"><span class="mr-2">📊</span> O impacto do Agentic OS para a Dra. Sana</h3>
+<h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center"><span class="mr-2">📊</span>The impact of Agentic OS for Dr. Sana</h3>
 <ul class="space-y-2 text-neutral-300 text-sm">
-<li><strong>Notas clínicas:</strong> de 8 min por paciente → 90 segundos com Silver Platter de template + agente de rascunho</li>
-<li><strong>Biópsias pendentes:</strong> hook diário às 7h gera lista priorizada por urgência, zero manual</li>
-<li><strong>Audit trail completo:</strong> toda ação registrada com timestamp — prova legal em caso de questionamento</li>
-<li><strong>Path scoping rigoroso:</strong> agente de billing nunca acessa <code class="bg-dark-700 px-1 rounded">/phi/</code>, agente clínico nunca acessa <code class="bg-dark-700 px-1 rounded">/billing/</code></li>
+<li><strong>Clinical notes:</strong>8 min per patient → 90 seconds with template Silver Platter + draft agent</li>
+<li><strong>Pending biopsies:</strong>daily hook at 7am generates list prioritized by urgency, zero manual</li>
+<li><strong>Complete audit trail:</strong>every action recorded with timestamp — legal proof in case of questioning</li>
+<li><strong>Strict path scoping:</strong>billing agent never accesses<code class="bg-dark-700 px-1 rounded" data-notranslate="True">/phi/</code>, clinical agent never accesses<code class="bg-dark-700 px-1 rounded" data-notranslate="True">/billing/</code></li>
 </ul>
 </div>
 </section>
-
-<section id="topico-4" class="mb-16">
-<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">4</span><h2 class="text-2xl font-bold">🔍 Padrões comuns aos 3</h2></div>
-<p class="text-neutral-300 mb-6 leading-relaxed">Marco, Sally e Dra. Sana parecem não ter nada em comum: e-commerce, jurídico, saúde. Mas os problemas estruturais são idênticos. <strong class="text-emerald-400">A solução é o mesmo framework — apenas com restrições diferentes em cada verticall.</strong> Isso é o que torna o Agentic OS um sistema, não um produto de nicho.</p>
+<section class="mb-16" id="topico-4">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">4</span><h2 class="text-2xl font-bold">🔍 Common patterns for all 3</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Marco, Sally and Dr. Sana seem to have nothing in common: e-commerce, legal, health. But the structural problems are identical.<strong class="text-emerald-400">The solution is the same framework — just with different restrictions in each vertical.</strong>This is what makes Agentic OS a system, not a niche product.</p>
 <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
-<h3 class="text-lg font-semibold text-emerald-400 mb-4 flex items-center"><span class="mr-2">🔄</span> Os 5 padrões que se repetem</h3>
+<h3 class="text-lg font-semibold text-emerald-400 mb-4 flex items-center"><span class="mr-2">🔄</span>The 5 repeating patterns</h3>
 <div class="space-y-4 text-sm">
 <div class="bg-dark-700/50 rounded-lg p-4">
-<p class="font-semibold text-neutral-100 mb-1">1. Dados espalhados em múltiplos sistemas</p>
-<p class="text-neutral-400">Marco: Shopify + Sheets + Stripe. Sally: iManage + Westlaw + Excel. Sana: EHR + biópsia + billing.</p>
+<p class="font-semibold text-neutral-100 mb-1">1. Data spread across multiple systems</p>
+<p class="text-neutral-400">Milestone: Shopify + Sheets + Stripe. Sally: iManage + Westlaw + Excel. Sana: EHR + biopsy + billing.</p>
 </div>
 <div class="bg-dark-700/50 rounded-lg p-4">
-<p class="font-semibold text-neutral-100 mb-1">2. Processos repetitivos sem automação</p>
-<p class="text-neutral-400">Marco: brief dominical. Sally: case launch. Sana: notas pós-consulta. Todos: horas semanais perdidas em rotina.</p>
+<p class="font-semibold text-neutral-100 mb-1">2. Repetitive processes without automation</p>
+<p class="text-neutral-400">Milestone: Sunday brief. Sally: case launch. Sana: post-consultation notes. All: weekly hours lost in routine.</p>
 </div>
 <div class="bg-dark-700/50 rounded-lg p-4">
-<p class="font-semibold text-neutral-100 mb-1">3. Sem orquestração entre sistemas</p>
-<p class="text-neutral-400">Nenhum dos três tem um orquestrador que coordena decisões entre as áreas. As conexões são manuais.</p>
+<p class="font-semibold text-neutral-100 mb-1">3. No cross-system orchestration</p>
+<p class="text-neutral-400">None of the three has an orchestrator who coordinates decisions between areas. Connections are manual.</p>
 </div>
 <div class="bg-dark-700/50 rounded-lg p-4">
-<p class="font-semibold text-neutral-100 mb-1">4. Zero auditoria e rastreabilidade</p>
-<p class="text-neutral-400">Quem mudou o que, quando e por quê? Sem log, a resposta é sempre "não sei".</p>
+<p class="font-semibold text-neutral-100 mb-1">4. Zero audit and traceability</p>
+<p class="text-neutral-400">Who changed what, when and why? Without logging, the answer is always "I don't know".</p>
 </div>
 <div class="bg-dark-700/50 rounded-lg p-4">
-<p class="font-semibold text-neutral-100 mb-1">5. Decisões baseadas em intuição, não dados</p>
-<p class="text-neutral-400">Os três tomam decisões importantes sem o painel de dados certo — não por falta de dados, mas por falta de agregação.</p>
+<p class="font-semibold text-neutral-100 mb-1">5. Decisions based on intuition, not data</p>
+<p class="text-neutral-400">All three make important decisions without the right data dashboard — not because of a lack of data, but because of a lack of aggregation.</p>
 </div>
 </div>
 </div>
 </section>
-
-<section id="topico-5" class="mb-16">
-<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">5</span><h2 class="text-2xl font-bold">🎯 A pergunta vira cadeia</h2></div>
-<p class="text-neutral-300 mb-6 leading-relaxed">Uma das mudanças mais práticas do Agentic OS é ver como <strong class="text-emerald-400">uma pergunta simples se transforma em uma cadeia coordenada de especialistas</strong>. Isso não é automação — é orquestração inteligente. Marco pergunta uma coisa, quatro agentes trabalham em paralelo, e ele recebe uma síntese.</p>
+<section class="mb-16" id="topico-5">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">5</span><h2 class="text-2xl font-bold">🎯 The question becomes a chain</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">One of the most practical changes to Agentic OS is seeing how<strong class="text-emerald-400">a simple question turns into a coordinated chain of experts</strong>. This isn't automation — it's intelligent orchestration. Marco asks something, four agents work in parallel, and he receives a summary.</p>
 <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
-<h3 class="text-lg font-semibold text-emerald-400 mb-4 flex items-center"><span class="mr-2">🔗</span> Exemplo: Marco e a decisão de whale tier</h3>
+<h3 class="text-lg font-semibold text-emerald-400 mb-4 flex items-center"><span class="mr-2">🔗</span>Example: Marco and the whale tier decision</h3>
 <div class="space-y-3 text-sm">
 <div class="flex items-start space-x-3">
 <div class="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-500/20 flex items-center justify-center text-emerald-400 font-bold text-xs">1</div>
-<div class="flex-1 bg-dark-800 rounded-lg p-3 border border-dark-600"><p class="font-semibold text-neutral-100 text-xs mb-1">Marco pergunta</p><p class="text-neutral-400">"Whale tier vale o custo do pull garantido neste trimestre?"</p></div>
+<div class="flex-1 bg-dark-800 rounded-lg p-3 border border-dark-600"><p class="font-semibold text-neutral-100 text-xs mb-1">Marco asks</p><p class="text-neutral-400">"Whale tier is worth the cost of guaranteed pull this quarter?"</p></div>
 </div>
 <div class="flex items-start space-x-3">
 <div class="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-500/20 flex items-center justify-center text-emerald-400 font-bold text-xs">2</div>
-<div class="flex-1 bg-dark-800 rounded-lg p-3 border border-dark-600"><p class="font-semibold text-neutral-100 text-xs mb-1">Orquestrador (Chief-of-Staff)</p><p class="text-neutral-400">Identifica: preciso de análise financeira (CFO Bot) + análise de comportamento de cliente (CMO Bot).</p></div>
+<div class="flex-1 bg-dark-800 rounded-lg p-3 border border-dark-600"><p class="font-semibold text-neutral-100 text-xs mb-1">Orchestrator (Chief-of-Staff)</p><p class="text-neutral-400">Identifies: I need financial analysis (CFO Bot) + customer behavior analysis (CMO Bot).</p></div>
 </div>
 <div class="flex items-start space-x-3">
 <div class="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-500/20 flex items-center justify-center text-emerald-400 font-bold text-xs">3</div>
-<div class="flex-1 bg-dark-800 rounded-lg p-3 border border-dark-600"><p class="font-semibold text-neutral-100 text-xs mb-1">CFO Bot responde</p><p class="text-neutral-400">Custo do pull garantido: R$ 4.200. LTV médio de whale: R$ 18.400. Margem: positiva em 3 compras.</p></div>
+<div class="flex-1 bg-dark-800 rounded-lg p-3 border border-dark-600"><p class="font-semibold text-neutral-100 text-xs mb-1">CFO Bot responds</p><p class="text-neutral-400">Guaranteed pull cost: R$4,200. Average whale LTV: R$18,400. Margin: positive on 3 purchases.</p></div>
 </div>
 <div class="flex items-start space-x-3">
 <div class="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-500/20 flex items-center justify-center text-emerald-400 font-bold text-xs">4</div>
-<div class="flex-1 bg-dark-800 rounded-lg p-3 border border-dark-600"><p class="font-semibold text-neutral-100 text-xs mb-1">CMO Bot responde</p><p class="text-neutral-400">Whales com 3+ compras têm 78% de retenção. Pull garantido aumenta compra #4 em 34%.</p></div>
+<div class="flex-1 bg-dark-800 rounded-lg p-3 border border-dark-600"><p class="font-semibold text-neutral-100 text-xs mb-1">CMO Bot responds</p><p class="text-neutral-400">Whales with 3+ purchases have 78% retention. Guaranteed pull increases purchase #4 by 34%.</p></div>
 </div>
 <div class="flex items-start space-x-3">
 <div class="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-500/20 flex items-center justify-center text-emerald-400 font-bold text-xs">5</div>
-<div class="flex-1 bg-dark-800 rounded-lg p-3 border border-dark-600"><p class="font-semibold text-neutral-100 text-xs mb-1">Orquestrador sintetiza</p><p class="text-neutral-400">Recomendação: implementar whale tier. ROI positivo em 60 dias com base nos dados de LTV e retenção.</p></div>
+<div class="flex-1 bg-dark-800 rounded-lg p-3 border border-dark-600"><p class="font-semibold text-neutral-100 text-xs mb-1">Orchestrator synthesizes</p><p class="text-neutral-400">Recommendation: implement whale tier. Positive ROI within 60 days based on LTV and retention data.</p></div>
 </div>
 </div>
 </div>
 <div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
-<h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> O mesmo padrão para Sally e Sana</h3>
-<p class="text-neutral-300 text-sm">Sally pergunta: "Este caso tem precedentes favoráveis para nosso argumento?" → Research Bot busca jurisprudência + Case Context Bot lê os documentos do caso → síntese em 8 minutos. Dra. Sana pergunta: "Alguma biópsia pendente com prazo crítico?" → Biópsia Monitor + Agenda Bot → lista priorizada em segundos.</p>
+<h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span>The same pattern for Sally and Sana</h3>
+<p class="text-neutral-300 text-sm">Sally asks, "Does this case have favorable precedents for our argument?" → Research Bot searches case law + Case Context Bot reads case documents → summary in 8 minutes. Dr. Sana asks, “Any pending biopsies with a critical deadline?” → Biopsy Monitor + Agenda Bot → prioritized list in seconds.</p>
 </div>
 </section>
-
-<section id="topico-6" class="mb-16">
-<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">6</span><h2 class="text-2xl font-bold">🪪 Sua persona</h2></div>
-<p class="text-neutral-300 mb-6 leading-relaxed">Você não é Marco, Sally nem Dra. Sana — mas <strong class="text-emerald-400">você tem uma das três estruturas de problema</strong>. Identificar qual é seu caso antes de avançar nas trilhas evita construir a solução certa para o problema errado. Este é o único exercício obrigatório do módulo.</p>
+<section class="mb-16" id="topico-6">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">6</span><h2 class="text-2xl font-bold">🪪 Your persona</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">You are not Marco, Sally or Dr. Sana — but<strong class="text-emerald-400">you have one of three problem structures</strong>. Identifying what your case is before moving forward on the trails avoids building the right solution for the wrong problem. This is the only mandatory exercise in the module.</p>
 <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
-<h3 class="text-lg font-semibold text-emerald-400 mb-4 flex items-center"><span class="mr-2">📝</span> Exercício: mapeie o seu caso</h3>
-<p class="text-neutral-300 text-sm mb-4">Responda estas 5 perguntas antes de continuar:</p>
+<h3 class="text-lg font-semibold text-emerald-400 mb-4 flex items-center"><span class="mr-2">📝</span>Exercise: map your case</h3>
+<p class="text-neutral-300 text-sm mb-4">Answer these 5 questions before continuing:</p>
 <div class="space-y-3 text-sm">
 <div class="bg-dark-700/50 rounded-lg p-3">
-<p class="font-semibold text-neutral-100 mb-1">1. Qual é o seu stack principal?</p>
-<p class="text-neutral-400">Liste os 3-5 sistemas que você mais usa no trabalho.</p>
+<p class="font-semibold text-neutral-100 mb-1">1. What is your main stack?</p>
+<p class="text-neutral-400">List the 3-5 systems you use most at work.</p>
 </div>
 <div class="bg-dark-700/50 rounded-lg p-3">
-<p class="font-semibold text-neutral-100 mb-1">2. Qual processo você repete toda semana que poderia ser automatizado?</p>
-<p class="text-neutral-400">O equivalente do brief do Marco, do case launch da Sally, das notas da Sana.</p>
+<p class="font-semibold text-neutral-100 mb-1">2. What process do you repeat every week that could be automated?</p>
+<p class="text-neutral-400">The equivalent of Marco's brief, Sally's case launch, Sana's notes.</p>
 </div>
 <div class="bg-dark-700/50 rounded-lg p-3">
-<p class="font-semibold text-neutral-100 mb-1">3. Qual decisão você toma no "feeling" por falta de dados prontos?</p>
-<p class="text-neutral-400">O que você saberia se seus dados estivessem preparados como Silver Platter?</p>
+<p class="font-semibold text-neutral-100 mb-1">3. What decision do you make in "feeling" due to lack of ready data?</p>
+<p class="text-neutral-400">What would you know if your data was prepared as a Silver Platter?</p>
 </div>
 <div class="bg-dark-700/50 rounded-lg p-3">
-<p class="font-semibold text-neutral-100 mb-1">4. Qual é a sua restrição não-negociável?</p>
-<p class="text-neutral-400">PHI? Dados de cliente? Código proprietário? Compliance regulatório?</p>
+<p class="font-semibold text-neutral-100 mb-1">4. What is your non-negotiable restriction?</p>
+<p class="text-neutral-400">PHI? Customer data? Proprietary code? Regulatory compliance?</p>
 </div>
 <div class="bg-dark-700/50 rounded-lg p-3">
-<p class="font-semibold text-neutral-100 mb-1">5. Qual é seu ganho rápido (quick win)?</p>
-<p class="text-neutral-400">Uma automação de 30 minutos que você poderia implementar esta semana e já perceber valor.</p>
+<p class="font-semibold text-neutral-100 mb-1">5. What is your quick win?</p>
+<p class="text-neutral-400">A 30-minute automation that you could implement this week and see value.</p>
 </div>
 </div>
 </div>
 <div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
-<h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Guarde suas respostas</h3>
-<p class="text-neutral-300 text-sm">Estas 5 respostas são o ponto de partida do seu projeto final. No módulo 1.6 você vai estruturar isso em um plano completo. Por ora, escreva em um arquivo <code class="bg-dark-700 px-1 rounded">minha-persona.md</code> na sua pasta do projeto.</p>
+<h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span>Save your answers</h3>
+<p class="text-neutral-300 text-sm">These 5 answers are the starting point of your final project. In module 1.6 you will structure this into a complete plan. For now, write it to a file<code class="bg-dark-700 px-1 rounded" data-notranslate="True">minha-persona.md</code>in your project folder.</p>
 </div>
 </section>
-
 <section class="mb-12">
 <div class="bg-gradient-to-br from-emerald-900/40 via-dark-800 to-dark-800 rounded-xl border border-emerald-500/30 p-8">
-<h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-3">📋</span> Resumo do Módulo</h2>
+<h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-3">📋</span>Module Summary</h2>
 <div class="space-y-4 mb-8">
-<div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">Marco (SlabHaus)</strong><span class="text-neutral-400"> — e-commerce solo: brief manual, P&L fragmentado, análise de whales sem automação</span></div></div>
-<div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">Sally Tan (boutique law)</strong><span class="text-neutral-400"> — jurídico regulado: conflict check, case launch, compliance AWS Bedrock</span></div></div>
-<div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">Dra. Sana (dermatologia)</strong><span class="text-neutral-400"> — saúde + PHI: notas clínicas, biópsias pendentes, path scoping obrigatório</span></div></div>
-<div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">5 padrões comuns</strong><span class="text-neutral-400"> — dados espalhados, processos repetitivos, sem orquestração, zero auditoria, decisões no feeling</span></div></div>
-<div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">Pergunta vira cadeia</strong><span class="text-neutral-400"> — orquestrador + especialistas em paralelo entregam síntese em minutos</span></div></div>
-<div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">Sua persona</strong><span class="text-neutral-400"> — exercício de mapeamento para conectar o curso ao seu caso real</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">Landmark (SlabHaus)</strong><span class="text-neutral-400">— solo e-commerce: manual brief, fragmented P&amp;L, whale analysis without automation</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">Sally Tan (boutique law)</strong><span class="text-neutral-400">— regulated legal: conflict check, case launch, compliance AWS Bedrock</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">Dr. Sana (dermatology)</strong><span class="text-neutral-400">— health + PHI: clinical notes, pending biopsies, mandatory path scoping</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">5 common patterns</strong><span class="text-neutral-400">— scattered data, repetitive processes, no orchestration, zero auditing, decisions based on feeling</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">Question turns into a chain</strong><span class="text-neutral-400">— orchestrator + parallel experts deliver synthesis in minutes</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-emerald-400 mt-1">✓</span><div><strong class="text-white">Your persona</strong><span class="text-neutral-400">— mapping exercise to connect the course to your real case</span></div></div>
 </div>
-<div class="bg-dark-800/50 rounded-lg p-4 mb-8"><h3 class="font-semibold text-emerald-400 mb-2">Próximo Módulo:</h3><p class="text-neutral-300">1.5 — O método PRATO: visão geral em 5 letras</p></div>
-<div class="flex flex-col sm:flex-row gap-4"><a href="modulo-1-3.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">← Módulo Anterior</a><a href="index.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">← Voltar para Trilha</a><a href="modulo-1-5.html" class="flex-1 text-center px-6 py-3 bg-emerald-600 text-white rounded-lg font-semibold hover:bg-emerald-500 transition-colors">Próximo Módulo →</a></div>
+<div class="bg-dark-800/50 rounded-lg p-4 mb-8"><h3 class="font-semibold text-emerald-400 mb-2">Next Module:</h3><p class="text-neutral-300">1.5 — The DISH method: overview in 5 letters</p></div>
+<div class="flex flex-col sm:flex-row gap-4"><a class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors" href="modulo-1-3.html">← Previous Module</a><a class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors" href="index.html">← Back to Trail</a><a class="flex-1 text-center px-6 py-3 bg-emerald-600 text-white rounded-lg font-semibold hover:bg-emerald-500 transition-colors" href="modulo-1-5.html">Next Module →</a></div>
 </div>
 </section>
-
 </main>
-
-<footer class="border-t border-dark-600 py-8 mt-16"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm"><p>Agentic OS — INEMA.CLUB · 2026</p></div></footer>
-<script>
+<footer class="border-t border-dark-600 py-8 mt-16"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm"><p>Agentic OS — duclub · 2026</p></div></footer>
+<script data-notranslate="True">
 const tt=document.getElementById('theme-toggle'),tdi=document.getElementById('theme-toggle-dark-icon'),tli=document.getElementById('theme-toggle-light-icon'),h=document.documentElement;
 if(localStorage.getItem('theme')==='light'||(!localStorage.getItem('theme')&&!h.classList.contains('dark'))){tdi.classList.remove('hidden');h.classList.remove('dark')}else{tli.classList.remove('hidden')}
 tt.addEventListener('click',()=>{tdi.classList.toggle('hidden');tli.classList.toggle('hidden');h.classList.toggle('dark');localStorage.setItem('theme',h.classList.contains('dark')?'dark':'light')});
