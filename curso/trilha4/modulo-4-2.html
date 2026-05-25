@@ -1,12 +1,12 @@
-<!DOCTYPE html>
-<html lang="pt-BR" class="dark">
+html
+<html class="dark" lang="pt-BR">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>4.2 — Chief-of-staff pattern | Agentic OS</title>
-<script src="https://cdn.tailwindcss.com"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<script>tailwind.config={darkMode:'class',theme:{extend:{colors:{primary:'#FACC15',dark:{900:'#111827',800:'#1f2937',700:'#374151',600:'#4b5563'}}}}}</script>
-<style>
+<script data-notranslate="True" src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<script data-notranslate="True">tailwind.config={darkMode:'class',theme:{extend:{colors:{primary:'#FACC15',dark:{900:'#111827',800:'#1f2937',700:'#374151',600:'#4b5563'}}}}}</script>
+<style data-notranslate="True">
 body{font-family:'Inter',sans-serif}
 html:not(.dark) body{background:#f8fafc}html:not(.dark) .bg-dark-900{background:#fff}html:not(.dark) .bg-dark-800{background:#f9fafb}html:not(.dark) .bg-dark-700{background:#f3f4f6}html:not(.dark) .bg-dark-600{background:#e5e7eb}html:not(.dark) .text-neutral-100{color:#111827}html:not(.dark) .text-neutral-300{color:#4b5563}html:not(.dark) .text-neutral-400{color:#6b7280}html:not(.dark) .text-neutral-500{color:#9ca3af}html:not(.dark) .border-dark-600{border-color:#d1d5db}html:not(.dark) .border-dark-700{border-color:#e5e7eb}
 html:not(.dark) .text-amber-400{color:#92400e}html:not(.dark) .bg-amber-500\/20{background:rgba(217,119,6,.12)}html:not(.dark) .bg-amber-500\/10{background:rgba(217,119,6,.08)}html:not(.dark) .border-amber-500\/30{border-color:rgba(217,119,6,.25)}html:not(.dark) .hover\:bg-amber-500\/30:hover{background:rgba(217,119,6,.18)}html:not(.dark) .hover\:text-amber-400:hover{color:#92400e}html:not(.dark) .bg-amber-900\/20{background:rgba(217,119,6,.06)}html:not(.dark) .bg-amber-900\/30{background:rgba(217,119,6,.06)}html:not(.dark) .bg-amber-900\/40{background:rgba(217,119,6,.08)}
@@ -15,40 +15,35 @@ html:not(.dark) .text-red-400{color:#b91c1c}html:not(.dark) .bg-red-900\/20{back
 html:not(.dark) [class*="bg-gradient-to"]{background-image:none!important}html:not(.dark) .text-primary{color:#a16207}html:not(.dark) .bg-primary\/10{background:rgba(161,98,7,.08)}html:not(.dark) .border-primary\/30{border-color:rgba(161,98,7,.25)}html:not(.dark) .text-sky-400{color:#0369a1}html:not(.dark) .text-yellow-400{color:#a16207}html:not(.dark) .hover\:text-sky-300:hover{color:#0284c7}html:not(.dark) .hover\:text-yellow-300:hover{color:#854d0e}html:not(.dark) .bg-dark-900\/95{background:rgba(255,255,255,.95)}
 </style></head>
 <body class="bg-dark-900 text-neutral-100">
-<nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"><div class="flex justify-between items-center h-14"><div class="flex items-center space-x-4"><a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300"><span class="text-2xl">⚡</span><span class="font-bold text-lg hidden sm:inline">Agentic OS</span></a><span class="text-neutral-600">|</span><a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a></div><div class="flex items-center space-x-1 sm:space-x-2"><a href="../trilha1/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors"><span class="sm:hidden">T1</span><span class="hidden sm:inline">Fundamentos</span></a><a href="../trilha2/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors"><span class="sm:hidden">T2</span><span class="hidden sm:inline">Identidade</span></a><a href="../trilha3/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors"><span class="sm:hidden">T3</span><span class="hidden sm:inline">Conhecimento</span></a><a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-amber-400 bg-amber-500/10"><span class="sm:hidden">T4</span><span class="hidden sm:inline">Trabalhadores</span></a><a href="../trilha5/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-teal-400 hover:bg-teal-500/10 transition-colors"><span class="sm:hidden">T5</span><span class="hidden sm:inline">Automação</span></a><a href="../trilha6/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-rose-400 hover:bg-rose-500/10 transition-colors"><span class="sm:hidden">T6</span><span class="hidden sm:inline">Implantação</span></a><button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2"><svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/></svg><svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"/></svg></button></div></div></div></nav>
-
-<nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4"><div class="flex items-center space-x-2 text-sm text-neutral-400"><a href="../../index.html" class="hover:text-amber-400">Início</a><span>/</span><a href="index.html" class="hover:text-amber-400">Trilha 4</a><span>/</span><span class="text-amber-400">Módulo 4.2</span></div></nav>
-
-<header class="bg-gradient-to-br from-amber-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"><span class="inline-block px-3 py-1 bg-amber-500/20 text-amber-400 text-xs font-semibold rounded-full mb-4">MÓDULO 4.2</span><h1 class="text-3xl sm:text-4xl font-bold mb-4">👔 Chief-of-staff pattern</h1><p class="text-lg text-neutral-400 max-w-3xl">O padrão Anthropic: orquestrador como chief-of-staff que nunca executa diretamente — apenas delega, coordena e sintetiza. Como estruturar identidade, responsabilidades e limites do lead agent.</p><div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl"><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-amber-400">6</div><div class="text-xs text-neutral-400">Tópicos</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-amber-400">45</div><div class="text-xs text-neutral-400">Minutos</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-amber-400">Médio</div><div class="text-xs text-neutral-400">Nível</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-amber-400">Padrão</div><div class="text-xs text-neutral-400">Tipo</div></div></div></div></header>
-
+<nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"><div class="flex justify-between items-center h-14"><div class="flex items-center space-x-4"><a class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300" href="../../index.html"><span class="text-2xl">⚡</span><span class="font-bold text-lg hidden sm:inline">Agentic OS</span></a><span class="text-neutral-600">|</span><a class="text-sky-400 hover:text-sky-300 text-sm font-medium" href="https://duclub" target="_blank">duclub</a></div><div class="flex items-center space-x-1 sm:space-x-2"><a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors" href="../trilha1/index.html"><span class="sm:hidden">T1</span><span class="hidden sm:inline">Fundamentals</span></a><a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors" href="../trilha2/index.html"><span class="sm:hidden">T2</span><span class="hidden sm:inline">Identity</span></a><a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors" href="../trilha3/index.html"><span class="sm:hidden">T3</span><span class="hidden sm:inline">Knowledge</span></a><a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-amber-400 bg-amber-500/10" href="index.html"><span class="sm:hidden">T4</span><span class="hidden sm:inline">Workers</span></a><a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-teal-400 hover:bg-teal-500/10 transition-colors" href="../trilha5/index.html"><span class="sm:hidden">T5</span><span class="hidden sm:inline">Automation</span></a><a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-rose-400 hover:bg-rose-500/10 transition-colors" href="../trilha6/index.html"><span class="sm:hidden">T6</span><span class="hidden sm:inline">Implantation</span></a><button class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2" id="theme-toggle"><svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-dark-icon" viewbox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg><svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-light-icon" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd"></path></svg></button></div></div></div></nav>
+<nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4"><div class="flex items-center space-x-2 text-sm text-neutral-400"><a class="hover:text-amber-400" href="../../index.html">Start</a><span>/</span><a class="hover:text-amber-400" href="index.html">Track 4</a><span>/</span><span class="text-amber-400">Module 4.2</span></div></nav>
+<header class="bg-gradient-to-br from-amber-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"><span class="inline-block px-3 py-1 bg-amber-500/20 text-amber-400 text-xs font-semibold rounded-full mb-4">MODULE 4.2</span><h1 class="text-3xl sm:text-4xl font-bold mb-4">👔 Chief-of-staff pattern</h1><p class="text-lg text-neutral-400 max-w-3xl">The Anthropic pattern: orchestrator as chief-of-staff who never executes directly — only delegates, coordinates and synthesizes. How to structure the lead agent’s identity, responsibilities and limits.</p><div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl"><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-amber-400">6</div><div class="text-xs text-neutral-400">Topics</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-amber-400">45</div><div class="text-xs text-neutral-400">Minutes</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-amber-400">Average</div><div class="text-xs text-neutral-400">Level</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-amber-400">Standard</div><div class="text-xs text-neutral-400">Type</div></div></div></div></header>
 <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-
-<section id="topico-1" class="mb-16">
-<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">1</span><h2 class="text-2xl font-bold">👔 O que é chief-of-staff no contexto agêntico</h2></div>
-<p class="text-neutral-300 mb-6 leading-relaxed">Em organizações humanas, o chief-of-staff <strong class="text-amber-400">nunca executa o trabalho direto</strong> — ele garante que os executores certos recebam as tarefas certas, no tempo certo, com o contexto certo. O padrão agêntico é idêntico: o orquestrador não faz pesquisa, não escreve código, não manda email — ele coordena quem faz.</p>
+<section class="mb-16" id="topico-1">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">1</span><h2 class="text-2xl font-bold">👔 What is chief-of-staff in the agentic context</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">In human organizations, the chief-of-staff<strong class="text-amber-400">never performs direct work</strong>— it ensures that the right performers receive the right tasks, at the right time, with the right context. The agentic pattern is identical: the orchestrator doesn't do research, doesn't write code, doesn't send emails — he coordinates those who do.</p>
 <div class="bg-gradient-to-br from-amber-900/30 to-dark-800 rounded-xl border border-amber-500/30 p-6 mb-6">
-<h3 class="text-lg font-semibold text-amber-400 mb-4 flex items-center"><span class="mr-2">🏗️</span> Responsabilidades do chief-of-staff agêntico</h3>
+<h3 class="text-lg font-semibold text-amber-400 mb-4 flex items-center"><span class="mr-2">🏗️</span>Agent chief-of-staff responsibilities</h3>
 <ul class="space-y-3 text-neutral-300 text-sm">
-<li><strong class="text-neutral-100">Receber a intenção do CEO</strong> — traduzir objetivo de alto nível em tarefas executáveis.</li>
-<li><strong class="text-neutral-100">Selecionar o executor certo</strong> — qual especialista tem as ferramentas e o contexto para cada tarefa.</li>
-<li><strong class="text-neutral-100">Definir o critério de done</strong> — o worker precisa saber quando a tarefa está completa.</li>
-<li><strong class="text-neutral-100">Monitorar e reagir</strong> — se um worker trava ou retorna resultado inadequado, o CoS intervém.</li>
-<li><strong class="text-neutral-100">Sintetizar e reportar</strong> — consolida os resultados numa resposta coerente para o CEO.</li>
+<li><strong class="text-neutral-100">Receive CEO intent</strong>— translate high-level objective into executable tasks.</li>
+<li><strong class="text-neutral-100">Select the right executor</strong>— which expert has the tools and context for each task.</li>
+<li><strong class="text-neutral-100">Define the done criteria</strong>— the worker needs to know when the task is complete.</li>
+<li><strong class="text-neutral-100">Monitor and react</strong>— if a worker crashes or returns inappropriate results, the CoS intervenes.</li>
+<li><strong class="text-neutral-100">Synthesize and report</strong>— consolidates the results into a coherent response for the CEO.</li>
 </ul>
 </div>
 <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
-<h3 class="text-lg font-semibold text-blue-400 mb-3 flex items-center"><span class="mr-2">📊</span> Antropic Model Spec — trecho relevante</h3>
+<h3 class="text-lg font-semibold text-blue-400 mb-3 flex items-center"><span class="mr-2">📊</span>Anthropic Model Spec — relevant excerpt</h3>
 <p class="text-neutral-300 text-sm italic">"In multi-agent settings, Claude acting as an orchestrator should focus on decomposition and synthesis. The orchestrator should not attempt to directly execute tasks that subagents are better positioned to handle."</p>
-<p class="text-neutral-400 text-sm mt-2">— Anthropic Model Spec, seção Multi-agent frameworks (2025)</p>
+<p class="text-neutral-400 text-sm mt-2">— Anthropic Model Spec, section Multi-agent frameworks (2025)</p>
 </div>
 </section>
-
-<section id="topico-2" class="mb-16">
-<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">2</span><h2 class="text-2xl font-bold">📝 AGENTS.md do orquestrador</h2></div>
-<p class="text-neutral-300 mb-6 leading-relaxed">O orquestrador precisa de uma identidade clara definida em AGENTS.md. Sem isso, ele tenta fazer tudo sozinho — destrói o padrão. O arquivo define: <strong class="text-amber-400">quem ele é, o que ele coordena, o que ele NUNCA faz diretamente</strong>, e quais agentes estão sob sua coordenação.</p>
+<section class="mb-16" id="topico-2">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">2</span><h2 class="text-2xl font-bold">📝 Orchestrator AGENTS.md</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">The orchestrator needs a clear identity defined in AGENTS.md. Without that, he tries to do everything himself — destroys the pattern. The file defines:<strong class="text-amber-400">who he is, what he coordinates, what he NEVER does directly</strong>, and which agents are under its coordination.</p>
 <div class="bg-gradient-to-br from-amber-900/30 to-dark-800 rounded-xl border border-amber-500/30 p-6 mb-6">
-<h3 class="text-lg font-semibold text-amber-400 mb-4">Template AGENTS.md do orquestrador</h3>
-<pre class="text-sm text-neutral-300 overflow-x-auto"><code># AGENTS.md — Orquestrador Chief-of-Staff
+<h3 class="text-lg font-semibold text-amber-400 mb-4">Orchestrator AGENTS.md template</h3>
+<pre class="text-sm text-neutral-300 overflow-x-auto" data-notranslate="True"><code data-notranslate="True"># AGENTS.md — Orquestrador Chief-of-Staff
 
 ## Papel
 Coordenador central. Recebe objetivos, decompõe em tarefas,
@@ -71,110 +66,103 @@ Resposta sintetizada cobre todos os subproblemas
 definidos no plano inicial.</code></pre>
 </div>
 </section>
-
-<section id="topico-3" class="mb-16">
-<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">3</span><h2 class="text-2xl font-bold">🔁 O ciclo de coordenação</h2></div>
-<p class="text-neutral-300 mb-6 leading-relaxed">O chief-of-staff opera em ciclos. Cada ciclo tem fases bem definidas que não se misturam. <strong class="text-amber-400">Misturar as fases é o erro mais comum</strong> — o orquestrador começa a "ajudar" a executar e perde a visão do todo.</p>
+<section class="mb-16" id="topico-3">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">3</span><h2 class="text-2xl font-bold">🔁 The coordination cycle</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">The chief-of-staff operates in cycles. Each cycle has well-defined phases that do not mix.<strong class="text-amber-400">Mixing the phases is the most common mistake</strong>— the orchestrator starts to "help" perform and loses sight of the whole.</p>
 <div class="bg-gradient-to-br from-amber-900/30 to-dark-800 rounded-xl border border-amber-500/30 p-6 mb-6">
-<h3 class="text-lg font-semibold text-amber-400 mb-4">As 5 fases do ciclo</h3>
+<h3 class="text-lg font-semibold text-amber-400 mb-4">The 5 phases of the cycle</h3>
 <ul class="space-y-3 text-neutral-300 text-sm">
-<li><span class="text-amber-400 font-bold">Fase 1 — Intake:</span> Recebe objetivo. Faz perguntas clarificadoras se necessário. Define escopo.</li>
-<li><span class="text-amber-400 font-bold">Fase 2 — Decomposição:</span> Quebra em subtarefas. Define dependências entre elas.</li>
-<li><span class="text-amber-400 font-bold">Fase 3 — Dispatch:</span> Envia cada subtarefa para o subagente correto com contexto completo.</li>
-<li><span class="text-amber-400 font-bold">Fase 4 — Monitor:</span> Acompanha conclusão. Lida com falhas e retries.</li>
-<li><span class="text-amber-400 font-bold">Fase 5 — Síntese:</span> Consolida resultados. Resolve conflitos. Produz output final.</li>
+<li><span class="text-amber-400 font-bold">Phase 1 — Intake:</span>Receive objective. Ask clarifying questions if necessary. Defines scope.</li>
+<li><span class="text-amber-400 font-bold">Phase 2 — Decomposition:</span>Break into subtasks. Defines dependencies between them.</li>
+<li><span class="text-amber-400 font-bold">Phase 3 — Dispatch:</span>Sends each subtask to the correct subagent with full context.</li>
+<li><span class="text-amber-400 font-bold">Phase 4 — Monitor:</span>Follow completion. Handles failures and retries.</li>
+<li><span class="text-amber-400 font-bold">Phase 5 — Synthesis:</span>Consolidates results. Resolves conflicts. Produces final output.</li>
 </ul>
 </div>
 <div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
-<h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Caso Marco: o CoS em ação</h3>
-<p class="text-neutral-300 text-sm">Marco (e-commerce) pediu "análise completa para lançar produto no mercado latam". CoS intake: escopo (3 mercados, 2 concorrentes). Decomp: pesquisa de mercado + análise de preço + viabilidade logística. Dispatch: 3 workers em paralelo. Síntese em 8 min com recomendação clara por mercado.</p>
+<h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span>Marco Case: the CoS in action</h3>
+<p class="text-neutral-300 text-sm">Marco (e-commerce) asked for "complete analysis to launch the product in the Latin market". CoS intake: scope (3 markets, 2 competitors). Decomp: market research + price analysis + logistical feasibility. Dispatch: 3 workers in parallel. Synthesis in 8 minutes with clear market recommendations.</p>
 </div>
 </section>
-
-<section id="topico-4" class="mb-16">
-<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">4</span><h2 class="text-2xl font-bold">🎯 Decomposição inteligente de tarefas</h2></div>
-<p class="text-neutral-300 mb-6 leading-relaxed">A habilidade mais crítica do chief-of-staff é <strong class="text-amber-400">decompor bem</strong>. Decomposição ruim cria workers com tarefas ambíguas que se sobrepõem ou se contradizem. Decomposição boa cria tarefas atômicas, independentes e com critério de done claro.</p>
+<section class="mb-16" id="topico-4">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">4</span><h2 class="text-2xl font-bold">🎯 Smart task decomposition</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">The chief-of-staff's most critical skill is<strong class="text-amber-400">decompose well</strong>. Bad decomposition creates workers with ambiguous tasks that overlap or contradict each other. Good decomposition creates atomic, independent tasks with clear done criteria.</p>
 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
 <div class="bg-amber-900/20 rounded-xl border border-amber-500/30 p-6">
-<h4 class="font-bold text-amber-400 mb-4">✓ Decomposição boa</h4>
+<h4 class="font-bold text-amber-400 mb-4">✓ Good decomposition</h4>
 <ul class="space-y-2 text-neutral-300 text-sm">
-<li class="flex items-start space-x-2"><span class="text-amber-400">✓</span><span>Tarefa atômica com uma responsabilidade</span></li>
-<li class="flex items-start space-x-2"><span class="text-amber-400">✓</span><span>Critério de done objetivo e mensurável</span></li>
-<li class="flex items-start space-x-2"><span class="text-amber-400">✓</span><span>Sem sobreposição com outras tarefas</span></li>
-<li class="flex items-start space-x-2"><span class="text-amber-400">✓</span><span>Output bem definido (formato + conteúdo)</span></li>
-<li class="flex items-start space-x-2"><span class="text-amber-400">✓</span><span>Independente dos outros workers</span></li>
+<li class="flex items-start space-x-2"><span class="text-amber-400">✓</span><span>Atomic task with one responsibility</span></li>
+<li class="flex items-start space-x-2"><span class="text-amber-400">✓</span><span>Objective and measurable done criterion</span></li>
+<li class="flex items-start space-x-2"><span class="text-amber-400">✓</span><span>No overlap with other tasks</span></li>
+<li class="flex items-start space-x-2"><span class="text-amber-400">✓</span><span>Well-defined output (format + content)</span></li>
+<li class="flex items-start space-x-2"><span class="text-amber-400">✓</span><span>Independent of other workers</span></li>
 </ul>
 </div>
 <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
-<h4 class="font-bold text-red-400 mb-4">✗ Decomposição ruim</h4>
+<h4 class="font-bold text-red-400 mb-4">✗ Bad decomposition</h4>
 <ul class="space-y-2 text-neutral-300 text-sm">
-<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>"Pesquise e analise e recomende"</span></li>
-<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Sem formato de output definido</span></li>
-<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Worker A precisa do resultado do Worker B</span></li>
-<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Critério de done vago ("seja completo")</span></li>
-<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Tarefas cobrem o mesmo dado</span></li>
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>"Search and analyze and recommend"</span></li>
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>No defined output format</span></li>
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Worker A needs the result from Worker B</span></li>
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Vague done criterion ("be complete")</span></li>
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Tasks cover the same data</span></li>
 </ul>
 </div>
 </div>
 </section>
-
-<section id="topico-5" class="mb-16">
-<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">5</span><h2 class="text-2xl font-bold">🚨 Tratamento de falhas e retries</h2></div>
-<p class="text-neutral-300 mb-6 leading-relaxed">Workers falham. O CoS precisa ter uma política clara para falhas: <strong class="text-amber-400">quando tentar novamente, quando escalar, quando aceitar resultado parcial</strong>. Sem essa política, uma falha de um worker trava todo o sistema.</p>
+<section class="mb-16" id="topico-5">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">5</span><h2 class="text-2xl font-bold">🚨 Handling failures and retries</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Workers fail. The CoS needs to have a clear failure policy:<strong class="text-amber-400">when to try again, when to escalate, when to accept partial results</strong>. Without this policy, a worker failure crashes the entire system.</p>
 <div class="bg-gradient-to-br from-amber-900/30 to-dark-800 rounded-xl border border-amber-500/30 p-6 mb-6">
-<h3 class="text-lg font-semibold text-amber-400 mb-4">Política de falhas do CoS</h3>
+<h3 class="text-lg font-semibold text-amber-400 mb-4">CoS failure policy</h3>
 <ul class="space-y-3 text-neutral-300 text-sm">
-<li><strong class="text-neutral-100">Timeout:</strong> define tempo máximo por worker (ex: 60s). Após timeout, marca como "não disponível".</li>
-<li><strong class="text-neutral-100">Retry com contexto:</strong> 1 retry com contexto adicional antes de escalar.</li>
-<li><strong class="text-neutral-100">Fallback:</strong> se worker especialista falha, tenta com worker genérico.</li>
-<li><strong class="text-neutral-100">Resultado parcial:</strong> se 4 de 5 workers concluem, sintetiza com nota de "dado incompleto".</li>
-<li><strong class="text-neutral-100">Escalada:</strong> falhas críticas são reportadas ao usuário com opções claras.</li>
+<li><strong class="text-neutral-100">Timeout:</strong>defines maximum time per worker (ex: 60s). After timeout, mark as "not available".</li>
+<li><strong class="text-neutral-100">Retry with context:</strong>1 retry with additional context before scaling.</li>
+<li><strong class="text-neutral-100">Fallback:</strong>if specialist worker fails, try with generic worker.</li>
+<li><strong class="text-neutral-100">Partial result:</strong>if 4 out of 5 workers conclude, summarize with an "incomplete data" note.</li>
+<li><strong class="text-neutral-100">Climbing:</strong>Critical failures are reported to the user with clear options.</li>
 </ul>
 </div>
 <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6 mb-6">
-<h3 class="text-lg font-semibold text-red-400 mb-3 flex items-center"><span class="mr-2">⚠️</span> Anti-padrão: CoS que paralisa</h3>
-<p class="text-neutral-300">Sana teve seu CoS configurado para "esperar todos os workers". Um worker ficou em loop infinito e todo o sistema travou por 40 minutos. Timeout obrigatório é configuração de segurança, não otimização.</p>
+<h3 class="text-lg font-semibold text-red-400 mb-3 flex items-center"><span class="mr-2">⚠️</span>Anti-pattern: CoS that paralyzes</h3>
+<p class="text-neutral-300">Sana had her CoS configured to "wait all workers". A worker was in an infinite loop and the entire system crashed for 40 minutes. Mandatory timeout is security setting, not optimization.</p>
 </div>
 </section>
-
-<section id="topico-6" class="mb-16">
-<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">6</span><h2 class="text-2xl font-bold">📤 Síntese de alta qualidade</h2></div>
-<p class="text-neutral-300 mb-6 leading-relaxed">A síntese é onde o chief-of-staff entrega valor real. Não é apenas "juntar os resultados" — é <strong class="text-amber-400">resolver conflitos, preencher lacunas, identificar padrões</strong> que nenhum worker viu isoladamente. É aqui que o CoS justifica seu custo extra em tokens.</p>
+<section class="mb-16" id="topico-6">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">6</span><h2 class="text-2xl font-bold">📤 High-quality synthesis</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Synthesis is where the chief-of-staff delivers real value. It's not just "putting the results together" — it's<strong class="text-amber-400">resolve conflicts, fill gaps, identify patterns</strong>that no single worker saw. This is where CoS justifies its extra cost in tokens.</p>
 <div class="bg-gradient-to-br from-amber-900/30 to-dark-800 rounded-xl border border-amber-500/30 p-6 mb-6">
-<h3 class="text-lg font-semibold text-amber-400 mb-4">Componentes de uma boa síntese</h3>
+<h3 class="text-lg font-semibold text-amber-400 mb-4">Components of a good synthesis</h3>
 <ul class="space-y-2 text-neutral-300 text-sm">
-<li><strong class="text-neutral-100">Verificação de conflitos:</strong> Worker A diz X, Worker B diz Y sobre o mesmo dado — CoS resolve ou sinaliza.</li>
-<li><strong class="text-neutral-100">Padrões cruzados:</strong> insights que emergem apenas quando múltiplos resultados são vistos juntos.</li>
-<li><strong class="text-neutral-100">Priorização:</strong> do volume de dados, o CoS filtra o que é acionável.</li>
-<li><strong class="text-neutral-100">Formato para o CEO:</strong> estrutura o output no formato que o usuário espera (relatório, bullet points, decisão).</li>
+<li><strong class="text-neutral-100">Conflict Checking:</strong>Worker A says X, Worker B says Y on the same data — CoS resolves or signals.</li>
+<li><strong class="text-neutral-100">Cross Patterns:</strong>insights that emerge only when multiple results are viewed together.</li>
+<li><strong class="text-neutral-100">Prioritization:</strong>From the volume of data, the CoS filters what is actionable.</li>
+<li><strong class="text-neutral-100">Format for the CEO:</strong>structures the output in the format the user expects (report, bullet points, decision).</li>
 </ul>
 </div>
 <div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
-<h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> O sinal de uma boa síntese</h3>
-<p class="text-neutral-300">A síntese deveria conter insights que nenhum worker individual poderia ter produzido. Se o CoS está apenas concatenando outputs, ele não está sintetizando — está sendo um pipe caro. O valor está na integração, não na agregação.</p>
+<h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span>The sign of a good synthesis</h3>
+<p class="text-neutral-300">The synthesis should contain insights that no individual worker could have produced. If the CoS is just concatenating outputs, it's not synthesizing — it's an expensive pipe. The value is in integration, not aggregation.</p>
 </div>
 </section>
-
 <section class="mb-12">
 <div class="bg-gradient-to-br from-amber-900/40 via-dark-800 to-dark-800 rounded-xl border border-amber-500/30 p-8">
-<h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-3">📋</span> Resumo do Módulo</h2>
+<h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-3">📋</span>Module Summary</h2>
 <div class="space-y-4 mb-8">
-<div class="flex items-start space-x-3"><span class="text-amber-400 mt-1">✓</span><div><strong class="text-white">CoS nunca executa diretamente</strong><span class="text-neutral-400"> — delega, coordena, sintetiza. Isso é a regra.</span></div></div>
-<div class="flex items-start space-x-3"><span class="text-amber-400 mt-1">✓</span><div><strong class="text-white">AGENTS.md define o que ele NÃO faz</strong><span class="text-neutral-400"> — sem isso, ele tenta fazer tudo e falha em tudo</span></div></div>
-<div class="flex items-start space-x-3"><span class="text-amber-400 mt-1">✓</span><div><strong class="text-white">5 fases: intake, decomp, dispatch, monitor, síntese</strong><span class="text-neutral-400"> — misturar fases é o erro mais comum</span></div></div>
-<div class="flex items-start space-x-3"><span class="text-amber-400 mt-1">✓</span><div><strong class="text-white">Decomposição boa = tarefa atômica + critério de done</strong><span class="text-neutral-400"> — ambiguidade é responsabilidade do CoS, não do worker</span></div></div>
-<div class="flex items-start space-x-3"><span class="text-amber-400 mt-1">✓</span><div><strong class="text-white">Timeout obrigatório em todos os workers</strong><span class="text-neutral-400"> — política de falha evita paralisia total</span></div></div>
-<div class="flex items-start space-x-3"><span class="text-amber-400 mt-1">✓</span><div><strong class="text-white">Síntese gera insights cruzados</strong><span class="text-neutral-400"> — concatenar não é sintetizar</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-amber-400 mt-1">✓</span><div><strong class="text-white">CoS never executes directly</strong><span class="text-neutral-400">— delegates, coordinates, synthesizes. That's the rule.</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-amber-400 mt-1">✓</span><div><strong class="text-white">AGENTS.md defines what it DOES NOT do</strong><span class="text-neutral-400">— without this, he tries to do everything and fails at everything</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-amber-400 mt-1">✓</span><div><strong class="text-white">5 phases: intake, decomp, dispatch, monitor, synthesis</strong><span class="text-neutral-400">— mixing phases is the most common mistake</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-amber-400 mt-1">✓</span><div><strong class="text-white">Good decomposition = atomic task + done criterion</strong><span class="text-neutral-400">— ambiguity is the responsibility of the CoS, not the worker</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-amber-400 mt-1">✓</span><div><strong class="text-white">Mandatory timeout on all workers</strong><span class="text-neutral-400">— failure policy avoids total paralysis</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-amber-400 mt-1">✓</span><div><strong class="text-white">Synthesis generates cross insights</strong><span class="text-neutral-400">— concatenating is not synthesizing</span></div></div>
 </div>
-<div class="bg-dark-800/50 rounded-lg p-4 mb-8"><h3 class="font-semibold text-amber-400 mb-2">Próximo Módulo:</h3><p class="text-neutral-300">4.3 — Subagents e especialistas: CFO Bot, CMO Bot, Ops Bot com função, escopo e SLA</p></div>
-<div class="flex flex-col sm:flex-row gap-4"><a href="modulo-4-1.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">← Módulo Anterior</a><a href="modulo-4-3.html" class="flex-1 text-center px-6 py-3 bg-amber-600 text-white rounded-lg font-semibold hover:bg-amber-500 transition-colors">Próximo Módulo →</a></div>
+<div class="bg-dark-800/50 rounded-lg p-4 mb-8"><h3 class="font-semibold text-amber-400 mb-2">Next Module:</h3><p class="text-neutral-300">4.3 — Subagents and specialists: CFO Bot, CMO Bot, Ops Bot with role, scope and SLA</p></div>
+<div class="flex flex-col sm:flex-row gap-4"><a class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors" href="modulo-4-1.html">← Previous Module</a><a class="flex-1 text-center px-6 py-3 bg-amber-600 text-white rounded-lg font-semibold hover:bg-amber-500 transition-colors" href="modulo-4-3.html">Next Module →</a></div>
 </div>
 </section>
-
 </main>
-
-<footer class="border-t border-dark-600 py-8 mt-16"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm"><p>Agentic OS — INEMA.CLUB · 2026</p></div></footer>
-<script>
+<footer class="border-t border-dark-600 py-8 mt-16"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm"><p>Agentic OS — duclub · 2026</p></div></footer>
+<script data-notranslate="True">
 const tt=document.getElementById('theme-toggle'),tdi=document.getElementById('theme-toggle-dark-icon'),tli=document.getElementById('theme-toggle-light-icon'),h=document.documentElement;
 if(localStorage.getItem('theme')==='light'||(!localStorage.getItem('theme')&&!h.classList.contains('dark'))){tdi.classList.remove('hidden');h.classList.remove('dark')}else{tli.classList.remove('hidden')}
 tt.addEventListener('click',()=>{tdi.classList.toggle('hidden');tli.classList.toggle('hidden');h.classList.toggle('dark');localStorage.setItem('theme',h.classList.contains('dark')?'dark':'light')});
