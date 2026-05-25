@@ -1,12 +1,12 @@
-<!DOCTYPE html>
-<html lang="pt-BR" class="dark">
+html
+<html class="dark" lang="pt-BR">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>4.1 — Por que orquestrador? | Agentic OS</title>
-<script src="https://cdn.tailwindcss.com"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<script>tailwind.config={darkMode:'class',theme:{extend:{colors:{primary:'#FACC15',dark:{900:'#111827',800:'#1f2937',700:'#374151',600:'#4b5563'}}}}}</script>
-<style>
+<meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>4.1 — Why orchestrator? | Agentic OS</title>
+<script data-notranslate="True" src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<script data-notranslate="True">tailwind.config={darkMode:'class',theme:{extend:{colors:{primary:'#FACC15',dark:{900:'#111827',800:'#1f2937',700:'#374151',600:'#4b5563'}}}}}</script>
+<style data-notranslate="True">
 body{font-family:'Inter',sans-serif}
 html:not(.dark) body{background:#f8fafc}html:not(.dark) .bg-dark-900{background:#fff}html:not(.dark) .bg-dark-800{background:#f9fafb}html:not(.dark) .bg-dark-700{background:#f3f4f6}html:not(.dark) .bg-dark-600{background:#e5e7eb}html:not(.dark) .text-neutral-100{color:#111827}html:not(.dark) .text-neutral-300{color:#4b5563}html:not(.dark) .text-neutral-400{color:#6b7280}html:not(.dark) .text-neutral-500{color:#9ca3af}html:not(.dark) .border-dark-600{border-color:#d1d5db}html:not(.dark) .border-dark-700{border-color:#e5e7eb}
 html:not(.dark) .text-amber-400{color:#92400e}html:not(.dark) .bg-amber-500\/20{background:rgba(217,119,6,.12)}html:not(.dark) .bg-amber-500\/10{background:rgba(217,119,6,.08)}html:not(.dark) .border-amber-500\/30{border-color:rgba(217,119,6,.25)}html:not(.dark) .hover\:bg-amber-500\/30:hover{background:rgba(217,119,6,.18)}html:not(.dark) .hover\:text-amber-400:hover{color:#92400e}html:not(.dark) .bg-amber-900\/20{background:rgba(217,119,6,.06)}html:not(.dark) .bg-amber-900\/30{background:rgba(217,119,6,.06)}html:not(.dark) .bg-amber-900\/40{background:rgba(217,119,6,.08)}
@@ -15,155 +15,143 @@ html:not(.dark) .text-red-400{color:#b91c1c}html:not(.dark) .bg-red-900\/20{back
 html:not(.dark) [class*="bg-gradient-to"]{background-image:none!important}html:not(.dark) .text-primary{color:#a16207}html:not(.dark) .bg-primary\/10{background:rgba(161,98,7,.08)}html:not(.dark) .border-primary\/30{border-color:rgba(161,98,7,.25)}html:not(.dark) .text-sky-400{color:#0369a1}html:not(.dark) .text-yellow-400{color:#a16207}html:not(.dark) .hover\:text-sky-300:hover{color:#0284c7}html:not(.dark) .hover\:text-yellow-300:hover{color:#854d0e}html:not(.dark) .bg-dark-900\/95{background:rgba(255,255,255,.95)}
 </style></head>
 <body class="bg-dark-900 text-neutral-100">
-<nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"><div class="flex justify-between items-center h-14"><div class="flex items-center space-x-4"><a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300"><span class="text-2xl">⚡</span><span class="font-bold text-lg hidden sm:inline">Agentic OS</span></a><span class="text-neutral-600">|</span><a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a></div><div class="flex items-center space-x-1 sm:space-x-2"><a href="../trilha1/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors"><span class="sm:hidden">T1</span><span class="hidden sm:inline">Fundamentos</span></a><a href="../trilha2/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors"><span class="sm:hidden">T2</span><span class="hidden sm:inline">Identidade</span></a><a href="../trilha3/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors"><span class="sm:hidden">T3</span><span class="hidden sm:inline">Conhecimento</span></a><a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-amber-400 bg-amber-500/10"><span class="sm:hidden">T4</span><span class="hidden sm:inline">Trabalhadores</span></a><a href="../trilha5/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-teal-400 hover:bg-teal-500/10 transition-colors"><span class="sm:hidden">T5</span><span class="hidden sm:inline">Automação</span></a><a href="../trilha6/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-rose-400 hover:bg-rose-500/10 transition-colors"><span class="sm:hidden">T6</span><span class="hidden sm:inline">Implantação</span></a><button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2"><svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/></svg><svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"/></svg></button></div></div></div></nav>
-
-<nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4"><div class="flex items-center space-x-2 text-sm text-neutral-400"><a href="../../index.html" class="hover:text-amber-400">Início</a><span>/</span><a href="index.html" class="hover:text-amber-400">Trilha 4</a><span>/</span><span class="text-amber-400">Módulo 4.1</span></div></nav>
-
-<header class="bg-gradient-to-br from-amber-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"><span class="inline-block px-3 py-1 bg-amber-500/20 text-amber-400 text-xs font-semibold rounded-full mb-4">MÓDULO 4.1</span><h1 class="text-3xl sm:text-4xl font-bold mb-4">🎯 Por que orquestrador? (90,2% melhor)</h1><p class="text-lg text-neutral-400 max-w-3xl">Anthropic mediu: multi-agent (Opus 4 lead + Sonnet 4 workers) supera single-agent em 90,2% das tarefas de pesquisa. Por que isso acontece e como aplicar.</p><div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl"><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-amber-400">6</div><div class="text-xs text-neutral-400">Tópicos</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-amber-400">45</div><div class="text-xs text-neutral-400">Minutos</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-amber-400">Médio</div><div class="text-xs text-neutral-400">Nível</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-amber-400">Teoria</div><div class="text-xs text-neutral-400">Tipo</div></div></div></div></header>
-
+<nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"><div class="flex justify-between items-center h-14"><div class="flex items-center space-x-4"><a class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300" href="../../index.html"><span class="text-2xl">⚡</span><span class="font-bold text-lg hidden sm:inline">Agentic OS</span></a><span class="text-neutral-600">|</span><a class="text-sky-400 hover:text-sky-300 text-sm font-medium" href="https://duclub" target="_blank">duclub</a></div><div class="flex items-center space-x-1 sm:space-x-2"><a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors" href="../trilha1/index.html"><span class="sm:hidden">T1</span><span class="hidden sm:inline">Fundamentals</span></a><a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors" href="../trilha2/index.html"><span class="sm:hidden">T2</span><span class="hidden sm:inline">Identity</span></a><a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors" href="../trilha3/index.html"><span class="sm:hidden">T3</span><span class="hidden sm:inline">Knowledge</span></a><a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-amber-400 bg-amber-500/10" href="index.html"><span class="sm:hidden">T4</span><span class="hidden sm:inline">Workers</span></a><a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-teal-400 hover:bg-teal-500/10 transition-colors" href="../trilha5/index.html"><span class="sm:hidden">T5</span><span class="hidden sm:inline">Automation</span></a><a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-rose-400 hover:bg-rose-500/10 transition-colors" href="../trilha6/index.html"><span class="sm:hidden">T6</span><span class="hidden sm:inline">Implantation</span></a><button class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2" id="theme-toggle"><svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-dark-icon" viewbox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg><svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-light-icon" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd"></path></svg></button></div></div></div></nav>
+<nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4"><div class="flex items-center space-x-2 text-sm text-neutral-400"><a class="hover:text-amber-400" href="../../index.html">Start</a><span>/</span><a class="hover:text-amber-400" href="index.html">Track 4</a><span>/</span><span class="text-amber-400">Module 4.1</span></div></nav>
+<header class="bg-gradient-to-br from-amber-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"><span class="inline-block px-3 py-1 bg-amber-500/20 text-amber-400 text-xs font-semibold rounded-full mb-4">MODULE 4.1</span><h1 class="text-3xl sm:text-4xl font-bold mb-4">🎯 Why orchestrator? (90.2% better)</h1><p class="text-lg text-neutral-400 max-w-3xl">Anthropic measured: multi-agent (Opus 4 lead + Sonnet 4 workers) outperforms single-agent in 90.2% of search tasks. Why does this happen and how to apply it.</p><div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl"><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-amber-400">6</div><div class="text-xs text-neutral-400">Topics</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-amber-400">45</div><div class="text-xs text-neutral-400">Minutes</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-amber-400">Average</div><div class="text-xs text-neutral-400">Level</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-amber-400">Theory</div><div class="text-xs text-neutral-400">Type</div></div></div></div></header>
 <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-
-<section id="topico-1" class="mb-16">
-<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">1</span><h2 class="text-2xl font-bold">📊 O número 90,2% — onde isso vem</h2></div>
-<p class="text-neutral-300 mb-6 leading-relaxed">Em 2025, a Anthropic publicou resultados internos de avaliação: um sistema multi-agente com Opus 4 como lead e Sonnet 4 como workers superou um único agente em <strong class="text-amber-400">90,2% das tarefas de pesquisa</strong>. Não é marketing — é métrica reproduzível com eval público.</p>
+<section class="mb-16" id="topico-1">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">1</span><h2 class="text-2xl font-bold">📊 The number 90.2% — where does it come from</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">In 2025, Anthropic published internal evaluation results: a multi-agent system with Opus 4 as lead and Sonnet 4 as workers outperformed a single agent in<strong class="text-amber-400">90.2% of research tasks</strong>. It's not marketing — it's a reproducible metric with public eval.</p>
 <div class="bg-gradient-to-br from-amber-900/30 to-dark-800 rounded-xl border border-amber-500/30 p-6 mb-6">
-<h3 class="text-lg font-semibold text-amber-400 mb-4 flex items-center"><span class="mr-2">🔬</span> Como a avaliação foi feita</h3>
+<h3 class="text-lg font-semibold text-amber-400 mb-4 flex items-center"><span class="mr-2">🔬</span>How the assessment was carried out</h3>
 <ul class="space-y-2 text-neutral-300 text-sm">
-<li class="flex items-start space-x-2"><span class="text-amber-400 mt-1">•</span><span><strong class="text-neutral-100">Tarefa de referência:</strong> pesquisa multi-etapa com síntese de múltiplas fontes.</span></li>
-<li class="flex items-start space-x-2"><span class="text-amber-400 mt-1">•</span><span><strong class="text-neutral-100">Baseline:</strong> single-agent Opus 4 com acesso às mesmas ferramentas.</span></li>
-<li class="flex items-start space-x-2"><span class="text-amber-400 mt-1">•</span><span><strong class="text-neutral-100">Multi-agent:</strong> lead Opus 4 decomp + 3-5 workers Sonnet 4 em paralelo.</span></li>
-<li class="flex items-start space-x-2"><span class="text-amber-400 mt-1">•</span><span><strong class="text-neutral-100">Métrica:</strong> precisão, completude e consistência na síntese final.</span></li>
-<li class="flex items-start space-x-2"><span class="text-amber-400 mt-1">•</span><span><strong class="text-neutral-100">Resultado:</strong> 90,2% das rodadas com multi-agent produziram output superior.</span></li>
+<li class="flex items-start space-x-2"><span class="text-amber-400 mt-1">•</span><span><strong class="text-neutral-100">Reference task:</strong>multi-step research with synthesis of multiple sources.</span></li>
+<li class="flex items-start space-x-2"><span class="text-amber-400 mt-1">•</span><span><strong class="text-neutral-100">Baseline:</strong>single-agent Opus 4 with access to the same tools.</span></li>
+<li class="flex items-start space-x-2"><span class="text-amber-400 mt-1">•</span><span><strong class="text-neutral-100">Multi-agent:</strong>lead Opus 4 decomp + 3-5 workers Sonnet 4 in parallel.</span></li>
+<li class="flex items-start space-x-2"><span class="text-amber-400 mt-1">•</span><span><strong class="text-neutral-100">Metric:</strong>precision, completeness and consistency in the final synthesis.</span></li>
+<li class="flex items-start space-x-2"><span class="text-amber-400 mt-1">•</span><span><strong class="text-neutral-100">Result:</strong>90.2% of multi-agent rounds produced superior output.</span></li>
 </ul>
 </div>
 <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
-<h3 class="text-lg font-semibold text-blue-400 mb-3 flex items-center"><span class="mr-2">📊</span> Marco e Sally: antes × depois</h3>
-<p class="text-neutral-300 text-sm mb-3">Marco (e-commerce) pediu análise de concorrência. <strong>Antes:</strong> single-agent consultou 5 fontes sequencialmente em 12 min, perdeu contexto no final. <strong>Depois:</strong> lead decompôs em 3 subproblemas, workers pesquisaram em paralelo, síntese em 4 min com cobertura 3x maior.</p>
-<p class="text-neutral-400 text-sm italic">"A diferença não foi o modelo — foi a arquitetura." — padrão observado em múltiplos casos reais.</p>
+<h3 class="text-lg font-semibold text-blue-400 mb-3 flex items-center"><span class="mr-2">📊</span>Marco and Sally: before × after</h3>
+<p class="text-neutral-300 text-sm mb-3">Marco (e-commerce) asked for competitive analysis.<strong>Before:</strong>single-agent queried 5 sources sequentially in 12 min, lost context at the end.<strong>After:</strong>lead decomposed into 3 subproblems, workers researched in parallel, synthesis in 4 min with 3x greater coverage.</p>
+<p class="text-neutral-400 text-sm italic">"The difference wasn't the model — it was the architecture." — pattern observed in multiple real cases.</p>
 </div>
 </section>
-
-<section id="topico-2" class="mb-16">
-<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">2</span><h2 class="text-2xl font-bold">🌳 Plano × execução — lead × workers</h2></div>
-<p class="text-neutral-300 mb-6 leading-relaxed">A divisão fundamental do orquestrador é entre <strong class="text-amber-400">pensar e fazer</strong>. O lead agent não executa — ele decompõe, planeja e sintetiza. Os workers não planejam — eles executam tarefas atômicas com foco total. Essa separação de responsabilidades é o que elimina o gargalo cognitivo.</p>
+<section class="mb-16" id="topico-2">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">2</span><h2 class="text-2xl font-bold">🌳 Plan × execution — lead × workers</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">The fundamental division of the orchestrator is between<strong class="text-amber-400">think and do</strong>. The lead agent doesn't execute — he decomposes, plans and synthesizes. Workers don't plan — they execute atomic tasks with total focus. This separation of responsibilities is what eliminates the cognitive bottleneck.</p>
 <div class="bg-gradient-to-br from-amber-900/30 to-dark-800 rounded-xl border border-amber-500/30 p-6 mb-6">
-<h3 class="text-lg font-semibold text-amber-400 mb-4">O ciclo plan-execute-synthesize</h3>
+<h3 class="text-lg font-semibold text-amber-400 mb-4">The plan-execute-synthesize cycle</h3>
 <ul class="space-y-3 text-neutral-300 text-sm">
-<li><strong class="text-neutral-100">1. Decomposição</strong> — Lead quebra a tarefa em subtarefas independentes e paralelizáveis.</li>
-<li><strong class="text-neutral-100">2. Dispatch</strong> — Lead envia cada subtarefa para o worker mais adequado (por ferramenta ou domínio).</li>
-<li><strong class="text-neutral-100">3. Execução paralela</strong> — Workers rodam sem esperar uns pelos outros. Reduz latência total.</li>
-<li><strong class="text-neutral-100">4. Coleta</strong> — Lead recebe resultados de todos os workers com timestamp e contexto.</li>
-<li><strong class="text-neutral-100">5. Síntese</strong> — Lead consolida, resolve contradições e produz output final coerente.</li>
+<li><strong class="text-neutral-100">1. Decomposition</strong>— Lead breaks the task into independent and parallelizable subtasks.</li>
+<li><strong class="text-neutral-100">2. Dispatch</strong>— Lead sends each subtask to the most appropriate worker (by tool or domain).</li>
+<li><strong class="text-neutral-100">3. Parallel execution</strong>— Workers run without waiting for each other. Reduces total latency.</li>
+<li><strong class="text-neutral-100">4. Collection</strong>— Lead receives results from all workers with timestamp and context.</li>
+<li><strong class="text-neutral-100">5. Synthesis</strong>— Lead consolidates, resolves contradictions and produces coherent final output.</li>
 </ul>
 </div>
 <div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
-<h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Por que não pode ser o mesmo agente</h3>
-<p class="text-neutral-300">Um único agente tentando planejar e executar ao mesmo tempo <strong class="text-neutral-100">perde contexto de planejamento durante a execução</strong>. Ele começa a "esquecer" o plano original enquanto se aprofunda nos detalhes. Separar os papéis mantém a visão estratégica intacta no lead.</p>
+<h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span>Why can't it be the same agent</h3>
+<p class="text-neutral-300">A single agent trying to plan and execute at the same time<strong class="text-neutral-100">loses planning context during execution</strong>. He begins to "forget" the original plan as he delves into the details. Separating the roles keeps the strategic vision intact in the lead.</p>
 </div>
 </section>
-
-<section id="topico-3" class="mb-16">
-<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">3</span><h2 class="text-2xl font-bold">⚖️ Custo × ganho — não é grátis</h2></div>
-<p class="text-neutral-300 mb-6 leading-relaxed">Multi-agent não é almoço grátis. O overhead de coordenação real: <strong class="text-amber-400">5-15x mais tokens</strong> que single-agent na mesma tarefa. A questão não é "usar ou não" — é saber quando o ganho de qualidade justifica o custo adicional.</p>
+<section class="mb-16" id="topico-3">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">3</span><h2 class="text-2xl font-bold">⚖️ Cost × gain — not free</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Multi-agent is not a free lunch. The actual coordination overhead:<strong class="text-amber-400">5-15x more tokens</strong>than single-agent in the same task. The question is not "to use it or not" — it is to know when the gain in quality justifies the additional cost.</p>
 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
 <div class="bg-amber-900/20 rounded-xl border border-amber-500/30 p-6">
-<h4 class="font-bold text-amber-400 mb-4">✓ Vale multi-agent quando</h4>
+<h4 class="font-bold text-amber-400 mb-4">✓ Multi-agent value when</h4>
 <ul class="space-y-2 text-neutral-300 text-sm">
-<li class="flex items-start space-x-2"><span class="text-amber-400">✓</span><span>Tarefa tem subproblemas paralelizáveis</span></li>
-<li class="flex items-start space-x-2"><span class="text-amber-400">✓</span><span>Erros têm custo alto (financeiro, reputacional)</span></li>
-<li class="flex items-start space-x-2"><span class="text-amber-400">✓</span><span>Pesquisa exige cobertura ampla de fontes</span></li>
-<li class="flex items-start space-x-2"><span class="text-amber-400">✓</span><span>SLA permite latência maior (>30s aceitável)</span></li>
-<li class="flex items-start space-x-2"><span class="text-amber-400">✓</span><span>Domínios especializados distintos</span></li>
+<li class="flex items-start space-x-2"><span class="text-amber-400">✓</span><span>Task has parallelizable subproblems</span></li>
+<li class="flex items-start space-x-2"><span class="text-amber-400">✓</span><span>Errors have a high cost (financial, reputational)</span></li>
+<li class="flex items-start space-x-2"><span class="text-amber-400">✓</span><span>Research requires broad coverage of sources</span></li>
+<li class="flex items-start space-x-2"><span class="text-amber-400">✓</span><span>SLA allows for higher latency (&gt;30s acceptable)</span></li>
+<li class="flex items-start space-x-2"><span class="text-amber-400">✓</span><span>Distinct specialized domains</span></li>
 </ul>
 </div>
 <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
-<h4 class="font-bold text-red-400 mb-4">✗ Não vale quando</h4>
+<h4 class="font-bold text-red-400 mb-4">✗ Not valid when</h4>
 <ul class="space-y-2 text-neutral-300 text-sm">
-<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Tarefa é simples e atômica</span></li>
-<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Latência é crítica (<3s obrigatório)</span></li>
-<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Budget de tokens é muito restrito</span></li>
-<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Contexto não pode ser dividido</span></li>
-<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Um único especialista já resolve bem</span></li>
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Task is simple and atomic</span></li>
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Latency is critical (&lt;3s required)</span></li>
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Token budget is very restricted</span></li>
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Context cannot be split</span></li>
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>A single specialist can do the trick</span></li>
 </ul>
 </div>
 </div>
 </section>
-
-<section id="topico-4" class="mb-16">
-<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">4</span><h2 class="text-2xl font-bold">🔀 Paralelismo como superpoder</h2></div>
-<p class="text-neutral-300 mb-6 leading-relaxed">O ganho mais imediato de multi-agent não é qualidade — é <strong class="text-amber-400">velocidade por paralelismo</strong>. Tarefas que levariam 20 minutos sequencialmente levam 5 minutos quando 4 workers operam em simultâneo. Para Sally (consultora), isso transforma o tempo de análise de "um dia" para "uma hora".</p>
+<section class="mb-16" id="topico-4">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">4</span><h2 class="text-2xl font-bold">🔀 Parallelism as a superpower</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">The most immediate gain from multi-agent is not quality — it is<strong class="text-amber-400">speed by parallelism</strong>. Tasks that would take 20 minutes sequentially take 5 minutes when 4 workers operate simultaneously. For Sally (consultant), this transforms the analysis time from “one day” to “one hour”.</p>
 <div class="bg-gradient-to-br from-amber-900/30 to-dark-800 rounded-xl border border-amber-500/30 p-6 mb-6">
-<h3 class="text-lg font-semibold text-amber-400 mb-4 flex items-center"><span class="mr-2">⚡</span> Tipos de paralelismo</h3>
+<h3 class="text-lg font-semibold text-amber-400 mb-4 flex items-center"><span class="mr-2">⚡</span>Types of parallelism</h3>
 <ul class="space-y-3 text-neutral-300 text-sm">
-<li><strong class="text-neutral-100">Fan-out simples</strong> — mesma tarefa enviada a múltiplos workers com variações de perspectiva.</li>
-<li><strong class="text-neutral-100">Divisão por domínio</strong> — workers especializados por área: financeiro, operacional, comercial.</li>
-<li><strong class="text-neutral-100">Divisão por fonte</strong> — cada worker pesquisa uma fonte ou base de dados diferente.</li>
-<li><strong class="text-neutral-100">Pipeline com estágios</strong> — worker A processa, worker B valida, worker C formata.</li>
+<li><strong class="text-neutral-100">Simple fan-out</strong>— same task sent to multiple workers with variations in perspective.</li>
+<li><strong class="text-neutral-100">Division by domain</strong>— Workers specialized by area: financial, operational, commercial.</li>
+<li><strong class="text-neutral-100">Division by source</strong>— each worker searches a different source or database.</li>
+<li><strong class="text-neutral-100">Pipeline with stages</strong>— worker A processes, worker B validates, worker C formats.</li>
 </ul>
 </div>
 <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
-<h3 class="text-lg font-semibold text-blue-400 mb-3 flex items-center"><span class="mr-2">📊</span> Dados de mercado 2025-2026</h3>
-<p class="text-neutral-300 text-sm">Segundo Sequoia Capital (Ascent 2025): empresas que adotaram arquitetura multi-agent reduziram tempo de pesquisa em <strong class="text-neutral-100">68%</strong> na média. Gartner (jan/2026) projeta que 40% dos fluxos de trabalho analítico usarão multi-agent até fim de 2026.</p>
+<h3 class="text-lg font-semibold text-blue-400 mb-3 flex items-center"><span class="mr-2">📊</span>Market Data 2025-2026</h3>
+<p class="text-neutral-300 text-sm">According to Sequoia Capital (Ascent 2025): companies that adopted multi-agent architecture reduced research time by<strong class="text-neutral-100">68%</strong>on average. Gartner (Jan/2026) projects that 40% of analytical workflows will use multi-agent by the end of 2026.</p>
 </div>
 </section>
-
-<section id="topico-5" class="mb-16">
-<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">5</span><h2 class="text-2xl font-bold">🧠 Contexto isolado = menos alucinação</h2></div>
-<p class="text-neutral-300 mb-6 leading-relaxed">Um dos benefícios menos discutidos do multi-agent é a <strong class="text-amber-400">redução de alucinação por isolamento de contexto</strong>. Cada worker opera com um contexto pequeno e focado. Sem o "ruído" das outras subtarefas no contexto, a chance de confusão e mistura de informações cai drasticamente.</p>
+<section class="mb-16" id="topico-5">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">5</span><h2 class="text-2xl font-bold">🧠 Isolated context = less hallucination</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">One of the least discussed benefits of multi-agent is the<strong class="text-amber-400">hallucination reduction by context isolation</strong>. Each worker operates with a small, focused context. Without the "noise" of other subtasks in context, the chance of confusion and mixing of information drops dramatically.</p>
 <div class="bg-gradient-to-br from-amber-900/30 to-dark-800 rounded-xl border border-amber-500/30 p-6 mb-6">
-<h3 class="text-lg font-semibold text-amber-400 mb-4">Por que contexto menor é melhor</h3>
+<h3 class="text-lg font-semibold text-amber-400 mb-4">Why smaller context is better</h3>
 <ul class="space-y-2 text-neutral-300 text-sm">
-<li><strong class="text-neutral-100">Foco</strong> — worker vê apenas a tarefa que precisa resolver, sem distração.</li>
-<li><strong class="text-neutral-100">Menos interferência</strong> — informações irrelevantes não "contaminam" o raciocínio.</li>
-<li><strong class="text-neutral-100">Contexto fresco</strong> — cada worker começa sem o peso de iterações anteriores.</li>
-<li><strong class="text-neutral-100">Verificabilidade</strong> — resultado de cada worker é auditável individualmente.</li>
+<li><strong class="text-neutral-100">Focus</strong>— worker only sees the task he needs to solve, without distraction.</li>
+<li><strong class="text-neutral-100">Less interference</strong>— irrelevant information does not “contaminate” reasoning.</li>
+<li><strong class="text-neutral-100">Fresh context</strong>— each worker starts without the weight of previous iterations.</li>
+<li><strong class="text-neutral-100">Verifiability</strong>— result of each worker is individually auditable.</li>
 </ul>
 </div>
 <div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
-<h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Analogia humana</h3>
-<p class="text-neutral-300">Um CFO que também tenta fazer marketing e operações ao mesmo tempo toma decisões piores em todas as áreas. Especialização melhora qualidade — vale para humanos, vale para agentes.</p>
+<h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span>Human analogy</h3>
+<p class="text-neutral-300">A CFO who also tries to do marketing and operations at the same time makes worse decisions across the board. Specialization improves quality — it goes for humans, it goes for agents.</p>
 </div>
 </section>
-
-<section id="topico-6" class="mb-16">
-<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">6</span><h2 class="text-2xl font-bold">🔄 Eval-driven: meça antes de escalar</h2></div>
-<p class="text-neutral-300 mb-6 leading-relaxed">Não adicione workers por intuição. <strong class="text-amber-400">Meça primeiro</strong>. O padrão correto é: single-agent funciona → mede resultado → identifica onde falha → adiciona worker específico para cobrir aquele ponto fraco. Sem eval, você adiciona complexidade sem ganho real.</p>
+<section class="mb-16" id="topico-6">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">6</span><h2 class="text-2xl font-bold">🔄 Eval-driven: measure before you scale</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Don't add workers out of intuition.<strong class="text-amber-400">Measure first</strong>. The correct pattern is: single-agent works → measures results → identifies where it fails → adds specific worker to cover that weak point. Without eval, you add complexity for no real gain.</p>
 <div class="bg-gradient-to-br from-amber-900/30 to-dark-800 rounded-xl border border-amber-500/30 p-6 mb-6">
-<h3 class="text-lg font-semibold text-amber-400 mb-4 flex items-center"><span class="mr-2">📐</span> O processo eval-driven</h3>
+<h3 class="text-lg font-semibold text-amber-400 mb-4 flex items-center"><span class="mr-2">📐</span>The eval-driven process</h3>
 <ul class="space-y-3 text-neutral-300 text-sm">
-<li><strong class="text-neutral-100">Passo 1:</strong> Define a tarefa e o critério de sucesso (ex: "análise cobre 5+ fontes distintas").</li>
-<li><strong class="text-neutral-100">Passo 2:</strong> Roda single-agent 10 vezes. Mede taxa de sucesso.</li>
-<li><strong class="text-neutral-100">Passo 3:</strong> Identifica o padrão de falha (ex: "sempre perde análise financeira").</li>
-<li><strong class="text-neutral-100">Passo 4:</strong> Adiciona worker especializado para cobrir o ponto fraco.</li>
-<li><strong class="text-neutral-100">Passo 5:</strong> Mede novamente. Compara custo × ganho de qualidade.</li>
+<li><strong class="text-neutral-100">Step 1:</strong>Defines the task and success criteria (e.g. “analysis covers 5+ distinct sources”).</li>
+<li><strong class="text-neutral-100">Step 2:</strong>Run single-agent 10 times. Measure success rate.</li>
+<li><strong class="text-neutral-100">Step 3:</strong>Identifies the failure pattern (e.g. "always loses financial analysis").</li>
+<li><strong class="text-neutral-100">Step 4:</strong>Adds specialized worker to cover weak point.</li>
+<li><strong class="text-neutral-100">Step 5:</strong>Measure again. Compare cost × quality gain.</li>
 </ul>
 </div>
 <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6 mb-6">
-<h3 class="text-lg font-semibold text-red-400 mb-3 flex items-center"><span class="mr-2">⚠️</span> Anti-padrão: orquestrador sem eval</h3>
-<p class="text-neutral-300">Sana (founder) montou um sistema com 8 workers antes de medir o single-agent. Gastou 12x o budget e o resultado foi pior — os workers se contradiziam sem critério de síntese claro. Começar com eval teria mostrado que 2 workers eram suficientes.</p>
+<h3 class="text-lg font-semibold text-red-400 mb-3 flex items-center"><span class="mr-2">⚠️</span>Anti-pattern: orchestrator without eval</h3>
+<p class="text-neutral-300">Sana (founder) set up a system with 8 workers before measuring the single-agent. It spent 12x the budget and the result was worse — the workers contradicted each other without clear synthesis criteria. Starting with eval would have shown that 2 workers were enough.</p>
 </div>
 </section>
-
 <section class="mb-12">
 <div class="bg-gradient-to-br from-amber-900/40 via-dark-800 to-dark-800 rounded-xl border border-amber-500/30 p-8">
-<h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-3">📋</span> Resumo do Módulo</h2>
+<h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-3">📋</span>Module Summary</h2>
 <div class="space-y-4 mb-8">
-<div class="flex items-start space-x-3"><span class="text-amber-400 mt-1">✓</span><div><strong class="text-white">90,2% vem de eval real</strong><span class="text-neutral-400"> — Anthropic mediu multi-agent vs single-agent em tarefas de pesquisa</span></div></div>
-<div class="flex items-start space-x-3"><span class="text-amber-400 mt-1">✓</span><div><strong class="text-white">Lead planeja, workers executam</strong><span class="text-neutral-400"> — separação de responsabilidades elimina gargalo cognitivo</span></div></div>
-<div class="flex items-start space-x-3"><span class="text-amber-400 mt-1">✓</span><div><strong class="text-white">Custo 5-15x mais tokens</strong><span class="text-neutral-400"> — justificável quando qualidade e cobertura importam</span></div></div>
-<div class="flex items-start space-x-3"><span class="text-amber-400 mt-1">✓</span><div><strong class="text-white">Paralelismo reduz latência em 3-4x</strong><span class="text-neutral-400"> — workers simultâneos vs execução sequencial</span></div></div>
-<div class="flex items-start space-x-3"><span class="text-amber-400 mt-1">✓</span><div><strong class="text-white">Contexto isolado reduz alucinação</strong><span class="text-neutral-400"> — cada worker vê só o que precisa</span></div></div>
-<div class="flex items-start space-x-3"><span class="text-amber-400 mt-1">✓</span><div><strong class="text-white">Sempre meça antes de escalar</strong><span class="text-neutral-400"> — eval-driven: identifique o ponto fraco antes de adicionar worker</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-amber-400 mt-1">✓</span><div><strong class="text-white">90.2% comes from real eval</strong><span class="text-neutral-400">— Anthropic measured multi-agent vs single-agent in search tasks</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-amber-400 mt-1">✓</span><div><strong class="text-white">Lead plans, workers execute</strong><span class="text-neutral-400">— separation of responsibilities eliminates cognitive bottleneck</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-amber-400 mt-1">✓</span><div><strong class="text-white">Cost 5-15x more tokens</strong><span class="text-neutral-400">— justifiable when quality and coverage matter</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-amber-400 mt-1">✓</span><div><strong class="text-white">Parallelism reduces latency by 3-4x</strong><span class="text-neutral-400">— concurrent workers vs sequential execution</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-amber-400 mt-1">✓</span><div><strong class="text-white">Isolated context reduces hallucinations</strong><span class="text-neutral-400">— each worker only sees what they need</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-amber-400 mt-1">✓</span><div><strong class="text-white">Always measure before climbing</strong><span class="text-neutral-400">— eval-driven: identify weak point before adding worker</span></div></div>
 </div>
-<div class="bg-dark-800/50 rounded-lg p-4 mb-8"><h3 class="font-semibold text-amber-400 mb-2">Próximo Módulo:</h3><p class="text-neutral-300">4.2 — Chief-of-staff pattern: o padrão Anthropic para orquestração</p></div>
-<div class="flex flex-col sm:flex-row gap-4"><a href="../trilha3/modulo-3-6.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">← Módulo Anterior</a><a href="modulo-4-2.html" class="flex-1 text-center px-6 py-3 bg-amber-600 text-white rounded-lg font-semibold hover:bg-amber-500 transition-colors">Próximo Módulo →</a></div>
+<div class="bg-dark-800/50 rounded-lg p-4 mb-8"><h3 class="font-semibold text-amber-400 mb-2">Next Module:</h3><p class="text-neutral-300">4.2 — Chief-of-staff pattern: the Anthropic pattern for orchestration</p></div>
+<div class="flex flex-col sm:flex-row gap-4"><a class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors" href="../trilha3/modulo-3-6.html">← Previous Module</a><a class="flex-1 text-center px-6 py-3 bg-amber-600 text-white rounded-lg font-semibold hover:bg-amber-500 transition-colors" href="modulo-4-2.html">Next Module →</a></div>
 </div>
 </section>
-
 </main>
-
-<footer class="border-t border-dark-600 py-8 mt-16"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm"><p>Agentic OS — INEMA.CLUB · 2026</p></div></footer>
-<script>
+<footer class="border-t border-dark-600 py-8 mt-16"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm"><p>Agentic OS — duclub · 2026</p></div></footer>
+<script data-notranslate="True">
 const tt=document.getElementById('theme-toggle'),tdi=document.getElementById('theme-toggle-dark-icon'),tli=document.getElementById('theme-toggle-light-icon'),h=document.documentElement;
 if(localStorage.getItem('theme')==='light'||(!localStorage.getItem('theme')&&!h.classList.contains('dark'))){tdi.classList.remove('hidden');h.classList.remove('dark')}else{tli.classList.remove('hidden')}
 tt.addEventListener('click',()=>{tdi.classList.toggle('hidden');tli.classList.toggle('hidden');h.classList.toggle('dark');localStorage.setItem('theme',h.classList.contains('dark')?'dark':'light')});
