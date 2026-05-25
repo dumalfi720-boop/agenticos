@@ -1,12 +1,12 @@
-<!DOCTYPE html>
-<html lang="pt-BR" class="dark">
+html
+<html class="dark" lang="pt-BR">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>4.6 — Quando criar (e não criar) agente | Agentic OS</title>
-<script src="https://cdn.tailwindcss.com"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<script>tailwind.config={darkMode:'class',theme:{extend:{colors:{primary:'#FACC15',dark:{900:'#111827',800:'#1f2937',700:'#374151',600:'#4b5563'}}}}}</script>
-<style>
+<meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>4.6 — When to create (and not create) an agent | Agentic OS</title>
+<script data-notranslate="True" src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<script data-notranslate="True">tailwind.config={darkMode:'class',theme:{extend:{colors:{primary:'#FACC15',dark:{900:'#111827',800:'#1f2937',700:'#374151',600:'#4b5563'}}}}}</script>
+<style data-notranslate="True">
 body{font-family:'Inter',sans-serif}
 html:not(.dark) body{background:#f8fafc}html:not(.dark) .bg-dark-900{background:#fff}html:not(.dark) .bg-dark-800{background:#f9fafb}html:not(.dark) .bg-dark-700{background:#f3f4f6}html:not(.dark) .bg-dark-600{background:#e5e7eb}html:not(.dark) .text-neutral-100{color:#111827}html:not(.dark) .text-neutral-300{color:#4b5563}html:not(.dark) .text-neutral-400{color:#6b7280}html:not(.dark) .text-neutral-500{color:#9ca3af}html:not(.dark) .border-dark-600{border-color:#d1d5db}html:not(.dark) .border-dark-700{border-color:#e5e7eb}
 html:not(.dark) .text-amber-400{color:#92400e}html:not(.dark) .bg-amber-500\/20{background:rgba(217,119,6,.12)}html:not(.dark) .bg-amber-500\/10{background:rgba(217,119,6,.08)}html:not(.dark) .border-amber-500\/30{border-color:rgba(217,119,6,.25)}html:not(.dark) .hover\:bg-amber-500\/30:hover{background:rgba(217,119,6,.18)}html:not(.dark) .hover\:text-amber-400:hover{color:#92400e}html:not(.dark) .bg-amber-900\/20{background:rgba(217,119,6,.06)}html:not(.dark) .bg-amber-900\/30{background:rgba(217,119,6,.06)}html:not(.dark) .bg-amber-900\/40{background:rgba(217,119,6,.08)}
@@ -15,104 +15,96 @@ html:not(.dark) .text-red-400{color:#b91c1c}html:not(.dark) .bg-red-900\/20{back
 html:not(.dark) [class*="bg-gradient-to"]{background-image:none!important}html:not(.dark) .text-primary{color:#a16207}html:not(.dark) .bg-primary\/10{background:rgba(161,98,7,.08)}html:not(.dark) .border-primary\/30{border-color:rgba(161,98,7,.25)}html:not(.dark) .text-sky-400{color:#0369a1}html:not(.dark) .text-yellow-400{color:#a16207}html:not(.dark) .hover\:text-sky-300:hover{color:#0284c7}html:not(.dark) .hover\:text-yellow-300:hover{color:#854d0e}html:not(.dark) .bg-dark-900\/95{background:rgba(255,255,255,.95)}
 </style></head>
 <body class="bg-dark-900 text-neutral-100">
-<nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"><div class="flex justify-between items-center h-14"><div class="flex items-center space-x-4"><a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300"><span class="text-2xl">⚡</span><span class="font-bold text-lg hidden sm:inline">Agentic OS</span></a><span class="text-neutral-600">|</span><a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a></div><div class="flex items-center space-x-1 sm:space-x-2"><a href="../trilha1/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors"><span class="sm:hidden">T1</span><span class="hidden sm:inline">Fundamentos</span></a><a href="../trilha2/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors"><span class="sm:hidden">T2</span><span class="hidden sm:inline">Identidade</span></a><a href="../trilha3/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors"><span class="sm:hidden">T3</span><span class="hidden sm:inline">Conhecimento</span></a><a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-amber-400 bg-amber-500/10"><span class="sm:hidden">T4</span><span class="hidden sm:inline">Trabalhadores</span></a><a href="../trilha5/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-teal-400 hover:bg-teal-500/10 transition-colors"><span class="sm:hidden">T5</span><span class="hidden sm:inline">Automação</span></a><a href="../trilha6/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-rose-400 hover:bg-rose-500/10 transition-colors"><span class="sm:hidden">T6</span><span class="hidden sm:inline">Implantação</span></a><button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2"><svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/></svg><svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"/></svg></button></div></div></div></nav>
-
-<nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4"><div class="flex items-center space-x-2 text-sm text-neutral-400"><a href="../../index.html" class="hover:text-amber-400">Início</a><span>/</span><a href="index.html" class="hover:text-amber-400">Trilha 4</a><span>/</span><span class="text-amber-400">Módulo 4.6</span></div></nav>
-
-<header class="bg-gradient-to-br from-amber-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"><span class="inline-block px-3 py-1 bg-amber-500/20 text-amber-400 text-xs font-semibold rounded-full mb-4">MÓDULO 4.6</span><h1 class="text-3xl sm:text-4xl font-bold mb-4">🚦 Quando criar (e quando NÃO criar) agente</h1><p class="text-lg text-neutral-400 max-w-3xl">Hire-when-needed. Cada agente é overhead — só justificável se há carga real e função distinta. O checklist para não over-engineeringear e o caminho de promoção skill → agente.</p><div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl"><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-amber-400">6</div><div class="text-xs text-neutral-400">Tópicos</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-amber-400">30</div><div class="text-xs text-neutral-400">Minutos</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-amber-400">Médio</div><div class="text-xs text-neutral-400">Nível</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-amber-400">Decisão</div><div class="text-xs text-neutral-400">Tipo</div></div></div></div></header>
-
+<nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"><div class="flex justify-between items-center h-14"><div class="flex items-center space-x-4"><a class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300" href="../../index.html"><span class="text-2xl">⚡</span><span class="font-bold text-lg hidden sm:inline">Agentic OS</span></a><span class="text-neutral-600">|</span><a class="text-sky-400 hover:text-sky-300 text-sm font-medium" href="https://duclub" target="_blank">duclub</a></div><div class="flex items-center space-x-1 sm:space-x-2"><a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors" href="../trilha1/index.html"><span class="sm:hidden">T1</span><span class="hidden sm:inline">Fundamentals</span></a><a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors" href="../trilha2/index.html"><span class="sm:hidden">T2</span><span class="hidden sm:inline">Identity</span></a><a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors" href="../trilha3/index.html"><span class="sm:hidden">T3</span><span class="hidden sm:inline">Knowledge</span></a><a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-amber-400 bg-amber-500/10" href="index.html"><span class="sm:hidden">T4</span><span class="hidden sm:inline">Workers</span></a><a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-teal-400 hover:bg-teal-500/10 transition-colors" href="../trilha5/index.html"><span class="sm:hidden">T5</span><span class="hidden sm:inline">Automation</span></a><a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-rose-400 hover:bg-rose-500/10 transition-colors" href="../trilha6/index.html"><span class="sm:hidden">T6</span><span class="hidden sm:inline">Implantation</span></a><button class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2" id="theme-toggle"><svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-dark-icon" viewbox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg><svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-light-icon" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd"></path></svg></button></div></div></div></nav>
+<nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4"><div class="flex items-center space-x-2 text-sm text-neutral-400"><a class="hover:text-amber-400" href="../../index.html">Start</a><span>/</span><a class="hover:text-amber-400" href="index.html">Track 4</a><span>/</span><span class="text-amber-400">Module 4.6</span></div></nav>
+<header class="bg-gradient-to-br from-amber-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"><span class="inline-block px-3 py-1 bg-amber-500/20 text-amber-400 text-xs font-semibold rounded-full mb-4">MODULE 4.6</span><h1 class="text-3xl sm:text-4xl font-bold mb-4">🚦 When to create (and when NOT to create) agent</h1><p class="text-lg text-neutral-400 max-w-3xl">Hire-when-needed. Each agent is overhead — only justifiable if there is a real burden and a distinct function. The checklist for not over-engineering and the skill → agent promotion path.</p><div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl"><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-amber-400">6</div><div class="text-xs text-neutral-400">Topics</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-amber-400">30</div><div class="text-xs text-neutral-400">Minutes</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-amber-400">Average</div><div class="text-xs text-neutral-400">Level</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-amber-400">Decision</div><div class="text-xs text-neutral-400">Type</div></div></div></div></header>
 <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-
-<section id="topico-1" class="mb-16">
-<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">1</span><h2 class="text-2xl font-bold">📋 Critérios para criar um agente</h2></div>
-<p class="text-neutral-300 mb-6 leading-relaxed">Agente não é sinônimo de IA. Um agente é uma <strong class="text-amber-400">entidade autônoma com identidade, ferramentas, contexto e SLA</strong>. Criar um agente sem necessidade real é criar complexidade que você vai manter para sempre. O critério de criação é rigoroso.</p>
+<section class="mb-16" id="topico-1">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">1</span><h2 class="text-2xl font-bold">📋 Criteria for creating an agent</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Agent is not synonymous with AI. An agent is a<strong class="text-amber-400">autonomous entity with identity, tools, context and SLA</strong>. Creating an agent without any real need is creating complexity that you will keep forever. The creation criteria are strict.</p>
 <div class="bg-gradient-to-br from-amber-900/30 to-dark-800 rounded-xl border border-amber-500/30 p-6 mb-6">
-<h3 class="text-lg font-semibold text-amber-400 mb-4 flex items-center"><span class="mr-2">✅</span> Os 4 critérios obrigatórios</h3>
+<h3 class="text-lg font-semibold text-amber-400 mb-4 flex items-center"><span class="mr-2">✅</span>The 4 mandatory criteria</h3>
 <ul class="space-y-4 text-neutral-300 text-sm">
-<li class="pb-3 border-b border-dark-600"><strong class="text-neutral-100">1. Carga real e recorrente</strong><br>A tarefa acontece regularmente (diário, semanal, a cada evento). Não é one-off. Se é pontual, use skill ou prompt direto.</li>
-<li class="pb-3 border-b border-dark-600"><strong class="text-neutral-100">2. Função distinta e não coberta</strong><br>Nenhum agente existente cobre essa função. Criar um agente que duplica o que outro já faz é desperdício.</li>
-<li class="pb-3 border-b border-dark-600"><strong class="text-neutral-100">3. Complexidade que supera skill</strong><br>A tarefa requer decisão, memória ou contexto que não cabe numa skill. Skills são stateless; agentes têm estado.</li>
-<li><strong class="text-neutral-100">4. SLA definível e mensurável</strong><br>Você consegue dizer: "esse agente entrega X em Y segundos com Z% de precisão". Sem SLA, não há como saber se funciona.</li>
+<li class="pb-3 border-b border-dark-600"><strong class="text-neutral-100">1. Actual and recurring load</strong><br/>The task happens regularly (daily, weekly, at each event). It's not one-off. If it's punctual, use skill or direct prompt.</li>
+<li class="pb-3 border-b border-dark-600"><strong class="text-neutral-100">2. Distinct and non-covered function</strong><br/>No existing agents cover this role. Creating an agent that duplicates what another already does is waste.</li>
+<li class="pb-3 border-b border-dark-600"><strong class="text-neutral-100">3. Complexity that surpasses skill</strong><br/>The task requires decision, memory or context that does not fit into a skill. Skills are stateless; agents have been.</li>
+<li><strong class="text-neutral-100">4. Definable and measurable SLA</strong><br/>You can say: “this agent delivers X in Y seconds with Z% accuracy”. Without an SLA, there is no way to know if it works.</li>
 </ul>
 </div>
 <div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
-<h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> A pergunta certa</h3>
-<p class="text-neutral-300">Antes de criar um agente, pergunte: <strong class="text-neutral-100">"Eu precisaria contratar uma pessoa para fazer isso full-time?"</strong> Se sim, pode virar agente. Se não — se seria trabalho de meio período ou eventual — fica como skill ou prompt.</p>
+<h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span>The right question</h3>
+<p class="text-neutral-300">Before creating an agent, ask:<strong class="text-neutral-100">“Would I need to hire someone to do this full-time?”</strong>If so, you can become an agent. If not — if it would be part-time or occasional work — it remains as a skill or prompt.</p>
 </div>
 </section>
-
-<section id="topico-2" class="mb-16">
-<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">2</span><h2 class="text-2xl font-bold">🚫 Sinais de NÃO criar agente</h2></div>
-<p class="text-neutral-300 mb-6 leading-relaxed">Tão importante quanto saber quando criar é saber quando <strong class="text-amber-400">não criar</strong>. Os anti-padrões de criação de agente são comuns e custosos — cada agente desnecessário é manutenção, custo e complexidade que nunca some.</p>
+<section class="mb-16" id="topico-2">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">2</span><h2 class="text-2xl font-bold">🚫 Signs of NOT creating an agent</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">As important as knowing when to create is knowing when<strong class="text-amber-400">do not create</strong>. Agent creation anti-patterns are common and costly — every unnecessary agent is maintenance, cost, and complexity that never goes away.</p>
 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
 <div class="bg-amber-900/20 rounded-xl border border-amber-500/30 p-6">
-<h4 class="font-bold text-amber-400 mb-4">Sinais de alerta (NÃO criar)</h4>
+<h4 class="font-bold text-amber-400 mb-4">Warning signs (DO NOT create)</h4>
 <ul class="space-y-2 text-neutral-300 text-sm">
-<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>"Pra eu ter IA nisso também"</span></li>
-<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Tarefa acontece menos de 1x/semana</span></li>
-<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Outro agente já cobre 80% do caso</span></li>
-<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Não consegue descrever o output em 1 frase</span></li>
-<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Uma skill resolve sem estado</span></li>
-<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Ninguém vai usar os outputs</span></li>
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>"So I can have AI in this too"</span></li>
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Task happens less than 1x/week</span></li>
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Another agent already covers 80% of the case</span></li>
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Cannot describe the output in 1 sentence</span></li>
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>A skill resolves without state</span></li>
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Nobody will use the outputs</span></li>
 </ul>
 </div>
 <div class="bg-amber-900/20 rounded-xl border border-amber-500/30 p-6">
-<h4 class="font-bold text-amber-400 mb-4">Alternativas antes do agente</h4>
+<h4 class="font-bold text-amber-400 mb-4">Alternatives before the agent</h4>
 <ul class="space-y-2 text-neutral-300 text-sm">
-<li class="flex items-start space-x-2"><span class="text-amber-400">→</span><span>Skill no Claude Code (stateless, simples)</span></li>
-<li class="flex items-start space-x-2"><span class="text-amber-400">→</span><span>Prompt template reutilizável</span></li>
-<li class="flex items-start space-x-2"><span class="text-amber-400">→</span><span>Hook que roda script existente</span></li>
-<li class="flex items-start space-x-2"><span class="text-amber-400">→</span><span>Workflow n8n sem LLM</span></li>
-<li class="flex items-start space-x-2"><span class="text-amber-400">→</span><span>Extensão de agente existente</span></li>
-<li class="flex items-start space-x-2"><span class="text-amber-400">→</span><span>Silver Platter que outro agente lê</span></li>
+<li class="flex items-start space-x-2"><span class="text-amber-400">→</span><span>Skill in Claude Code (stateless, simple)</span></li>
+<li class="flex items-start space-x-2"><span class="text-amber-400">→</span><span>Reusable prompt template</span></li>
+<li class="flex items-start space-x-2"><span class="text-amber-400">→</span><span>Hook that runs existing script</span></li>
+<li class="flex items-start space-x-2"><span class="text-amber-400">→</span><span>n8n workflow without LLM</span></li>
+<li class="flex items-start space-x-2"><span class="text-amber-400">→</span><span>Existing agent extension</span></li>
+<li class="flex items-start space-x-2"><span class="text-amber-400">→</span><span>Silver Platter that another agent reads</span></li>
 </ul>
 </div>
 </div>
 </section>
-
-<section id="topico-3" class="mb-16">
-<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">3</span><h2 class="text-2xl font-bold">🪜 Skill → agente: o caminho de promoção</h2></div>
-<p class="text-neutral-300 mb-6 leading-relaxed">O caminho correto não é "criar agente desde o início". É <strong class="text-amber-400">começar como skill, promover quando justificado</strong>. A maioria das necessidades começa como skill simples. Só vira agente quando a skill cresce em complexidade e a necessidade de estado fica óbvia.</p>
+<section class="mb-16" id="topico-3">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">3</span><h2 class="text-2xl font-bold">🪜 Skill → agent: the path to promotion</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">The correct path is not "create agent from scratch". AND<strong class="text-amber-400">start as a skill, promote when justified</strong>. Most needs start as simple skills. It only becomes an agent when the skill grows in complexity and the need for state becomes obvious.</p>
 <div class="bg-gradient-to-br from-amber-900/30 to-dark-800 rounded-xl border border-amber-500/30 p-6 mb-6">
-<h3 class="text-lg font-semibold text-amber-400 mb-4">O caminho de promoção</h3>
+<h3 class="text-lg font-semibold text-amber-400 mb-4">The promotion path</h3>
 <ul class="space-y-3 text-neutral-300 text-sm">
-<li class="flex items-start space-x-3"><span class="bg-amber-500/20 text-amber-400 text-xs font-bold px-2 py-1 rounded">Nível 1</span><span><strong class="text-neutral-100">Prompt direto</strong> — você faz manualmente, sem automação.</span></li>
-<li class="flex items-start space-x-3"><span class="bg-amber-500/20 text-amber-400 text-xs font-bold px-2 py-1 rounded">Nível 2</span><span><strong class="text-neutral-100">Skill</strong> — automatiza o prompt em um slash command reutilizável.</span></li>
-<li class="flex items-start space-x-3"><span class="bg-amber-500/20 text-amber-400 text-xs font-bold px-2 py-1 rounded">Nível 3</span><span><strong class="text-neutral-100">Skill com contexto</strong> — skill lê Silver Platters para ter contexto sem custo extra.</span></li>
-<li class="flex items-start space-x-3"><span class="bg-amber-500/20 text-amber-400 text-xs font-bold px-2 py-1 rounded">Nível 4</span><span><strong class="text-neutral-100">Agente</strong> — quando a skill virou família de skills + decisão entre elas + estado persistente.</span></li>
+<li class="flex items-start space-x-3"><span class="bg-amber-500/20 text-amber-400 text-xs font-bold px-2 py-1 rounded">Level 1</span><span><strong class="text-neutral-100">Direct prompt</strong>— you do it manually, without automation.</span></li>
+<li class="flex items-start space-x-3"><span class="bg-amber-500/20 text-amber-400 text-xs font-bold px-2 py-1 rounded">Level 2</span><span><strong class="text-neutral-100">Skill</strong>— automates the prompt into a reusable slash command.</span></li>
+<li class="flex items-start space-x-3"><span class="bg-amber-500/20 text-amber-400 text-xs font-bold px-2 py-1 rounded">Level 3</span><span><strong class="text-neutral-100">Skill with context</strong>— skill reads Silver Platters for context at no extra cost.</span></li>
+<li class="flex items-start space-x-3"><span class="bg-amber-500/20 text-amber-400 text-xs font-bold px-2 py-1 rounded">Level 4</span><span><strong class="text-neutral-100">Agent</strong>— when the skill became a family of skills + decision between them + persistent state.</span></li>
 </ul>
 </div>
 <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
-<h3 class="text-lg font-semibold text-blue-400 mb-3">Marco: do prompt ao CFO Bot</h3>
-<p class="text-neutral-300 text-sm">Marco começou pedindo análise financeira manualmente (Nível 1). Criou skill <code class="bg-dark-700 px-1 rounded">/analise-financeira</code> (Nível 2). Adicionou leitura de Silver Platters do /finance (Nível 3). Quando a análise precisou comparar com semanas anteriores e lembrar de alertas, promoveu para CFO Bot com estado (Nível 4). Cada promoção foi justificada por necessidade real.</p>
+<h3 class="text-lg font-semibold text-blue-400 mb-3">Milestone: from prompt to CFO Bot</h3>
+<p class="text-neutral-300 text-sm">Marco started by asking for financial analysis manually (Level 1). Created skill<code class="bg-dark-700 px-1 rounded" data-notranslate="True">/analise-financeira</code>(Level 2). Added /finance Silver Platters reading (Level 3). When the analysis needed to compare with previous weeks and remember alerts, promoted to CFO Bot with state (Level 4). Each promotion was justified by real need.</p>
 </div>
 </section>
-
-<section id="topico-4" class="mb-16">
-<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">4</span><h2 class="text-2xl font-bold">📐 O custo real de um agente</h2></div>
-<p class="text-neutral-300 mb-6 leading-relaxed">Agentes não são gratuitos. O custo não é só tokens — é <strong class="text-amber-400">custo de manutenção, custo de debugging, custo de coordenação</strong>. Antes de criar, calcule o custo total de propriedade (TCO) do agente ao longo do tempo.</p>
+<section class="mb-16" id="topico-4">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">4</span><h2 class="text-2xl font-bold">📐 The real cost of an agent</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Agents are not free. The cost isn't just tokens — it's<strong class="text-amber-400">maintenance cost, debugging cost, coordination cost</strong>. Before creating, calculate the agent's total cost of ownership (TCO) over time.</p>
 <div class="bg-gradient-to-br from-amber-900/30 to-dark-800 rounded-xl border border-amber-500/30 p-6 mb-6">
-<h3 class="text-lg font-semibold text-amber-400 mb-4">Componentes do custo de um agente</h3>
+<h3 class="text-lg font-semibold text-amber-400 mb-4">Components of an agent's cost</h3>
 <ul class="space-y-3 text-neutral-300 text-sm">
-<li><strong class="text-neutral-100">Custo de tokens</strong> — cada execução consome tokens. Volume × frequência × custo por token.</li>
-<li><strong class="text-neutral-100">Custo de manutenção</strong> — AGENTS.md precisa de atualização quando o negócio muda. Estimativa: 2h/mês por agente.</li>
-<li><strong class="text-neutral-100">Custo de debugging</strong> — quando falha, alguém precisa investigar. Mais agentes = mais pontos de falha.</li>
-<li><strong class="text-neutral-100">Custo de coordenação</strong> — o CoS precisa conhecer e gerenciar cada agente adicionado.</li>
-<li><strong class="text-neutral-100">Custo de drift</strong> — agente desatualizado gera outputs errados silenciosamente.</li>
+<li><strong class="text-neutral-100">Token cost</strong>— each execution consumes tokens. Volume × frequency × cost per token.</li>
+<li><strong class="text-neutral-100">Maintenance cost</strong>— AGENTS.md needs updating when the business changes. Estimate: 2h/month per agent.</li>
+<li><strong class="text-neutral-100">Debugging cost</strong>— when it fails, someone needs to investigate. More agents = more points of failure.</li>
+<li><strong class="text-neutral-100">Coordination cost</strong>— the CoS needs to know and manage each added agent.</li>
+<li><strong class="text-neutral-100">Drift cost</strong>— outdated agent silently generates wrong outputs.</li>
 </ul>
 </div>
 <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6 mb-6">
-<h3 class="text-lg font-semibold text-red-400 mb-3 flex items-center"><span class="mr-2">⚠️</span> Sana e o jardim de agentes</h3>
-<p class="text-neutral-300">Sana criou 12 agentes em 2 meses, animada com as possibilidades. Seis meses depois: 7 não rodavam mais por AGENTS.md desatualizado, 3 se sobrepunham, 2 funcionavam bem. Custo: 15h/semana de manutenção. Aprendizado caro: agente que não tem dono ativo vira dívida técnica.</p>
+<h3 class="text-lg font-semibold text-red-400 mb-3 flex items-center"><span class="mr-2">⚠️</span>Sana and the Garden of Agents</h3>
+<p class="text-neutral-300">Sana created 12 agents in 2 months, excited about the possibilities. Six months later: 7 no longer ran due to outdated AGENTS.md, 3 overlapped, 2 worked fine. Cost: 15h/week of maintenance. Expensive learning: an agent that does not have an active owner becomes technical debt.</p>
 </div>
 </section>
-
-<section id="topico-5" class="mb-16">
-<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">5</span><h2 class="text-2xl font-bold">🗂️ Inventário e governança de agentes</h2></div>
-<p class="text-neutral-300 mb-6 leading-relaxed">Uma operação saudável tem um <strong class="text-amber-400">inventário vivo de seus agentes</strong>. Quais existem, qual função, quem é o dono, quando foi atualizado pela última vez, qual o custo mensal estimado. Sem esse inventário, você não sabe o que tem.</p>
+<section class="mb-16" id="topico-5">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">5</span><h2 class="text-2xl font-bold">🗂️ Agent inventory and governance</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">A healthy operation has a<strong class="text-amber-400">living inventory of your agents</strong>. Which ones exist, which function, who owns it, when it was last updated, what is the estimated monthly cost. Without this inventory, you don't know what you have.</p>
 <div class="bg-gradient-to-br from-amber-900/30 to-dark-800 rounded-xl border border-amber-500/30 p-6 mb-6">
-<h3 class="text-lg font-semibold text-amber-400 mb-4">Template de inventário de agentes</h3>
-<pre class="text-sm text-neutral-300 overflow-x-auto"><code># Inventário de Agentes — [Nome da Operação]
+<h3 class="text-lg font-semibold text-amber-400 mb-4">Agent Inventory Template</h3>
+<pre class="text-sm text-neutral-300 overflow-x-auto" data-notranslate="True"><code data-notranslate="True"># Inventário de Agentes — [Nome da Operação]
 Última atualização: 2026-05-15
 
 | Agente      | Função           | Dono   | Freq.   | Custo/mês | Última rev. |
@@ -128,47 +120,43 @@ html:not(.dark) [class*="bg-gradient-to"]{background-image:none!important}html:n
 - Novo agente exige aprovação + critérios documentados</code></pre>
 </div>
 </section>
-
-<section id="topico-6" class="mb-16">
-<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">6</span><h2 class="text-2xl font-bold">🏁 Hire-when-needed: o princípio final</h2></div>
-<p class="text-neutral-300 mb-6 leading-relaxed">O princípio que resume tudo nesta trilha: <strong class="text-amber-400">hire-when-needed</strong>. Agentes são como funcionários — você não contrata dez antes de ter dez tarefas distintas e recorrentes para dez pessoas. Contrata um de cada vez, quando a necessidade é real e contínua.</p>
+<section class="mb-16" id="topico-6">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">6</span><h2 class="text-2xl font-bold">🏁 Hire-when-needed: the ultimate principle</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">The principle that sums up everything on this trail:<strong class="text-amber-400">hire-when-needed</strong>. Agents are like employees — you don't hire ten until you have ten distinct, recurring tasks for ten people. Hire one at a time, when the need is real and continuous.</p>
 <div class="bg-gradient-to-br from-amber-900/30 to-dark-800 rounded-xl border border-amber-500/30 p-6 mb-6">
-<h3 class="text-lg font-semibold text-amber-400 mb-4">O checklist final antes de criar</h3>
+<h3 class="text-lg font-semibold text-amber-400 mb-4">The final checklist before creating</h3>
 <ul class="space-y-3 text-neutral-300 text-sm">
-<li class="flex items-center space-x-3"><span class="text-amber-400 text-lg">□</span><span>Tentei resolver com skill primeiro e não foi suficiente?</span></li>
-<li class="flex items-center space-x-3"><span class="text-amber-400 text-lg">□</span><span>A tarefa ocorre regularmente (≥1x/semana)?</span></li>
-<li class="flex items-center space-x-3"><span class="text-amber-400 text-lg">□</span><span>Nenhum agente existente cobre essa função?</span></li>
-<li class="flex items-center space-x-3"><span class="text-amber-400 text-lg">□</span><span>Consigo definir o SLA em uma frase?</span></li>
-<li class="flex items-center space-x-3"><span class="text-amber-400 text-lg">□</span><span>Há um dono identificado que vai manter?</span></li>
-<li class="flex items-center space-x-3"><span class="text-amber-400 text-lg">□</span><span>O custo mensal estimado é justificado pelo valor?</span></li>
+<li class="flex items-center space-x-3"><span class="text-amber-400 text-lg">□</span><span>I tried to solve it with skill first and it wasn't enough?</span></li>
+<li class="flex items-center space-x-3"><span class="text-amber-400 text-lg">□</span><span>Does the task occur regularly (≥1x/week)?</span></li>
+<li class="flex items-center space-x-3"><span class="text-amber-400 text-lg">□</span><span>Do no existing agents cover this role?</span></li>
+<li class="flex items-center space-x-3"><span class="text-amber-400 text-lg">□</span><span>Can I define the SLA in one sentence?</span></li>
+<li class="flex items-center space-x-3"><span class="text-amber-400 text-lg">□</span><span>Is there an identified owner who will maintain it?</span></li>
+<li class="flex items-center space-x-3"><span class="text-amber-400 text-lg">□</span><span>Is the estimated monthly cost justified by the value?</span></li>
 </ul>
 </div>
 <div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
-<h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> A conclusão da Trilha 4</h3>
-<p class="text-neutral-300">Você chegou ao fim da Camada de Trabalhadores. Sabe por que multi-agent supera single-agent (90,2%), como estruturar o chief-of-staff, como definir especialistas, como usar A2A e cross-framework, e — mais importante — quando NÃO criar agente. <strong class="text-neutral-100">Esse último ponto é o que separa o arquiteto do acumulador de complexidade.</strong></p>
+<h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span>The conclusion of Trail 4</h3>
+<p class="text-neutral-300">You have reached the end of the Workers Layer. Know why multi-agent surpasses single-agent (90.2%), how to structure the chief-of-staff, how to define specialists, how to use A2A and cross-framework, and — most importantly — when NOT to create an agent.<strong class="text-neutral-100">This last point is what separates the architect from the complexity accumulator.</strong></p>
 </div>
 </section>
-
 <section class="mb-12">
 <div class="bg-gradient-to-br from-amber-900/40 via-dark-800 to-dark-800 rounded-xl border border-amber-500/30 p-8">
-<h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-3">📋</span> Resumo do Módulo</h2>
+<h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-3">📋</span>Module Summary</h2>
 <div class="space-y-4 mb-8">
-<div class="flex items-start space-x-3"><span class="text-amber-400 mt-1">✓</span><div><strong class="text-white">4 critérios obrigatórios para criar</strong><span class="text-neutral-400"> — carga real, função distinta, complexidade > skill, SLA definível</span></div></div>
-<div class="flex items-start space-x-3"><span class="text-amber-400 mt-1">✓</span><div><strong class="text-white">Sinais de NÃO criar: tarefas eventuais, sobreposição, sem SLA</strong><span class="text-neutral-400"> — use skill, prompt ou workflow antes</span></div></div>
-<div class="flex items-start space-x-3"><span class="text-amber-400 mt-1">✓</span><div><strong class="text-white">Caminho skill → agente em 4 níveis</strong><span class="text-neutral-400"> — promoção justificada por necessidade real, não por antecipação</span></div></div>
-<div class="flex items-start space-x-3"><span class="text-amber-400 mt-1">✓</span><div><strong class="text-white">Custo total de propriedade</strong><span class="text-neutral-400"> — tokens + manutenção + debugging + drift. Não subestime.</span></div></div>
-<div class="flex items-start space-x-3"><span class="text-amber-400 mt-1">✓</span><div><strong class="text-white">Inventário com dono por agente</strong><span class="text-neutral-400"> — agente sem dono ativo vira dívida técnica</span></div></div>
-<div class="flex items-start space-x-3"><span class="text-amber-400 mt-1">✓</span><div><strong class="text-white">Hire-when-needed</strong><span class="text-neutral-400"> — o princípio que separa arquiteto de acumulador de complexidade</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-amber-400 mt-1">✓</span><div><strong class="text-white">4 mandatory criteria to create</strong><span class="text-neutral-400">— real load, distinct function, complexity &gt; skill, definable SLA</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-amber-400 mt-1">✓</span><div><strong class="text-white">Signs of NOT creating: occasional tasks, overlapping, no SLA</strong><span class="text-neutral-400">— use skill, prompt or workflow before</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-amber-400 mt-1">✓</span><div><strong class="text-white">Skill path → agent at 4 levels</strong><span class="text-neutral-400">— promotion justified by real need, not anticipation</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-amber-400 mt-1">✓</span><div><strong class="text-white">Total cost of ownership</strong><span class="text-neutral-400">— tokens + maintenance + debugging + drift. Don't underestimate.</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-amber-400 mt-1">✓</span><div><strong class="text-white">Agent-owned inventory</strong><span class="text-neutral-400">— agent without active owner becomes technical debt</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-amber-400 mt-1">✓</span><div><strong class="text-white">Hire-when-needed</strong><span class="text-neutral-400">— the principle that separates architect from complexity accumulator</span></div></div>
 </div>
-<div class="bg-dark-800/50 rounded-lg p-4 mb-8"><h3 class="font-semibold text-amber-400 mb-2">Próxima Trilha:</h3><p class="text-neutral-300">T5 — Automação: hooks, schedules, observabilidade e o trabalho invisível que mantém tudo rodando</p></div>
-<div class="flex flex-col sm:flex-row gap-4"><a href="modulo-4-5.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">← Módulo Anterior</a><a href="../trilha5/index.html" class="flex-1 text-center px-6 py-3 bg-amber-600 text-white rounded-lg font-semibold hover:bg-amber-500 transition-colors">Próxima Trilha: Automação →</a></div>
+<div class="bg-dark-800/50 rounded-lg p-4 mb-8"><h3 class="font-semibold text-amber-400 mb-2">Next Trail:</h3><p class="text-neutral-300">T5 — Automation: hooks, schedules, observability and the invisible work that keeps everything running</p></div>
+<div class="flex flex-col sm:flex-row gap-4"><a class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors" href="modulo-4-5.html">← Previous Module</a><a class="flex-1 text-center px-6 py-3 bg-amber-600 text-white rounded-lg font-semibold hover:bg-amber-500 transition-colors" href="../trilha5/index.html">Next Track: Automation →</a></div>
 </div>
 </section>
-
 </main>
-
-<footer class="border-t border-dark-600 py-8 mt-16"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm"><p>Agentic OS — INEMA.CLUB · 2026</p></div></footer>
-<script>
+<footer class="border-t border-dark-600 py-8 mt-16"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm"><p>Agentic OS — duclub · 2026</p></div></footer>
+<script data-notranslate="True">
 const tt=document.getElementById('theme-toggle'),tdi=document.getElementById('theme-toggle-dark-icon'),tli=document.getElementById('theme-toggle-light-icon'),h=document.documentElement;
 if(localStorage.getItem('theme')==='light'||(!localStorage.getItem('theme')&&!h.classList.contains('dark'))){tdi.classList.remove('hidden');h.classList.remove('dark')}else{tli.classList.remove('hidden')}
 tt.addEventListener('click',()=>{tdi.classList.toggle('hidden');tli.classList.toggle('hidden');h.classList.toggle('dark');localStorage.setItem('theme',h.classList.contains('dark')?'dark':'light')});
