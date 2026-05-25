@@ -1,12 +1,12 @@
-<!DOCTYPE html>
-<html lang="pt-BR" class="dark">
+html
+<html class="dark" lang="pt-BR">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>3.6 — Memória como filesystem | Agentic OS</title>
-<script src="https://cdn.tailwindcss.com"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<script>tailwind.config={darkMode:'class',theme:{extend:{colors:{primary:'#FACC15',dark:{900:'#111827',800:'#1f2937',700:'#374151',600:'#4b5563'}}}}}</script>
-<style>
+<meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>3.6 — Memory as a filesystem | Agentic OS</title>
+<script data-notranslate="True" src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<script data-notranslate="True">tailwind.config={darkMode:'class',theme:{extend:{colors:{primary:'#FACC15',dark:{900:'#111827',800:'#1f2937',700:'#374151',600:'#4b5563'}}}}}</script>
+<style data-notranslate="True">
 body{font-family:'Inter',sans-serif}
 html:not(.dark) body{background:#f8fafc}html:not(.dark) .bg-dark-900{background:#fff}html:not(.dark) .bg-dark-800{background:#f9fafb}html:not(.dark) .bg-dark-700{background:#f3f4f6}html:not(.dark) .bg-dark-600{background:#e5e7eb}html:not(.dark) .text-neutral-100{color:#111827}html:not(.dark) .text-neutral-300{color:#4b5563}html:not(.dark) .text-neutral-400{color:#6b7280}html:not(.dark) .text-neutral-500{color:#9ca3af}html:not(.dark) .border-dark-600{border-color:#d1d5db}html:not(.dark) .border-dark-700{border-color:#e5e7eb}
 html:not(.dark) .text-purple-400{color:#7c3aed}html:not(.dark) .bg-purple-500\/20{background:rgba(124,58,237,.12)}html:not(.dark) .bg-purple-500\/10{background:rgba(124,58,237,.08)}html:not(.dark) .border-purple-500\/30{border-color:rgba(124,58,237,.25)}html:not(.dark) .bg-purple-900\/20{background:rgba(124,58,237,.06)}html:not(.dark) .bg-purple-900\/30{background:rgba(124,58,237,.06)}html:not(.dark) .bg-purple-900\/40{background:rgba(124,58,237,.08)}
@@ -15,64 +15,58 @@ html:not(.dark) .text-red-400{color:#b91c1c}html:not(.dark) .bg-red-900\/20{back
 html:not(.dark) [class*="bg-gradient-to"]{background-image:none!important}html:not(.dark) .text-primary{color:#a16207}html:not(.dark) .bg-primary\/10{background:rgba(161,98,7,.08)}html:not(.dark) .border-primary\/30{border-color:rgba(161,98,7,.25)}html:not(.dark) .text-sky-400{color:#0369a1}html:not(.dark) .text-yellow-400{color:#a16207}html:not(.dark) .hover\:text-sky-300:hover{color:#0284c7}html:not(.dark) .hover\:text-yellow-300:hover{color:#854d0e}html:not(.dark) .bg-dark-900\/95{background:rgba(255,255,255,.95)}
 </style></head>
 <body class="bg-dark-900 text-neutral-100">
-<nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"><div class="flex justify-between items-center h-14"><div class="flex items-center space-x-4"><a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300"><span class="text-2xl">⚡</span><span class="font-bold text-lg hidden sm:inline">Agentic OS</span></a><span class="text-neutral-600">|</span><a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a></div><div class="flex items-center space-x-1 sm:space-x-2"><a href="../trilha1/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors"><span class="sm:hidden">T1</span><span class="hidden sm:inline">Fundamentos</span></a><a href="../trilha2/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors"><span class="sm:hidden">T2</span><span class="hidden sm:inline">Identidade</span></a><a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-purple-400 bg-purple-500/10"><span class="sm:hidden">T3</span><span class="hidden sm:inline">Conhecimento</span></a><a href="../trilha4/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-amber-400 hover:bg-amber-500/10 transition-colors"><span class="sm:hidden">T4</span><span class="hidden sm:inline">Trabalhadores</span></a><a href="../trilha5/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-teal-400 hover:bg-teal-500/10 transition-colors"><span class="sm:hidden">T5</span><span class="hidden sm:inline">Automação</span></a><a href="../trilha6/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-rose-400 hover:bg-rose-500/10 transition-colors"><span class="sm:hidden">T6</span><span class="hidden sm:inline">Implantação</span></a><button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2"><svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/></svg><svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"/></svg></button></div></div></div></nav>
-
-<nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4"><div class="flex items-center space-x-2 text-sm text-neutral-400"><a href="../../index.html" class="hover:text-purple-400">Início</a><span>/</span><a href="index.html" class="hover:text-purple-400">Trilha 3</a><span>/</span><span class="text-purple-400">Módulo 3.6</span></div></nav>
-
-<header class="bg-gradient-to-br from-purple-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"><span class="inline-block px-3 py-1 bg-purple-500/20 text-purple-400 text-xs font-semibold rounded-full mb-4">MÓDULO 3.6</span><h1 class="text-3xl sm:text-4xl font-bold mb-4">💾 Memória como filesystem</h1><p class="text-lg text-neutral-400 max-w-3xl">Letta/MemGPT (UC Berkeley), Karpathy LLM Wiki, Claude Code 3-level memory. Memória estruturada como sistema de arquivos — com hierarquia, TTL, ACL e escopo. A camada que faz agentes não esquecerem o que importa.</p><div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl"><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">6</div><div class="text-xs text-neutral-400">Tópicos</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">40</div><div class="text-xs text-neutral-400">Minutos</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">Médio</div><div class="text-xs text-neutral-400">Nível</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">Teoria</div><div class="text-xs text-neutral-400">Tipo</div></div></div></div></header>
-
+<nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"><div class="flex justify-between items-center h-14"><div class="flex items-center space-x-4"><a class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300" href="../../index.html"><span class="text-2xl">⚡</span><span class="font-bold text-lg hidden sm:inline">Agentic OS</span></a><span class="text-neutral-600">|</span><a class="text-sky-400 hover:text-sky-300 text-sm font-medium" href="https://duclub" target="_blank">duclub</a></div><div class="flex items-center space-x-1 sm:space-x-2"><a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors" href="../trilha1/index.html"><span class="sm:hidden">T1</span><span class="hidden sm:inline">Fundamentals</span></a><a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors" href="../trilha2/index.html"><span class="sm:hidden">T2</span><span class="hidden sm:inline">Identity</span></a><a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-purple-400 bg-purple-500/10" href="index.html"><span class="sm:hidden">T3</span><span class="hidden sm:inline">Knowledge</span></a><a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-amber-400 hover:bg-amber-500/10 transition-colors" href="../trilha4/index.html"><span class="sm:hidden">T4</span><span class="hidden sm:inline">Workers</span></a><a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-teal-400 hover:bg-teal-500/10 transition-colors" href="../trilha5/index.html"><span class="sm:hidden">T5</span><span class="hidden sm:inline">Automation</span></a><a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-rose-400 hover:bg-rose-500/10 transition-colors" href="../trilha6/index.html"><span class="sm:hidden">T6</span><span class="hidden sm:inline">Implantation</span></a><button class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2" id="theme-toggle"><svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-dark-icon" viewbox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg><svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-light-icon" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd"></path></svg></button></div></div></div></nav>
+<nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4"><div class="flex items-center space-x-2 text-sm text-neutral-400"><a class="hover:text-purple-400" href="../../index.html">Start</a><span>/</span><a class="hover:text-purple-400" href="index.html">Track 3</a><span>/</span><span class="text-purple-400">Module 3.6</span></div></nav>
+<header class="bg-gradient-to-br from-purple-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"><span class="inline-block px-3 py-1 bg-purple-500/20 text-purple-400 text-xs font-semibold rounded-full mb-4">MODULE 3.6</span><h1 class="text-3xl sm:text-4xl font-bold mb-4">💾 Memory as filesystem</h1><p class="text-lg text-neutral-400 max-w-3xl">Letta/MemGPT (UC Berkeley), Karpathy LLM Wiki, Claude Code 3-level memory. Memory structured as a file system — with hierarchy, TTL, ACL and scope. The layer that makes agents not forget what matters.</p><div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl"><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">6</div><div class="text-xs text-neutral-400">Topics</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">40</div><div class="text-xs text-neutral-400">Minutes</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">Average</div><div class="text-xs text-neutral-400">Level</div></div><div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">Theory</div><div class="text-xs text-neutral-400">Type</div></div></div></div></header>
 <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-
-<section id="topico-1" class="mb-16">
-<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">1</span><h2 class="text-2xl font-bold">🧠 Por que filesystem é a metáfora certa</h2></div>
-<p class="text-neutral-300 mb-6 leading-relaxed">Memória de agente não é uma lista plana de fatos. É um sistema com <strong class="text-purple-400">hierarquia, paths de acesso, permissões e expiração</strong> — exatamente como um sistema de arquivos. A metáfora não é poética: é funcional. Organizar memória como filesystem resolve os problemas que "lista de fatos" não resolve.</p>
+<section class="mb-16" id="topico-1">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">1</span><h2 class="text-2xl font-bold">🧠 Why filesystem is the right metaphor</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Agent memory is not a flat list of facts. It is a system with<strong class="text-purple-400">hierarchy, access paths, permissions and expiration</strong>— exactly like a file system. The metaphor is not poetic: it is functional. Organizing memory as a filesystem solves the problems that "list of facts" doesn't solve.</p>
 <div class="bg-gradient-to-br from-purple-900/30 to-dark-800 rounded-xl border border-purple-500/30 p-6 mb-6">
-<h3 class="text-lg font-semibold text-purple-400 mb-4 flex items-center"><span class="mr-2">🗂️</span> Propriedades que filesystem oferece</h3>
+<h3 class="text-lg font-semibold text-purple-400 mb-4 flex items-center"><span class="mr-2">🗂️</span>Properties that filesystem offers</h3>
 <ul class="space-y-2 text-neutral-300 text-sm">
-<li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong class="text-neutral-100">Hierarquia</strong> — /global, /projeto, /sessao. Diferentes níveis de persistência e escopo.</span></li>
-<li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong class="text-neutral-100">Paths de acesso</strong> — o agente sabe exatamente onde buscar: /memoria/clientes/marco.md.</span></li>
-<li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong class="text-neutral-100">ACL (permissões)</strong> — quem pode ler, quem pode escrever, quem pode deletar cada memória.</span></li>
-<li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong class="text-neutral-100">TTL</strong> — arquivo expira em X dias. Sistema operacional limpa automaticamente.</span></li>
-<li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong class="text-neutral-100">Namespace</strong> — memórias de projetos diferentes não se contaminam.</span></li>
+<li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong class="text-neutral-100">Hierarchy</strong>— /global, /project, /session. Different levels of persistence and scope.</span></li>
+<li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong class="text-neutral-100">Access paths</strong>— the agent knows exactly where to look: /memoria/clientes/marco.md.</span></li>
+<li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong class="text-neutral-100">ACL (permissions)</strong>— who can read, who can write, who can delete each memory.</span></li>
+<li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong class="text-neutral-100">TTL</strong>— file expires in X days. Operating system cleans automatically.</span></li>
+<li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong class="text-neutral-100">Namespace</strong>— memories from different projects do not contaminate each other.</span></li>
 </ul>
 </div>
 <div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
-<h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Onde isso aparece hoje</h3>
-<p class="text-neutral-300">Claude Code já implementa memória como filesystem: <code class="bg-dark-700 px-1 rounded">~/.claude/CLAUDE.md</code> (global), <code class="bg-dark-700 px-1 rounded">projeto/CLAUDE.md</code> (projeto), <code class="bg-dark-700 px-1 rounded">subpasta/CLAUDE.md</code> (local). É literalmente um filesystem hierárquico.</p>
+<h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span>Where does it appear today</h3>
+<p class="text-neutral-300">Claude Code already implements memory as a filesystem:<code class="bg-dark-700 px-1 rounded" data-notranslate="True">~/.claude/CLAUDE.md</code>(global),<code class="bg-dark-700 px-1 rounded" data-notranslate="True">projeto/CLAUDE.md</code>(project),<code class="bg-dark-700 px-1 rounded" data-notranslate="True">subpasta/CLAUDE.md</code>(location). It's literally a hierarchical filesystem.</p>
 </div>
 </section>
-
-<section id="topico-2" class="mb-16">
-<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">2</span><h2 class="text-2xl font-bold">🪣 Letta/MemGPT — RAM vs Disco</h2></div>
-<p class="text-neutral-300 mb-6 leading-relaxed">O trabalho de Charles Packer e equipe da UC Berkeley (MemGPT, 2023 → Letta, 2024) é a implementação acadêmica mais rigorosa de memória estruturada para agentes. A ideia central: <strong class="text-purple-400">agentes precisam de memória em camadas</strong>, assim como computadores têm RAM e disco.</p>
+<section class="mb-16" id="topico-2">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">2</span><h2 class="text-2xl font-bold">🪣 Letta/MemGPT — RAM vs Disk</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">The work of Charles Packer and team at UC Berkeley (MemGPT, 2023 → Letta, 2024) is the most rigorous academic implementation of structured memory for agents. The central idea:<strong class="text-purple-400">agents need layered memory</strong>, just like computers have RAM and disk.</p>
 <div class="bg-gradient-to-br from-purple-900/30 to-dark-800 rounded-xl border border-purple-500/30 p-6 mb-6">
-<h3 class="text-lg font-semibold text-purple-400 mb-4 flex items-center"><span class="mr-2">🏗️</span> As 3 camadas do MemGPT</h3>
+<h3 class="text-lg font-semibold text-purple-400 mb-4 flex items-center"><span class="mr-2">🏗️</span>The 3 layers of MemGPT</h3>
 <div class="space-y-4 text-sm text-neutral-300">
 <div class="bg-dark-700/50 rounded-xl p-5">
 <h4 class="font-semibold text-white mb-2">🟢 Core Memory (RAM = in-context)</h4>
-<p class="mb-2">Sempre presente na janela de contexto. Informação crítica que o agente precisa a cada turno: identidade, regras, contexto atual da tarefa.</p>
-<p class="text-neutral-400 text-xs">Equivalente: CLAUDE.md ativo na sessão. Tamanho: pequeno (~2-5K tokens).</p>
+<p class="mb-2">Always present in the context window. Critical information that the agent needs at each turn: identity, rules, current task context.</p>
+<p class="text-neutral-400 text-xs">Equivalent: CLAUDE.md active in the session. Size: small (~2-5K tokens).</p>
 </div>
 <div class="bg-dark-700/50 rounded-xl p-5">
-<h4 class="font-semibold text-white mb-2">🟡 Archival Memory (Disco = indexado)</h4>
-<p class="mb-2">Memória persistente e indexada. O agente busca nela via query quando precisa. Pode crescer indefinidamente — não fica na janela de contexto.</p>
-<p class="text-neutral-400 text-xs">Equivalente: Silver Platters, wikis, documentos. O agente faz "archival_memory_search('campanha Black Friday')".</p>
+<h4 class="font-semibold text-white mb-2">🟡 Archival Memory (Disk = indexed)</h4>
+<p class="mb-2">Persistent and indexed memory. The agent searches it via query when needed. It can grow indefinitely — it doesn't stay in the context window.</p>
+<p class="text-neutral-400 text-xs">Equivalent: Silver Platters, wikis, documents. The agent does "archival_memory_search('Black Friday campaign')".</p>
 </div>
 <div class="bg-dark-700/50 rounded-xl p-5">
-<h4 class="font-semibold text-white mb-2">🔵 Recall Memory (Cache = histórico)</h4>
-<p class="mb-2">Log das conversas anteriores. O agente busca o que foi dito/decidido antes, sem manter tudo na janela.</p>
-<p class="text-neutral-400 text-xs">Equivalente: histórico de sessões indexado. Consulta: "o que combinamos sobre entrega semana passada?"</p>
+<h4 class="font-semibold text-white mb-2">🔵 Recall Memory (Cache = history)</h4>
+<p class="mb-2">Log of previous conversations. The agent looks for what was said/decided before, without keeping everything out of the window.</p>
+<p class="text-neutral-400 text-xs">Equivalent: indexed session history. Query: "What did we agree about delivery last week?"</p>
 </div>
 </div>
 </div>
 </section>
-
-<section id="topico-3" class="mb-16">
-<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">3</span><h2 class="text-2xl font-bold">📒 Claude Code — memória em 3 níveis</h2></div>
-<p class="text-neutral-300 mb-6 leading-relaxed">O Claude Code implementa memória hierárquica via sistema de arquivos nativo: três níveis de CLAUDE.md com <strong class="text-purple-400">cascata de herança</strong>. Global → projeto → local. Cada nível sobrescreve (ou complementa) o anterior para o escopo em que está.</p>
+<section class="mb-16" id="topico-3">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">3</span><h2 class="text-2xl font-bold">📒 Claude Code — memory on 3 levels</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Claude Code implements hierarchical memory via native file system: three levels of CLAUDE.md with<strong class="text-purple-400">inheritance cascade</strong>. Global → project → local. Each level overwrites (or complements) the previous one for the scope it is in.</p>
 <div class="bg-gradient-to-br from-purple-900/30 to-dark-800 rounded-xl border border-purple-500/30 p-6 mb-6">
-<h3 class="text-lg font-semibold text-purple-400 mb-4 flex items-center"><span class="mr-2">📁</span> A hierarquia de CLAUDE.md</h3>
-<pre class="bg-dark-700 rounded-lg p-4 text-xs text-neutral-300 overflow-x-auto">
+<h3 class="text-lg font-semibold text-purple-400 mb-4 flex items-center"><span class="mr-2">📁</span>The CLAUDE.md hierarchy</h3>
+<pre class="bg-dark-700 rounded-lg p-4 text-xs text-neutral-300 overflow-x-auto" data-notranslate="True">
 ~/.claude/CLAUDE.md          # Global: preferências do usuário,
                               # estilo de comunicação, ferramentas padrão.
                               # Vale para TODOS os projetos.
@@ -86,21 +80,20 @@ html:not(.dark) [class*="bg-gradient-to"]{background-image:none!important}html:n
                                            # Sobrescreve projeto para esta pasta.</pre>
 </div>
 <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
-<h3 class="text-lg font-semibold text-blue-400 mb-3 flex items-center"><span class="mr-2">📊</span> O que colocar em cada nível</h3>
+<h3 class="text-lg font-semibold text-blue-400 mb-3 flex items-center"><span class="mr-2">📊</span>What to put on each level</h3>
 <ul class="space-y-2 text-neutral-300 text-sm">
-<li><strong class="text-neutral-100">Global (~/.claude/CLAUDE.md)</strong> — tom de comunicação, idioma, ferramentas preferidas, regras que nunca mudam.</li>
-<li><strong class="text-neutral-100">Projeto (projeto/CLAUDE.md)</strong> — arquitetura, stack, nomes de personas, onde ficam os platters, convenções do time.</li>
-<li><strong class="text-neutral-100">Local (subpasta/CLAUDE.md)</strong> — regras específicas do módulo: "este código usa TypeScript strict, nunca any", "testes ficam em /__tests__".</li>
+<li><strong class="text-neutral-100">Global (~/.claude/CLAUDE.md)</strong>— tone of communication, language, preferred tools, rules that never change.</li>
+<li><strong class="text-neutral-100">Project (project/CLAUDE.md)</strong>— architecture, stack, persona names, where the platters are located, team conventions.</li>
+<li><strong class="text-neutral-100">Location (subfolder/CLAUDE.md)</strong>— module-specific rules: "this code uses TypeScript strict, never any", "tests are in /__tests__".</li>
 </ul>
 </div>
 </section>
-
-<section id="topico-4" class="mb-16">
-<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">4</span><h2 class="text-2xl font-bold">📖 Karpathy LLM Wiki — memória que se enriquece</h2></div>
-<p class="text-neutral-300 mb-6 leading-relaxed">Andrej Karpathy propôs que agentes deveriam manter uma <strong class="text-purple-400">wiki Markdown incremental</strong> — não um snapshot, mas um grafo de conhecimento que cresce a cada nova observação. Entidades, contradições, sínteses e cross-links. É o futuro da memória de longa duração.</p>
+<section class="mb-16" id="topico-4">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">4</span><h2 class="text-2xl font-bold">📖 Karpathy LLM Wiki — enriching memory</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Andrej Karpathy proposed that agents should maintain a<strong class="text-purple-400">Incremental Markdown wiki</strong>— not a snapshot, but a knowledge graph that grows with each new observation. Entities, contradictions, syntheses and cross-links. It's the future of long-term memory.</p>
 <div class="bg-gradient-to-br from-purple-900/30 to-dark-800 rounded-xl border border-purple-500/30 p-6 mb-6">
-<h3 class="text-lg font-semibold text-purple-400 mb-4 flex items-center"><span class="mr-2">📖</span> Estrutura da LLM Wiki</h3>
-<pre class="bg-dark-700 rounded-lg p-4 text-xs text-neutral-300 overflow-x-auto">
+<h3 class="text-lg font-semibold text-purple-400 mb-4 flex items-center"><span class="mr-2">📖</span>LLM Wiki Structure</h3>
+<pre class="bg-dark-700 rounded-lg p-4 text-xs text-neutral-300 overflow-x-auto" data-notranslate="True">
 wiki/
   pessoas/
     cliente-marcos-antunes.md   # Histórico, preferências, decisões
@@ -113,49 +106,47 @@ wiki/
   contradictions.md             # Log de conflitos e como foram resolvidos</pre>
 </div>
 <div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
-<h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Como o agente escreve na wiki</h3>
-<p class="text-neutral-300 mb-3">Após cada sessão relevante, o agente executa um hook de "memory synthesis":</p>
+<h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span>How the agent writes on the wiki</h3>
+<p class="text-neutral-300 mb-3">After each relevant session, the agent executes a "memory synthesis" hook:</p>
 <ol class="space-y-1 text-neutral-300 text-sm list-decimal ml-4">
-<li>Identifica entidades novas mencionadas na sessão.</li>
-<li>Verifica se já existem páginas para essas entidades.</li>
-<li>Atualiza ou cria páginas com as novas informações.</li>
-<li>Registra contradições com informação anterior em contradictions.md.</li>
-<li>Adiciona cross-links entre páginas relacionadas.</li>
+<li>Identifies new entities mentioned in the session.</li>
+<li>Checks whether pages for these entities already exist.</li>
+<li>Update or create pages with new information.</li>
+<li>Register contradictions with previous information at contradictions.md.</li>
+<li>Adds cross-links between related pages.</li>
 </ol>
 </div>
 </section>
-
-<section id="topico-5" class="mb-16">
-<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">5</span><h2 class="text-2xl font-bold">🔍 Vector Stores e RAG</h2></div>
-<p class="text-neutral-300 mb-6 leading-relaxed">Quando a memória cresce além de centenas de arquivos, busca por palavra-chave não basta. <strong class="text-purple-400">Vector stores</strong> armazenam embeddings — representações numéricas do significado — e permitem busca semântica: "o que falamos sobre desconto de fidelidade?" retorna documentos relevantes mesmo sem as palavras exatas.</p>
+<section class="mb-16" id="topico-5">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">5</span><h2 class="text-2xl font-bold">🔍Vector Stores and RAG</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">When memory grows beyond hundreds of files, keyword searching is not enough.<strong class="text-purple-400">Vector stores</strong>they store embeddings — numerical representations of meaning — and allow semantic search: “what do we talk about loyalty discounting?” returns relevant documents even without the exact words.</p>
 <div class="bg-gradient-to-br from-purple-900/30 to-dark-800 rounded-xl border border-purple-500/30 p-6 mb-6">
-<h3 class="text-lg font-semibold text-purple-400 mb-4 flex items-center"><span class="mr-2">🔍</span> Quando usar RAG</h3>
+<h3 class="text-lg font-semibold text-purple-400 mb-4 flex items-center"><span class="mr-2">🔍</span>When to use RAG</h3>
 <ul class="space-y-2 text-neutral-300 text-sm">
-<li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong class="text-neutral-100">Memória &lt; 100 arquivos</strong> — filesystem hierárquico com grep suficiente. Sem necessidade de vector store.</span></li>
-<li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong class="text-neutral-100">100-10K arquivos</strong> — hybrid search: FTS5 (texto) + embeddings para queries semânticas.</span></li>
-<li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong class="text-neutral-100">10K+ arquivos</strong> — RAG completo necessário. Ferramentas: pgvector, Chroma, Qdrant, Pinecone.</span></li>
+<li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong class="text-neutral-100">Memory &lt; 100 files</strong>— hierarchical filesystem with enough grep. No need for vector store.</span></li>
+<li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong class="text-neutral-100">100-10K files</strong>— hybrid search: FTS5 (text) + embeddings for semantic queries.</span></li>
+<li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong class="text-neutral-100">10K+ files</strong>— Full RAG required. Tools: pgvector, Chroma, Qdrant, Pinecone.</span></li>
 </ul>
 </div>
 <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
-<h3 class="text-lg font-semibold text-blue-400 mb-3 flex items-center"><span class="mr-2">📊</span> RAG na prática para cada persona</h3>
+<h3 class="text-lg font-semibold text-blue-400 mb-3 flex items-center"><span class="mr-2">📊</span>RAG in practice for each persona</h3>
 <ul class="space-y-2 text-neutral-300 text-sm">
-<li><strong>Marco</strong> — carteira de 500 clientes: RAG para buscar historial de compra por semântica.</li>
-<li><strong>Sally</strong> — base jurisprudencial com 10K decisões: RAG essencial para busca por conceito jurídico.</li>
-<li><strong>Sana</strong> — literatura médica interna + casos clínicos: RAG para busca por diagnóstico diferencial.</li>
+<li><strong>March</strong>— portfolio of 500 customers: RAG to search purchase history by semantics.</li>
+<li><strong>Sally</strong>— jurisprudential base with 10K decisions: RAG essential for searching for legal concepts.</li>
+<li><strong>Sana</strong>— internal medical literature + clinical cases: RAG to search for differential diagnosis.</li>
 </ul>
 </div>
 </section>
-
-<section id="topico-6" class="mb-16">
-<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">6</span><h2 class="text-2xl font-bold">⏳ TTL, Escopo e ACLs</h2></div>
-<p class="text-neutral-300 mb-6 leading-relaxed">Memória sem política de expiração e controle de acesso <strong class="text-purple-400">vira poluição</strong>. O agente confia em dado obsoleto, vaza informação entre projetos ou sobrescreve memória crítica acidentalmente. TTL, escopo e ACL são a governança da memória.</p>
+<section class="mb-16" id="topico-6">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">6</span><h2 class="text-2xl font-bold">⏳ TTL, Scope and ACLs</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Memory without expiration policy and access control<strong class="text-purple-400">becomes pollution</strong>. The agent trusts obsolete data, leaks information between projects or accidentally overwrites critical memory. TTL, scope and ACL are memory governance.</p>
 <div class="bg-gradient-to-br from-purple-900/30 to-dark-800 rounded-xl border border-purple-500/30 p-6 mb-6">
-<h3 class="text-lg font-semibold text-purple-400 mb-4 flex items-center"><span class="mr-2">⚙️</span> As 3 dimensões de governança</h3>
+<h3 class="text-lg font-semibold text-purple-400 mb-4 flex items-center"><span class="mr-2">⚙️</span>The 3 dimensions of governance</h3>
 <div class="space-y-4 text-sm text-neutral-300">
 <div class="bg-dark-700/50 rounded-lg p-4">
 <h4 class="font-semibold text-white mb-2">⏰ TTL (Time to Live)</h4>
-<p class="mb-2">Cada item de memória tem validade declarada. Após expirar, o item é marcado como stale ou deletado.</p>
-<pre class="bg-dark-600 rounded p-2 text-xs mt-2">
+<p class="mb-2">Each memory item has a declared validity. After expiring, the item is marked as stale or deleted.</p>
+<pre class="bg-dark-600 rounded p-2 text-xs mt-2" data-notranslate="True">
 # No frontmatter do arquivo de memória
 ---
 ttl: 30d        # Expira em 30 dias
@@ -164,9 +155,9 @@ owner: agente-cmo
 ---</pre>
 </div>
 <div class="bg-dark-700/50 rounded-lg p-4">
-<h4 class="font-semibold text-white mb-2">🗂️ Escopo (Namespace)</h4>
-<p class="mb-2">Memória de um projeto não vaza para outro. Escopo garante isolamento.</p>
-<pre class="bg-dark-600 rounded p-2 text-xs mt-2">
+<h4 class="font-semibold text-white mb-2">🗂️ Scope (Namespace)</h4>
+<p class="mb-2">Memory from one project does not leak to another. Scope ensures isolation.</p>
+<pre class="bg-dark-600 rounded p-2 text-xs mt-2" data-notranslate="True">
 memoria/
   global/       # Todos os projetos
   projeto-a/    # Isolado: apenas projeto A
@@ -174,8 +165,8 @@ memoria/
 </div>
 <div class="bg-dark-700/50 rounded-lg p-4">
 <h4 class="font-semibold text-white mb-2">🔐 ACL (Access Control)</h4>
-<p class="mb-2">Quem lê, quem escreve, quem deleta cada memória. Especialmente crítico para dados sensíveis (médicos, jurídicos, financeiros).</p>
-<pre class="bg-dark-600 rounded p-2 text-xs mt-2">
+<p class="mb-2">Who reads, who writes, who deletes each memory. Especially critical for sensitive data (medical, legal, financial).</p>
+<pre class="bg-dark-600 rounded p-2 text-xs mt-2" data-notranslate="True">
 # Permissions
 read: [agente-cmo, orquestrador]
 write: [agente-cmo]
@@ -185,45 +176,43 @@ delete: [admin]</pre>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
 <div class="bg-purple-900/20 rounded-xl border border-purple-500/30 p-6">
-<h4 class="font-bold text-purple-400 mb-4">✓ Memória bem governada</h4>
+<h4 class="font-bold text-purple-400 mb-4">✓ Well-governed memory</h4>
 <ul class="space-y-2 text-neutral-300 text-sm">
-<li class="flex items-start space-x-2"><span class="text-purple-400">✓</span><span>TTL declarado em cada arquivo</span></li>
-<li class="flex items-start space-x-2"><span class="text-purple-400">✓</span><span>Namespace por projeto/cliente</span></li>
-<li class="flex items-start space-x-2"><span class="text-purple-400">✓</span><span>ACL explícita para dados sensíveis</span></li>
-<li class="flex items-start space-x-2"><span class="text-purple-400">✓</span><span>Curador humano revisa memória mensal</span></li>
+<li class="flex items-start space-x-2"><span class="text-purple-400">✓</span><span>TTL declared in each file</span></li>
+<li class="flex items-start space-x-2"><span class="text-purple-400">✓</span><span>Namespace per project/client</span></li>
+<li class="flex items-start space-x-2"><span class="text-purple-400">✓</span><span>Explicit ACL for sensitive data</span></li>
+<li class="flex items-start space-x-2"><span class="text-purple-400">✓</span><span>Human curator reviews monthly memory</span></li>
 </ul>
 </div>
 <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
-<h4 class="font-bold text-red-400 mb-4">✗ Memória como swamp</h4>
+<h4 class="font-bold text-red-400 mb-4">✗ Memory like swamp</h4>
 <ul class="space-y-2 text-neutral-300 text-sm">
-<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Sem TTL — tudo fica para sempre</span></li>
-<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Namespace único — projetos se contaminam</span></li>
-<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Sem controle de quem escreveu o quê</span></li>
-<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Dados médicos/jurídicos sem isolamento</span></li>
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>No TTL — everything stays forever</span></li>
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Single namespace — projects cross-contaminate each other</span></li>
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>No control of who wrote what</span></li>
+<li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Unisolated medical/legal data</span></li>
 </ul>
 </div>
 </div>
 </section>
-
 <section class="mb-12">
 <div class="bg-gradient-to-br from-purple-900/40 via-dark-800 to-dark-800 rounded-xl border border-purple-500/30 p-8">
-<h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-3">📋</span> Resumo do Módulo</h2>
+<h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-3">📋</span>Module Summary</h2>
 <div class="space-y-4 mb-8">
-<div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-white">Filesystem é a metáfora certa</strong><span class="text-neutral-400"> — hierarquia, paths, ACL, TTL: propriedades que memória-lista não tem</span></div></div>
-<div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-white">Letta/MemGPT: Core/Archival/Recall</strong><span class="text-neutral-400"> — RAM (in-context), Disco (indexado), Cache (histórico)</span></div></div>
-<div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-white">Claude Code 3 níveis</strong><span class="text-neutral-400"> — ~/.claude/CLAUDE.md → projeto → local. Cascata natural.</span></div></div>
-<div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-white">Karpathy LLM Wiki</strong><span class="text-neutral-400"> — entidades, contradições, cross-links. Memória que se enriquece.</span></div></div>
-<div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-white">RAG quando filesystem não basta</strong><span class="text-neutral-400"> — embeddings + semantic search para 100K+ documentos</span></div></div>
-<div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-white">TTL + Escopo + ACL</strong><span class="text-neutral-400"> — a governança que separa memória de swamp</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-white">Filesystem is the right metaphor</strong><span class="text-neutral-400">— hierarchy, paths, ACL, TTL: properties that memory-list does not have</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-white">Letta/MemGPT: Core/Archival/Recall</strong><span class="text-neutral-400">— RAM (in-context), Disk (indexed), Cache (history)</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-white">Claude Code 3 levels</strong><span class="text-neutral-400">— ~/.claude/CLAUDE.md → project → location. Natural waterfall.</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-white">Karpathy LLM Wiki</strong><span class="text-neutral-400">— entities, contradictions, cross-links. Memory that is enriched.</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-white">RAG when filesystem is not enough</strong><span class="text-neutral-400">— embeddings + semantic search for 100K+ documents</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-white">TTL + Scope + ACL</strong><span class="text-neutral-400">— the governance that separates memory from swamp</span></div></div>
 </div>
-<div class="bg-dark-800/50 rounded-lg p-4 mb-8"><h3 class="font-semibold text-purple-400 mb-2">Próxima Trilha:</h3><p class="text-neutral-300">Trilha 4 — Trabalhadores: Orquestradores, especialistas, hierarquias e delegação de tarefas</p></div>
-<div class="flex flex-col sm:flex-row gap-4"><a href="modulo-3-5.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">← Módulo Anterior</a><a href="../trilha4/index.html" class="flex-1 text-center px-6 py-3 bg-purple-600 text-white rounded-lg font-semibold hover:bg-purple-500 transition-colors">Próxima Trilha: Trabalhadores →</a></div>
+<div class="bg-dark-800/50 rounded-lg p-4 mb-8"><h3 class="font-semibold text-purple-400 mb-2">Next Trail:</h3><p class="text-neutral-300">Track 4 — Workers: Orchestrators, specialists, hierarchies and task delegation</p></div>
+<div class="flex flex-col sm:flex-row gap-4"><a class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors" href="modulo-3-5.html">← Previous Module</a><a class="flex-1 text-center px-6 py-3 bg-purple-600 text-white rounded-lg font-semibold hover:bg-purple-500 transition-colors" href="../trilha4/index.html">Next Track: Workers →</a></div>
 </div>
 </section>
-
 </main>
-<footer class="border-t border-dark-600 py-8 mt-16"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm"><p>Agentic OS — INEMA.CLUB · 2026</p></div></footer>
-<script>
+<footer class="border-t border-dark-600 py-8 mt-16"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm"><p>Agentic OS — duclub · 2026</p></div></footer>
+<script data-notranslate="True">
 const tt=document.getElementById('theme-toggle'),tdi=document.getElementById('theme-toggle-dark-icon'),tli=document.getElementById('theme-toggle-light-icon'),h=document.documentElement;
 if(localStorage.getItem('theme')==='light'||(!localStorage.getItem('theme')&&!h.classList.contains('dark'))){tdi.classList.remove('hidden');h.classList.remove('dark')}else{tli.classList.remove('hidden')}
 tt.addEventListener('click',()=>{tdi.classList.toggle('hidden');tli.classList.toggle('hidden');h.classList.toggle('dark');localStorage.setItem('theme',h.classList.contains('dark')?'dark':'light')});
